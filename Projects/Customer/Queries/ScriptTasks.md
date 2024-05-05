@@ -1,3 +1,4 @@
+```
 ---
 // TODO: Add your code here
 var startRow = ((Convert.ToInt32(Dts.Variables["User::CurrentFileNumber"].Value) - 1) * 10) + 1;
@@ -85,3 +86,4 @@ Dts.TaskResult = (int)ScriptResults.Success;
 
   Dts.Variables["User::DynamicSQLQuery"].Value = sqlQuery;
   Dts.TaskResult = (int)ScriptResults.Success;
+```
