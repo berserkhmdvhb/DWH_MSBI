@@ -1,8 +1,0 @@
-StateID,StateName
-1,Mumbai
-2,Yangon
-3,Shaviyani
-4,Maharashtra
-5,Kathmandu
-6,Punjab
-7,NewYork
