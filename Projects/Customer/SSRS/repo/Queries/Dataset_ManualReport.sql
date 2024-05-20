@@ -1,5 +1,5 @@
 SELECT 
-  FactCustomer.CustomerCode,
+  	FactCustomer.CustomerCode,
 	FactCustomer.CustomerName,
 	FactCustomer.CustomerAmount,
 	DimState.StateName,
