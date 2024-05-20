@@ -1,7 +1,7 @@
 USE [CustomerDWH]
 GO
 
-/****** Object:  Table [dbo].[DimState]    Script Date: 5/3/2024 3:03:28 PM ******/
+/****** Object:  Table [dbo].[DimState]    Script Date: 5/20/2024 6:18:31 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,6 +11,7 @@ GO
 CREATE TABLE [dbo].[DimState](
 	[StateID] [int] NOT NULL,
 	[StateName] [nvarchar](50) NULL,
+	[CountryID] [int] NOT NULL,
  CONSTRAINT [PK_DimState] PRIMARY KEY CLUSTERED 
 (
 	[StateID] ASC
