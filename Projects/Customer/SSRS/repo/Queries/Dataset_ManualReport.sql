@@ -1,5 +1,5 @@
-SELECT 
-  	FactCustomer.CustomerCode,
+SELECT DISTINCT 
+	FactCustomer.CustomerCode,
 	FactCustomer.CustomerName,
 	FactCustomer.CustomerAmount,
 	DimState.StateName,
@@ -13,3 +13,7 @@ INNER JOIN DimSalesPerson ON FactCustomer.SalesPersonID_FK = DimSalesPerson.Sale
 INNER JOIN DimState ON FactCustomer.StateID_FK = DimState.StateID
 INNER JOIN DimCountry ON FactCustomer.CountryID_FK = DimCountry.CountryID
 INNER JOIN DimProduct ON FactCustomer.ProductID_FK = DimProduct.ProductID
+WHERE 
+	(DimCountry.IsNew = 1)
+	AND 
+	(DimProduct.Ex_Date IS NULL)
