@@ -11,6 +11,8 @@ GO
 CREATE TABLE [dbo].[DimProduct](
 	[ProductID] [int] NOT NULL,
 	[ProductName] [nvarchar](50) NULL,
+	[Ef_Date] [datetime] NULL,
+	[Ex_Date] [datetime] NULL
  CONSTRAINT [PK_DimProduct] PRIMARY KEY CLUSTERED 
 (
 	[ProductID] ASC
