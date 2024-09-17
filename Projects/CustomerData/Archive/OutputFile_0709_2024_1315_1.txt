@@ -1,0 +1,3 @@
+RowNumber,CustomerCode,CustomerName,CustomerAmount
+3,1008,SANJAY,1240
+4,1011,RAJNISH,400
