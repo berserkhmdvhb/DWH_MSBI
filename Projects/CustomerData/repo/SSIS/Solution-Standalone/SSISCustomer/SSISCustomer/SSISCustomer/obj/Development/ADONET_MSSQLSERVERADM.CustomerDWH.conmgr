@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ADONET_MSSQLSERVERADM CustomerDWH"
+  DTS:DTSID="{6942C55A-4D7C-4D4F-8647-A605373F5C05}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=FR-GZMRLS3\MSSQLSERVERADM;Initial Catalog=CustomerDWH;Integrated Security=True;Application Name=SSIS-FactCustomer-{6942C55A-4D7C-4D4F-8647-A605373F5C05}FR-GZMRLS3\MSSQLSERVERADM.CustomerDWH;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
