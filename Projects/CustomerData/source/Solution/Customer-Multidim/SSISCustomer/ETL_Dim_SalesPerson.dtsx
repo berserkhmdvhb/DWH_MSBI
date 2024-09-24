@@ -1,0 +1,1821 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/3/2024 12:02:03 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="FR-GZMRLS3"
+  DTS:CreatorName="AzureAD\HamedVAHEB"
+  DTS:DTSID="{738A7ED2-6DAE-4F2E-923F-06651440A0BB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ETL_Dim_SalesPerson"
+  DTS:PackageType="5"
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{B110B3A6-D7CC-4594-9BFD-CE19FFCC1331}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CSV_SalesPerson]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A4BC1761-5AB6-48A3-B71D-D2DC92E7012A}"
+      DTS:ObjectName="CSV_SalesPerson">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::Source_DimSalesPerson_Flat]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\SalesPerson\SalesPerson.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonID"
+              DTS:DTSID="{91E33C70-A482-4098-AB06-E51822F60FEC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonName"
+              DTS:DTSID="{53D787B8-7C43-40DA-813F-FA5C83B59547}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonBossID"
+              DTS:DTSID="{053BD8AC-E827-45CE-9CAF-3EEFD528EA38}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FlatFile_LogError]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{92E80E9D-28DE-4C4C-BE9D-44701B486B58}"
+      DTS:ObjectName="FlatFile_LogError">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::Destination_ErrorConversion_Dir] + "\\" + "SalesPerson.txt"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Output\Errors\Conversion\SalesPerson.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="13"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesPersonID"
+              DTS:DTSID="{A5AD5E7B-B18B-4F70-A17C-81F9EDB2158E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesPersonName"
+              DTS:DTSID="{58E157DF-941A-4B33-B451-C9AD974D7492}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesPersonBossID_FK"
+              DTS:DTSID="{EDBEE547-A699-4C1A-82CE-57E830C3392D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="13"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Log_ErrorCode"
+              DTS:DTSID="{A43525D4-2532-464A-92A3-C96B4B247052}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Log_ErrorColumn"
+              DTS:DTSID="{0F898DC1-C850-446A-9FA3-A09BFA79F251}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ETL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{68427ff1-b5a1-4254-8813-d12026377a91}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[PersonID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PersonID"
+                      lineageId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonID]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[PersonName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PersonName"
+                      lineageId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonName]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[PersonBossID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PersonBossID"
+                      lineageId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonBossID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\ETL\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonIDConv]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonIDConv]"
+                      name="PersonIDConv"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonNameConv]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="50"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonNameConv]"
+                      name="PersonNameConv"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonBossIDConv]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonBossIDConv]"
+                      name="PersonBossIDConv"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonBossID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\ETL\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Dest - DimSalesPerson"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dest - DimSalesPerson"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimSalesPerson]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\Dest - DimSalesPerson.Connections[OleDbConnection]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL\Dest - DimSalesPerson.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Dest - DimSalesPerson.Inputs[OLE DB Destination Input].Columns[PersonIDConv]"
+                      cachedDataType="i4"
+                      cachedName="PersonIDConv"
+                      externalMetadataColumnId="Package\ETL\Dest - DimSalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonIDConv]" />
+                    <inputColumn
+                      refId="Package\ETL\Dest - DimSalesPerson.Inputs[OLE DB Destination Input].Columns[PersonNameConv]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PersonNameConv"
+                      externalMetadataColumnId="Package\ETL\Dest - DimSalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonName]"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonNameConv]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\Dest - DimSalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Dest - DimSalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonName]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesPersonName" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Dest - DimSalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonBossID_FK]"
+                      dataType="i4"
+                      name="SalesPersonBossID_FK" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Dest - DimSalesPerson.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ETL\Dest - DimSalesPerson.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Dest - DimSalesPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Dest - DimSalesPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Dest - DimSalesPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Dest - DimSalesPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Extract SalesPerson"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Extract SalesPerson"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\Extract SalesPerson.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CSV_SalesPerson]"
+                  connectionManagerRefId="Package.ConnectionManagers[CSV_SalesPerson]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].ExternalColumns[PersonID]"
+                      length="50"
+                      lineageId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonID]"
+                      name="PersonID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].ExternalColumns[PersonName]"
+                      length="50"
+                      lineageId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonName]"
+                      name="PersonName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonBossID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].ExternalColumns[PersonBossID]"
+                      length="50"
+                      lineageId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonBossID]"
+                      name="PersonBossID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].ExternalColumns[PersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PersonID" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].ExternalColumns[PersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PersonName" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].ExternalColumns[PersonBossID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PersonBossID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\LogError_Conversion"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="LogError_Conversion"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\LogError_Conversion.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FlatFile_LogError]"
+                  connectionManagerRefId="Package.ConnectionManagers[FlatFile_LogError]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].Columns[PersonID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PersonID"
+                      externalMetadataColumnId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonID]" />
+                    <inputColumn
+                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].Columns[PersonName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PersonName"
+                      externalMetadataColumnId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonName]"
+                      lineageId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonName]" />
+                    <inputColumn
+                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].Columns[PersonBossID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PersonBossID"
+                      externalMetadataColumnId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonBossID_FK]"
+                      lineageId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output].Columns[PersonBossID]" />
+                    <inputColumn
+                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="SalesPersonName" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonBossID_FK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SalesPersonBossID_FK" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="Log_ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Log_ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\ETL\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimSalesPerson] SET [SalesPersonName] = ? WHERE [SalesPersonID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[PersonIDConv]"
+                      cachedDataType="i4"
+                      cachedName="PersonIDConv"
+                      externalMetadataColumnId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonIDConv]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[PersonNameConv]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PersonNameConv"
+                      externalMetadataColumnId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonNameConv]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimSalesPerson] SET [SalesPersonName] = ? WHERE [SalesPersonID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[PersonIDConv]"
+                      cachedDataType="i4"
+                      cachedName="PersonIDConv"
+                      externalMetadataColumnId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonIDConv]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[PersonNameConv]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PersonNameConv"
+                      externalMetadataColumnId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonNameConv]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [SalesPersonID], [SalesPersonName] FROM [dbo].[DimSalesPerson]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[PersonIDConv]"
+                      cachedDataType="i4"
+                      cachedName="PersonIDConv"
+                      externalMetadataColumnId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonIDConv]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[PersonNameConv]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PersonNameConv"
+                      externalMetadataColumnId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesPersonName]"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonNameConv]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesPersonName]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesPersonName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ETL.Paths[Changing Attribute Updates Output]"
+              endId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\ETL\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\ETL.Paths[Data Conversion Error Output]"
+              endId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input]"
+              name="Data Conversion Error Output"
+              startId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output]" />
+            <path
+              refId="Package\ETL.Paths[Data Conversion Output]"
+              endId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="Data Conversion Output"
+              startId="Package\ETL\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\ETL.Paths[Flat File Source Output]"
+              endId="Package\ETL\Data Conversion.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\ETL\Extract SalesPerson.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\ETL.Paths[Inferred Member Updates Output]"
+              endId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Inferred Member Updates Output"
+              startId="Package\ETL\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]" />
+            <path
+              refId="Package\ETL.Paths[New Output]"
+              endId="Package\ETL\Dest - DimSalesPerson.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\ETL\Slowly Changing Dimension.Outputs[New Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set Headers_LogError_SalesPerson"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{bf8ae810-0796-49e2-a936-9f8a058b15a2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set Headers_LogError_SalesPerson"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Construct Headers - LogError"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+'SalesPersonID' AS [SalesPersonID],
+'SalesPersonName' AS [SalesPersonName],
+'SalesPersonBossID_FK' AS [SalesPersonBossID_FK],
+'Log_ErrorCode' AS [Log_ErrorCode],
+'Log_ErrorColumn' AS [Log_ErrorColumn]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Connections[OleDbConnection]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                      length="13"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      name="SalesPersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonName]"
+                      length="15"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonName]"
+                      name="SalesPersonName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonBossID_FK]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonBossID_FK]"
+                      length="20"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonBossID_FK]"
+                      name="SalesPersonBossID_FK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorCode]"
+                      length="13"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorCode]"
+                      name="Log_ErrorCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorColumn]"
+                      length="15"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorColumn]"
+                      name="Log_ErrorColumn"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="SalesPersonName" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonBossID_FK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SalesPersonBossID_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="Log_ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Log_ErrorColumn" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                      name="SalesPersonID" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[SalesPersonName]"
+                      name="SalesPersonName" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[SalesPersonBossID_FK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[SalesPersonBossID_FK]"
+                      name="SalesPersonBossID_FK" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[Log_ErrorCode]"
+                      name="Log_ErrorCode" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[Log_ErrorColumn]"
+                      name="Log_ErrorColumn" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Set Headers_LogError_SalesPerson\Write headers to file"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Write headers to file"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FlatFile_LogError]"
+                  connectionManagerRefId="Package.ConnectionManagers[FlatFile_LogError]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].Columns[SalesPersonID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="13"
+                      cachedName="SalesPersonID"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonID]" />
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].Columns[SalesPersonName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="SalesPersonName"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonName]"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonName]" />
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].Columns[SalesPersonBossID_FK]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SalesPersonBossID_FK"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonBossID_FK]"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonBossID_FK]" />
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].Columns[Log_ErrorCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="13"
+                      cachedName="Log_ErrorCode"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].Columns[Log_ErrorColumn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Log_ErrorColumn"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="SalesPersonName" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonBossID_FK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SalesPersonBossID_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="Log_ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Log_ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Set Headers_LogError_SalesPerson.Paths[OLE DB Source Output]"
+              endId="Package\Set Headers_LogError_SalesPerson\Write headers to file.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{6A3F3BB7-FABA-48C8-83FA-1E907549FC21}"
+      DTS:From="Package\Set Headers_LogError_SalesPerson"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\ETL" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="96,41.6"
+          Id="Package\ETL"
+          TopLeft="287.857143342191,110.470588191055" />
+        <NodeLayout
+          Size="243.2,41.6"
+          Id="Package\Set Headers_LogError_SalesPerson"
+          TopLeft="225.000000351242,30.8352942322674" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="346.600000351242,72.4352942322674">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.742857009051,38.0352939587876"
+              Start="0,0"
+              End="-10.742857009051,30.5352939587876">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.0176469793938" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.0176469793938"
+                    Point2="0,19.0176469793938"
+                    Point3="-4,19.0176469793938" />
+                  <mssgle:LineSegment
+                    End="-6.74285700905097,19.0176469793938" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.74285700905097,19.0176469793938"
+                    Point2="-10.742857009051,19.0176469793938"
+                    Point3="-10.742857009051,23.0176469793938" />
+                  <mssgle:LineSegment
+                    End="-10.742857009051,30.5352939587876" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ETL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\ETL\LogError_Conversion"
+          TopLeft="555.454537177628,198.363633830439" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\ETL\OLE DB Command"
+          TopLeft="228.3,310.3" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\ETL\OLE DB Command 1"
+          TopLeft="453.5,310.3" />
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\ETL\Slowly Changing Dimension"
+          TopLeft="206.3,208.7" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\ETL\Extract SalesPerson"
+          TopLeft="476.1,5.49999999999984" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\ETL\Dest - DimSalesPerson"
+          TopLeft="5.5000000000001,310.3" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\ETL\Data Conversion"
+          TopLeft="483.7,107.1" />
+        <EdgeLayout
+          Id="Package\ETL.Paths[Changing Attribute Updates Output]"
+          TopLeft="360.9,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="179.8,60"
+              Start="0,0"
+              End="179.8,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5044136191677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5044136191677"
+                    Point2="0,20.5044136191677"
+                    Point3="4,20.5044136191677" />
+                  <mssgle:LineSegment
+                    End="175.8,20.5044136191677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="175.8,20.5044136191677"
+                    Point2="179.8,20.5044136191677"
+                    Point3="179.8,24.5044136191677" />
+                  <mssgle:LineSegment
+                    End="179.8,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="11.3660937499999,25.5044136191677,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[New Output]"
+          TopLeft="260.5,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-162.6,60"
+              Start="0,0"
+              End="-162.6,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5044136191677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5044136191677"
+                    Point2="0,20.5044136191677"
+                    Point3="-4,20.5044136191677" />
+                  <mssgle:LineSegment
+                    End="-158.6,20.5044136191677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-158.6,20.5044136191677"
+                    Point2="-162.6,20.5044136191677"
+                    Point3="-162.6,24.5044136191677" />
+                  <mssgle:LineSegment
+                    End="-162.6,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-108.39138671875,25.5044136191677,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Inferred Member Updates Output]"
+          TopLeft="310.7,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-74.40298828125,20.4208984375,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Flat File Source Output]"
+          TopLeft="561.7,47.0999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000002"
+              Start="0,0"
+              End="0,52.5000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Data Conversion Output]"
+          TopLeft="561.7,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-251,60"
+              Start="0,0"
+              End="-251,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-247,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-247,30"
+                    Point2="-251,30"
+                    Point3="-251,34" />
+                  <mssgle:LineSegment
+                    End="-251,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Data Conversion Error Output]"
+          TopLeft="586.366666666667,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.0878705109611,49.663633830439"
+              Start="0,0"
+              End="57.0878705109611,42.163633830439">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.1679731291123" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.1679731291123"
+                    Point2="0,20.1679731291123"
+                    Point3="4,20.1679731291123" />
+                  <mssgle:LineSegment
+                    End="53.0878705109611,20.1679731291123" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.0878705109611,20.1679731291123"
+                    Point2="57.0878705109611,20.1679731291123"
+                    Point3="57.0878705109611,24.1679731291123" />
+                  <mssgle:LineSegment
+                    End="57.0878705109611,42.163633830439" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.5424514632694,25.1679731291123,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimSalesPerson]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[PersonIDConv]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SalesPersonID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[PersonNameConv]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SalesPersonName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Set Headers_LogError_SalesPerson">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Set Headers_LogError_SalesPerson\Write headers to file"
+          TopLeft="377.142857945695,168.235293970182" />
+        <NodeLayout
+          Size="216,41.6"
+          Id="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError"
+          TopLeft="357.857143491202,28.6470588510115" />
+        <EdgeLayout
+          Id="Package\Set Headers_LogError_SalesPerson.Paths[OLE DB Source Output]"
+          TopLeft="464.900000718449,70.2470588510115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,97.9882351191705"
+              Start="0,0"
+              End="0,90.4882351191705">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,90.4882351191705" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

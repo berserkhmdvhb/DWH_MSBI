@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="OLEDB_CustomerDWH"
+  DTS:DTSID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=LU-GZMRLS3\MSSQLSERVERH;Initial Catalog=CustomerDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-ETL_Dim_Country-{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}LU-GZMRLS3\MSSQLSERVERH.CustomerDWH;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
