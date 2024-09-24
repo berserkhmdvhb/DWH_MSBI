@@ -1,5 +1,0 @@
-ProductID,ProductName
-,Shoes
-,Shirts
-,Pants
-,Toys

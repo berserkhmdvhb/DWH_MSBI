@@ -1,4 +1,0 @@
-RowNumber,CustomerCode,CustomerName,CustomerAmount
-1,1002,RAJU,300
-2,1003,AJAY,400
-3,1004,KHADAK,500

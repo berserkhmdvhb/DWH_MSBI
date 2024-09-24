@@ -1,2 +1,0 @@
-RowNumber,CustomerCode,CustomerName,CustomerAmount
-5,1012,SUKESH,500
