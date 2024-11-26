@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-ALTER VIEW [dbo].[V_FactCustomer]
+CREATE VIEW [rep].[V_Tf_Customer]
 AS
 SELECT 
 	RowNumber AS [Idx],
