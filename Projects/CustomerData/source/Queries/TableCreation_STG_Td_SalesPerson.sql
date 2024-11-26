@@ -10,7 +10,8 @@ GO
 
 CREATE TABLE [stg].[Td_SalesPerson](
 	[SalesPersonID] [int] NOT NULL,
-	[SalesPersonName] [nvarchar](50) NULL
+	[SalesPersonName] [nvarchar](50) NULL,
+	[SalesPersonBossID] [int] NOT NULL,
  CONSTRAINT [PK_DimSalesPerson] PRIMARY KEY CLUSTERED 
 (
 	[SalesPersonID] ASC
