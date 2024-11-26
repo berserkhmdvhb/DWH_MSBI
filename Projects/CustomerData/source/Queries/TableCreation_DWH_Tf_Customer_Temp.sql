@@ -1,14 +1,14 @@
 USE [CustomerDWH]
 GO
 
-/****** Object:  Table [dwh].[Tf_Customer_Summary]   Script Date: 5/5/2024 4:40:47 PM ******/
+/****** Object:  Table [dwh].[Tf_Customer_Temp]   Script Date: 5/5/2024 4:40:47 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dwh].[Tf_Customer_Summary](
+CREATE TABLE [dwh].[Tf_Customer_Temp](
 	[RowNumber] [int] IDENTITY(1,1) NOT NULL,
 	[CustomerCode] [int] NOT NULL,
 	[CustomerName] [nvarchar](50) NULL,
