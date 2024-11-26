@@ -1,0 +1,4 @@
+CREATE SCHEMA [stg];
+CREATE SCHEMA [dwh];
+CREATE SCHEMA [log];
+CREATE SCHEMA [rep];
