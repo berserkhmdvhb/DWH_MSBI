@@ -13,7 +13,7 @@ CREATE TABLE [dwh].[Tf_Customer](
 	[CustomerCode] [int] NOT NULL,
 	[CustomerName] [nvarchar](50) NULL,
 	[CustomerAmount] [money] NULL,
-	[SalesDate] [date] NULL,
+	[SalesDateID_FK] [int] NULL,
 	[CountryID_FK] [int] NULL,
 	[StateID_FK] [int] NULL,
 	[ProductID_FK] [int] NULL,
@@ -38,6 +38,13 @@ REFERENCES [dwh].[Td_State] ([StateID])
 GO
 
 ALTER TABLE [dwh].[Tf_Customer] CHECK CONSTRAINT [FK_Tf_Customer_Td_State]
+GO
+
+ALTER TABLE [dwh].[Tf_Customer] WITH NOCHECK ADD  CONSTRAINT [FK_Tf_Customer_Td_Period] FOREIGN KEY([SalesDateId_FK])
+REFERENCES [dwh].[Td_Period] ([date_key])
+GO
+
+ALTER TABLE [dwh].[Tf_Customer] CHECK CONSTRAINT [FK_Tf_Customer_Td_SalesPerson]
 GO
 
 

@@ -20,7 +20,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dwh].[usp_Select_CustomerInfoFull]
+ALTER PROCEDURE [dwh].[usp_Select_CustomerInfoFull]
 	-- Add the parameters for the stored procedure here
 	@InputCustomerCodes NVARCHAR(MAX) = '1002',
 	@InputCustomerObsolete VARCHAR(1) = 'N'

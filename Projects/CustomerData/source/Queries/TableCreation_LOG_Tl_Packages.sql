@@ -16,13 +16,4 @@ CREATE TABLE [log].[Tl_Packages](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [log].[Tl_Packages] ADD  DEFAULT (newid()) FOR [PackageId]
-GO
-
-ALTER TABLE [log].[Tl_Packages] ADD  DEFAULT (getdate()) FOR [CreatedDate]
-GO
-
-ALTER TABLE [log].[Tl_Packages] ADD  DEFAULT ((1)) FOR [IsActive]
-GO
-
 
