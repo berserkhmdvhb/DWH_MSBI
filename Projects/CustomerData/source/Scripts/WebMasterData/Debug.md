@@ -82,13 +82,13 @@ public async void Main()
     catch (Exception ex)
     {
         // Log detailed error information
-        Dts.Events.FireError(0, "Script Task Error", 
+        Dts.Events.FireError(0, "Script Task Error",
             $"Error: {ex.Message}\nStack Trace: {ex.StackTrace}", null, 0);
 
         // Log inner exception if any
         if (ex.InnerException != null)
         {
-            Dts.Events.FireError(0, "Inner Exception", 
+            Dts.Events.FireError(0, "Inner Exception",
                 $"Inner Error: {ex.InnerException.Message}", null, 0);
         }
 
