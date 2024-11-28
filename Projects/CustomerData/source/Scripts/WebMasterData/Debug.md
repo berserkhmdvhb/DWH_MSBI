@@ -3,16 +3,26 @@ public async void Main()
 {
     try
     {
-        // Retrieve the file path from the variable
+        // Retrieve variables
         string filePath = Dts.Variables["User::V_PathFile"].Value.ToString();
-        
+        string logFilePath = Dts.Variables["User::V_PathFile_Log"].Value.ToString();
+
         // Declare fireAgain for logging
         bool fireAgain = false;
 
-        // Log the file path for debugging
+        // Log file paths for debugging
         Dts.Events.FireInformation(0, "Script Task", $"File Path: {filePath}", string.Empty, 0, ref fireAgain);
+        Dts.Events.FireInformation(0, "Script Task", $"Log File Path: {logFilePath}", string.Empty, 0, ref fireAgain);
 
-        // Ensure the directory exists
+        // Ensure the directory for the log file exists
+        string logDirectoryPath = System.IO.Path.GetDirectoryName(logFilePath);
+        if (!System.IO.Directory.Exists(logDirectoryPath))
+        {
+            System.IO.Directory.CreateDirectory(logDirectoryPath);
+            Dts.Events.FireInformation(0, "Script Task", $"Log directory created: {logDirectoryPath}", string.Empty, 0, ref fireAgain);
+        }
+
+        // Ensure the directory for the output file exists
         string directoryPath = System.IO.Path.GetDirectoryName(filePath);
         if (!System.IO.Directory.Exists(directoryPath))
         {
@@ -32,19 +42,38 @@ public async void Main()
         // Fetch JSON data asynchronously
         using (HttpClient client = new HttpClient())
         {
-            string jsonResponse = await client.GetStringAsync(url);
+            try
+            {
+                // Log before making the HTTP request
+                Dts.Events.FireInformation(0, "Script Task", "Making HTTP request to API...", string.Empty, 0, ref fireAgain);
 
-            // Log successful fetch
-            Dts.Events.FireInformation(0, "Script Task", "API fetch successful.", string.Empty, 0, ref fireAgain);
+                string jsonResponse = await client.GetStringAsync(url);
 
-            // Log before file writing
-            Dts.Events.FireInformation(0, "Script Task", "Attempting to write to the file...", string.Empty, 0, ref fireAgain);
+                // Log after receiving the response
+                Dts.Events.FireInformation(0, "Script Task", $"API fetch successful. Response length: {jsonResponse.Length}", string.Empty, 0, ref fireAgain);
 
-            // Write the response to the file
-            System.IO.File.WriteAllText(filePath, jsonResponse.Substring(0, 500)); // Write the first 500 characters for testing
+                // Log before file writing
+                Dts.Events.FireInformation(0, "Script Task", "Attempting to write to the file...", string.Empty, 0, ref fireAgain);
 
-            // Log after file writing
-            Dts.Events.FireInformation(0, "Script Task", "File written successfully.", string.Empty, 0, ref fireAgain);
+                // Write the response to the file
+                System.IO.File.WriteAllText(filePath, jsonResponse);
+
+                // Log after file writing
+                Dts.Events.FireInformation(0, "Script Task", "File written successfully.", string.Empty, 0, ref fireAgain);
+            }
+            catch (Exception apiEx)
+            {
+                // Log error during API request
+                Dts.Events.FireError(0, "Script Task Error", $"Error during API fetch: {apiEx.Message}\nStack Trace: {apiEx.StackTrace}", null, 0);
+
+                // Write error details to the log file
+                string errorContent = $"Error: {apiEx.Message}\nStack Trace: {apiEx.StackTrace}";
+                System.IO.File.WriteAllText(logFilePath, errorContent);
+                Dts.Events.FireInformation(0, "Script Task", $"Error details written to log file: {logFilePath}", string.Empty, 0, ref fireAgain);
+
+                // Re-throw the exception to mark the task as failed
+                throw;
+            }
         }
 
         // Mark as success
@@ -67,5 +96,4 @@ public async void Main()
         Dts.TaskResult = (int)ScriptResults.Failure;
     }
 }
-
 ```
