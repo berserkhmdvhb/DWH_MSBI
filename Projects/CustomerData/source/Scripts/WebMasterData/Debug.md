@@ -1,25 +1,30 @@
 ```
-public void Main()
+public async void Main()
 {
     try
     {
-        // Declare the fireAgain variable
-        bool fireAgain = false;
-
-        // Test if variable is accessible
+        // Retrieve the file path from the variable
         string filePath = Dts.Variables["User::V_PathFile"].Value.ToString();
-        string url = "https://restcountries.com/v3.1/all";
 
-        // Log variable value
+        // Log the file path for debugging
+        bool fireAgain = false; // Declare fireAgain variable
         Dts.Events.FireInformation(0, "Script Task", $"File Path: {filePath}", string.Empty, 0, ref fireAgain);
 
-        // Fetch JSON data
+        string url = "https://restcountries.com/v3.1/all";
+
+        // Log start of execution
+        Dts.Events.FireInformation(0, "Script Task", "Starting API fetch...", string.Empty, 0, ref fireAgain);
+
+        // Fetch JSON data asynchronously
         using (HttpClient client = new HttpClient())
         {
-            string jsonResponse = client.GetStringAsync(url).Result;
+            string jsonResponse = await client.GetStringAsync(url);
 
-            // Write first 500 characters to file for testing
-            System.IO.File.WriteAllText(filePath, jsonResponse.Substring(0, 500));
+            // Log successful fetch
+            Dts.Events.FireInformation(0, "Script Task", "API fetch successful.", string.Empty, 0, ref fireAgain);
+
+            // Write the response to the file
+            System.IO.File.WriteAllText(filePath, jsonResponse.Substring(0, 500)); // Test with first 500 characters
         }
 
         // Mark as success
@@ -28,7 +33,15 @@ public void Main()
     catch (Exception ex)
     {
         // Log detailed error information
-        Dts.Events.FireError(0, "Script Task Error", $"Error: {ex.Message}\nStack Trace: {ex.StackTrace}", null, 0);
+        Dts.Events.FireError(0, "Script Task Error",
+            $"Error: {ex.Message}\nStack Trace: {ex.StackTrace}", null, 0);
+
+        if (ex.InnerException != null)
+        {
+            Dts.Events.FireError(0, "Inner Exception",
+                $"Inner Error: {ex.InnerException.Message}", null, 0);
+        }
+
         Dts.TaskResult = (int)ScriptResults.Failure;
     }
 }
