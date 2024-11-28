@@ -1,14 +1,15 @@
 ```
 public async void Main()
 {
+    // Declare variables at the beginning of the method to ensure global access
+    string logFilePath = string.Empty; // Ensure it is initialized to avoid unassigned variable issues
+    bool fireAgain = false;
+
     try
     {
         // Retrieve variables
         string filePath = Dts.Variables["User::V_PathFile"].Value.ToString();
-        string logFilePath = Dts.Variables["User::V_PathFile_Log"].Value.ToString();
-
-        // Declare fireAgain for logging
-        bool fireAgain = false;
+        logFilePath = Dts.Variables["User::V_PathFile_Log"].Value.ToString();
 
         // Log file paths for debugging
         Dts.Events.FireInformation(0, "Script Task", $"File Path: {filePath}", string.Empty, 0, ref fireAgain);
@@ -61,13 +62,24 @@ public async void Main()
                 // Log after file writing
                 Dts.Events.FireInformation(0, "Script Task", "File written successfully.", string.Empty, 0, ref fireAgain);
             }
-            catch (Exception apiEx)
+            catch (HttpRequestException httpEx)
             {
-                // Log error during API request
-                Dts.Events.FireError(0, "Script Task Error", $"Error during API fetch: {apiEx.Message}\nStack Trace: {apiEx.StackTrace}", null, 0);
+                // Log detailed HTTP request error
+                Dts.Events.FireError(0, "HTTP Request Error", 
+                    $"HTTP Error: {httpEx.Message}\nStack Trace: {httpEx.StackTrace}", null, 0);
+
+                if (httpEx.InnerException != null)
+                {
+                    Dts.Events.FireError(0, "Inner Exception", 
+                        $"Inner Error: {httpEx.InnerException.Message}", null, 0);
+                }
 
                 // Write error details to the log file
-                string errorContent = $"Error: {apiEx.Message}\nStack Trace: {apiEx.StackTrace}";
+                string errorContent = $"HTTP Error: {httpEx.Message}\nStack Trace: {httpEx.StackTrace}";
+                if (httpEx.InnerException != null)
+                {
+                    errorContent += $"\nInner Error: {httpEx.InnerException.Message}";
+                }
                 System.IO.File.WriteAllText(logFilePath, errorContent);
                 Dts.Events.FireInformation(0, "Script Task", $"Error details written to log file: {logFilePath}", string.Empty, 0, ref fireAgain);
 
@@ -82,18 +94,28 @@ public async void Main()
     catch (Exception ex)
     {
         // Log detailed error information
-        Dts.Events.FireError(0, "Script Task Error",
+        Dts.Events.FireError(0, "Script Task Error", 
             $"Error: {ex.Message}\nStack Trace: {ex.StackTrace}", null, 0);
 
         // Log inner exception if any
         if (ex.InnerException != null)
         {
-            Dts.Events.FireError(0, "Inner Exception",
+            Dts.Events.FireError(0, "Inner Exception", 
                 $"Inner Error: {ex.InnerException.Message}", null, 0);
         }
+
+        // Write general error details to the log file
+        string errorContent = $"Error: {ex.Message}\nStack Trace: {ex.StackTrace}";
+        if (ex.InnerException != null)
+        {
+            errorContent += $"\nInner Error: {ex.InnerException.Message}";
+        }
+        System.IO.File.WriteAllText(logFilePath, errorContent);
+        Dts.Events.FireInformation(0, "Script Task", $"Error details written to log file: {logFilePath}", string.Empty, 0, ref fireAgain);
 
         // Mark as failure
         Dts.TaskResult = (int)ScriptResults.Failure;
     }
 }
+
 ```
