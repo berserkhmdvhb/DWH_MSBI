@@ -2,7 +2,7 @@
 <RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="CustomerDWH_SQLSERVER">
   <ConnectionProperties>
     <Extension>OLEDB</Extension>
-    <ConnectString>Provider=SQLNCLI11.1;Data Source=FR-GZMRLS3\MSSQLSERVERADMUL;Initial Catalog=CustomerDWH</ConnectString>
+    <ConnectString>Provider=SQLNCLI11.1;Data Source=LU-GZMRLS3\MSSQLSERVERH;Initial Catalog=CustomerDWH</ConnectString>
     <IntegratedSecurity>true</IntegratedSecurity>
   </ConnectionProperties>
   <DataSourceID>2a4810a5-e15c-46e9-ad72-314c71dc9463</DataSourceID>

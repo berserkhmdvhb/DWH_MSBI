@@ -1,0 +1,1707 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/3/2024 7:38:31 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="FR-GZMRLS3"
+  DTS:CreatorName="AzureAD\HamedVAHEB"
+  DTS:DTSID="{75CC3C54-65DC-4C76-8208-E5E0EEE31942}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="STG_Td_Product"
+  DTS:PackageType="5"
+  DTS:VersionBuild="193"
+  DTS:VersionGUID="{D03803AC-F7D3-4A49-8FAE-6D75793B06EE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CSV_SalesPerson]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A4BC1761-5AB6-48A3-B71D-D2DC92E7012A}"
+      DTS:ObjectName="CSV_SalesPerson">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::V_PathFile]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\SalesPerson\test.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonID"
+              DTS:DTSID="{91E33C70-A482-4098-AB06-E51822F60FEC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonName"
+              DTS:DTSID="{53D787B8-7C43-40DA-813F-FA5C83B59547}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonBossID"
+              DTS:DTSID="{053BD8AC-E827-45CE-9CAF-3EEFD528EA38}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FlatFile_LogError]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{92E80E9D-28DE-4C4C-BE9D-44701B486B58}"
+      DTS:ObjectName="FlatFile_LogError">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::PR_PathDir_ErrorConversion] + "\\" + "SalesPerson.txt"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Output\Errors\Conversion\SalesPerson.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="13"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesPersonID"
+              DTS:DTSID="{A5AD5E7B-B18B-4F70-A17C-81F9EDB2158E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesPersonName"
+              DTS:DTSID="{58E157DF-941A-4B33-B451-C9AD974D7492}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesPersonBossID_FK"
+              DTS:DTSID="{EDBEE547-A699-4C1A-82CE-57E830C3392D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="13"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Log_ErrorCode"
+              DTS:DTSID="{A43525D4-2532-464A-92A3-C96B4B247052}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Log_ErrorColumn"
+              DTS:DTSID="{0F898DC1-C850-446A-9FA3-A09BFA79F251}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{1DA52816-892D-4C81-A838-1530781E708D}"
+      DTS:ObjectName="PK_PathDir">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">\Dimensions\SalesPerson</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{019E7276-068F-469B-86A9-42A27F807A1B}"
+      DTS:ObjectName="PK_Schema">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">stg</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{AACC1ABD-0658-47D3-B56D-86728D6AE24E}"
+      DTS:ObjectName="PK_TableName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Td_SalesPerson</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5A88ED6B-CE9A-4C96-A7BF-F2AE64C8C4A2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">test.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{575613C1-1745-4A4C-B8F0-02E1A29DE2C5}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::V_PathFolder_Full] + &quot;\\&quot; + @[User::V_FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_PathFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\SalesPerson\test.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7D416ABC-916C-42E1-BCF6-712050EAC5C1}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::V_PathFolder_Full] + @[$Project::PR_PathFolder_Rejected] + &quot;\\&quot; +&#xA;REPLACE(&#xA;    @[User::V_FileName], &#xA;    &quot;.&quot; + RIGHT(@[User::V_FileName], LEN(@[User::V_FileName]) - FINDSTRING(@[User::V_FileName], &quot;.&quot;, 1)),&#xA;    &quot;@&quot;&#xA;) +&#xA;SUBSTRING((DT_WSTR, 50) GETDATE(), 1, 4) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;_&quot; +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hh&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;mi&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;ss&quot;, GETDATE()), 2) + &quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_PathFile_Archive_Fail">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\SalesPerson\Rejected\test@20241128_111602.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CA3FEE7C-B188-4818-927C-6D986EAB66DD}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::V_PathFolder_Full] + @[$Project::PR_PathFolder_Processed] + &quot;\\&quot; +&#xA;REPLACE(&#xA;    @[User::V_FileName], &#xA;    &quot;.&quot; + RIGHT(@[User::V_FileName], LEN(@[User::V_FileName]) - FINDSTRING(@[User::V_FileName], &quot;.&quot;, 1)),&#xA;    &quot;@&quot;&#xA;) +&#xA;SUBSTRING((DT_WSTR, 50) GETDATE(), 1, 4) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;_&quot; +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hh&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;mi&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;ss&quot;, GETDATE()), 2) + &quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_PathFile_Archive_Success">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\SalesPerson\Processed\test@20241128_111602.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2105E6C5-8AEC-46D7-AEA1-4FCF4E3980B3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::PR_PathDir_Input] +  @[$Package::PK_PathDir]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_PathFolder_Full">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\SalesPerson</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{AB9A4780-BE6A-488B-9E03-C0805ABC6418}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{52DDD17E-E530-471C-B865-005F1EA2346D}"
+        DTS:ObjectName="{52DDD17E-E530-471C-B865-005F1EA2346D}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::V_PathFolder_Full]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\SalesPerson" />
+            <FEFEProperty
+              FileSpec="*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Archive File Failure"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{6DFAC042-804D-4115-8F0E-52A6E23B41DF}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive File Failure"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::V_PathFile"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::V_PathFile_Archive_Fail"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Archive File Success"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{919DEB38-1B4A-4E47-83E3-7D6B4A65A2CF}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive File Success"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::V_PathFile"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::V_PathFile_Archive_Success"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\ETL"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{5BD8C9DE-E113-4324-A152-0C1EE0C9CDA0}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\ETL\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[PersonID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="PersonID"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[PersonName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="PersonName"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[PersonBossID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="PersonBossID"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonBossID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonIDConv]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonIDConv]"
+                          name="PersonIDConv"
+                          truncationRowDisposition="RedirectRow">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonNameConv]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonNameConv]"
+                          name="PersonNameConv"
+                          truncationRowDisposition="RedirectRow">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonName]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonBossIDConv]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonBossIDConv]"
+                          name="PersonBossIDConv"
+                          truncationRowDisposition="RedirectRow">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonBossID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DEST - Table STG Td_SalesPerson"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[stg].[Td_SalesPerson]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Connections[OleDbConnection]"
+                      connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Inputs[OLE DB Destination Input].Columns[PersonIDConv]"
+                          cachedDataType="i4"
+                          cachedName="PersonIDConv"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonIDConv]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Inputs[OLE DB Destination Input].Columns[PersonNameConv]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PersonNameConv"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonName]"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonNameConv]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Inputs[OLE DB Destination Input].Columns[PersonBossIDConv]"
+                          cachedDataType="i4"
+                          cachedName="PersonBossIDConv"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonBossID]"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonBossIDConv]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                          dataType="i4"
+                          name="SalesPersonID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonName]"
+                          dataType="wstr"
+                          length="50"
+                          name="SalesPersonName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonBossID]"
+                          dataType="i4"
+                          name="SalesPersonBossID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="FlatFile LogError_Conversion"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[FlatFile_LogError]"
+                      connectionManagerRefId="Package.ConnectionManagers[FlatFile_LogError]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].Columns[PersonID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="PersonID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonID]"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].Columns[PersonName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="PersonName"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonName]"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].Columns[PersonBossID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="PersonBossID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonBossID_FK]"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonBossID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          name="SalesPersonID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="SalesPersonName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonBossID_FK]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="SalesPersonBossID_FK" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          name="Log_ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="Log_ErrorColumn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="SOURCE - FlatFile SalesPerson"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[CSV_SalesPerson]"
+                      connectionManagerRefId="Package.ConnectionManagers[CSV_SalesPerson]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].ExternalColumns[PersonID]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonID]"
+                          name="PersonID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].ExternalColumns[PersonName]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonName]"
+                          name="PersonName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonBossID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].ExternalColumns[PersonBossID]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].Columns[PersonBossID]"
+                          name="PersonBossID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].ExternalColumns[PersonID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="PersonID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].ExternalColumns[PersonName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="PersonName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output].ExternalColumns[PersonBossID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="PersonBossID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\ETL.Paths[Data Conversion Error Output]"
+                  endId="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion.Inputs[Flat File Destination Input]"
+                  name="Data Conversion Error Output"
+                  startId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\ETL.Paths[Data Conversion Output]"
+                  endId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\ETL.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{889C52C0-FBCB-4686-89EB-216250D15AA3}"
+          DTS:From="Package\Foreach Loop Container\ETL"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Archive File Success" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{99007306-A7EB-41C9-84A3-26BCAC2891E0}"
+          DTS:From="Package\Foreach Loop Container\ETL"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\Archive File Failure"
+          DTS:Value="1" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{48C5DDDF-53B0-4B70-AA65-40A9E6EE8E5F}"
+          DTS:ObjectName="{48C5DDDF-53B0-4B70-AA65-40A9E6EE8E5F}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::V_FileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set Headers_LogError_SalesPerson"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{c3c5cf6c-5b75-4a97-9b73-03e9cc83bb52}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set Headers_LogError_SalesPerson"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Construct Headers - LogError"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+'SalesPersonID' AS [SalesPersonID],
+'SalesPersonName' AS [SalesPersonName],
+'SalesPersonBossID_FK' AS [SalesPersonBossID_FK],
+'Log_ErrorCode' AS [Log_ErrorCode],
+'Log_ErrorColumn' AS [Log_ErrorColumn]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Connections[OleDbConnection]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                      length="13"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      name="SalesPersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonName]"
+                      length="15"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonName]"
+                      name="SalesPersonName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonBossID_FK]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonBossID_FK]"
+                      length="20"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonBossID_FK]"
+                      name="SalesPersonBossID_FK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorCode]"
+                      length="13"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorCode]"
+                      name="Log_ErrorCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorColumn]"
+                      length="15"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorColumn]"
+                      name="Log_ErrorColumn"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="SalesPersonName" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonBossID_FK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SalesPersonBossID_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="Log_ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Log_ErrorColumn" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                      name="SalesPersonID" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[SalesPersonName]"
+                      name="SalesPersonName" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[SalesPersonBossID_FK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[SalesPersonBossID_FK]"
+                      name="SalesPersonBossID_FK" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[Log_ErrorCode]"
+                      name="Log_ErrorCode" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[Log_ErrorColumn]"
+                      name="Log_ErrorColumn" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FlatFile_LogError]"
+                  connectionManagerRefId="Package.ConnectionManagers[FlatFile_LogError]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].Columns[SalesPersonID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="13"
+                      cachedName="SalesPersonID"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonID]" />
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].Columns[SalesPersonName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="SalesPersonName"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonName]"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonName]" />
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].Columns[SalesPersonBossID_FK]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SalesPersonBossID_FK"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonBossID_FK]"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[SalesPersonBossID_FK]" />
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].Columns[Log_ErrorCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="13"
+                      cachedName="Log_ErrorCode"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].Columns[Log_ErrorColumn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Log_ErrorColumn"
+                      externalMetadataColumnId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
+                      lineageId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="SalesPersonName" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesPersonBossID_FK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SalesPersonBossID_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="Log_ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Log_ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Set Headers_LogError_SalesPerson.Paths[OLE DB Source Output]"
+              endId="Package\Set Headers_LogError_SalesPerson\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Table STG Td_SalesPerson"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B1744439-C895-41BD-865E-2017990FBD25}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Table STG Td_SalesPerson"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}"
+          SQLTask:SqlStatementSource="EXEC [tech].[usp_TruncateTable] &#xA;&#x9;@Schema = ?,&#xA;&#x9;@TableName = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::PK_Schema"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Package::PK_TableName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{327373DF-747E-48B2-A1A1-9EE4E3F15060}"
+      DTS:From="Package\Set Headers_LogError_SalesPerson"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Truncate Table STG Td_SalesPerson" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{46E726C8-CB5A-4A3F-93C0-2FBCA7BB8676}"
+      DTS:From="Package\Truncate Table STG Td_SalesPerson"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Foreach Loop Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnPostExecute]"
+      DTS:CreationName="OnPostExecute"
+      DTS:DTSID="{78BABEC7-F961-481D-8F1A-8B72CE782C5C}"
+      DTS:EventID="442695072"
+      DTS:EventName="OnPostExecute"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{51435B3B-22C1-45B8-9425-057A99A8AB5D}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnPostExecute]\Log Package Execution"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{79f39e8c-3c52-45a2-b011-19ffce24e9a2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log Package Execution"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}"
+              SQLTask:SqlStatementSource="IF NOT EXISTS (&#xA;  SELECT 1&#xA;  FROM [log].[Tl_Exec]&#xA;  WHERE PackageId = (&#xA;    SELECT PackageId&#xA;    FROM [log].[Tl_Packages]&#xA;    WHERE PackageName = ?&#xA;    )&#xA;   AND RunTime = ?&#xA;  )&#xA;BEGIN&#xA;INSERT INTO [log].[Tl_Exec](&#xA;  PackageId,&#xA;  RunTime&#xA;  )&#xA;SELECT PackageId,&#xA;  ?&#xA;FROM [log].[Tl_Packages]&#xA;WHERE PackageName = ?&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Foreach Loop Container\Archive File Failure"
+          TopLeft="227.885715380494,130.058823538126" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Foreach Loop Container\Archive File Success"
+          TopLeft="34.3142863970024,128.835293935997" />
+        <NodeLayout
+          Size="96,41.6"
+          Id="Package\Foreach Loop Container\ETL"
+          TopLeft="160.028572155384,15.1647057335477" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="193.361905488717,56.7647057335477">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-72.6476190917149,72.0705882024495"
+              Start="0,0"
+              End="-72.6476190917149,64.5705882024495">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5371263124793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5371263124793"
+                    Point2="0,29.5371263124793"
+                    Point3="-4,29.5371263124793" />
+                  <mssgle:LineSegment
+                    End="-68.6476190917149,29.5371263124793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-68.6476190917149,29.5371263124793"
+                    Point2="-72.6476190917149,29.5371263124793"
+                    Point3="-72.6476190917149,33.5371263124793" />
+                  <mssgle:LineSegment
+                    End="-72.6476190917149,64.5705882024495" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="222.695238822051,56.7647057335477">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="88.7904765584429,73.2941178045781"
+              Start="0,0"
+              End="88.7904765584429,65.7941178045781">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0385728707287" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0385728707287"
+                    Point2="0,30.0385728707287"
+                    Point3="4,30.0385728707287" />
+                  <mssgle:LineSegment
+                    End="84.7904765584429,30.0385728707287" />
+                  <mssgle:CubicBezierSegment
+                    Point1="84.7904765584429,30.0385728707287"
+                    Point2="88.7904765584429,30.0385728707287"
+                    Point3="88.7904765584429,34.0385728707287" />
+                  <mssgle:LineSegment
+                    End="88.7904765584429,65.7941178045781" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="29.1538906229715,35.0385728707287,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="412,250.4"
+          Size="412,293.6"
+          Id="Package\Foreach Loop Container"
+          TopLeft="355.714286471507,223.976470420661" />
+        <NodeLayout
+          Size="243.2,41.6"
+          Id="Package\Set Headers_LogError_SalesPerson"
+          TopLeft="359.285715050539,0.764705881682612" />
+        <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\Truncate Table STG Td_SalesPerson"
+          TopLeft="348.571429313446,84.1176469850911" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="473.371429313446,125.717646985091">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="88.3428571580613,98.2588234355702"
+              Start="0,0"
+              End="88.3428571580613,90.7588234355702">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.1294117177851" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.1294117177851"
+                    Point2="0,49.1294117177851"
+                    Point3="4,49.1294117177851" />
+                  <mssgle:LineSegment
+                    End="84.3428571580613,49.1294117177851" />
+                  <mssgle:CubicBezierSegment
+                    Point1="84.3428571580613,49.1294117177851"
+                    Point2="88.3428571580613,49.1294117177851"
+                    Point3="88.3428571580613,53.1294117177851" />
+                  <mssgle:LineSegment
+                    End="88.3428571580613,90.7588234355702" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="477.128572181993,42.3647058816826">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.7529411034085"
+              Start="0,0"
+              End="0,34.2529411034085">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.2529411034085" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package.EventHandlers[OnPostExecute]\Log Package Execution"
+          TopLeft="267.14285758381,77.5882352787009" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\ETL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="240,41.6"
+          Id="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson"
+          TopLeft="345.714286450221,269.129411558255" />
+        <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\Foreach Loop Container\ETL\SOURCE - FlatFile SalesPerson"
+          TopLeft="530.6,60" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Foreach Loop Container\ETL\Data Conversion"
+          TopLeft="538.2,161.6" />
+        <NodeLayout
+          Size="212.8,41.6"
+          Id="Package\Foreach Loop Container\ETL\FlatFile LogError_Conversion"
+          TopLeft="609.954537177628,252.863633830439" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\ETL.Paths[Flat File Source Output]"
+          TopLeft="641,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24.8,60"
+              Start="0,0"
+              End="-24.8,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-20.8,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.8,30"
+                    Point2="-24.8,30"
+                    Point3="-24.8,34" />
+                  <mssgle:LineSegment
+                    End="-24.8,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\ETL.Paths[Data Conversion Output]"
+          TopLeft="591.533333333333,203.2">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-125.819046883113,65.9294115582554"
+              Start="0,0"
+              End="-125.819046883113,58.4294115582554">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.7733650997991" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.7733650997991"
+                    Point2="0,26.7733650997991"
+                    Point3="-4,26.7733650997991" />
+                  <mssgle:LineSegment
+                    End="-121.819046883113,26.7733650997991" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-121.819046883113,26.7733650997991"
+                    Point2="-125.819046883113,26.7733650997991"
+                    Point3="-125.819046883113,30.7733650997991" />
+                  <mssgle:LineSegment
+                    End="-125.819046883113,58.4294115582554" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\ETL.Paths[Data Conversion Error Output]"
+          TopLeft="640.866666666667,203.2">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.4878705109613,49.663633830439"
+              Start="0,0"
+              End="75.4878705109613,42.163633830439">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.1679731291123" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.1679731291123"
+                    Point2="0,20.1679731291123"
+                    Point3="4,20.1679731291123" />
+                  <mssgle:LineSegment
+                    End="71.4878705109613,20.1679731291123" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.4878705109613,20.1679731291123"
+                    Point2="75.4878705109613,20.1679731291123"
+                    Point3="75.4878705109613,24.1679731291123" />
+                  <mssgle:LineSegment
+                    End="75.4878705109613,42.163633830439" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.3424514632693,25.1679731291123,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\ETL\DEST - Table STG Td_SalesPerson">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Set Headers_LogError_SalesPerson">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Set Headers_LogError_SalesPerson\Flat File Destination"
+          TopLeft="377.142857945695,168.235293970182" />
+        <NodeLayout
+          Size="216,41.6"
+          Id="Package\Set Headers_LogError_SalesPerson\Construct Headers - LogError"
+          TopLeft="357.857143491202,28.6470588510115" />
+        <EdgeLayout
+          Id="Package\Set Headers_LogError_SalesPerson.Paths[OLE DB Source Output]"
+          TopLeft="464.300000718449,70.2470588510115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,97.9882351191705"
+              Start="0,0"
+              End="0,90.4882351191705">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,90.4882351191705" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

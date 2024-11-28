@@ -1,0 +1,1567 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/3/2024 7:38:31 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="FR-GZMRLS3"
+  DTS:CreatorName="AzureAD\HamedVAHEB"
+  DTS:DTSID="{906BA838-DFA5-4DC7-8DF6-D8ABBF7A4BA0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="STG_Td_Country"
+  DTS:PackageType="5"
+  DTS:VersionBuild="170"
+  DTS:VersionGUID="{B85704A3-610C-4BD6-A07C-A5CA5BF36EC3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CSV_Country]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{2971255E-74AF-41B9-84A1-5942AA36FEED}"
+      DTS:ObjectName="CSV_Country">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::V_PathFile]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\Country\test.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CountryID"
+              DTS:DTSID="{4DD95021-2BD9-49E0-8F2D-18EB04C3092E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CountryName"
+              DTS:DTSID="{D6958612-A6DB-46E8-A5B3-4321DB3BD000}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FlatFile_LogError]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A6C26FA3-F0F6-4936-ACAA-1C36E2C4FB77}"
+      DTS:ObjectName="FlatFile_LogError">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::PR_PathDir_ErrorConversion] + "\\" + "Country.txt"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Output\Errors\Conversion\Country.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="9"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CountryId"
+              DTS:DTSID="{3ED3F172-393B-42FB-B07E-ADDCB52E9F89}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="11"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CountryName"
+              DTS:DTSID="{8E6278A5-3A79-48D7-BE98-85876A800E9A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="13"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Log_ErrorCode"
+              DTS:DTSID="{709C96A8-632A-4018-8B3B-A1CA92ED77CD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Log_ErrorColumn"
+              DTS:DTSID="{A601DFFC-C37B-4348-8117-B2149A05D374}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{66742AF6-99DD-4660-8C27-A7E45965ADB3}"
+      DTS:ObjectName="PK_PathDir">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">\Dimensions\Country</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{5D86D9F5-F2C0-4CA4-AED7-03D013875B6F}"
+      DTS:ObjectName="PK_Schema">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">stg</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{EAB81D83-F4D5-4FDD-8A77-15288BC5C2E8}"
+      DTS:ObjectName="PK_TableName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Td_Country</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{28D5DC67-C6F4-422A-800E-6DF95104A122}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">test.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9B50C6F3-C45D-46E3-87CE-A7D8D92BE327}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::V_PathFolder_Full] + &quot;\\&quot; + @[User::V_FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_PathFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\Country\test.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{12241EFC-14B0-4B11-83A9-01E217789968}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::V_PathFolder_Full] + @[$Project::PR_PathFolder_Rejected] +  &quot;\\&quot; +&#xA;REPLACE( @[User::V_FileName] , &quot;.csv&quot;, &quot;@&quot;) + &#xA;SUBSTRING( (DT_WSTR, 50) GETDATE(), 1, 4 ) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;_&quot; +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hh&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;mi&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;ss&quot;, GETDATE()), 2) + &quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_PathFile_Archive_Fail">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\Country\Rejected\test@20241127_165415.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B6B4007E-26CE-4021-8654-281BFAB4BEA4}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::V_PathFolder_Full] + @[$Project::PR_PathFolder_Processed] + &quot;\\&quot; +&#xA;REPLACE(&#xA;    @[User::V_FileName], &#xA;    &quot;.&quot; + RIGHT(@[User::V_FileName], LEN(@[User::V_FileName]) - FINDSTRING(@[User::V_FileName], &quot;.&quot;, 1)),&#xA;    &quot;@&quot;&#xA;) +&#xA;SUBSTRING((DT_WSTR, 50) GETDATE(), 1, 4) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;_&quot; +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hh&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;mi&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;ss&quot;, GETDATE()), 2) + &quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_PathFile_Archive_Success">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\Country\Processed\test@20241127_165415.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A4A5A933-8CF6-4E47-A63E-A9DF42BD8C09}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::PR_PathDir_Input] +  @[$Package::PK_PathDir]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_PathFolder_Full">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\Country</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{FB365398-F87F-4338-A478-901D1D605196}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{04F0CDC8-2C4E-45CC-914F-0605C8C41753}"
+        DTS:ObjectName="{04F0CDC8-2C4E-45CC-914F-0605C8C41753}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::V_PathFolder_Full]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\Country" />
+            <FEFEProperty
+              FileSpec="*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Archive File Failure"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{c41f21a3-fb6a-4cd3-8eb7-a954ea45383b}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive File Failure"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::V_PathFile"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::V_PathFile_Archive_Fail"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Archive File Success"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{FE264823-349D-4EF7-873C-9F4087F9E685}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive File Success"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::V_PathFile"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::V_PathFile_Archive_Success"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\ETL"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{5557A86D-220A-475A-AEBD-A9AD2859F97E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\ETL\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[CountryID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="CountryID"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].Columns[CountryID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[CountryName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="CountryName"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].Columns[CountryName]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[CountryIDConv]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[CountryIDConv]"
+                          name="CountryIDConv"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].Columns[CountryID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[CountryNameConv]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[CountryNameConv]"
+                          name="CountryNameConv"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].Columns[CountryName]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DEST - Table STG Td_Country"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[stg].[Td_Country]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Connections[OleDbConnection]"
+                      connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Inputs[OLE DB Destination Input].Columns[CountryIDConv]"
+                          cachedDataType="i4"
+                          cachedName="CountryIDConv"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Inputs[OLE DB Destination Input].ExternalColumns[CountryID]"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[CountryIDConv]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Inputs[OLE DB Destination Input].Columns[CountryNameConv]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CountryNameConv"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[CountryNameConv]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Inputs[OLE DB Destination Input].ExternalColumns[CountryID]"
+                          dataType="i4"
+                          name="CountryID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CountryName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="FlatFile LogError_Country"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[FlatFile_LogError]"
+                      connectionManagerRefId="Package.ConnectionManagers[FlatFile_LogError]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input].Columns[CountryID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="CountryID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input].ExternalColumns[CountryId]"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].Columns[CountryID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input].Columns[CountryName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="CountryName"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input].ExternalColumns[CountryName]"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].Columns[CountryName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
+                          lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input].ExternalColumns[CountryId]"
+                          codePage="1252"
+                          dataType="str"
+                          length="9"
+                          name="CountryId" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input].ExternalColumns[CountryName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="11"
+                          name="CountryName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          name="Log_ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="Log_ErrorColumn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="SOURCE - FlatFile Country"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[CSV_Country]"
+                      connectionManagerRefId="Package.ConnectionManagers[CSV_Country]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].Columns[CountryID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].ExternalColumns[CountryID]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].Columns[CountryID]"
+                          name="CountryID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].Columns[CountryName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].ExternalColumns[CountryName]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].Columns[CountryName]"
+                          name="CountryName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].ExternalColumns[CountryID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="CountryID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output].ExternalColumns[CountryName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="CountryName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\ETL.Paths[Data Conversion Error Output]"
+                  endId="Package\Foreach Loop Container\ETL\FlatFile LogError_Country.Inputs[Flat File Destination Input]"
+                  name="Data Conversion Error Output"
+                  startId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Error Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\ETL.Paths[Data Conversion Output]"
+                  endId="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\ETL.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container\ETL\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{411A822F-9112-4B57-9F89-924A01789985}"
+          DTS:From="Package\Foreach Loop Container\ETL"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Archive File Success" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{3EC78527-6CD6-4532-8AFF-6CD276C7AC42}"
+          DTS:From="Package\Foreach Loop Container\ETL"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\Archive File Failure"
+          DTS:Value="1" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{F38D061B-BE75-4768-8675-9A03441E19FB}"
+          DTS:ObjectName="{F38D061B-BE75-4768-8675-9A03441E19FB}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::V_FileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set Headers_LogError_Country"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F0DED81B-2294-4FA1-A763-5232CD8C5830}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set Headers_LogError_Country"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Construct Headers_LogError_Country"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+'CountryId' AS [CountryId],
+'CountryName' AS [CountryName],
+'Log_ErrorCode' AS [Log_ErrorCode],
+'Log_ErrorColumn' AS [Log_ErrorColumn]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Connections[OleDbConnection]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].Columns[CountryId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].ExternalColumns[CountryId]"
+                      length="9"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].Columns[CountryId]"
+                      name="CountryId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].Columns[CountryName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].ExternalColumns[CountryName]"
+                      length="11"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].Columns[CountryName]"
+                      name="CountryName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].Columns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorCode]"
+                      length="13"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].Columns[Log_ErrorCode]"
+                      name="Log_ErrorCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].Columns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorColumn]"
+                      length="15"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].Columns[Log_ErrorColumn]"
+                      name="Log_ErrorColumn"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].ExternalColumns[CountryId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="CountryId" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].ExternalColumns[CountryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="CountryName" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="Log_ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Log_ErrorColumn" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output].Columns[CountryId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output].Columns[CountryId]"
+                      name="CountryId" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output].Columns[CountryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output].Columns[CountryName]"
+                      name="CountryName" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output].Columns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output].Columns[Log_ErrorCode]"
+                      name="Log_ErrorCode" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output].Columns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output].Columns[Log_ErrorColumn]"
+                      name="Log_ErrorColumn" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Set Headers_LogError_Country\Write headers to file"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Write headers to file"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Set Headers_LogError_Country\Write headers to file.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FlatFile_LogError]"
+                  connectionManagerRefId="Package.ConnectionManagers[FlatFile_LogError]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input].Columns[CountryId]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="CountryId"
+                      externalMetadataColumnId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[CountryId]"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].Columns[CountryId]" />
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input].Columns[CountryName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="CountryName"
+                      externalMetadataColumnId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[CountryName]"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].Columns[CountryName]" />
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input].Columns[Log_ErrorCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="13"
+                      cachedName="Log_ErrorCode"
+                      externalMetadataColumnId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].Columns[Log_ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input].Columns[Log_ErrorColumn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Log_ErrorColumn"
+                      externalMetadataColumnId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
+                      lineageId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output].Columns[Log_ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[CountryId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="CountryId" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[CountryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="CountryName" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="Log_ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Log_ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Set Headers_LogError_Country.Paths[OLE DB Source Output]"
+              endId="Package\Set Headers_LogError_Country\Write headers to file.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Table STG Td_Country"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{53DB760D-E27A-4D78-A965-F06C4AA299A5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Table STG Td_Country"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}"
+          SQLTask:SqlStatementSource="EXEC [tech].[usp_TruncateTable] &#xA;&#x9;@Schema = ?,&#xA;&#x9;@TableName = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::PK_Schema"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Package::PK_TableName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AD5B36EF-3A3C-4C72-9ABF-02DC5FF6F36D}"
+      DTS:From="Package\Set Headers_LogError_Country"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Truncate Table STG Td_Country" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F34EF034-81CF-40AE-8329-EE2E3F086ABC}"
+      DTS:From="Package\Truncate Table STG Td_Country"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Foreach Loop Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnPostExecute]"
+      DTS:CreationName="OnPostExecute"
+      DTS:DTSID="{71712ACA-6BAC-4826-924C-D59C5583D98C}"
+      DTS:EventID="442695072"
+      DTS:EventName="OnPostExecute"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{44FF0971-398A-4825-B472-D4CDE31A3E4A}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnPostExecute]\Log Package Execution"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5ce6e773-f81c-4d98-950d-045d49e877ba}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log Package Execution"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}"
+              SQLTask:SqlStatementSource="IF NOT EXISTS (&#xA;  SELECT 1&#xA;  FROM [log].[Tl_Exec]&#xA;  WHERE PackageId = (&#xA;    SELECT PackageId&#xA;    FROM [log].[Tl_Packages]&#xA;    WHERE PackageName = ?&#xA;    )&#xA;   AND RunTime = ?&#xA;  )&#xA;BEGIN&#xA;INSERT INTO [log].[Tl_Exec](&#xA;  PackageId,&#xA;  RunTime&#xA;  )&#xA;SELECT PackageId,&#xA;  ?&#xA;FROM [log].[Tl_Packages]&#xA;WHERE PackageName = ?&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Foreach Loop Container\Archive File Failure"
+          TopLeft="227.885715380494,130.058823538126" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Foreach Loop Container\Archive File Success"
+          TopLeft="41.4571435550648,127.305882172632" />
+        <NodeLayout
+          Size="96,41.6"
+          Id="Package\Foreach Loop Container\ETL"
+          TopLeft="160.028572155384,15.1647057335477" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="208.028572155384,56.7647057335477">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-80.1714286003192,70.5411764390843"
+              Start="0,0"
+              End="-80.1714286003192,63.0411764390843">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.2705882195422" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.2705882195422"
+                    Point2="0,35.2705882195422"
+                    Point3="-4,35.2705882195422" />
+                  <mssgle:LineSegment
+                    End="-76.1714286003192,35.2705882195422" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-76.1714286003192,35.2705882195422"
+                    Point2="-80.1714286003192,35.2705882195422"
+                    Point3="-80.1714286003192,39.2705882195422" />
+                  <mssgle:LineSegment
+                    End="-80.1714286003192,63.0411764390843" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="222.695238822051,56.7647057335477">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="88.7904765584429,73.2941178045781"
+              Start="0,0"
+              End="88.7904765584429,65.7941178045781">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0385728707287" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0385728707287"
+                    Point2="0,30.0385728707287"
+                    Point3="4,30.0385728707287" />
+                  <mssgle:LineSegment
+                    End="84.7904765584429,30.0385728707287" />
+                  <mssgle:CubicBezierSegment
+                    Point1="84.7904765584429,30.0385728707287"
+                    Point2="88.7904765584429,30.0385728707287"
+                    Point3="88.7904765584429,34.0385728707287" />
+                  <mssgle:LineSegment
+                    End="88.7904765584429,65.7941178045781" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="29.1538906229715,35.0385728707287,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="412,250.4"
+          Size="412,293.6"
+          Id="Package\Foreach Loop Container"
+          TopLeft="263.571429132502,171.32941161523" />
+        <NodeLayout
+          Size="224,41.6"
+          Id="Package\Set Headers_LogError_Country"
+          TopLeft="352.857143608284,8.5265128291212E-14" />
+        <NodeLayout
+          Size="229.6,41.6"
+          Id="Package\Truncate Table STG Td_Country"
+          TopLeft="348.571429313446,80.2941175766779" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="464.114286460865,41.6000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.6941175766778"
+              Start="0,0"
+              End="0,31.1941175766778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.1941175766778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="466.471429222974,121.894117576678">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.4352940385521"
+              Start="0,0"
+              End="0,41.9352940385521">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.9352940385521" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package.EventHandlers[OnPostExecute]\Log Package Execution"
+          TopLeft="285.714286194772,91.3529411489885" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\ETL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Country"
+          TopLeft="402.5,5.5" />
+        <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country"
+          TopLeft="162.999997571111,309.99999538064" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Foreach Loop Container\ETL\FlatFile LogError_Country"
+          TopLeft="598.499997004866,233.499999642372" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Foreach Loop Container\ETL\Data Conversion"
+          TopLeft="400.5,107.5" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\ETL.Paths[Data Conversion Output]"
+          TopLeft="453.833333333333,149.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-180.433335762223,160.89999538064"
+              Start="0,0"
+              End="-180.433335762223,153.39999538064">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.3400996469604" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.3400996469604"
+                    Point2="0,65.3400996469604"
+                    Point3="-4,65.3400996469604" />
+                  <mssgle:LineSegment
+                    End="-176.433335762223,65.3400996469604" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-176.433335762223,65.3400996469604"
+                    Point2="-180.433335762223,65.3400996469604"
+                    Point3="-180.433335762223,69.3400996469604" />
+                  <mssgle:LineSegment
+                    End="-180.433335762223,153.39999538064" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\ETL.Paths[Data Conversion Error Output]"
+          TopLeft="503.166666666667,149.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="194.133330338199,84.399999642372"
+              Start="0,0"
+              End="194.133330338199,76.899999642372">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2741115298973" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.2741115298973"
+                    Point2="0,34.2741115298973"
+                    Point3="4,34.2741115298973" />
+                  <mssgle:LineSegment
+                    End="190.133330338199,34.2741115298973" />
+                  <mssgle:CubicBezierSegment
+                    Point1="190.133330338199,34.2741115298973"
+                    Point2="194.133330338199,34.2741115298973"
+                    Point3="194.133330338199,38.2741115298973" />
+                  <mssgle:LineSegment
+                    End="194.133330338199,76.899999642372" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="30.9802784503497,39.2741115298973,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\ETL.Paths[Flat File Source Output]"
+          TopLeft="503.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24.8,60.4"
+              Start="0,0"
+              End="-24.8,52.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2"
+                    Point2="0,30.2"
+                    Point3="-4,30.2" />
+                  <mssgle:LineSegment
+                    End="-20.8,30.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.8,30.2"
+                    Point2="-24.8,30.2"
+                    Point3="-24.8,34.2" />
+                  <mssgle:LineSegment
+                    End="-24.8,52.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\ETL\DEST - Table STG Td_Country">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Set Headers_LogError_Country">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="253.6,41.6"
+          Id="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country"
+          TopLeft="224.28571476316,43.5882352559109" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Set Headers_LogError_Country\Write headers to file"
+          TopLeft="271.428572006371,187.352941012249" />
+        <EdgeLayout
+          Id="Package\Set Headers_LogError_Country.Paths[OLE DB Source Output]"
+          TopLeft="354.657143384766,85.1882352559109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,102.164705756338"
+              Start="0,0"
+              End="0,94.6647057563381">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,94.6647057563381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Set Headers_LogError_Country\Construct Headers_LogError_Country">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

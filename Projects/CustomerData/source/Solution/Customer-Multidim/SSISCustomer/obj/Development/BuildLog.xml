@@ -2,53 +2,83 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>SSISCustomer</Name>
-    <LastWriteTime>2024-09-25T14:42:28.6320545Z</LastWriteTime>
+    <LastWriteTime>2024-11-28T10:16:09.0887925Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>Split.dtsx</Name>
-      <LastWriteTime>2024-09-25T14:12:22.3460599Z</LastWriteTime>
+      <Name>STG_Td_Country.dtsx</Name>
+      <LastWriteTime>2024-11-28T10:16:07.0602583Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>ETL_Dim_Country.dtsx</Name>
-      <LastWriteTime>2024-09-25T15:10:24.4339794Z</LastWriteTime>
+      <Name>DWH_Td_Country.dtsx</Name>
+      <LastWriteTime>2024-11-28T09:43:26.2067226Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>ETL_Fact_Customer.dtsx</Name>
-      <LastWriteTime>2024-09-25T14:09:02.2432668Z</LastWriteTime>
+      <Name>DWH_Td_Product.dtsx</Name>
+      <LastWriteTime>2024-11-28T09:59:10.8322823Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>ETL_Dim_Product.dtsx</Name>
-      <LastWriteTime>2024-09-25T14:08:50.7292352Z</LastWriteTime>
+      <Name>DWH_Td_SalesPerson.dtsx</Name>
+      <LastWriteTime>2024-11-26T17:15:59.5211365Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>ETL_Dim_State.dtsx</Name>
-      <LastWriteTime>2024-09-25T14:08:57.6030283Z</LastWriteTime>
+      <Name>DWH_Td_State.dtsx</Name>
+      <LastWriteTime>2024-11-26T17:15:53.2524339Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>ETL_Dim_SalesPerson.dtsx</Name>
-      <LastWriteTime>2024-09-25T14:11:54.9216109Z</LastWriteTime>
+      <Name>DWH_Tf_Customer.dtsx</Name>
+      <LastWriteTime>2024-11-26T17:17:11.8536188Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Master_ETL.dtsx</Name>
-      <LastWriteTime>2024-09-25T14:10:59.3005634Z</LastWriteTime>
+      <Name>REP_Tf_Customer_Summary.dtsx</Name>
+      <LastWriteTime>2024-11-26T17:17:09.9294808Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Export_FactCustomer_Summary.dtsx</Name>
-      <LastWriteTime>2024-09-25T14:09:09.5085263Z</LastWriteTime>
+      <Name>REP_ProfilingData.dtsx</Name>
+      <LastWriteTime>2024-11-26T17:17:13.4803157Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Export_ProfilingData.dtsx</Name>
-      <LastWriteTime>2024-09-23T12:43:35.9688437Z</LastWriteTime>
+      <Name>DWH_Master_Dims.dtsx</Name>
+      <LastWriteTime>2024-11-26T18:18:52.189734Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>STG_Td_Product.dtsx</Name>
+      <LastWriteTime>2024-11-27T15:53:58.1761808Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>STG_Td_SalesPerson.dtsx</Name>
+      <LastWriteTime>2024-11-28T10:16:02.4074116Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>STG_Td_State.dtsx</Name>
+      <LastWriteTime>2024-11-28T10:15:27.38099Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>DWH_Tf_Customer_Split.dtsx</Name>
+      <LastWriteTime>2024-11-26T21:16:46.4428441Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>STG_Tf_Customer.dtsx</Name>
+      <LastWriteTime>2024-11-27T15:53:26.9683317Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>STG_Master_Dims.dtsx</Name>
+      <LastWriteTime>2024-11-28T10:11:19.1070108Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

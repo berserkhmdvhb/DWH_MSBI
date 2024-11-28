@@ -2,7 +2,7 @@
 <RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="MSSQLSERVERADMUL_SSAS">
   <ConnectionProperties>
     <Extension>OLEDB-MD</Extension>
-    <ConnectString>Data Source=FR-GZMRLS3\MSSQLSERVERADMUL;Initial Catalog=SSASCustomer</ConnectString>
+    <ConnectString>Data Source=LU-GZMRLS3\MSSQLSERVERH;Initial Catalog=SSASCustomer</ConnectString>
     <IntegratedSecurity>true</IntegratedSecurity>
   </ConnectionProperties>
   <DataSourceID>ec8e9fbb-ce29-4823-b43a-9d491b1b5c12</DataSourceID>

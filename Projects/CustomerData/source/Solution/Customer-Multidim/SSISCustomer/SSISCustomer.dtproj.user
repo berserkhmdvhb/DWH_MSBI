@@ -8,9 +8,9 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
-        <ServerName>FR-GZMRLS3\MSSQLSERVERADMUL</ServerName>
+        <ServerName>LU-GZMRLS3\MSSQLSERVERH</ServerName>
         <PathOnServer>/SSISDB/Customer/SSISCustomer</PathOnServer>
-        <StartObjectID>Master_ETL.dtsx</StartObjectID>
+        <StartObjectID>DWH_Master_Dims.dtsx</StartObjectID>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>

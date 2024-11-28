@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <SSIS:Parameters xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
   <SSIS:Parameter
-    SSIS:Name="SolutionFileDir">
+    SSIS:Name="PR_PathDir_Solution">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{8e85816a-f254-43a7-8c1e-e779305235f3}</SSIS:Property>
@@ -17,111 +17,6 @@
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
         SSIS:Name="Value">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="DataType">18</SSIS:Property>
-    </SSIS:Properties>
-  </SSIS:Parameter>
-  <SSIS:Parameter
-    SSIS:Name="Source_DimCountry_Flat">
-    <SSIS:Properties>
-      <SSIS:Property
-        SSIS:Name="ID">{943c99ff-7555-489c-8aa0-dbced1bd31fc}</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="CreationName"></SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Description"></SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Required">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Sensitive">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Value">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\Country\Country.txt</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="DataType">18</SSIS:Property>
-    </SSIS:Properties>
-  </SSIS:Parameter>
-  <SSIS:Parameter
-    SSIS:Name="Source_DimProduct_Flat">
-    <SSIS:Properties>
-      <SSIS:Property
-        SSIS:Name="ID">{e7fbe65b-84fb-4010-ba20-f5a0b0fcb6d1}</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="CreationName"></SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Description"></SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Required">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Sensitive">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Value">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\Product\Product.txt</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="DataType">18</SSIS:Property>
-    </SSIS:Properties>
-  </SSIS:Parameter>
-  <SSIS:Parameter
-    SSIS:Name="Source_DimSalesPerson_Flat">
-    <SSIS:Properties>
-      <SSIS:Property
-        SSIS:Name="ID">{4227d905-e868-49f2-9078-7bddfde5dba4}</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="CreationName"></SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Description"></SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Required">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Sensitive">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Value">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\SalesPerson\SalesPerson.txt</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="DataType">18</SSIS:Property>
-    </SSIS:Properties>
-  </SSIS:Parameter>
-  <SSIS:Parameter
-    SSIS:Name="Source_DimState_Flat">
-    <SSIS:Properties>
-      <SSIS:Property
-        SSIS:Name="ID">{076ad3ae-b335-48dc-8f77-2aabedd660eb}</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="CreationName"></SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Description"></SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Required">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Sensitive">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Value">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\State\State.txt</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="DataType">18</SSIS:Property>
-    </SSIS:Properties>
-  </SSIS:Parameter>
-  <SSIS:Parameter
-    SSIS:Name="Source_BulkFilesDir_FactCustomer">
-    <SSIS:Properties>
-      <SSIS:Property
-        SSIS:Name="ID">{1947e78d-cf9d-43c2-8590-33f1f91f6d00}</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="CreationName"></SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Description"></SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Required">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Sensitive">0</SSIS:Property>
-      <SSIS:Property
-        SSIS:Name="Value">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Fact\Customer</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
@@ -163,13 +58,13 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">dbo.FactCustomerTemp</SSIS:Property>
+        SSIS:Name="Value">dwh.Tf_Customer_Temp</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="Destination_FlatFileDir">
+    SSIS:Name="PR_PathDir_Tf">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{50e35a3a-9d8c-4ff1-ab78-0739573cabc0}</SSIS:Property>
@@ -190,7 +85,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="Destination_ExtractionFlatFileName">
+    SSIS:Name="PR_FileName_Extract">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{cbf4a25d-cb56-4591-8762-f1a453ad2cd9}</SSIS:Property>
@@ -211,7 +106,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="Destination_ProfilingFlatFileName">
+    SSIS:Name="PR_FileName_Profiling">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{80c2bf18-fd58-433f-a2f1-e87480d97c0a}</SSIS:Property>
@@ -232,7 +127,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="Source_ProfilingFlatFilePath">
+    SSIS:Name="PR_PathDirProfilingFlatFilePath">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{50eec09b-1102-4eaa-b04e-6aa673256790}</SSIS:Property>
@@ -253,7 +148,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="Destination_ErrorConversion_Dir">
+    SSIS:Name="PR_PathDir_ErrorConversion">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{a2b1f6a5-2d7e-4e0e-b08d-127c4543d303}</SSIS:Property>
@@ -274,7 +169,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="Destination_ErrorSplit_Dir">
+    SSIS:Name="PR_PathDir_ErrorSplit">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{868bb0dc-97ed-44fc-a494-5931dcc6ee3f}</SSIS:Property>
@@ -290,6 +185,90 @@
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
         SSIS:Name="Value">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Output\Errors\Split</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="DataType">18</SSIS:Property>
+    </SSIS:Properties>
+  </SSIS:Parameter>
+  <SSIS:Parameter
+    SSIS:Name="PR_PathDir_Input">
+    <SSIS:Properties>
+      <SSIS:Property
+        SSIS:Name="ID">{7c29edc3-29e0-4aa7-b837-2b9b71d6cbba}</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="CreationName"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Description"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Required">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Sensitive">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Value">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="DataType">18</SSIS:Property>
+    </SSIS:Properties>
+  </SSIS:Parameter>
+  <SSIS:Parameter
+    SSIS:Name="PR_PathFolder_Processed">
+    <SSIS:Properties>
+      <SSIS:Property
+        SSIS:Name="ID">{48465318-9fc6-45bf-b91a-501f01e29249}</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="CreationName"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Description"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Required">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Sensitive">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Value">\Processed</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="DataType">18</SSIS:Property>
+    </SSIS:Properties>
+  </SSIS:Parameter>
+  <SSIS:Parameter
+    SSIS:Name="PR_PathFolder_Rejected">
+    <SSIS:Properties>
+      <SSIS:Property
+        SSIS:Name="ID">{5936d2e1-cf78-4b1a-a34a-2eb689ecc581}</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="CreationName"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Description"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Required">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Sensitive">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Value">\Rejected</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="DataType">18</SSIS:Property>
+    </SSIS:Properties>
+  </SSIS:Parameter>
+  <SSIS:Parameter
+    SSIS:Name="PR_PathDir_Output">
+    <SSIS:Properties>
+      <SSIS:Property
+        SSIS:Name="ID">{4a8fbefc-d3f7-4410-8df8-daa270bac49f}</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="CreationName"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Description"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Required">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Sensitive">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Value">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Output</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>

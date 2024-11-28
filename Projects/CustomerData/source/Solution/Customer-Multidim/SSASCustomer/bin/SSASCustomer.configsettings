@@ -3,11 +3,10 @@
     <DataSources>
       <DataSource>
         <ID>CustomerDWH</ID>
-        <ConnectionString>Provider=SQLNCLI11.1;Data Source=FR-GZMRLS3\MSSQLSERVERADMUL;Integrated Security=SSPI;Initial Catalog=CustomerDWH;Trust Server Certificate=True</ConnectionString>
+        <ConnectionString>Provider=SQLNCLI11.1;Data Source=LU-GZMRLS3\MSSQLSERVERH;Integrated Security=SSPI;Initial Catalog=CustomerDWH;Trust Server Certificate=True</ConnectionString>
         <ImpersonationInfo>
-          <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateAccount</ImpersonationMode>
-          <Account xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">AzureAD\HamedVAHEB</Account>
-          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">PasswordRemoved</ImpersonationInfoSecurity>
+          <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateCurrentUser</ImpersonationMode>
+          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
         </ImpersonationInfo>
       </DataSource>
     </DataSources>

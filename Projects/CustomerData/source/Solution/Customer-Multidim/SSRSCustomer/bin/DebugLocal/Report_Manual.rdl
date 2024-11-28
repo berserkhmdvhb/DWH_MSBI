@@ -7,9 +7,9 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>17.9.34728.123</am:Version>
+      <am:Version>17.11.35303.130</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-05-21T18:57:57.3684620Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-10-26T21:47:01.6499538Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -34,22 +34,33 @@
             <rd:UserDefined>true</rd:UserDefined>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>WITH CountryFilter AS (SELECT        [Value] AS CountryID
-                                                  FROM            dbo.SplitString(?, ',') AS SplitString_2), StateFilter AS
-    (SELECT        [Value] AS StateID
-      FROM            dbo.SplitString(?, ',') AS SplitString_1)
-    SELECT DISTINCT 
-                              FactCustomer.CustomerCode, FactCustomer.CustomerName, FactCustomer.CustomerAmount, DimState.StateName, DimSalesPerson.SalesPersonName, DimProduct.ProductName, DimCountry.CountryName, 
-                              DimDate.[date]
-     FROM            FactCustomer INNER JOIN
-                              DimDate ON FactCustomer.SalesDateID_FK = DimDate.date_key INNER JOIN
-                              DimSalesPerson ON FactCustomer.SalesPersonID_FK = DimSalesPerson.SalesPersonID INNER JOIN
-                              DimState ON FactCustomer.StateID_FK = DimState.StateID INNER JOIN
-                              DimCountry ON DimState.CountryID = DimCountry.CountryID INNER JOIN
-                              DimProduct ON FactCustomer.ProductID_FK = DimProduct.ProductID INNER JOIN
-                              CountryFilter AS CountryFilter_1 ON DimCountry.CountryID = CountryFilter_1.CountryID INNER JOIN
-                              StateFilter AS StateFilter_1 ON DimState.StateID = StateFilter_1.StateID
-     WHERE        (DimCountry.IsNew = 1) AND (DimProduct.Ex_Date IS NULL)</CommandText>
+        <CommandText>WITH CountryFilter AS (
+    SELECT value AS CountryID
+    FROM STRING_SPLIT(?, ',')
+),
+StateFilter AS (
+    SELECT value AS StateID
+    FROM STRING_SPLIT(?, ',')
+)
+SELECT DISTINCT 
+    FactCustomer.CustomerCode, 
+    FactCustomer.CustomerName, 
+    FactCustomer.CustomerAmount, 
+    DimState.StateName, 
+    DimSalesPerson.SalesPersonName, 
+    DimProduct.ProductName, 
+    DimCountry.CountryName, 
+    DimDate.[date]
+FROM FactCustomer 
+INNER JOIN DimDate ON FactCustomer.SalesDateID_FK = DimDate.date_key 
+INNER JOIN DimSalesPerson ON FactCustomer.SalesPersonID_FK = DimSalesPerson.SalesPersonID 
+INNER JOIN DimState ON FactCustomer.StateID_FK = DimState.StateID 
+INNER JOIN DimCountry ON DimState.CountryID = DimCountry.CountryID 
+INNER JOIN DimProduct ON FactCustomer.ProductID_FK = DimProduct.ProductID 
+INNER JOIN CountryFilter ON DimCountry.CountryID = CountryFilter.CountryID 
+INNER JOIN StateFilter ON DimState.StateID = StateFilter.StateID
+WHERE DimCountry.IsNew = 1 AND DimProduct.Ex_Date IS NULL;
+</CommandText>
       </Query>
       <Fields>
         <Field Name="CustomerCode">
