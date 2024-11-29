@@ -8,7 +8,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [mdm].[Tm_Country] (
+CREATE TABLE [mdm].[Tm_Geo] (
     [CountryID] NVARCHAR(10) NOT NULL,			-- Maps to "id2"
     [ISO2Code] CHAR(2) NOT NULL,				-- Maps to "iso2code"
     [CountryName] NVARCHAR(255) NOT NULL,		-- Maps to "value"
