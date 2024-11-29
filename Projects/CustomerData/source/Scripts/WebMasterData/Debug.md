@@ -1,121 +1,167 @@
-```
-public async void Main()
+```csharp
+#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.Net.Http;
+using System.IO;
+#endregion
+
+namespace ST_217f790900c140cbb4baf97957982ef2
 {
-    // Declare variables at the beginning of the method to ensure global access
-    string logFilePath = string.Empty; // Ensure it is initialized to avoid unassigned variable issues
-    bool fireAgain = false;
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
 
-    try
-    {
-        // Retrieve variables
-        string filePath = Dts.Variables["User::V_PathFile"].Value.ToString();
-        logFilePath = Dts.Variables["User::V_PathFile_Log"].Value.ToString();
+        #endregion
 
-        // Log file paths for debugging
-        Dts.Events.FireInformation(0, "Script Task", $"File Path: {filePath}", string.Empty, 0, ref fireAgain);
-        Dts.Events.FireInformation(0, "Script Task", $"Log File Path: {logFilePath}", string.Empty, 0, ref fireAgain);
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
 
-        // Ensure the directory for the log file exists
-        string logDirectoryPath = System.IO.Path.GetDirectoryName(logFilePath);
-        if (!System.IO.Directory.Exists(logDirectoryPath))
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+        /// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+        public async void Main()
         {
-            System.IO.Directory.CreateDirectory(logDirectoryPath);
-            Dts.Events.FireInformation(0, "Script Task", $"Log directory created: {logDirectoryPath}", string.Empty, 0, ref fireAgain);
-        }
+            // Ensure TLS 1.2 is used for secure connections
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
-        // Ensure the directory for the output file exists
-        string directoryPath = System.IO.Path.GetDirectoryName(filePath);
-        if (!System.IO.Directory.Exists(directoryPath))
-        {
-            System.IO.Directory.CreateDirectory(directoryPath);
-            Dts.Events.FireInformation(0, "Script Task", $"Directory created: {directoryPath}", string.Empty, 0, ref fireAgain);
-        }
-        else
-        {
-            Dts.Events.FireInformation(0, "Script Task", $"Directory exists: {directoryPath}", string.Empty, 0, ref fireAgain);
-        }
+            string logFilePath = string.Empty;
+            bool fireAgain = false;
 
-        string url = "https://restcountries.com/v3.1/all";
-
-        // Log start of execution
-        Dts.Events.FireInformation(0, "Script Task", "Starting API fetch...", string.Empty, 0, ref fireAgain);
-
-        // Fetch JSON data asynchronously
-        using (HttpClient client = new HttpClient())
-        {
             try
             {
-                // Log before making the HTTP request
-                Dts.Events.FireInformation(0, "Script Task", "Making HTTP request to API...", string.Empty, 0, ref fireAgain);
+                string filePath = Dts.Variables["User::V_PathFile"].Value.ToString();
+                logFilePath = Dts.Variables["User::V_PathFile_Log"].Value.ToString();
 
-                string jsonResponse = await client.GetStringAsync(url);
+                Dts.Events.FireInformation(0, "Script Task", $"File Path: {filePath}", string.Empty, 0, ref fireAgain);
+                Dts.Events.FireInformation(0, "Script Task", $"Log File Path: {logFilePath}", string.Empty, 0, ref fireAgain);
 
-                // Log after receiving the response
-                Dts.Events.FireInformation(0, "Script Task", $"API fetch successful. Response length: {jsonResponse.Length}", string.Empty, 0, ref fireAgain);
+                string url = "https://api.worldbank.org/v2/country?format=json";
 
-                // Log before file writing
-                Dts.Events.FireInformation(0, "Script Task", "Attempting to write to the file...", string.Empty, 0, ref fireAgain);
+                Dts.Events.FireInformation(0, "Script Task", "Starting API fetch from World Bank...", string.Empty, 0, ref fireAgain);
 
-                // Write the response to the file
-                System.IO.File.WriteAllText(filePath, jsonResponse);
-
-                // Log after file writing
-                Dts.Events.FireInformation(0, "Script Task", "File written successfully.", string.Empty, 0, ref fireAgain);
-            }
-            catch (HttpRequestException httpEx)
-            {
-                // Log detailed HTTP request error
-                Dts.Events.FireError(0, "HTTP Request Error", 
-                    $"HTTP Error: {httpEx.Message}\nStack Trace: {httpEx.StackTrace}", null, 0);
-
-                if (httpEx.InnerException != null)
+                using (HttpClient client = new HttpClient())
                 {
-                    Dts.Events.FireError(0, "Inner Exception", 
-                        $"Inner Error: {httpEx.InnerException.Message}", null, 0);
+                    client.Timeout = TimeSpan.FromMinutes(5); // Set a timeout to avoid interruptions
+                    client.DefaultRequestHeaders.ConnectionClose = true; // Ensure the connection is properly closed
+
+                    HttpResponseMessage response = await client.GetAsync(url);
+                    response.EnsureSuccessStatusCode(); // Throw an exception if the HTTP status code is not 2xx
+
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+
+                    System.IO.File.WriteAllText(filePath, jsonResponse);
+
+                    Dts.Events.FireInformation(0, "Script Task", "API fetch and file write successful.", string.Empty, 0, ref fireAgain);
                 }
 
-                // Write error details to the log file
-                string errorContent = $"HTTP Error: {httpEx.Message}\nStack Trace: {httpEx.StackTrace}";
-                if (httpEx.InnerException != null)
+                Dts.TaskResult = (int)ScriptResults.Success;
+            }
+            catch (Exception ex)
+            {
+                Dts.Events.FireError(0, "Script Task Error", $"Error: {ex.Message}\nStack Trace: {ex.StackTrace}", null, 0);
+
+                string errorContent = $"Error: {ex.Message}\nStack Trace: {ex.StackTrace}";
+                if (ex.InnerException != null)
                 {
-                    errorContent += $"\nInner Error: {httpEx.InnerException.Message}";
+                    errorContent += $"\nInner Error: {ex.InnerException.Message}";
                 }
                 System.IO.File.WriteAllText(logFilePath, errorContent);
+
                 Dts.Events.FireInformation(0, "Script Task", $"Error details written to log file: {logFilePath}", string.Empty, 0, ref fireAgain);
 
-                // Re-throw the exception to mark the task as failed
-                throw;
+                Dts.TaskResult = (int)ScriptResults.Failure;
             }
         }
 
-        // Mark as success
-        Dts.TaskResult = (int)ScriptResults.Success;
-    }
-    catch (Exception ex)
-    {
-        // Log detailed error information
-        Dts.Events.FireError(0, "Script Task Error", 
-            $"Error: {ex.Message}\nStack Trace: {ex.StackTrace}", null, 0);
 
-        // Log inner exception if any
-        if (ex.InnerException != null)
+
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
         {
-            Dts.Events.FireError(0, "Inner Exception", 
-                $"Inner Error: {ex.InnerException.Message}", null, 0);
-        }
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
 
-        // Write general error details to the log file
-        string errorContent = $"Error: {ex.Message}\nStack Trace: {ex.StackTrace}";
-        if (ex.InnerException != null)
-        {
-            errorContent += $"\nInner Error: {ex.InnerException.Message}";
-        }
-        System.IO.File.WriteAllText(logFilePath, errorContent);
-        Dts.Events.FireInformation(0, "Script Task", $"Error details written to log file: {logFilePath}", string.Empty, 0, ref fireAgain);
-
-        // Mark as failure
-        Dts.TaskResult = (int)ScriptResults.Failure;
-    }
+	}
 }
-
 ```
