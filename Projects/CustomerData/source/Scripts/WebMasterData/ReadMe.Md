@@ -16,5 +16,10 @@ This source provides country data, including ISO 3166-1 alpha-2 and alpha-3 code
 
 ![CMD_Curl1](./Curl_Result_2.PNG)
 
-
-
+```
+id → Map to CountryID.
+iso2Code → Map to ISO2Code.
+name → Map to CountryName.
+capitalCity → Map to CapitalCity.
+region.value → Map to Region.
+```
