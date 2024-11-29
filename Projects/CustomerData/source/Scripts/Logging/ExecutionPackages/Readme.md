@@ -62,4 +62,12 @@ To all tables, add the following metadata columns in table creation script of SQ
 
 In SSIS, add a `Derived Column Transfer` component as following:
 
+| Derived Column Name | Expression |
+|------------|------------|
+|SourceID|@[$Package::PK_SourceID]|
+|CreatedBy|(DT_GUID) @[System::PackageID]|
+|ModifiedBy|(DT_GUID) @[System::PackageID]|
+|CreatedDate|@[System::StartTime]|
+
+
 ![Vars2](./DerivedColVars.PNG)
