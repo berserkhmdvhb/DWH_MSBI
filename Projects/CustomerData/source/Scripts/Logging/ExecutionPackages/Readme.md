@@ -1,3 +1,5 @@
+## Event Handler - Log Packages Execution
+
 Add an `Execute SQL task` in Event Handler, set it to OLE DB connection, and use the following script:
 ```sql
 -- Ensure the package exists in Tl_Packages
@@ -47,3 +49,17 @@ Then, map to corresponding variables:
 
 ![Vars](./EventHandlerVars.PNG)
 
+## Add Metadata Columns to Tables
+
+To all tables, add the following metadata columns in table creation script of SQL
+
+```sql
+[SourceID] NVARCHAR(255) NULL,
+[CreatedBy] UNIQUEIDENTIFIER NULL,
+[ModifiedBy] UNIQUEIDENTIFIER NULL,
+[CreatedDate] DATETIME DEFAULT GETDATE()
+```
+
+In SSIS, add a `Derived Column Transfer` component as following:
+
+![Vars2](./DerivedColVars.PNG)
