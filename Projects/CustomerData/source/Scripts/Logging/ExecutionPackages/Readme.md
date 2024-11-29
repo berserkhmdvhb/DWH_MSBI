@@ -45,4 +45,5 @@ END;
 ```
 Then, map to corresponding variables:
 
+![Vars](./EventHandlerVars.PNG)
 
