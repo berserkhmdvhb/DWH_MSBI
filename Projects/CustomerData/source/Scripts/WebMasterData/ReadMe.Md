@@ -13,4 +13,4 @@ The result fails with following meesage:
 `curl -k -v https://api.worldbank.org/v2/country?format=json`
 
 
-![CMD_CurlResult](./Curl_Result_1.PNG)
+![CMD_Curl1](./Curl_Result_1.PNG)
