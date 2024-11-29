@@ -18,6 +18,10 @@ CREATE TABLE [dwh].[Tf_Customer](
 	[StateID_FK] [int] NULL,
 	[ProductID_FK] [int] NULL,
 	[SalesPersonID_FK] [int] NULL,
+	[SourceID] NVARCHAR(255) NULL,
+	[CreatedBy] UNIQUEIDENTIFIER NULL,
+	[ModifiedBy] UNIQUEIDENTIFIER NULL,
+    [CreatedDate] DATETIME DEFAULT GETDATE()
 PRIMARY KEY CLUSTERED 
 (
 	[CustomerCode] ASC

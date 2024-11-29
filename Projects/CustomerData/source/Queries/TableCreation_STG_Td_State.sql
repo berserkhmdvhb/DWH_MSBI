@@ -11,7 +11,11 @@ GO
 CREATE TABLE [stg].[Td_State](
 	[StateID] [int] NOT NULL,
 	[StateName] [nvarchar](50) NULL,
-	[CountryID] [int] NOT NULL
+	[CountryID] [int] NOT NULL,
+	[SourceID] NVARCHAR(255) NULL,
+	[CreatedBy] UNIQUEIDENTIFIER NULL,
+	[ModifiedBy] UNIQUEIDENTIFIER NULL,
+    [CreatedDate] DATETIME DEFAULT GETDATE()
  CONSTRAINT [PK_DimState] PRIMARY KEY CLUSTERED 
 (
 	[StateID] ASC

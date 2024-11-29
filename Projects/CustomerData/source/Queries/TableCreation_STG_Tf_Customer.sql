@@ -17,7 +17,11 @@ CREATE TABLE [stg].[Tf_Customer](
 	[ContryName] [nvarchar](50) NULL,
 	[StateName] [nvarchar](50) NULL,
 	[ProductName] [nvarchar](50) NULL,
-	[SalesPersonName] [nvarchar](50) NULL
+	[SalesPersonName] [nvarchar](50) NULL,
+	[SourceID] NVARCHAR(255) NULL,
+	[CreatedBy] UNIQUEIDENTIFIER NULL,
+	[ModifiedBy] UNIQUEIDENTIFIER NULL,
+    [CreatedDate] DATETIME DEFAULT GETDATE()
 PRIMARY KEY CLUSTERED 
 (
 	[CustomerCode] ASC

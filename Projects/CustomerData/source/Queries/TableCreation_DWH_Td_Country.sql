@@ -11,6 +11,10 @@ GO
 CREATE TABLE [dwh].[Td_Country](
 	[CountryID] [int] NOT NULL,
 	[CountryName] [nvarchar](50) NULL,
-	[IsNew] [bit] NULL
+	[IsNew] [bit] NULL,
+	[SourceID] NVARCHAR(255) NULL,
+	[CreatedBy] UNIQUEIDENTIFIER NULL,
+	[ModifiedBy] UNIQUEIDENTIFIER NULL,
+    [CreatedDate] DATETIME DEFAULT GETDATE()
 ) ON [PRIMARY]
 GO

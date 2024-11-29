@@ -10,6 +10,10 @@ GO
 
 CREATE TABLE [stg].[Td_Country](
 	[CountryID] [int] NOT NULL,
-	[CountryName] [nvarchar](50) NULL
+	[CountryName] [nvarchar](50) NULL,
+	[SourceID] NVARCHAR(255) NULL,
+	[CreatedBy] UNIQUEIDENTIFIER NULL,
+	[ModifiedBy] UNIQUEIDENTIFIER NULL,
+    [CreatedDate] DATETIME DEFAULT GETDATE()
 ) ON [PRIMARY]
 GO

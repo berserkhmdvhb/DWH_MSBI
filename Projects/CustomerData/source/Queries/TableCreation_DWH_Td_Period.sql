@@ -1,3 +1,12 @@
+USE [CustomerDWH]
+GO
+
+/****** Object:  Table [stg].[Td_Country]    Script Date: 5/3/2024 3:03:14 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE TABLE [dwh].[Td_Period] (
     -- Key and Date
@@ -42,5 +51,11 @@ CREATE TABLE [dwh].[Td_Period] (
     [year] [int] NOT NULL,                
     [year_id] [int] NOT NULL,             
     [year_desc] [varchar](10) NOT NULL,   
-    [year_cd] [varchar](10) NOT NULL      
+    [year_cd] [varchar](10) NOT NULL,
+
+	-- Audit field for tracking
+	[SourceID] NVARCHAR(255) NULL,
+	[CreatedBy] UNIQUEIDENTIFIER NULL,
+	[ModifiedBy] UNIQUEIDENTIFIER NULL,
+    [CreatedDate] DATETIME DEFAULT GETDATE()
 );

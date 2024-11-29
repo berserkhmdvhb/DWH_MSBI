@@ -11,7 +11,11 @@ GO
 CREATE TABLE [dwh].[Td_SalesPerson](
 	[SalesPersonID] [int] NOT NULL,
 	[SalesPersonName] [nvarchar](50) NULL,
-	[SalesPersonBossID_FK] [int]
+	[SalesPersonBossID_FK] [int],
+	[SourceID] NVARCHAR(255) NULL,
+	[CreatedBy] UNIQUEIDENTIFIER NULL,
+	[ModifiedBy] UNIQUEIDENTIFIER NULL,
+    [CreatedDate] DATETIME DEFAULT GETDATE()
  CONSTRAINT [PK_DimSalesPerson] PRIMARY KEY CLUSTERED 
 (
 	[SalesPersonID] ASC
