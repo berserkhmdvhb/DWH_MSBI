@@ -1,1 +1,1 @@
-The MasterData of countries (json file) is taken from [GitHub Repo](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/tree/master).
+The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSBI/blob/main/Projects/CustomerData/Dataset/Input/MasterData/Countries/Countries.json) is taken from [GitHub Repo](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/tree/master).
