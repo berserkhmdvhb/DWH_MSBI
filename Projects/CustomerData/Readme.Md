@@ -1,48 +1,144 @@
+
+
+
+# Documentation
+
+
+## Source Data
+
+### MasterData
+
 The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSBI/blob/main/Projects/CustomerData/Dataset/Input/MasterData/Countries/Countries.json) is taken from [GitHub Repo](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/tree/master).
+### 1. `name`
+- **Description**: Full name of the country.
+- **Example**: `"Afghanistan"`
+- **Data Type**: `NVARCHAR(255)`
+- **Details**: 
+  - Accommodates country names, including special characters or Unicode.
+  - Used as a descriptive field for the country.
 
+---
 
-## Documentation of columns in masterdata file
-name:
-Table Equivalent: CountryName
-Data Type: NVARCHAR(255)
-Explanation: Accommodates country names, including Unicode characters.
-2. alpha-2:
-Table Equivalent: ISO2Code
-Data Type: CHAR(2)
-Explanation: Fixed two-character ISO 3166-1 alpha-2 code.
-3. alpha-3:
-Table Equivalent: CountryID
-Data Type: NVARCHAR(3)
-Explanation: Stores the ISO 3166-1 alpha-3 code, allowing Unicode compatibility.
-4. country-code:
-Table Equivalent: Not explicitly defined in your schema but could be added if needed.
-Suggested Data Type: VARCHAR(3)
-Explanation: Stores numeric country codes; some may have leading zeros.
-5. iso_3166-2:
-Table Equivalent: ISO3166_2
-Data Type: NVARCHAR(50)
-Explanation: Accommodates mixed character and numeric ISO 3166-2 values.
-6. region:
-Table Equivalent: RegionName
-Data Type: NVARCHAR(100)
-Explanation: Stores the region name, e.g., "Asia".
-7. sub-region:
-Table Equivalent: SubRegionName
-Data Type: NVARCHAR(100)
-Explanation: Stores sub-region names, e.g., "Southern Asia".
-8. intermediate-region:
-Table Equivalent: IntermediateRegionName
-Data Type: NVARCHAR(100)
-Explanation: Optional intermediate region names.
-9. region-code:
-Table Equivalent: RegionCode
-Data Type: VARCHAR(3)
-Explanation: Numeric code for the region.
-10. sub-region-code:
-Table Equivalent: SubRegionCode
-Data Type: VARCHAR(3)
-Explanation: Numeric code for the sub-region.
-11. intermediate-region-code:
-Table Equivalent: IntermediateRegionCode
-Data Type: VARCHAR(3)
-Explanation: Numeric code for intermediate regions.
+### 2. `alpha-2`
+- **Description**: ISO 3166-1 alpha-2 country code.
+- **Example**: `"AF"`
+- **Data Type**: `CHAR(2)`
+- **Details**: 
+  - Fixed-length two-character code.
+  - Represents the country in ISO 3166-1 standards.
+
+---
+
+### 3. `alpha-3`
+- **Description**: ISO 3166-1 alpha-3 country code.
+- **Example**: `"AFG"`
+- **Data Type**: `NVARCHAR(3)`
+- **Details**: 
+  - Allows Unicode compatibility.
+  - Commonly used as a unique identifier for countries.
+
+---
+
+### 4. `country-code`
+- **Description**: Numeric country code as per ISO standards.
+- **Example**: `"004"`
+- **Data Type**: `VARCHAR(3)`
+- **Details**: 
+  - May include leading zeros.
+  - Useful for numeric-based identification of countries.
+
+---
+
+### 5. `iso_3166-2`
+- **Description**: ISO 3166-2 region code.
+- **Example**: `"ISO 3166-2:AF"`
+- **Data Type**: `NVARCHAR(50)`
+- **Details**: 
+  - Contains region codes in the format specified by ISO 3166-2.
+  - May include combinations of letters and numbers.
+
+---
+
+### 6. `region`
+- **Description**: Name of the region where the country is located.
+- **Example**: `"Asia"`
+- **Data Type**: `NVARCHAR(100)`
+- **Details**: 
+  - Represents the high-level region, such as "Europe" or "Africa".
+  - Provides geographical categorization.
+
+---
+
+### 7. `sub-region`
+- **Description**: Name of the sub-region where the country is located.
+- **Example**: `"Southern Asia"`
+- **Data Type**: `NVARCHAR(100)`
+- **Details**: 
+  - Refines the region into smaller geographical areas.
+  - Allows for more granular geographical analysis.
+
+---
+
+### 8. `intermediate-region`
+- **Description**: Optional name of an intermediate region, if applicable.
+- **Example**: `"Middle Africa"`
+- **Data Type**: `NVARCHAR(100)`
+- **Details**: 
+  - Often empty or `NULL`.
+  - Represents a mid-level grouping of countries in some geographical frameworks.
+
+---
+
+### 9. `region-code`
+- **Description**: Numeric code for the region.
+- **Example**: `"142"`
+- **Data Type**: `VARCHAR(3)`
+- **Details**: 
+  - Numeric representation of the region.
+  - Corresponds to `region`.
+
+---
+
+### 10. `sub-region-code`
+- **Description**: Numeric code for the sub-region.
+- **Example**: `"034"`
+- **Data Type**: `VARCHAR(3)`
+- **Details**: 
+  - Numeric representation of the sub-region.
+  - Corresponds to `sub-region`.
+
+---
+
+### 11. `intermediate-region-code`
+- **Description**: Numeric code for the intermediate region.
+- **Example**: `"017"`
+- **Data Type**: `VARCHAR(3)`
+- **Details**: 
+  - Numeric representation of the intermediate region.
+  - Often empty or `NULL`.
+
+---
+
+## Notes on Data Quality
+- **Missing Data**: Fields like `intermediate-region` and `intermediate-region-code` may be `NULL` for certain countries.
+- **Empty Strings**: Some fields might contain empty strings instead of `NULL`. Ensure these are handled during processing.
+- **Encoding**: All string fields are expected to support Unicode to handle special characters in country names and region descriptions.
+- **Numeric Codes**: Use `VARCHAR` for numeric codes to preserve leading zeros and handle all formats consistently.
+
+---
+
+## Example Data Entry
+```json
+{
+    "name": "Afghanistan",
+    "alpha-2": "AF",
+    "alpha-3": "AFG",
+    "country-code": "004",
+    "iso_3166-2": "ISO 3166-2:AF",
+    "region": "Asia",
+    "sub-region": "Southern Asia",
+    "intermediate-region": "",
+    "region-code": "142",
+    "sub-region-code": "034",
+    "intermediate-region-code": ""
+}
