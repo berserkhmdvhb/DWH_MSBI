@@ -49,7 +49,7 @@ The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSB
 
 ---
 
-### 5. `iso_3166-2`
+#### 5. `iso_3166-2`
 - **Description**: ISO 3166-2 region code.
 - **Example**: `"ISO 3166-2:AF"`
 - **Data Type**: `NVARCHAR(50)`
@@ -59,7 +59,7 @@ The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSB
 
 ---
 
-### 6. `region`
+#### 6. `region`
 - **Description**: Name of the region where the country is located.
 - **Example**: `"Asia"`
 - **Data Type**: `NVARCHAR(100)`
@@ -79,7 +79,7 @@ The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSB
 
 ---
 
-### 8. `intermediate-region`
+#### 8. `intermediate-region`
 - **Description**: Optional name of an intermediate region, if applicable.
 - **Example**: `"Middle Africa"`
 - **Data Type**: `NVARCHAR(100)`
@@ -89,7 +89,7 @@ The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSB
 
 ---
 
-### 9. `region-code`
+#### 9. `region-code`
 - **Description**: Numeric code for the region.
 - **Example**: `"142"`
 - **Data Type**: `VARCHAR(3)`
@@ -99,7 +99,7 @@ The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSB
 
 ---
 
-### 10. `sub-region-code`
+#### 10. `sub-region-code`
 - **Description**: Numeric code for the sub-region.
 - **Example**: `"034"`
 - **Data Type**: `VARCHAR(3)`
@@ -109,7 +109,7 @@ The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSB
 
 ---
 
-### 11. `intermediate-region-code`
+#### 11. `intermediate-region-code`
 - **Description**: Numeric code for the intermediate region.
 - **Example**: `"017"`
 - **Data Type**: `VARCHAR(3)`
@@ -119,7 +119,7 @@ The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSB
 
 ---
 
-## Notes on Data Quality
+#### **Notes on Data Quality**
 - **Missing Data**: Fields like `intermediate-region` and `intermediate-region-code` may be `NULL` for certain countries.
 - **Empty Strings**: Some fields might contain empty strings instead of `NULL`. Ensure these are handled during processing.
 - **Encoding**: All string fields are expected to support Unicode to handle special characters in country names and region descriptions.
@@ -127,7 +127,7 @@ The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSB
 
 ---
 
-#### Example Data Entry
+#### **Example Data Entry**
 ```json
 {
     "name": "Afghanistan",
