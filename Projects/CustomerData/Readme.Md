@@ -9,7 +9,7 @@
 ### MasterData
 
 The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSBI/blob/main/Projects/CustomerData/Dataset/Input/MasterData/Countries/Countries.json) is taken from [GitHub Repo](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/tree/master).
-### 1. `name`
+#### 1. `name`
 - **Description**: Full name of the country.
 - **Example**: `"Afghanistan"`
 - **Data Type**: `NVARCHAR(255)`
@@ -19,7 +19,7 @@ The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSB
 
 ---
 
-### 2. `alpha-2`
+#### 2. `alpha-2`
 - **Description**: ISO 3166-1 alpha-2 country code.
 - **Example**: `"AF"`
 - **Data Type**: `CHAR(2)`
@@ -29,7 +29,7 @@ The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSB
 
 ---
 
-### 3. `alpha-3`
+#### 3. `alpha-3`
 - **Description**: ISO 3166-1 alpha-3 country code.
 - **Example**: `"AFG"`
 - **Data Type**: `NVARCHAR(3)`
@@ -39,7 +39,7 @@ The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSB
 
 ---
 
-### 4. `country-code`
+#### 4. `country-code`
 - **Description**: Numeric country code as per ISO standards.
 - **Example**: `"004"`
 - **Data Type**: `VARCHAR(3)`
@@ -127,7 +127,7 @@ The MasterData of countries [JSON file](https://github.com/berserkhmdvhb/DWH_MSB
 
 ---
 
-## Example Data Entry
+#### Example Data Entry
 ```json
 {
     "name": "Afghanistan",
