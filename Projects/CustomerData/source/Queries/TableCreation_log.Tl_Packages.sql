@@ -9,14 +9,13 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [log].[Tl_Packages] (
-    [PackageId] UNIQUEIDENTIFIER NOT NULL, -- Use System::PackageID for consistency
+    [PackageId] UNIQUEIDENTIFIER NOT NULL, -- System::PackageID
     [PackageName] NVARCHAR(255) NOT NULL, -- Name of the package
     [CreatedDate] DATETIME NOT NULL DEFAULT GETDATE(), -- When the entry was created
     [IsActive] BIT NOT NULL DEFAULT 1, -- Indicates if the package is active
-    CONSTRAINT [PK_Tl_Packages] PRIMARY KEY CLUSTERED ([PackageId] ASC) -- Primary key
+    CONSTRAINT [PK_Tl_Packages] PRIMARY KEY CLUSTERED ([PackageId] ASC)
 );
-GO
 
--- Optional: Add an index to improve lookups by PackageName
-CREATE UNIQUE NONCLUSTERED INDEX [IX_PackageName] ON [log].[Tl_Packages] ([PackageName] ASC);
-GO
+-- Optional Index for faster lookups by PackageName
+CREATE NONCLUSTERED INDEX [IX_Tl_Packages_PackageName]
+ON [log].[Tl_Packages] ([PackageName]);
