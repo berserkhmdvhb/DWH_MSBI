@@ -5,51 +5,69 @@ In SSMS SQL server, Create the log tables [[log].[Tl_Exec]](https://github.com/b
 In all SSIS packages, add an `Execute SQL task` in Event Handler, set it to OLE DB connection, and use the following script:
 ```sql
 -- Ensure the package exists in Tl_Packages
-IF NOT EXISTS (
-    SELECT 1
-    FROM [log].[Tl_Packages]
-    WHERE PackageName = ?
-)
-BEGIN
-    INSERT INTO [log].[Tl_Packages] (
-        [PackageId],
-        [PackageName],
-        [CreatedDate],
-        [IsActive]
-    )
-    VALUES (
-        ?, -- System::PackageID
-        ?, -- System::PackageName
-        CAST(? AS DATETIME),
-        1  -- Active
-    );
-END;
+MERGE INTO [log].[Tl_Packages] AS Target
+USING (
+	SELECT 
+		? AS PackageId, -- System::PackageID
+		? AS PackageName, -- System::PackageName
+		CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate
+		1 AS IsActive -- Active status
+	) AS Source
+	ON Target.PackageId = Source.PackageId
+WHEN MATCHED
+	THEN
+		UPDATE
+		SET 
+			Target.PackageName = Source.PackageName, -- Update name if necessary
+			Target.IsActive = Source.IsActive -- Maintain active status
+WHEN NOT MATCHED
+	THEN
+		INSERT (
+			PackageId,
+			PackageName,
+			CreatedDate,
+			IsActive
+			)
+		VALUES (
+			Source.PackageId,
+			Source.PackageName,
+			Source.CreatedDate,
+			Source.IsActive
+			);
 
 -- Log the package execution in Tl_Exec
-IF NOT EXISTS (
-    SELECT 1
-    FROM [log].[Tl_Exec]
-    WHERE PackageId = (
-        SELECT PackageId
-        FROM [log].[Tl_Packages]
-        WHERE PackageName = ?
-    )
-    AND RunTime = ?
-)
-BEGIN
-    INSERT INTO [log].[Tl_Exec] (
-        [PackageId],
-        [RunTime]
-    )
-    SELECT PackageId,
-           CAST(? AS DATETIME)
-    FROM [log].[Tl_Packages]
-    WHERE PackageName = ?;
-END;
+MERGE INTO [log].[Tl_Exec] AS Target
+USING (
+	SELECT 
+		? AS PackageId,
+		CAST(? AS DATETIME) AS RunTime,
+		'Success' AS ExecutionStatus
+	) AS Source
+	ON Target.PackageId = Source.PackageId
+		AND Target.RunTime = Source.RunTime
+WHEN MATCHED
+	THEN
+		UPDATE
+		SET 
+			Target.ExecutionStatus = Source.ExecutionStatus
+WHEN NOT MATCHED
+	THEN
+		INSERT (
+			PackageId,
+			RunTime,
+			ExecutionStatus
+			)
+		VALUES (
+			Source.PackageId,
+			Source.RunTime,
+			Source.ExecutionStatus
+			);
 ```
 Then, map to corresponding variables:
 
 ![Vars](./EventHandlerVars.PNG)
+
+This code is for event `OnPostExecute`. Redo the same for the event `OnError` but change the ExecutionStatus in code to `Fail`.
 
 ---
 ## Approach II. Add Metadata Columns to Tables
