@@ -1,4 +1,4 @@
-## Approach I. Event Handler - Log Packages Execution & and Packages Metadata
+## Method I. Event Handler - Log Packages Execution & and Packages Metadata
 In SSMS SQL server, Create the log tables [[log].[Tl_Exec]](https://github.com/berserkhmdvhb/DWH_MSBI/blob/main/Projects/CustomerData/source/Queries/TableCreation_LOG_Tl_Exec.sql) and [[log].[Tl_Packages]](https://github.com/berserkhmdvhb/DWH_MSBI/blob/main/Projects/CustomerData/source/Queries/TableCreation_LOG_Tl_Packages.sql).
 
 
@@ -70,7 +70,7 @@ Then, map to corresponding variables:
 This code is for event `OnPostExecute`. Redo the same for the event `OnError` but change the ExecutionStatus in code to `Fail`.
 
 ---
-## Approach II. Add Metadata Columns to Tables
+## Method II. Add Metadata Columns to Tables
 This methods is designed to know how each row is created/updated, and trace the packageID responsible for it.
 And thanks to Approach I, one can readily find package metadata (name, etc) in log table [[log].[Tl_Packages]](https://github.com/berserkhmdvhb/DWH_MSBI/blob/main/Projects/CustomerData/source/Queries/TableCreation_LOG_Tl_Packages.sql)
 
@@ -94,3 +94,16 @@ In SSIS, add a `Derived Column Transfer` component as following:
 
 
 ![Vars2](./DerivedColVars.PNG)
+---
+## Method III.
+
+```sql
+USE CustomerDWH;
+EXEC [tech].[usp_LogWarningDynamic]
+    @WarningID = 1, -- Corresponds to "Missing dimension key" in [log].[Tl_WarningDetails]
+    @SourceID = 'ETL',
+    @SourceContext = 'Dimension: Country',
+    @CreatedBy = 'D18C4AB2-56F7-4C58-8F02-BF841024DC81',
+    @DynamicParams = '[{"Key":"KeyValue", "Value":"US"}, {"Key":"DimensionName", "Value":"Country"}]',
+    @Severity = NULL; -- Use default severity
+```
