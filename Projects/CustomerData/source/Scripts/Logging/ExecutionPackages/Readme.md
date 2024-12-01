@@ -1,5 +1,5 @@
-## Event Handler - Log Packages Execution
-
+## Approach I. Event Handler - Log Packages Execution & and Packages Metadata
+Create the log tables [[log].[Tl_Exec]](https://github.com/berserkhmdvhb/DWH_MSBI/blob/main/Projects/CustomerData/source/Queries/TableCreation_LOG_Tl_Exec.sql) and [[log].[Tl_Packages]](https://github.com/berserkhmdvhb/DWH_MSBI/blob/main/Projects/CustomerData/source/Queries/TableCreation_LOG_Tl_Packages.sql)
 Add an `Execute SQL task` in Event Handler, set it to OLE DB connection, and use the following script:
 ```sql
 -- Ensure the package exists in Tl_Packages
@@ -50,6 +50,8 @@ Then, map to corresponding variables:
 ![Vars](./EventHandlerVars.PNG)
 
 ## Add Metadata Columns to Tables
+This methods is designed to know how each row is created/updated, and trace the packageID responsible for it.
+And thanks to Approach I, one can readily find package metadata (name, etc) in log table [[log].[Tl_Packages]](https://github.com/berserkhmdvhb/DWH_MSBI/blob/main/Projects/CustomerData/source/Queries/TableCreation_LOG_Tl_Packages.sql)
 
 To all tables, add the following metadata columns in table creation script of SQL
 
