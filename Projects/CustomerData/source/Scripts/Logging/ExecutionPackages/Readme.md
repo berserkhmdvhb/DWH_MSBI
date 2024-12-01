@@ -51,7 +51,8 @@ Then, map to corresponding variables:
 
 ![Vars](./EventHandlerVars.PNG)
 
-## Add Metadata Columns to Tables
+---
+## Approach II. Add Metadata Columns to Tables
 This methods is designed to know how each row is created/updated, and trace the packageID responsible for it.
 And thanks to Approach I, one can readily find package metadata (name, etc) in log table [[log].[Tl_Packages]](https://github.com/berserkhmdvhb/DWH_MSBI/blob/main/Projects/CustomerData/source/Queries/TableCreation_LOG_Tl_Packages.sql)
 
