@@ -97,27 +97,14 @@ In SSIS, add a `Derived Column Transfer` component as following:
 ---
 ## Method III.
 
-```sql
-USE CustomerDWH;
-EXEC [tech].[usp_LogWarningDynamic]
-    @WarningID = 1, -- Corresponds to "Missing dimension key" in [log].[Tl_WarningDetails]
-    @SourceID = 'ETL',
-    @SourceContext = 'Dimension: Country',
-    @CreatedBy = 'D18C4AB2-56F7-4C58-8F02-BF841024DC81',
-    @DynamicParams = '[{"Key":"KeyValue", "Value":"US"}, {"Key":"DimensionName", "Value":"Country"}]',
-    @Severity = NULL; -- Use default severity
-```
-
 
 ```sql
 EXEC [tech].[usp_LogWarningDynamic]
-    @WarningID = 2,
+    @WarningID = 4,
     @SourceID = 'FlatFile',
     @SourceContext = 'Dimension - Country',
-    @CreatedBy = '906BA838-DFA5-4DC7-8DF6-D8ABBF7A4BA0',
+    @CreatedBy = '906BA838-DFA5-4DC7-8DF6-D8ABBF7A4BA0', -- Use a valid GUID
     @DynamicParams = '[{"Key":"ErrorColumn","Value":"CountryID"},
- {"Key":"ErrorCode","Value":"12345"},
- {"Key":"CountryID","Value":"NULL"},
- {"Key":"CountryName","Value":"India"}]',
+                       {"Key":"ErrorCode","Value":"12345"}]',
     @Severity = 'High';
 ```
