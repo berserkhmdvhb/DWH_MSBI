@@ -95,7 +95,7 @@ In SSIS, add a `Derived Column Transfer` component as following:
 
 ![Vars2](./DerivedColVars.PNG)
 ---
-## Method III.
+## Method III. Business Warnings
 
 
 ```sql
