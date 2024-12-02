@@ -9,15 +9,12 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [log].[Tl_WarningDetails] (
-    [WarningID] INT IDENTITY(1,1) PRIMARY KEY,       -- Unique identifier for each warning type
-    [MessageTemplate] NVARCHAR(1000) NOT NULL,      -- Template with placeholders (e.g., "Missing key: {KeyValue}")
-    [Category] NVARCHAR(255) NOT NULL,             -- Category of the warning (e.g., "Missing Dimension")
-    [DefaultSeverity] NVARCHAR(50) NOT NULL,       -- Default severity for the warning (e.g., High, Medium)
-    [ActionRequired] BIT NOT NULL DEFAULT 1        -- Indicates if action is required (1 = Yes, 0 = No)
+    WarningID INT IDENTITY(1,1) PRIMARY KEY,  -- Unique identifier for each warning
+    Title NVARCHAR(255) NOT NULL,            -- Short title for the warning
+    MessageTemplate NVARCHAR(1000) NOT NULL, -- Template for warning message
+    Category NVARCHAR(255) NOT NULL,         -- Category of the warning
+    DefaultSeverity NVARCHAR(50) NOT NULL,   -- Default severity level
+    ActionRequired BIT NOT NULL              -- Indicates if action is required
 );
 
--- Example Data:
--- INSERT INTO [log].[Tl_WarningDetails] (MessageTemplate, Category, DefaultSeverity, ActionRequired)
--- VALUES 
--- ('Missing dimension key: {KeyValue} for {DimensionName}', 'Missing Dimension', 'High', 1),
--- ('Data conversion failed for {ColumnName} with value {Value}', 'Data Quality', 'Medium', 1);
+
