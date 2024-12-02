@@ -100,11 +100,10 @@ In SSIS, add a `Derived Column Transfer` component as following:
 
 ```sql
 EXEC [tech].[usp_LogWarningDynamic]
-    @WarningID = 4,
-    @SourceID = 'FlatFile',
-    @SourceContext = 'Dimension - Country',
-    @CreatedBy = '906BA838-DFA5-4DC7-8DF6-D8ABBF7A4BA0', -- Use a valid GUID
-    @DynamicParams = '[{"Key":"ErrorColumn","Value":"CountryID"},
-                       {"Key":"ErrorCode","Value":"12345"}]',
-    @Severity = 'High';
+	@WarningID = 2,
+	@SourceID = 'FlatFile',
+	@SourceContext = 'Dimension - Country',
+	@CreatedBy = '906BA838-DFA5-4DC7-8DF6-D8ABBF7A4BA0', -- Use a valid GUID
+	@DynamicParams = '[{"Key":"ErrorColumn","Value":"CountryID"},
+						{"Key":"ErrorCode","Value":"12345"}]'
 ```
