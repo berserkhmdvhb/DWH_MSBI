@@ -107,3 +107,17 @@ EXEC [tech].[usp_LogWarningDynamic]
     @DynamicParams = '[{"Key":"KeyValue", "Value":"US"}, {"Key":"DimensionName", "Value":"Country"}]',
     @Severity = NULL; -- Use default severity
 ```
+
+
+```sql
+EXEC [tech].[usp_LogWarningDynamic]
+    @WarningID = 2,
+    @SourceID = 'FlatFile',
+    @SourceContext = 'Dimension - Country',
+    @CreatedBy = '906BA838-DFA5-4DC7-8DF6-D8ABBF7A4BA0',
+    @DynamicParams = '[{"Key":"ErrorColumn","Value":"CountryID"},
+ {"Key":"ErrorCode","Value":"12345"},
+ {"Key":"CountryID","Value":"NULL"},
+ {"Key":"CountryName","Value":"India"}]',
+    @Severity = 'High';
+```
