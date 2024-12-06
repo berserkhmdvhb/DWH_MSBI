@@ -88,6 +88,7 @@ In SSIS, add a `Derived Column Transfer` component as following:
 | Derived Column Name | Expression |
 |------------|------------|
 |SourceID|`@[$Package::PK_SourceID]`|
+|SourceContext|`@[$Package::PK_SourceContext]`|
 |CreatedBy|`(DT_GUID) @[System::PackageID]`|
 |ModifiedBy|`(DT_GUID) @[System::PackageID]`|
 |CreatedDate|`@[System::StartTime]`|
