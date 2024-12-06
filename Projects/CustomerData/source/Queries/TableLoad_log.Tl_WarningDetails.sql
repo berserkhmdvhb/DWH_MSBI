@@ -34,7 +34,8 @@ EXEC [tech].[usp_PopulateWarningDetails]
     @ActionRequired = 1;
 
 -- Update a Warning Message
-
 EXEC [tech].[usp_PopulateWarningDetails]
-	@WarningID = 123,
-    @MessageTemplate = 'Data conversion failed for {ErrorColumn} with value {ErrorCode}'
+    @WarningID = 4,
+    @MessageTemplate = 'Data conversion failed for column with code {ErrorColumn} by error code {ErrorCode}.
+The failing row is following:
+{DynamicDetails}'

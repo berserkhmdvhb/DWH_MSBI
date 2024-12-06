@@ -13,10 +13,9 @@ CREATE TABLE [log].[Tl_BusinessWarnings] (
     [WarningID] INT NOT NULL,                      -- Foreign key to [log].[Tl_WarningDetails].[WarningID]
     [SourceID] NVARCHAR(255) NOT NULL,             -- Identifier for the source system (e.g., MDM, ETL)
     [SourceContext] NVARCHAR(255) NOT NULL,        -- Context (e.g., "Dimension: Country" or "Fact: Sales")
-    [MissingValue] NVARCHAR(255) NULL,             -- Specific value causing the issue (e.g., "US" for Country)
     [CreatedBy] UNIQUEIDENTIFIER NOT NULL,         -- SSIS package or process logging the warning
     [CreatedDate] DATETIME DEFAULT GETDATE(),      -- Timestamp when the warning was logged
-    [Severity] NVARCHAR(50) NOT NULL,              -- Severity level of the warning (e.g., High, Medium, Low)
+	[Severity] NVARCHAR(50) NOT NULL,              -- Severity level of the warning (e.g., High, Medium, Low)
     [MessageDetails] NVARCHAR(1000) NOT NULL,      -- Fully contextualized warning message
     CONSTRAINT FK_BusinessWarnings_WarningDetails FOREIGN KEY (WarningID)
         REFERENCES [log].[Tl_WarningDetails] (WarningID) 
