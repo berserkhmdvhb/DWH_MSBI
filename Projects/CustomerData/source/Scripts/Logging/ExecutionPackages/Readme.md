@@ -97,7 +97,10 @@ In SSIS, add a `Derived Column Transfer` component as following:
 ![Vars2](./DerivedColVars.PNG)
 ---
 ## Method III. Business Warnings
+Some known warnings and issues that should be reported to stakeholders are logged with this method.
+The tables [log].[Tl_BusinessWarnings].
 
+The [script](https://github.com/berserkhmdvhb/DWH_MSBI/blob/main/Projects/CustomerData/source/Scripts/Logging/ExecutionPackages/Script_JSONParamConstruction.md) is used to construct a dynamic JSON parameters based on the initial input columns, as well as columns generated from failing component as metadata.
 
 ```sql
 EXEC [tech].[usp_LogWarningDynamic]
