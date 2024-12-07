@@ -95,6 +95,7 @@ In SSIS, add a `Derived Column Transfer` component as following:
 
 
 ![Vars2](./DerivedColVars.PNG)
+
 ---
 ## Method III. Business Warnings
 Some known warnings and issues that should be reported to stakeholders are logged with this method.
