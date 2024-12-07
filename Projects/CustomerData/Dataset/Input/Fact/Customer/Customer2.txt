@@ -1,5 +1,0 @@
-CustomerCode,CustomerName,CustomerAmount,SalesDate,CountryName,StateName,ProductName,SalesPersonName
-1006,Rahul,-100,3/2/2015,Nepal,Maharashtra,Tyos,Khadak
-1007,Rohit,0,4/5/2015,US,NewYork,Shoes,Raju
-1008,Sanjay,1240,5/5/2015,India,Punjab,Pants,Shaam
-1009,Jignesh,12,1/1/2010,India,Maharashtra,Shirts,NULL
