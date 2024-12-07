@@ -1,0 +1,19 @@
+SELECT 
+NON EMPTY { [Measures].[Customer Amount] } ON COLUMNS, 
+NON EMPTY { 
+    ([Dim Country].[Country Name].[Country Name].ALLMEMBERS * 
+    [Dim Date].[Date].[Date].ALLMEMBERS * 
+    [Dim Product].[Product Name].[Product Name].ALLMEMBERS * 
+    [Dim Sales Person].[Sales Person Name].[Sales Person Name].ALLMEMBERS * 
+    [Dim State].[State Name].[State Name].ALLMEMBERS )
+} DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS 
+FROM ( 
+    SELECT (
+        CASE WHEN @DimStateStateName = 'All' OR @DimStateStateName = ''
+        THEN [Dim State].[State Name].[State Name].ALLMEMBERS 
+        ELSE STRTOSET(@DimStateStateName, CONSTRAINED)
+        END
+    ) ON COLUMNS 
+    FROM [CustomerDWH]
+) 
+CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS

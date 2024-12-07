@@ -1,7 +1,7 @@
 USE [CustomerDWH]
 GO
 
-/****** Object:  View [dbo].[V_FactCustomer]    Script Date: 11/28/2024 1:41:26 PM ******/
+/****** Object:  View [dwh].[V_Td_Country]    Script Date: 11/28/2024 1:41:26 PM ******/
 SET ANSI_NULLS ON
 GO
 

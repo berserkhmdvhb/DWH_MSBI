@@ -1,3 +1,4 @@
+USE CustomerDWH;
 EXEC [tech].[usp_PopulateWarningDetails]
 	@Title = 'Warning - Missing Dimension Key',
     @MessageTemplate = 'Missing dimension key: {KeyValue} for {DimensionName}',
