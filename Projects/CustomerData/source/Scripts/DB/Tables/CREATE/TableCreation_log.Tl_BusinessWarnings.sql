@@ -1,7 +1,7 @@
 USE [CustomerDWH]
 GO
 
-/****** Object:  Table [stg].[Td_Country]    Script Date: 5/3/2024 3:03:14 PM ******/
+/****** Object:  Table [log].[Tl_BusinessWarnings]    Script Date: 12/7/2024 ******/ 
 SET ANSI_NULLS ON
 GO
 
@@ -13,9 +13,10 @@ CREATE TABLE [log].[Tl_BusinessWarnings] (
     [WarningID] INT NOT NULL,                      -- Foreign key to [log].[Tl_WarningDetails].[WarningID]
     [SourceID] NVARCHAR(255) NOT NULL,             -- Identifier for the source system (e.g., MDM, ETL)
     [SourceContext] NVARCHAR(255) NOT NULL,        -- Context (e.g., "Dimension: Country" or "Fact: Sales")
+    [SourceObject] NVARCHAR(255) NULL,             -- Name or identifier of the source object (e.g., file name, table name, API URL)
     [CreatedBy] UNIQUEIDENTIFIER NOT NULL,         -- SSIS package or process logging the warning
     [CreatedDate] DATETIME DEFAULT GETDATE(),      -- Timestamp when the warning was logged
-	[Severity] NVARCHAR(50) NOT NULL,              -- Severity level of the warning (e.g., High, Medium, Low)
+    [Severity] NVARCHAR(50) NOT NULL,              -- Severity level of the warning (e.g., High, Medium, Low)
     [MessageDetails] NVARCHAR(1000) NOT NULL,      -- Fully contextualized warning message
     CONSTRAINT FK_BusinessWarnings_WarningDetails FOREIGN KEY (WarningID)
         REFERENCES [log].[Tl_WarningDetails] (WarningID) 
@@ -30,4 +31,3 @@ ON [log].[Tl_BusinessWarnings] (SourceContext);
 
 CREATE NONCLUSTERED INDEX IX_BusinessWarnings_CreatedDate
 ON [log].[Tl_BusinessWarnings] (CreatedDate);
-
