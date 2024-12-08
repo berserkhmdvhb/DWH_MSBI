@@ -1,2 +1,0 @@
-CustomerCode,CustomerName,CustomerAmount,SalesDate,CountryName,StateName,ProductName,SalesPersonName
-1014,Pooya,800,21/07/2022,US,NewYork,Shirts,Shaam
