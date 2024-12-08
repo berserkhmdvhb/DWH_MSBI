@@ -34,6 +34,14 @@ EXEC [tech].[usp_PopulateWarningDetails]
     @DefaultSeverity = 'Low',
     @ActionRequired = 1;
 
+
+EXEC [tech].[usp_PopulateWarningDetails]
+    @Title = 'Issue - Data Retrieval Failed',
+    @MessageTemplate = 'Failed to retrieve data from source URL',
+    @Category = 'Data Scraping',
+    @DefaultSeverity = 'High',
+    @ActionRequired = 1;
+
 -- Update a Warning Message
 EXEC [tech].[usp_PopulateWarningDetails]
     @WarningID = 4,
