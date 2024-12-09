@@ -109,6 +109,7 @@ EXEC [tech].[usp_LogWarningDynamic]
     @WarningID = 4,
     @SourceID = 'FlatFile',
     @SourceContext = 'Dimension - Country',
+    @SourceObject = 'Country.txt',
     @CreatedBy = '906BA838-DFA5-4DC7-8DF6-D8ABBF7A4BA0',
     @DynamicParams = '[{"Key":"ErrorCode","Value":"-1071607681"},{"Key":"ErrorColumn","Value":"45"},{"Key":"CountryID","Value":"1"},{"Key":"CountryName","Value":"India"}]';
 ```
