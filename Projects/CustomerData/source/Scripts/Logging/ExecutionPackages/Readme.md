@@ -112,3 +112,13 @@ EXEC [tech].[usp_LogWarningDynamic]
     @CreatedBy = '906BA838-DFA5-4DC7-8DF6-D8ABBF7A4BA0',
     @DynamicParams = '[{"Key":"ErrorCode","Value":"-1071607681"},{"Key":"ErrorColumn","Value":"45"},{"Key":"CountryID","Value":"1"},{"Key":"CountryName","Value":"India"}]';
 ```
+
+```sql
+EXEC [tech].[usp_LogWarningDynamic]
+    @WarningID = 7,
+    @SourceID = 'Web',
+    @SourceContext = 'MDM - Geo',
+    @SourceObject = 'https://raw.githubusercontent.com/berserkhmdvhb/DWH_MSBI/refs/heads/main/Projects/CustomerData/Dataset/PROD/Input/MasterData/Geo/References.json',
+    @CreatedBy = '906BA838-DFA5-4DC7-8DF6-D8ABBF7A4BA0',
+    @DynamicParams = '[{"Key":"FileName","Value":"References.json"}]';
+```
