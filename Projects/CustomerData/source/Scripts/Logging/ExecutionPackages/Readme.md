@@ -61,7 +61,7 @@ WHEN NOT MATCHED
 ```
 Then, map to corresponding variables:
 
-![Vars](./EventHandlerVars.PNG)
+![Vars](./LOG_EventHandlerVars.PNG)
 
 This code is for event `OnPostExecute`. Redo the same for the event `OnError` but change the ExecutionStatus in code to `Fail`.
 
@@ -91,7 +91,7 @@ In SSIS, add a `Derived Column Transfer` component as following:
 |CreatedDate|`@[System::StartTime]`|
 
 
-![Vars2](./DerivedColVars.PNG)
+![Vars2](./LOG_DerivedColVars.PNG)
 
 ---
 ## Method III. Business Warnings
