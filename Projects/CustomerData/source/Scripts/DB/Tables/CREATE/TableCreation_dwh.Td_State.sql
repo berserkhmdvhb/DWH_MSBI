@@ -12,6 +12,7 @@ CREATE TABLE [dwh].[Td_State](
 	[StateID] [int] NOT NULL,
 	[StateName] [nvarchar](50) NULL,
 	[CountryID] [int] NOT NULL,
+	[IsNew] [bit] NULL,
 	[SourceID] NVARCHAR(255) NULL,
 	[CreatedBy] UNIQUEIDENTIFIER NULL,
 	[ModifiedBy] UNIQUEIDENTIFIER NULL,

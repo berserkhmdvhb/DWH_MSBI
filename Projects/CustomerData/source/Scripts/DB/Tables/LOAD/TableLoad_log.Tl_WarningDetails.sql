@@ -42,6 +42,13 @@ EXEC [tech].[usp_PopulateWarningDetails]
     @DefaultSeverity = 'High',
     @ActionRequired = 1;
 
+EXEC [tech].[usp_PopulateWarningDetails]
+    @Title = 'Issue - MDM Geo file missing',
+    @MessageTemplate = 'File {FileName} is not generated',
+    @Category = 'Data Scraping',
+    @DefaultSeverity = 'High',
+    @ActionRequired = 1;
+
 -- Update a Warning Message
 EXEC [tech].[usp_PopulateWarningDetails]
     @WarningID = 4,

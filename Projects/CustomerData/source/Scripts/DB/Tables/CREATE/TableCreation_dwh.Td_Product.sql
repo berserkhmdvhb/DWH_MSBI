@@ -9,10 +9,14 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dwh].[Td_Product](
-	[ProductID] [int] NOT NULL,
-	[ProductName] [nvarchar](50) NULL,
-	[Ef_Date] [datetime] NULL,
-	[Ex_Date] [datetime] NULL
+	[ProductID] INT NOT NULL,
+	[ProductName] NVARCHAR(50) NULL,
+	[Ef_Date] DATETIME NULL,
+	[Ex_Date] DATETIME NULL,
+	[SourceID] NVARCHAR(255) NULL,
+	[CreatedBy] UNIQUEIDENTIFIER NULL,
+	[ModifiedBy] UNIQUEIDENTIFIER NULL,
+	[CreatedDate] DATETIME DEFAULT GETDATE()
 ) ON [PRIMARY]
 GO
 
