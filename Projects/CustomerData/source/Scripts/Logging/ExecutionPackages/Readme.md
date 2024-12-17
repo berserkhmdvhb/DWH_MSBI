@@ -7,19 +7,17 @@ In all SSIS packages, add an `Execute SQL task` in Event Handler, set it to OLE 
 -- Ensure the package exists in Tl_Packages
 MERGE INTO [log].[Tl_Packages] AS Target
 USING (
-	SELECT 
-		? AS PackageId, -- System::PackageID
-		? AS PackageName, -- System::PackageName
-		CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate
-		1 AS IsActive -- Active status
+	SELECT ? AS PackageId,
+		? AS PackageName,
+		CAST(? AS DATETIME) AS CreatedDate,
+		1 AS IsActive
 	) AS Source
 	ON Target.PackageId = Source.PackageId
 WHEN MATCHED
 	THEN
 		UPDATE
-		SET 
-			Target.PackageName = Source.PackageName, -- Update name if necessary
-			Target.IsActive = Source.IsActive -- Maintain active status
+		SET Target.PackageName = Source.PackageName,
+			Target.IsActive = Source.IsActive
 WHEN NOT MATCHED
 	THEN
 		INSERT (
@@ -38,18 +36,16 @@ WHEN NOT MATCHED
 -- Log the package execution in Tl_Exec
 MERGE INTO [log].[Tl_Exec] AS Target
 USING (
-	SELECT 
-		? AS PackageId,
+	SELECT ? AS PackageId,
 		CAST(? AS DATETIME) AS RunTime,
-		'Success' AS ExecutionStatus
+		? AS ExecutionStatus
 	) AS Source
 	ON Target.PackageId = Source.PackageId
 		AND Target.RunTime = Source.RunTime
 WHEN MATCHED
 	THEN
 		UPDATE
-		SET 
-			Target.ExecutionStatus = Source.ExecutionStatus
+		SET Target.ExecutionStatus = Source.ExecutionStatus
 WHEN NOT MATCHED
 	THEN
 		INSERT (
