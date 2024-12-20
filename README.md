@@ -8,4 +8,4 @@ Demo of data warehousing solutions with MSBI, by utilizing SSIS, SSAS, and SSRS 
 3. Install SQL Server, SSMS, Visual Studio (VS). For VS, install extensions SSIS, SSRS, SSAS.
 4. Setup three SQL Server instances, for three environments: dev, uat, prod. I called the instances the following names:
 SQL011P, SQL011U, SQL011D.
-5. Add the aliases prod, uat, and dev for each server respecitvely.
+5. Add the aliases prod, uat, and dev for each server respecitvely. Follow steps in DBAdmin images in directory [Init](https://github.com/berserkhmdvhb/DWH_MSBI/tree/main/Projects/CustomerData/source/Scripts/DB/Init)
