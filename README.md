@@ -15,3 +15,7 @@ SQL011P, SQL011U, SQL011D.
    - Create [stored procedures (SPs)](https://github.com/berserkhmdvhb/DWH_MSBI/tree/main/Projects/CustomerData/source/Scripts/DB/SP) 
    - Create tables using [CREATE scrips](https://github.com/berserkhmdvhb/DWH_MSBI/tree/main/Projects/CustomerData/source/Scripts/DB/Tables/CREATE) and populate them using [LOAD scripts](https://github.com/berserkhmdvhb/DWH_MSBI/tree/main/Projects/CustomerData/source/Scripts/DB/Tables/LOAD)
    - Create [views](https://github.com/berserkhmdvhb/DWH_MSBI/tree/main/Projects/CustomerData/source/Scripts/DB/Views)
+  
+7. Create an "Integration Services Catalog".
+
+8. If you want to test running solution's packages on Visual Studio before deploying on SSMS server, then adjust the project parameters, if not, adjusting environment variables on server should suffice.
