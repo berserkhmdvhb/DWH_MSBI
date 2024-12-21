@@ -18,4 +18,4 @@ SQL011P, SQL011U, SQL011D.
   
 7. Create an "Integration Services Catalog".
 
-8. If you want to test running solution's packages on Visual Studio before deploying on SSMS server, then adjust the project parameters, if not, adjusting environment variables on server should suffice.
+8. If you want to test running solution's packages on Visual Studio before deploying on SSMS server, then adjust the project parameters and connection managers. if you prefer to deploy and test there, adjusting environment variables on server should suffice.
