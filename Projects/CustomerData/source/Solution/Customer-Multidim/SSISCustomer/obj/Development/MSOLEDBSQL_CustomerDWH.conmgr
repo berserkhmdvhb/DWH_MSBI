@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MSOLEDBSQL_CustomerDWH"
+  DTS:DTSID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=BERSERKLAPTOP\SQL011P;Initial Catalog=CustomerDWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-STG_Td_Country-{A6C2FA13-0FE1-4995-A3F3-1201982E676A}BERSERKLAPTOP\SQL011P.CustomerDWH;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

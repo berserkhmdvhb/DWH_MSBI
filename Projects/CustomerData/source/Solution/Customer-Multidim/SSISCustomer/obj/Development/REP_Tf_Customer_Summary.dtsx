@@ -7,7 +7,7 @@
   DTS:CreatorName="AzureAD\HamedVAHEB"
   DTS:DTSID="{DC8DC9CA-A7F6-41C3-B987-C10680E2CC71}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
   DTS:LocaleID="1033"
   DTS:ObjectName="REP_Tf_Customer_Summary"
   DTS:PackageType="5"
@@ -141,8 +141,8 @@
               <connections>
                 <connection
                   refId="Package\Load View to Flat File\Extract view V_Fact_Customer.Connections[OleDbConnection]"
-                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
+                  connectionManagerRefId="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -425,8 +425,8 @@
               <connections>
                 <connection
                   refId="Package\Set Headers\Construct Headers.Connections[OleDbConnection]"
-                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
+                  connectionManagerRefId="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

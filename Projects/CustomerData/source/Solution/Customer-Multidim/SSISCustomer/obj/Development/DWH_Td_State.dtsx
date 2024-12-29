@@ -7,138 +7,100 @@
   DTS:CreatorName="AzureAD\HamedVAHEB"
   DTS:DTSID="{C8DCAB48-3A68-437A-BB36-B7C1585205FF}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
   DTS:LocaleID="1033"
   DTS:ObjectName="DWH_Td_State"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{BF67E1D3-C30B-4C20-AFAC-E5E76E524FAD}">
+  DTS:VersionBuild="74"
+  DTS:VersionGUID="{47314413-E121-4B93-91DB-3C7893FEB62C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[CSV_State]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{A4BC1761-5AB6-48A3-B71D-D2DC92E7012A}"
-      DTS:ObjectName="CSV_State">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::Source_DimState_Flat]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Input\Dimensions\State\State.txt">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="StateID"
-              DTS:DTSID="{83058814-0814-4EAC-AD55-5EFF78CE4B13}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="StateName"
-              DTS:DTSID="{8164623F-7533-4CDE-A819-A1985C2095F7}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="CountryID"
-              DTS:DTSID="{B90E3FBC-1538-48C5-B161-157F73205125}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[FlatFile_LogError]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{7C9A6622-EF5A-4D89-80CA-0842F98E438A}"
-      DTS:ObjectName="FlatFile_LogError">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::Destination_ErrorConversion_Dir] + "\\" + "State.txt"</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Output\Errors\Conversion\State.txt">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="7"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="StateID"
-              DTS:DTSID="{2ACE356C-C29D-400C-8227-FC0F2538FAC0}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="9"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="StateName"
-              DTS:DTSID="{7E16CF45-CF50-4BE3-B575-27C22512B73C}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="9"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="CountryID"
-              DTS:DTSID="{D8FF7083-D5B8-44F3-9A1B-8FEDCD93980D}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="13"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Log_ErrorCode"
-              DTS:DTSID="{52424732-9EED-48F0-B29C-0DE2A41B1743}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="15"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Log_ErrorColumn"
-              DTS:DTSID="{D90FA71E-B416-46A3-A02F-3D327C09929D}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{B4B269F5-510C-405F-9331-779D1FC676E2}"
+      DTS:ObjectName="PK_Schema">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">dwh</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C2DD738C-2215-495C-9F62-BDF48CDEE1CA}"
+      DTS:ObjectName="PK_SourceContext">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Dimension - State</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{855831EE-42EA-4C77-A4F7-750C484C37D2}"
+      DTS:ObjectName="PK_SourceID">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">schema stg</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{04D17D4B-DBEB-47EB-AA91-41811A214A36}"
+      DTS:ObjectName="PK_TableName_D">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Td_State</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{1D2C089D-B73B-42FA-B733-6003432871B8}"
+      DTS:ObjectName="PK_TableName_S">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">V_Td_State</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{55D9B21D-1587-4F8B-B0C5-B905CDE87CC3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_CountRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\COUNT_ROWS DWH V_Td_Country"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{c11dcdef-4400-4c1a-87df-26864d6ebf21}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="COUNT_ROWS DWH V_Td_Country"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) FROM [dwh].[V_Td_State]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::V_CountRows" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\ETL"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{a58c670d-e26c-45ea-9467-4e24a05d0d43}"
+      DTS:DTSID="{F075B604-D677-4760-BFD0-A111F57EFE31}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="ETL"
@@ -149,130 +111,161 @@
           version="1">
           <components>
             <component
-              refId="Package\ETL\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
+              refId="Package\ETL\Add Log Metadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Add Log Metadata"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[StateID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="StateID"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[StateID]" />
-                    <inputColumn
-                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[StateName]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="StateName"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[StateName]" />
-                    <inputColumn
-                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[CountryID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="CountryID"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[CountryID]" />
-                  </inputColumns>
+                  refId="Package\ETL\Add Log Metadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output]"
+                  refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\ETL\Data Conversion.Inputs[Data Conversion Input]">
+                  name="Derived Column Output"
+                  synchronousInputId="Package\ETL\Add Log Metadata.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[StateIDConv]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="RedirectRow"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[StateIDConv]"
-                      name="StateIDConv"
-                      truncationRowDisposition="RedirectRow">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[StateID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[StateNameConv]"
+                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceID]"
                       dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="RedirectRow"
-                      length="50"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[StateNameConv]"
-                      name="StateNameConv"
-                      truncationRowDisposition="RedirectRow">
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceID]"
+                      name="SourceID"
+                      truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[StateName]}</property>
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::PK_SourceID]</property>
                         <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::PK_SourceID]</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[CountryIDConv]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="RedirectRow"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[CountryIDConv]"
-                      name="CountryIDConv"
-                      truncationRowDisposition="RedirectRow">
+                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceObject]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceObject]"
+                      name="SourceObject"
+                      truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[CountryID]}</property>
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,255)@[$Package::PK_TableName_S]</property>
                         <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)@[$Package::PK_TableName_S]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[CreatedBy]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[CreatedBy]"
+                      name="CreatedBy"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_GUID)@[System::PackageID]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_GUID)@[System::PackageID]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[ModifiedBy]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[ModifiedBy]"
+                      name="ModifiedBy"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_GUID)@[System::PackageID]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_GUID)@[System::PackageID]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[CreatedDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[CreatedDate]"
+                      name="CreatedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::StartTime]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::StartTime]</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output]"
+                  refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\ETL\Data Conversion.Inputs[Data Conversion Input]">
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\ETL\Add Log Metadata.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -281,147 +274,72 @@
               </outputs>
             </component>
             <component
-              refId="Package\ETL\Extract State"
-              componentClassID="Microsoft.FlatFileSource"
-              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Flat File Source"
-              localeId="1033"
-              name="Extract State"
-              usesDispositions="true"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether zero-length columns are treated as null."
-                  name="RetainNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
-                  name="FileNameColumnName"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\ETL\Extract State.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[CSV_State]"
-                  connectionManagerRefId="Package.ConnectionManagers[CSV_State]"
-                  name="FlatFileConnection" />
-              </connections>
+              refId="Package\ETL\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
               <outputs>
                 <output
-                  refId="Package\ETL\Extract State.Outputs[Flat File Source Output]"
-                  name="Flat File Source Output">
+                  refId="Package\ETL\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\ETL\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[StateID]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
+                      refId="Package\ETL\Derived Column.Outputs[Derived Column Output].Columns[IsNew]"
+                      dataType="bool"
+                      description="IsNew"
+                      errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\ETL\Extract State.Outputs[Flat File Source Output].ExternalColumns[StateID]"
-                      length="50"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[StateID]"
-                      name="StateID"
+                      lineageId="Package\ETL\Derived Column.Outputs[Derived Column Output].Columns[IsNew]"
+                      name="IsNew"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_BOOL)("0")</property>
                         <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[StateName]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\ETL\Extract State.Outputs[Flat File Source Output].ExternalColumns[StateName]"
-                      length="50"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[StateName]"
-                      name="StateName"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[CountryID]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\ETL\Extract State.Outputs[Flat File Source Output].ExternalColumns[CountryID]"
-                      length="50"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[CountryID]"
-                      name="CountryID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)("0")</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\ETL\Extract State.Outputs[Flat File Source Output].ExternalColumns[StateID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="StateID" />
-                    <externalMetadataColumn
-                      refId="Package\ETL\Extract State.Outputs[Flat File Source Output].ExternalColumns[StateName]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="StateName" />
-                    <externalMetadataColumn
-                      refId="Package\ETL\Extract State.Outputs[Flat File Source Output].ExternalColumns[CountryID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="CountryID" />
-                  </externalMetadataColumns>
+                  <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\ETL\Extract State.Outputs[Flat File Source Error Output]"
+                  refId="Package\ETL\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
                   isErrorOut="true"
-                  name="Flat File Source Error Output">
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\ETL\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\ETL\Extract State.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      codePage="1252"
-                      dataType="text"
-                      description="Flat File Source Error Output Column"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      name="Flat File Source Error Output Column" />
-                    <outputColumn
-                      refId="Package\ETL\Extract State.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\ETL\Extract State.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -430,11 +348,85 @@
               </outputs>
             </component>
             <component
-              refId="Package\ETL\Insert Destination"
+              refId="Package\ETL\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\ETL\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Derived Column 1.Outputs[Derived Column Output].Columns[IsNew]"
+                      dataType="bool"
+                      description="IsNew"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Derived Column 1.Outputs[Derived Column Output].Columns[IsNew]"
+                      name="IsNew"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_BOOL)("1")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)("1")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\ETL\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\DEST - DWH Td_State"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Insert Destination"
+              name="DEST - DWH Td_State"
               usesDispositions="true"
               version="4">
               <properties>
@@ -445,7 +437,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[DimState]</property>
+                  name="OpenRowset">[dwh].[Td_State]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -467,7 +459,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -479,7 +471,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -487,191 +479,134 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\ETL\Insert Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  refId="Package\ETL\DEST - DWH Td_State.Connections[OleDbConnection]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
+                  connectionManagerRefId="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\ETL\Insert Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[StateIDConv]"
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].Columns[StateID]"
                       cachedDataType="i4"
-                      cachedName="StateIDConv"
-                      externalMetadataColumnId="Package\ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateID]"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[StateIDConv]" />
+                      cachedName="StateID"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[StateID]"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[StateID]" />
                     <inputColumn
-                      refId="Package\ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[CountryIDConv]"
-                      cachedDataType="i4"
-                      cachedName="CountryIDConv"
-                      externalMetadataColumnId="Package\ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryID]"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[CountryIDConv]" />
-                    <inputColumn
-                      refId="Package\ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[StateNameConv]"
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].Columns[StateName]"
                       cachedDataType="wstr"
                       cachedLength="50"
-                      cachedName="StateNameConv"
-                      externalMetadataColumnId="Package\ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[StateNameConv]" />
+                      cachedName="StateName"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[StateName]" />
+                    <inputColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].Columns[CountryID]"
+                      cachedDataType="i4"
+                      cachedName="CountryID"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[CountryID]"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[CountryID]" />
+                    <inputColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].Columns[IsNew]"
+                      cachedDataType="bool"
+                      cachedName="IsNew"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[IsNew]"
+                      lineageId="Package\ETL\Derived Column 1.Outputs[Derived Column Output].Columns[IsNew]" />
+                    <inputColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].Columns[SourceID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="SourceID"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].Columns[CreatedBy]"
+                      cachedDataType="guid"
+                      cachedName="CreatedBy"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[CreatedBy]" />
+                    <inputColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].Columns[ModifiedBy]"
+                      cachedDataType="guid"
+                      cachedName="ModifiedBy"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedBy]"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[ModifiedBy]" />
+                    <inputColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                      cachedDataType="date"
+                      cachedName="CreatedDate"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[CreatedDate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateID]"
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[StateID]"
                       dataType="i4"
                       name="StateID" />
                     <externalMetadataColumn
-                      refId="Package\ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
                       dataType="wstr"
                       length="50"
                       name="StateName" />
                     <externalMetadataColumn
-                      refId="Package\ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryID]"
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[CountryID]"
                       dataType="i4"
                       name="CountryID" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[IsNew]"
+                      dataType="bool"
+                      name="IsNew" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      dataType="wstr"
+                      length="255"
+                      name="SourceID" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                      dataType="guid"
+                      name="CreatedBy" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedBy]"
+                      dataType="guid"
+                      name="ModifiedBy" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\ETL\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\ETL\DEST - DWH Td_State.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\ETL\Insert Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\ETL\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL\DEST - DWH Td_State.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\ETL\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL\DEST - DWH Td_State.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\ETL\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL\DEST - DWH Td_State.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\ETL\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL\DEST - DWH Td_State.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
-            </component>
-            <component
-              refId="Package\ETL\LogError_Conversion"
-              componentClassID="Microsoft.FlatFileDestination"
-              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Flat File Destination"
-              localeId="1033"
-              name="LogError_Conversion"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether the data will overwrite or append to the destination file."
-                  name="Overwrite">true</property>
-                <property
-                  dataType="System.Null"
-                  description="Specifies the text to write to the destination file before any data is written."
-                  expressionType="Notify"
-                  name="Header" />
-                <property
-                  dataType="System.Boolean"
-                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
-                  name="EscapeQualifier">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\ETL\LogError_Conversion.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[FlatFile_LogError]"
-                  connectionManagerRefId="Package.ConnectionManagers[FlatFile_LogError]"
-                  name="FlatFileConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input]"
-                  hasSideEffects="true"
-                  name="Flat File Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].Columns[StateID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="StateID"
-                      externalMetadataColumnId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[StateID]"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[StateID]" />
-                    <inputColumn
-                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].Columns[StateName]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="StateName"
-                      externalMetadataColumnId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[StateName]"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[StateName]" />
-                    <inputColumn
-                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].Columns[CountryID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="CountryID"
-                      externalMetadataColumnId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[CountryID]"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[CountryID]" />
-                    <inputColumn
-                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].Columns[ErrorCode]"
-                      cachedDataType="i4"
-                      cachedName="ErrorCode"
-                      externalMetadataColumnId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
-                    <inputColumn
-                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
-                      cachedDataType="i4"
-                      cachedName="ErrorColumn"
-                      externalMetadataColumnId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[StateID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="7"
-                      name="StateID" />
-                    <externalMetadataColumn
-                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[StateName]"
-                      codePage="1252"
-                      dataType="str"
-                      length="9"
-                      name="StateName" />
-                    <externalMetadataColumn
-                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[CountryID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="9"
-                      name="CountryID" />
-                    <externalMetadataColumn
-                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
-                      codePage="1252"
-                      dataType="str"
-                      length="13"
-                      name="Log_ErrorCode" />
-                    <externalMetadataColumn
-                      refId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
-                      codePage="1252"
-                      dataType="str"
-                      length="15"
-                      name="Log_ErrorColumn" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
             </component>
             <component
               refId="Package\ETL\OLE DB Command"
@@ -691,7 +626,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimState] SET [StateName] = ? WHERE [StateID] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dwh].[Td_State] SET [IsNew] = ? WHERE [CountryID] = ? AND [IsNew] = '1'</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -700,8 +635,8 @@
               <connections>
                 <connection
                   refId="Package\ETL\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
+                  connectionManagerRefId="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -714,25 +649,23 @@
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[StateIDConv]"
+                      refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[CountryID]"
                       cachedDataType="i4"
-                      cachedName="StateIDConv"
+                      cachedName="CountryID"
                       externalMetadataColumnId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[StateIDConv]" />
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[CountryID]" />
                     <inputColumn
-                      refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[StateNameConv]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="StateNameConv"
+                      refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[IsNew]"
+                      cachedDataType="bool"
+                      cachedName="IsNew"
                       externalMetadataColumnId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[StateNameConv]" />
+                      lineageId="Package\ETL\Derived Column.Outputs[Derived Column Output].Columns[IsNew]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="wstr"
-                      length="50"
+                      dataType="bool"
                       name="Param_0">
                       <properties>
                         <property
@@ -788,120 +721,6 @@
               </outputs>
             </component>
             <component
-              refId="Package\ETL\OLE DB Command 1"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 1"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimState] SET [StateName] = ? WHERE [StateID] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\ETL\OLE DB Command 1.Connections[OleDbConnection]"
-                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[StateIDConv]"
-                      cachedDataType="i4"
-                      cachedName="StateIDConv"
-                      externalMetadataColumnId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[StateIDConv]" />
-                    <inputColumn
-                      refId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[StateNameConv]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="StateNameConv"
-                      externalMetadataColumnId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[StateNameConv]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="wstr"
-                      length="50"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="i4"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\ETL\OLE DB Command 1.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\ETL\Slowly Changing Dimension"
               componentClassID="Microsoft.SCD"
               contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
@@ -913,19 +732,19 @@
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [StateID], [StateName] FROM [dbo].[DimState]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CountryID], [StateName],[IsNew] FROM [dwh].[Td_State]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
-                  name="CurrentRowWhere"></property>
+                  name="CurrentRowWhere">[IsNew] = '1'</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
-                  name="UpdateChangingAttributeHistory">true</property>
+                  name="UpdateChangingAttributeHistory">false</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
-                  name="FailOnFixedAttributeChange">false</property>
+                  name="FailOnFixedAttributeChange">true</property>
                 <property
                   dataType="System.String"
                   description="Specifies the column name for the inferred member."
@@ -933,7 +752,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether inferred member updates are detected."
-                  name="EnableInferredMember">true</property>
+                  name="EnableInferredMember">false</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the transformation fails when a lookup of an existing record fails."
@@ -951,8 +770,8 @@
               <connections>
                 <connection
                   refId="Package\ETL\Slowly Changing Dimension.Connections[LookupConnection]"
-                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
+                  connectionManagerRefId="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
                   description="Defines the connection to use for lookups in the dimension table"
                   name="LookupConnection" />
               </connections>
@@ -962,11 +781,11 @@
                   name="Slowly Changing Dimension Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[StateIDConv]"
+                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CountryID]"
                       cachedDataType="i4"
-                      cachedName="StateIDConv"
-                      externalMetadataColumnId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateID]"
-                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[StateIDConv]">
+                      cachedName="CountryID"
+                      externalMetadataColumnId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CountryID]"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[CountryID]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -976,31 +795,34 @@
                     </inputColumn>
                     <inputColumn
                       refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[StateName]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="StateName"
                       externalMetadataColumnId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateName]"
-                      lineageId="Package\ETL\Extract State.Outputs[Flat File Source Output].Columns[StateName]">
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateName]">
                       <properties>
                         <property
                           dataType="System.Int32"
                           name="ColumnType"
-                          typeConverter="ColumnType">2</property>
+                          typeConverter="ColumnType">3</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateID]"
+                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CountryID]"
                       dataType="i4"
-                      name="StateID" />
+                      name="CountryID" />
                     <externalMetadataColumn
                       refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateName]"
                       dataType="wstr"
                       length="50"
                       name="StateName" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IsNew]"
+                      dataType="bool"
+                      name="IsNew" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1055,62 +877,12 @@
                 </output>
               </outputs>
             </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\ETL.Paths[Changing Attribute Updates Output]"
-              endId="Package\ETL\OLE DB Command 1.Inputs[OLE DB Command Input]"
-              name="Changing Attribute Updates Output"
-              startId="Package\ETL\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
-            <path
-              refId="Package\ETL.Paths[Data Conversion Error Output]"
-              endId="Package\ETL\LogError_Conversion.Inputs[Flat File Destination Input]"
-              name="Data Conversion Error Output"
-              startId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output]" />
-            <path
-              refId="Package\ETL.Paths[Data Conversion Output]"
-              endId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
-              name="Data Conversion Output"
-              startId="Package\ETL\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\ETL.Paths[Flat File Source Output]"
-              endId="Package\ETL\Data Conversion.Inputs[Data Conversion Input]"
-              name="Flat File Source Output"
-              startId="Package\ETL\Extract State.Outputs[Flat File Source Output]" />
-            <path
-              refId="Package\ETL.Paths[Inferred Member Updates Output]"
-              endId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input]"
-              name="Inferred Member Updates Output"
-              startId="Package\ETL\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]" />
-            <path
-              refId="Package\ETL.Paths[New Output]"
-              endId="Package\ETL\Insert Destination.Inputs[OLE DB Destination Input]"
-              name="New Output"
-              startId="Package\ETL\Slowly Changing Dimension.Outputs[New Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Set Headers_LogError_State"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{D5F3E354-BDDD-4BC9-B320-9E8106F9BF0A}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Set Headers_LogError_State"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
             <component
-              refId="Package\Set Headers_LogError_State\Construct Headers - LogError"
+              refId="Package\ETL\SOURCE - DWH Td_State"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="Construct Headers - LogError"
+              name="SOURCE - DWH Td_State"
               usesDispositions="true"
               version="7">
               <properties>
@@ -1121,7 +893,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[dwh].[V_Td_State]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1130,12 +902,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
-'StateID' AS [StateID],
-'StateName' AS [StateName],
-'CountryID' AS [CountryID],
-'Log_ErrorCode' AS [Log_ErrorCode],
-'Log_ErrorColumn' AS [Log_ErrorColumn]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1152,7 +919,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">2</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
@@ -1160,157 +927,94 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Connections[OleDbConnection]"
-                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_CustomerDWH]"
+                  refId="Package\ETL\SOURCE - DWH Td_State.Connections[OleDbConnection]"
+                  connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
+                  connectionManagerRefId="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output]"
+                  refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[StateID]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateID]"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[StateID]"
-                      length="7"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[StateID]"
+                      externalMetadataColumnId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].ExternalColumns[StateID]"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateID]"
                       name="StateID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[StateName]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateName]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[StateName]"
-                      length="9"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[StateName]"
+                      externalMetadataColumnId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].ExternalColumns[StateName]"
+                      length="50"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateName]"
                       name="StateName"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[CountryID]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[CountryID]"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[CountryID]"
-                      length="9"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[CountryID]"
+                      externalMetadataColumnId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].ExternalColumns[CountryID]"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[CountryID]"
                       name="CountryID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorCode]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorCode]"
-                      length="13"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorCode]"
-                      name="Log_ErrorCode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorColumn]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorColumn]"
-                      length="15"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorColumn]"
-                      name="Log_ErrorColumn"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[StateID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="7"
+                      refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].ExternalColumns[StateID]"
+                      dataType="i4"
                       name="StateID" />
                     <externalMetadataColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[StateName]"
-                      codePage="1252"
-                      dataType="str"
-                      length="9"
+                      refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].ExternalColumns[StateName]"
+                      dataType="wstr"
+                      length="50"
                       name="StateName" />
                     <externalMetadataColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[CountryID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="9"
+                      refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].ExternalColumns[CountryID]"
+                      dataType="i4"
                       name="CountryID" />
-                    <externalMetadataColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorCode]"
-                      codePage="1252"
-                      dataType="str"
-                      length="13"
-                      name="Log_ErrorCode" />
-                    <externalMetadataColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].ExternalColumns[Log_ErrorColumn]"
-                      codePage="1252"
-                      dataType="str"
-                      length="15"
-                      name="Log_ErrorColumn" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output]"
+                  refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[StateID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="7"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[StateID]"
+                      refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Error Output].Columns[StateID]"
+                      dataType="i4"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Error Output].Columns[StateID]"
                       name="StateID" />
                     <outputColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[StateName]"
-                      codePage="1252"
-                      dataType="str"
-                      length="9"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[StateName]"
+                      refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Error Output].Columns[StateName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Error Output].Columns[StateName]"
                       name="StateName" />
                     <outputColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[CountryID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="9"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[CountryID]"
+                      refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Error Output].Columns[CountryID]"
+                      dataType="i4"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Error Output].Columns[CountryID]"
                       name="CountryID" />
                     <outputColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[Log_ErrorCode]"
-                      codePage="1252"
-                      dataType="str"
-                      length="13"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[Log_ErrorCode]"
-                      name="Log_ErrorCode" />
-                    <outputColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[Log_ErrorColumn]"
-                      codePage="1252"
-                      dataType="str"
-                      length="15"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[Log_ErrorColumn]"
-                      name="Log_ErrorColumn" />
-                    <outputColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1319,125 +1023,184 @@
               </outputs>
             </component>
             <component
-              refId="Package\Set Headers_LogError_State\Write headers to file"
-              componentClassID="Microsoft.FlatFileDestination"
-              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Flat File Destination"
-              localeId="1033"
-              name="Write headers to file"
+              refId="Package\ETL\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
               version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether the data will overwrite or append to the destination file."
-                  name="Overwrite">true</property>
-                <property
-                  dataType="System.Null"
-                  description="Specifies the text to write to the destination file before any data is written."
-                  expressionType="Notify"
-                  name="Header" />
-                <property
-                  dataType="System.Boolean"
-                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
-                  name="EscapeQualifier">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Set Headers_LogError_State\Write headers to file.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[FlatFile_LogError]"
-                  connectionManagerRefId="Package.ConnectionManagers[FlatFile_LogError]"
-                  name="FlatFileConnection" />
-              </connections>
               <inputs>
                 <input
-                  refId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input]"
-                  hasSideEffects="true"
-                  name="Flat File Destination Input">
+                  refId="Package\ETL\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].Columns[StateID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="7"
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[StateID]"
+                      cachedDataType="i4"
                       cachedName="StateID"
-                      externalMetadataColumnId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[StateID]"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[StateID]" />
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[StateID]}</property>
+                      </properties>
+                    </inputColumn>
                     <inputColumn
-                      refId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].Columns[StateName]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="9"
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[StateName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="StateName"
-                      externalMetadataColumnId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[StateName]"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[StateName]" />
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[StateName]}</property>
+                      </properties>
+                    </inputColumn>
                     <inputColumn
-                      refId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].Columns[CountryID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="9"
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[CountryID]"
+                      cachedDataType="i4"
                       cachedName="CountryID"
-                      externalMetadataColumnId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[CountryID]"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[CountryID]" />
-                    <inputColumn
-                      refId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].Columns[Log_ErrorCode]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="13"
-                      cachedName="Log_ErrorCode"
-                      externalMetadataColumnId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorCode]" />
-                    <inputColumn
-                      refId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].Columns[Log_ErrorColumn]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="15"
-                      cachedName="Log_ErrorColumn"
-                      externalMetadataColumnId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
-                      lineageId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output].Columns[Log_ErrorColumn]" />
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[CountryID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[CountryID]}</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[StateID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="7"
-                      name="StateID" />
-                    <externalMetadataColumn
-                      refId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[StateName]"
-                      codePage="1252"
-                      dataType="str"
-                      length="9"
-                      name="StateName" />
-                    <externalMetadataColumn
-                      refId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[CountryID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="9"
-                      name="CountryID" />
-                    <externalMetadataColumn
-                      refId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorCode]"
-                      codePage="1252"
-                      dataType="str"
-                      length="13"
-                      name="Log_ErrorCode" />
-                    <externalMetadataColumn
-                      refId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input].ExternalColumns[Log_ErrorColumn]"
-                      codePage="1252"
-                      dataType="str"
-                      length="15"
-                      name="Log_ErrorColumn" />
-                  </externalMetadataColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[StateID]"
+                      cachedDataType="i4"
+                      cachedName="StateID"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[StateID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[StateName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="StateName"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[StateName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[CountryID]"
+                      cachedDataType="i4"
+                      cachedName="CountryID"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[CountryID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[CountryID]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
                 </input>
               </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[StateID]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[StateID]"
+                      name="StateID" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[StateName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[StateName]"
+                      name="StateName" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[CountryID]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[CountryID]"
+                      name="CountryID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
             </component>
           </components>
           <paths>
             <path
-              refId="Package\Set Headers_LogError_State.Paths[OLE DB Source Output]"
-              endId="Package\Set Headers_LogError_State\Write headers to file.Inputs[Flat File Destination Input]"
+              refId="Package\ETL.Paths[Derived Column Output]"
+              endId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\ETL\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\ETL.Paths[Derived Column Output1]"
+              endId="Package\ETL\Add Log Metadata.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\ETL\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\ETL.Paths[Derived Column Output2]"
+              endId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\ETL.Paths[Historical Attribute Inserts Output]"
+              endId="Package\ETL\Derived Column.Inputs[Derived Column Input]"
+              name="Historical Attribute Inserts Output"
+              startId="Package\ETL\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+            <path
+              refId="Package\ETL.Paths[New Output]"
+              endId="Package\ETL\Union All.Inputs[Union All Input 1]"
+              name="New Output"
+              startId="Package\ETL\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\ETL.Paths[OLE DB Command Output]"
+              endId="Package\ETL\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Command Output"
+              startId="Package\ETL\OLE DB Command.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\ETL.Paths[OLE DB Source Output]"
+              endId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
               name="OLE DB Source Output"
-              startId="Package\Set Headers_LogError_State\Construct Headers - LogError.Outputs[OLE DB Source Output]" />
+              startId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\ETL.Paths[Union All Output 1]"
+              endId="Package\ETL\Derived Column 1.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\ETL\Union All.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1447,13 +1210,84 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{554AD5C0-233D-4DC3-8E9E-A576422898FF}"
-      DTS:From="Package\Set Headers_LogError_State"
+      DTS:DTSID="{86E70000-64EA-49F3-B997-6EB5DFE749BA}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::V_CountRows] &gt; 0"
+      DTS:From="Package\COUNT_ROWS DWH V_Td_Country"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\ETL" />
   </DTS:PrecedenceConstraints>
   <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{9E7D7A29-460E-4170-9AAC-5D8E28D32CB7}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{553B2AA4-1499-43A8-A0BC-8340194B7DAA}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Log Package Execution"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ecbda560-9eab-4f52-9add-8841b8129ef3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log Package Execution"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}"
+              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Fail' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="72"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="255" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::CreationDate"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::PackageID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="72"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[OnPostExecute]"
       DTS:CreationName="OnPostExecute"
@@ -1478,7 +1312,7 @@
           DTS:refId="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{a209d61e-2bdc-4dce-b96a-222720e7d3f9}"
+          DTS:DTSID="{8b00cdf6-ffec-4dbf-abc3-61532d97422e}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Log Package Execution"
@@ -1487,30 +1321,36 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}"
-              SQLTask:SqlStatementSource="IF NOT EXISTS (&#xA;  SELECT 1&#xA;  FROM [dbo].[LogExec]&#xA;  WHERE PackageId = (&#xA;    SELECT PackageId&#xA;    FROM LogPackages&#xA;    WHERE PackageName = ?&#xA;    )&#xA;   AND RunTime = ?&#xA;  )&#xA;BEGIN&#xA;INSERT INTO [dbo].[LogExec](&#xA;  PackageId,&#xA;  RunTime&#xA;  )&#xA;SELECT PackageId,&#xA;  ?&#xA;FROM [dbo].[LogPackages]&#xA;WHERE PackageName = ?&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:DtsVariableName="System::PackageID"
                 SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="130"
+                SQLTask:DataType="72"
                 SQLTask:ParameterSize="-1" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:DtsVariableName="System::PackageName"
                 SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="7"
-                SQLTask:ParameterSize="-1" />
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="255" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="2"
-                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:DtsVariableName="System::CreationDate"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="7"
                 SQLTask:ParameterSize="-1" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="3"
-                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:DtsVariableName="System::PackageID"
                 SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="130"
+                SQLTask:DataType="72"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::StartTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
                 SQLTask:ParameterSize="-1" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
@@ -1529,59 +1369,61 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="96.8,41.6"
+          Size="245.6,41.6"
+          Id="Package\COUNT_ROWS DWH V_Td_Country"
+          TopLeft="171.428571665774,29.4117647326941" />
+        <NodeLayout
+          Size="96,41.6"
           Id="Package\ETL"
-          TopLeft="249.285714688654,92.1176470306712" />
-        <NodeLayout
-          Size="212,41.6"
-          Id="Package\Set Headers_LogError_State"
-          TopLeft="176.428571804142,21.4117646871141" />
+          TopLeft="245.714286237347,123.882352832589" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="282.428571804142,63.0117646871141">
+          TopLeft="293.97142895156,71.0117647326941">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15.257142884512,29.1058823435571"
+              EndConnector="0,52.8705880998947"
               Start="0,0"
-              End="15.257142884512,21.6058823435571">
+              End="0,45.3705880998947">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.5529411717785" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.5529411717785"
-                    Point2="0,14.5529411717785"
-                    Point3="4,14.5529411717785" />
-                  <mssgle:LineSegment
-                    End="11.257142884512,14.5529411717785" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11.257142884512,14.5529411717785"
-                    Point2="15.257142884512,14.5529411717785"
-                    Point3="15.257142884512,18.5529411717785" />
-                  <mssgle:LineSegment
-                    End="15.257142884512,21.6058823435571" />
+                    End="0,45.3705880998947" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-8,14.6852940499473,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package.EventHandlers[OnError]\Log Package Execution"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
     design-time-name="Package.EventHandlers[OnPostExecute]">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="186,42"
+          Size="186.4,41.6"
           Id="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           TopLeft="60,60" />
       </GraphLayout>
@@ -1593,92 +1435,16 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\ETL\OLE DB Command"
-          TopLeft="228.3,310.3" />
+          Size="198.4,41.6"
+          Id="Package\ETL\SOURCE - DWH Td_State"
+          TopLeft="131.7,5.49999999999995" />
         <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\ETL\OLE DB Command 1"
-          TopLeft="453.5,310.3" />
-        <NodeLayout
-          Size="208.8,41.6"
+          Size="208,41.6"
           Id="Package\ETL\Slowly Changing Dimension"
-          TopLeft="206.3,208.7" />
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\ETL\Insert Destination"
-          TopLeft="5.5000000000001,310.3" />
-        <NodeLayout
-          Size="139.2,41.6"
-          Id="Package\ETL\Extract State"
-          TopLeft="241.1,5.49999999999984" />
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\ETL\Data Conversion"
-          TopLeft="232.7,107.1" />
+          TopLeft="126.9,107.1" />
         <EdgeLayout
-          Id="Package\ETL.Paths[New Output]"
-          TopLeft="260.5,250.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-173.8,60"
-              Start="0,0"
-              End="-173.8,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5044136191677" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5044136191677"
-                    Point2="0,20.5044136191677"
-                    Point3="-4,20.5044136191677" />
-                  <mssgle:LineSegment
-                    End="-169.8,20.5044136191677" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-169.8,20.5044136191677"
-                    Point2="-173.8,20.5044136191677"
-                    Point3="-173.8,24.5044136191677" />
-                  <mssgle:LineSegment
-                    End="-173.8,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-113.99138671875,25.5044136191677,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL.Paths[Inferred Member Updates Output]"
-          TopLeft="310.7,250.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-74.40298828125,20.4208984375,148.8059765625,11.658203125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL.Paths[Flat File Source Output]"
-          TopLeft="310.7,47.0999999999998">
+          Id="Package\ETL.Paths[OLE DB Source Output]"
+          TopLeft="230.9,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1698,20 +1464,64 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\ETL\Derived Column"
+          TopLeft="17.5,208.7" />
         <EdgeLayout
-          Id="Package\ETL.Paths[Data Conversion Output]"
-          TopLeft="310.7,148.7">
+          Id="Package\ETL.Paths[Historical Attribute Inserts Output]"
+          TopLeft="197.566666666667,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-103.666666666667,59.9999999999999"
               Start="0,0"
-              End="0,52.5">
+              End="-103.666666666667,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,20.2748091603053" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2748091603053"
+                    Point2="0,24.2748091603053"
+                    Point3="-4,24.2748091603053" />
+                  <mssgle:LineSegment
+                    End="-99.6666666666667,24.2748091603053" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-99.6666666666667,24.2748091603053"
+                    Point2="-103.666666666667,24.2748091603053"
+                    Point3="-103.666666666667,28.2748091603053" />
+                  <mssgle:LineSegment
+                    End="-103.666666666667,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-126.889720052083,29.2748091603053,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\ETL\OLE DB Command"
+          TopLeft="5.50000000000003,310.3" />
+        <EdgeLayout
+          Id="Package\ETL.Paths[Derived Column Output]"
+          TopLeft="90.9,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1720,85 +1530,174 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\ETL\Union All"
+          TopLeft="170.9,411.9" />
         <EdgeLayout
-          Id="Package\ETL.Paths[Changing Attribute Updates Output]"
-          TopLeft="360.9,250.3">
+          Id="Package\ETL.Paths[New Output]"
+          TopLeft="264.233333333333,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="179.8,60"
+              EndConnector="-14.6666666666666,263.2"
               Start="0,0"
-              End="179.8,52.5">
+              End="-14.6666666666666,255.7">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.5044136191677" />
+                    End="0,126.695815115553" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.5044136191677"
-                    Point2="0,20.5044136191677"
-                    Point3="4,20.5044136191677" />
+                    Point1="0,126.695815115553"
+                    Point2="0,130.695815115553"
+                    Point3="-4,130.695815115553" />
                   <mssgle:LineSegment
-                    End="175.8,20.5044136191677" />
+                    End="-10.6666666666666,130.695815115553" />
                   <mssgle:CubicBezierSegment
-                    Point1="175.8,20.5044136191677"
-                    Point2="179.8,20.5044136191677"
-                    Point3="179.8,24.5044136191677" />
+                    Point1="-10.6666666666666,130.695815115553"
+                    Point2="-14.6666666666666,130.695815115553"
+                    Point3="-14.6666666666666,134.695815115553" />
                   <mssgle:LineSegment
-                    End="179.8,52.5" />
+                    End="-14.6666666666666,255.7" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="11.3660937499999,25.5044136191677,157.0678125,11.6630859375"
+              BoundingBox="-34.4247200520833,135.695815115553,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176,41.6"
-          Id="Package\ETL\LogError_Conversion"
-          TopLeft="468.333326354623,194.666664034128" />
         <EdgeLayout
-          Id="Package\ETL.Paths[Data Conversion Error Output]"
-          TopLeft="335.366666666667,148.7">
+          Id="Package\ETL.Paths[OLE DB Command Output]"
+          TopLeft="87.9,351.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="220.966659687956,45.9666640341282"
+              EndConnector="124.333333333333,59.9999999999999"
               Start="0,0"
-              End="220.966659687956,38.4666640341282">
+              End="124.333333333333,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.6666655976155" />
+                    End="0,31.5263157894736" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,14.6666655976155"
-                    Point2="0,18.6666655976155"
-                    Point3="4,18.6666655976155" />
+                    Point1="0,31.5263157894736"
+                    Point2="0,35.5263157894736"
+                    Point3="4,35.5263157894736" />
                   <mssgle:LineSegment
-                    End="216.966659687956,18.6666655976155" />
+                    End="120.333333333333,35.5263157894736" />
                   <mssgle:CubicBezierSegment
-                    Point1="216.966659687956,18.6666655976155"
-                    Point2="220.966659687956,18.6666655976155"
-                    Point3="220.966659687956,22.6666655976155" />
+                    Point1="120.333333333333,35.5263157894736"
+                    Point2="124.333333333333,35.5263157894736"
+                    Point3="124.333333333333,39.5263157894736" />
                   <mssgle:LineSegment
-                    End="220.966659687956,38.4666640341282" />
+                    End="124.333333333333,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="44.3969431252281,23.6666655976155,132.1727734375,11.43359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\ETL\Derived Column 1"
+          TopLeft="149.7,513.5" />
+        <EdgeLayout
+          Id="Package\ETL.Paths[Union All Output 1]"
+          TopLeft="230.9,453.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\ETL\Add Log Metadata"
+          TopLeft="145.714286024473,582.341176256764" />
+        <EdgeLayout
+          Id="Package\ETL.Paths[Derived Column Output1]"
+          TopLeft="229.307143012237,555.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.2411762567647"
+              Start="0,0"
+              End="0,19.7411762567647">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7411762567647" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\ETL\DEST - DWH Td_State"
+          TopLeft="137.142857434798,654.541176245369" />
+        <EdgeLayout
+          Id="Package\ETL.Paths[Derived Column Output2]"
+          TopLeft="228.428571729636,623.941176256764">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.599999988605"
+              Start="0,0"
+              End="0,23.099999988605">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.099999988605" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\SOURCE - DWH Td_State">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ETL\Slowly Changing Dimension">
     <Properties>
@@ -1808,43 +1707,51 @@
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
   &lt;ConnectionID&gt;{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[DimState]&lt;/TableName&gt;
+  &lt;TableName&gt;[dwh].[Td_State]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[StateIDConv]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;StateID&lt;/ColumnName&gt;
+      &lt;IdentificationString&gt;SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[CountryID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CountryID&lt;/ColumnName&gt;
       &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Extract State.Outputs[Flat File Source Output].Columns[StateName]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;StateID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateName]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;StateName&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
     &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
   &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
   &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
+  &lt;CurrentIndicatorColumn&gt;IsNew&lt;/CurrentIndicatorColumn&gt;
   &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
+  &lt;ValueCurrent&gt;1&lt;/ValueCurrent&gt;
+  &lt;ValueExpired&gt;0&lt;/ValueExpired&gt;
   &lt;StartDateColumn /&gt;
   &lt;EndDateColumn /&gt;
   &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ETL\Insert Destination">
+    design-time-name="Package\ETL\DEST - DWH Td_State">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1853,52 +1760,6 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Set Headers_LogError_State">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="216,41.6"
-          Id="Package\Set Headers_LogError_State\Construct Headers - LogError"
-          TopLeft="342.142857871189,28.2941176222579" />
-        <NodeLayout
-          Size="173.6,42.4"
-          Id="Package\Set Headers_LogError_State\Write headers to file"
-          TopLeft="359.285715050539,160.588235153356" />
-        <EdgeLayout
-          Id="Package\Set Headers_LogError_State.Paths[OLE DB Source Output]"
-          TopLeft="448.114286460864,69.8941176222579">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,90.6941175310979"
-              Start="0,0"
-              End="0,83.1941175310979">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,83.1941175310979" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Set Headers_LogError_State\Construct Headers - LogError">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

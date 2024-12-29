@@ -10,7 +10,7 @@
         <WinAuthDomain />
         <ServerName>LU-GZMRLS3\MSSQLSERVERH</ServerName>
         <PathOnServer>/SSISDB/Customer/SSISCustomer</PathOnServer>
-        <StartObjectID>DWH_Master_Dims.dtsx</StartObjectID>
+        <StartObjectID>STG_Master_Dims.dtsx</StartObjectID>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
