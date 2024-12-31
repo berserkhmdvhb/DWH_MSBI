@@ -18,4 +18,4 @@ SQL011P, SQL011U, SQL011D.
   
 7. Create an "Integration Services Catalog".
 
-8. If you want to test running solution's packages on Visual Studio before deploying on SSMS server, then adjust the project parameters and connection managers. if you prefer to deploy and test there, adjusting environment variables on server should suffice.
+8. Ideally, i'm still reseaerching to make this solution reproducible and whether docker and MSBI can be integrated. Notwishtanding, If you want to test running solution's packages on Visual Studio before deploying on SSMS server, then adjust the project parameters and connection managers. if you prefer to deploy and test there, adjusting environment variables on server should suffice.
