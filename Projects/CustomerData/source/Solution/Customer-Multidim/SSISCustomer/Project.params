@@ -16,7 +16,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">C:\Users\hamed\Documents\Projects\DE\Dataset</SSIS:Property>
+        SSIS:Name="Value">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>

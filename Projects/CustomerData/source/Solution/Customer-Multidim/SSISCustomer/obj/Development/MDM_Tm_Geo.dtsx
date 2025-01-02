@@ -135,7 +135,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\References.json</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\References.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -146,7 +146,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Fail">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\Rejected\References@20250102_130723.json</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\Rejected\References@20250102_133649.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -157,7 +157,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Success">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\Processed\References@20250102_130723.json</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\Processed\References@20250102_133649.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -168,7 +168,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFolder_Full">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -272,7 +272,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Archive File Success"
       DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <FileSystemData
@@ -2158,7 +2158,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   dataType="System.String"
                   description="Specifies the path to the Item to get the json document from."
                   expressionType="Notify"
-                  name="LocalFilePath">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\References.json</property>
+                  name="LocalFilePath">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\References.json</property>
                 <property
                   dataType="System.Int32"
                   description="The max number of identical requests that will be before an error is raised."
@@ -4216,7 +4216,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                   dataType="System.String"
                   description="Specifies the path to the Item to get the json document from."
                   expressionType="Notify"
-                  name="LocalFilePath">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\References.json</property>
+                  name="LocalFilePath">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\References.json</property>
                 <property
                   dataType="System.Int32"
                   description="The max number of identical requests that will be before an error is raised."
