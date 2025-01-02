@@ -7,7 +7,7 @@
   DTS:CreatorName="AzureAD\HamedVAHEB"
   DTS:DTSID="{71FA3BF2-F5E4-4C7B-9288-B1E5ADE0906F}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="MDM_Tm_Geo"
   DTS:PackageType="5"
@@ -146,7 +146,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Fail">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\Rejected\References@20241229_230409.json</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\Rejected\References@20250102_130723.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -157,7 +157,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Success">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\Processed\References@20241229_230409.json</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\Processed\References@20250102_130723.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -251,7 +251,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Archive File Failure"
       DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <FileSystemData
@@ -272,7 +272,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Archive File Success"
       DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <FileSystemData
@@ -2417,8 +2417,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               <connections>
                 <connection
                   refId="Package\Check Errors\Update Table LOG Tl_BusinessWarnings.Connections[OleDbConnection]"
-                  connectionManagerID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[MSOLEDBSQL_CustomerDWH]"
+                  connectionManagerID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:invalid"
+                  connectionManagerRefId="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3915,8 +3915,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
               <connections>
                 <connection
                   refId="Package\ETL\DEST - Table MDM Td_Geo.Connections[OleDbConnection]"
-                  connectionManagerID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[MSOLEDBSQL_CustomerDWH]"
+                  connectionManagerID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:invalid"
+                  connectionManagerRefId="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4483,8 +4483,8 @@ where [refTable].[CountryID] = ?</property>
               <connections>
                 <connection
                   refId="Package\ETL\Lookup CountryID.Connections[OleDbConnection]"
-                  connectionManagerID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[MSOLEDBSQL_CustomerDWH]"
+                  connectionManagerID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:invalid"
+                  connectionManagerRefId="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:invalid"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -5348,8 +5348,8 @@ where [refTable].[CountryID] = ?</property>
               <connections>
                 <connection
                   refId="Package\ETL\Update Table MDM Td_Geo.Connections[OleDbConnection]"
-                  connectionManagerID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[MSOLEDBSQL_CustomerDWH]"
+                  connectionManagerID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:invalid"
+                  connectionManagerRefId="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

@@ -12,6 +12,7 @@ CREATE TABLE [dwh].[Td_SalesPerson](
 	[SalesPersonID] [int] NOT NULL,
 	[SalesPersonName] [nvarchar](50) NULL,
 	[SalesPersonBossID_FK] [int],
+	[IsNew] [bit] NULL,
 	[SourceID] NVARCHAR(255) NULL,
 	[CreatedBy] UNIQUEIDENTIFIER NULL,
 	[ModifiedBy] UNIQUEIDENTIFIER NULL,

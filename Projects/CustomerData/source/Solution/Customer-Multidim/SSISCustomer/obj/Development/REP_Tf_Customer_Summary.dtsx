@@ -7,7 +7,7 @@
   DTS:CreatorName="AzureAD\HamedVAHEB"
   DTS:DTSID="{DC8DC9CA-A7F6-41C3-B987-C10680E2CC71}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="REP_Tf_Customer_Summary"
   DTS:PackageType="5"

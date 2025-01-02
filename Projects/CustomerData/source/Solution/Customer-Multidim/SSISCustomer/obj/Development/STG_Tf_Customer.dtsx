@@ -7,12 +7,12 @@
   DTS:CreatorName="AzureAD\HamedVAHEB"
   DTS:DTSID="{BF78AEF5-44FD-4BC7-B64B-6EDAE51AC460}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="STG_Tf_Customer"
   DTS:PackageType="5"
-  DTS:VersionBuild="242"
-  DTS:VersionGUID="{A68E388F-850F-4F9E-B7F4-3881EC9B5D9D}">
+  DTS:VersionBuild="246"
+  DTS:VersionGUID="{587802C6-C45F-473D-A7C8-5B6F45C53FFB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -188,7 +188,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Fail">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\Fact\Customer\Rejected\test@20241229_230409.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\Fact\Customer\Rejected\test@20250102_130723.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -199,7 +199,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Success">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\Fact\Customer\Processed\test@20241229_230409.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\Fact\Customer\Processed\test@20250102_130723.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -272,7 +272,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Archive File Failure"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -314,7 +314,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Archive File Success 2"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -2306,8 +2306,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Check Errors\Update Table LOG Tl_BusinessWarnings.Connections[OleDbConnection]"
-                      connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
-                      connectionManagerRefId="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
+                      connectionManagerID="{6C1031BB-89DE-412D-A885-9CC033567726}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MSOLEDBSQL_CustomerDWH]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2489,7 +2489,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:LocaleID="-1"
           DTS:ObjectName="Copy to UAT"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -3066,8 +3066,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\ETL\DEST - STG Tf_Customer.Connections[OleDbConnection]"
-                      connectionManagerID="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
-                      connectionManagerRefId="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}:invalid"
+                      connectionManagerID="{6C1031BB-89DE-412D-A885-9CC033567726}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MSOLEDBSQL_CustomerDWH]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3640,7 +3640,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}"
+          SQLTask:Connection="{6C1031BB-89DE-412D-A885-9CC033567726}"
           SQLTask:SqlStatementSource="EXEC [tech].[usp_TruncateTable] &#xA; @Schema = ?,&#xA; @TableName = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -3770,7 +3770,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}"
+              SQLTask:Connection="{6C1031BB-89DE-412D-A885-9CC033567726}"
               SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -3821,27 +3821,27 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="167.333333333334,41.3333333333334"
+          Size="167,41"
           Id="Package\Foreach Loop Container\Archive File Failure"
           TopLeft="557.171430367171,438.235293856232" />
         <NodeLayout
-          Size="172.666666666667,41.3333333333334"
+          Size="173,41"
           Id="Package\Foreach Loop Container\Archive File Success"
           TopLeft="262.885715455,443.129411307565" />
         <NodeLayout
-          Size="181.333333333334,41.3333333333334"
+          Size="181,41"
           Id="Package\Foreach Loop Container\Archive File Success 2"
           TopLeft="8.91428576902472,363.552940864113" />
         <NodeLayout
-          Size="138.666666666667,41.3333333333334"
+          Size="139,41"
           Id="Package\Foreach Loop Container\Check Errors"
           TopLeft="399.314286950475,12.8705880884998" />
         <NodeLayout
-          Size="137.333333333334,41.3333333333334"
+          Size="137,41"
           Id="Package\Foreach Loop Container\Copy to UAT"
           TopLeft="26.0571429483743,287.082352695849" />
         <NodeLayout
-          Size="152.666666666667,41.3333333333334"
+          Size="153,41"
           Id="Package\Foreach Loop Container\ETL"
           TopLeft="273.91428633314,125.799999851865" />
         <EdgeLayout
@@ -4035,12 +4035,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="743.333333333334,535.333333333334"
-          Size="743.333333333334,578.666666666667"
+          PanelSize="743,536"
+          Size="743,579"
           Id="Package\Foreach Loop Container"
           TopLeft="16.4285714635428,168.999999851865" />
         <NodeLayout
-          Size="235.333333333334,41.3333333333334"
+          Size="235,41"
           Id="Package\Truncate Table STG Tf_Customer"
           TopLeft="270.714286290565,38.6117649833839" />
         <EdgeLayout
@@ -4074,7 +4074,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="186.666666666667,41.3333333333334"
+          Size="187,41"
           Id="Package.EventHandlers[OnError]\Log Package Execution"
           TopLeft="60,60" />
       </GraphLayout>
@@ -4086,7 +4086,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="186.666666666667,41.3333333333334"
+          Size="187,41"
           Id="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           TopLeft="60,60" />
       </GraphLayout>
@@ -4098,75 +4098,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Foreach Loop Container\Check Errors\Row Count"
-          TopLeft="320.714286397002,247.764705665177" />
-        <NodeLayout
-          Size="155.2,41.6"
+          Size="155,42"
           Id="Package\Foreach Loop Container\Check Errors\Data Conversion"
           TopLeft="312.857143320903,151.647058953567" />
         <NodeLayout
-          Size="266.4,41.6"
-          Id="Package\Foreach Loop Container\Check Errors\Update Table LOG Tl_BusinessWarnings"
-          TopLeft="247.14285766896,544.423529146329" />
-        <NodeLayout
-          Size="181.6,41.6"
-          Id="Package\Foreach Loop Container\Check Errors\Build JSON Parameter"
-          TopLeft="297.142857775396,350.647058554741" />
-        <NodeLayout
-          Size="209.6,41.6"
+          Size="210,42"
           Id="Package\Foreach Loop Container\Check Errors\SOURCE - FlatFile Customer"
           TopLeft="286.857143278329,37.0588235495206" />
         <NodeLayout
-          Size="206.4,41.6"
+          Size="266,42"
+          Id="Package\Foreach Loop Container\Check Errors\Update Table LOG Tl_BusinessWarnings"
+          TopLeft="247.14285766896,544.423529146329" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Foreach Loop Container\Check Errors\Build JSON Parameter"
+          TopLeft="297.142857775396,350.647058554741" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Foreach Loop Container\Check Errors\Row Count"
+          TopLeft="320.714286397002,247.764705665177" />
+        <NodeLayout
+          Size="206,42"
           Id="Package\Foreach Loop Container\Check Errors\Add Warning Log Metadata"
           TopLeft="282.857143459272,438.235293856232" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Check Errors.Paths[Derived Column Output]"
-          TopLeft="383.200000564116,479.835293856232">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.5882352900966"
-              Start="0,0"
-              End="0,57.0882352900966">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.0882352900966" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Check Errors.Paths[Data Conversion Error Output]"
-          TopLeft="387.985714858952,193.247058953567">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54.5176467116109"
-              Start="0,0"
-              End="0,47.0176467116109">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.0176467116109" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-66.08638671875,17.7920264808054,132.1727734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container\Check Errors.Paths[Row Count Output 1]"
           TopLeft="386.728572086199,289.364705665177">
@@ -4233,6 +4187,52 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Check Errors.Paths[Derived Column Output]"
+          TopLeft="383.200000564116,479.835293856232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.5882352900966"
+              Start="0,0"
+              End="0,57.0882352900966">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.0882352900966" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Check Errors.Paths[Data Conversion Error Output]"
+          TopLeft="387.985714858952,193.247058953567">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.5176467116109"
+              Start="0,0"
+              End="0,47.0176467116109">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.0176467116109" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-66.08638671875,17.7920264808054,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -4242,23 +4242,23 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="155.2,41.6"
+          Size="155,42"
           Id="Package\Foreach Loop Container\ETL\Data Conversion"
           TopLeft="461.311686563303,237.465239492958" />
         <NodeLayout
-          Size="209.6,41.6"
+          Size="210,42"
           Id="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Customer"
           TopLeft="440.493504625332,35.4224599375407" />
         <NodeLayout
-          Size="154.4,41.6"
+          Size="154,42"
           Id="Package\Foreach Loop Container\ETL\Conditional Split"
           TopLeft="466.090902145613,144.581816301563" />
         <NodeLayout
-          Size="164,41.6"
+          Size="164,42"
           Id="Package\Foreach Loop Container\ETL\Add Log Metadata"
           TopLeft="459.999993145466,320.909086127173" />
         <NodeLayout
-          Size="197.6,41.6"
+          Size="198,42"
           Id="Package\Foreach Loop Container\ETL\DEST - STG Tf_Customer"
           TopLeft="442.727266130122,413.999994892966" />
         <EdgeLayout
@@ -4280,9 +4280,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4304,9 +4302,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4328,9 +4324,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
