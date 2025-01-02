@@ -21,6 +21,7 @@ CREATE TABLE [mdm].[Tm_Geo] (
     [SubRegionCode] NVARCHAR(3) NULL,              -- Numeric code for the sub-region (e.g., "034").
     [IntermediateRegionCode] NVARCHAR(3) NULL,     -- Numeric code for the intermediate region (e.g., "017").
 	[SourceID] NVARCHAR(255) NULL,
+	[SourceContext] NVARCHAR(255) NULL,
 	[CreatedBy] UNIQUEIDENTIFIER NULL,
 	[ModifiedBy] UNIQUEIDENTIFIER NULL,
 	[CreatedDate] DATETIME DEFAULT GETDATE(),

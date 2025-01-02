@@ -7,12 +7,12 @@
   DTS:CreatorName="AzureAD\HamedVAHEB"
   DTS:DTSID="{71FA3BF2-F5E4-4C7B-9288-B1E5ADE0906F}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="MDM_Tm_Geo"
   DTS:PackageType="5"
-  DTS:VersionBuild="311"
-  DTS:VersionGUID="{75B18C90-8C90-42B6-B993-D4A1FB17CB31}">
+  DTS:VersionBuild="317"
+  DTS:VersionGUID="{09EEBD60-3D98-4EF2-A33E-A191B7331066}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -93,7 +93,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_ConnectionString">
       <DTS:VariableValue
-        DTS:DataType="8">Data Source=BERSERKLAPTOP\SQL011P;Initial Catalog=CustomerDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;</DTS:VariableValue>
+        DTS:DataType="8">Data Source=LU-GZMRLS3\SQL01P\prod;Initial Catalog=CustomerDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -135,7 +135,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\References.json</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\References.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -146,7 +146,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Fail">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\Rejected\References@20241229_230342.json</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\Rejected\References@20250102_151023.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -157,7 +157,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Success">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\Processed\References@20241229_230342.json</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\Processed\References@20250102_151023.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -168,7 +168,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFolder_Full">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -251,7 +251,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Archive File Failure"
       DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <FileSystemData
@@ -272,7 +272,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Archive File Success"
       DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <FileSystemData
@@ -2158,7 +2158,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                   dataType="System.String"
                   description="Specifies the path to the Item to get the json document from."
                   expressionType="Notify"
-                  name="LocalFilePath">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\References.json</property>
+                  name="LocalFilePath">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\References.json</property>
                 <property
                   dataType="System.Int32"
                   description="The max number of identical requests that will be before an error is raised."
@@ -2417,7 +2417,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               <connections>
                 <connection
                   refId="Package\Check Errors\Update Table LOG Tl_BusinessWarnings.Connections[OleDbConnection]"
-                  connectionManagerID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:external"
+                  connectionManagerID="{6C1031BB-89DE-412D-A885-9CC033567726}:external"
                   connectionManagerRefId="Project.ConnectionManagers[MSOLEDBSQL_CustomerDWH]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -2610,91 +2610,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           ReadOnlyVariables="User::V_PathFile,$Package::PK_Scrape_NumAttempts,$Package::PK_Scrape_TimeInterval"
           ReadWriteVariables="User::V_Flag_Load">
           <ProjectItem
-            Name="ST_e7cf713ed1274b6da2a49005ad567d92.csproj"
-            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0676c515-824e-4ea6-b255-39837136bdf8}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ST_e7cf713ed1274b6da2a49005ad567d92</RootNamespace>
-    <AssemblyName>ST_e7cf713ed1274b6da2a49005ad567d92</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugSymbols>false</DebugSymbols>
-    <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-  </ItemGroup>
-  <ItemGroup>
-    <AppDesigner Include="Properties\" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="ScriptMain.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <!-- Include the build rules for a C# project.-->
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
-        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
-        <ProjectClient>
-          <HostIdentifier>SSIS_ST160</HostIdentifier>
-        </ProjectClient>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-</Project>]]></ProjectItem>
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -2814,35 +2737,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-          <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_e7cf713ed1274b6da2a49005ad567d92.Properties.Settings.get_Default():ST_e7cf713ed1274b6da2a49005ad567d92.Properties.Sett" +
-    "ings")]
-
-namespace ST_e7cf713ed1274b6da2a49005ad567d92.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -3007,65 +2901,6 @@ namespace ST_e7cf713ed1274b6da2a49005ad567d92
 	}
 }]]></ProjectItem>
           <ProjectItem
-            Name="Project"
-            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
-  <msb:PropertyGroup>
-    <msb:CodeName>ST_e7cf713ed1274b6da2a49005ad567d92</msb:CodeName>
-    <msb:Language>msBuild</msb:Language>
-    <msb:DisplayName>ST_e7cf713ed1274b6da2a49005ad567d92</msb:DisplayName>
-    <msb:ProjectId>{D7E082D0-382A-4896-A5DD-CD452968D373}</msb:ProjectId>
-  </msb:PropertyGroup>
-  <msb:ItemGroup>
-    <msb:Project Include="ST_e7cf713ed1274b6da2a49005ad567d92.csproj" />
-    <msb:File Include="Properties\Resources.Designer.cs" />
-    <msb:File Include="Properties\Settings.settings" />
-    <msb:File Include="Properties\AssemblyInfo.cs" />
-    <msb:File Include="Properties\Resources.resx" />
-    <msb:File Include="Properties\Settings.Designer.cs" />
-    <msb:File Include="ScriptMain.cs" />
-  </msb:ItemGroup>
-</c:Project>]]></ProjectItem>
-          <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_e7cf713ed1274b6da2a49005ad567d92")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_e7cf713ed1274b6da2a49005ad567d92")]
-[assembly: AssemblyCopyright("Copyright @  2024")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-          <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
-          <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
 // <auto-generated>
@@ -3133,6 +2968,171 @@ namespace ST_e7cf713ed1274b6da2a49005ad567d92.Properties {
         }
     }
 }]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_e7cf713ed1274b6da2a49005ad567d92</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_e7cf713ed1274b6da2a49005ad567d92</msb:DisplayName>
+    <msb:ProjectId>{D7E082D0-382A-4896-A5DD-CD452968D373}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_e7cf713ed1274b6da2a49005ad567d92.csproj" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_e7cf713ed1274b6da2a49005ad567d92.Properties.Settings.get_Default():ST_e7cf713ed1274b6da2a49005ad567d92.Properties.Sett" +
+    "ings")]
+
+namespace ST_e7cf713ed1274b6da2a49005ad567d92.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_e7cf713ed1274b6da2a49005ad567d92")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_e7cf713ed1274b6da2a49005ad567d92")]
+[assembly: AssemblyCopyright("Copyright @  2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="ST_e7cf713ed1274b6da2a49005ad567d92.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0676c515-824e-4ea6-b255-39837136bdf8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_e7cf713ed1274b6da2a49005ad567d92</RootNamespace>
+    <AssemblyName>ST_e7cf713ed1274b6da2a49005ad567d92</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST160</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
           <BinaryItem
             Name="ST_e7cf713ed1274b6da2a49005ad567d92.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
@@ -3389,6 +3389,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="9"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
+                      name="SourceContext"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::PK_SourceContext]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::PK_SourceContext]</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3915,7 +3938,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
               <connections>
                 <connection
                   refId="Package\ETL\DEST - Table MDM Td_Geo.Connections[OleDbConnection]"
-                  connectionManagerID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:external"
+                  connectionManagerID="{6C1031BB-89DE-412D-A885-9CC033567726}:external"
                   connectionManagerRefId="Project.ConnectionManagers[MSOLEDBSQL_CustomerDWH]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -4030,6 +4053,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                       cachedName="intermediate-region-codeConv"
                       externalMetadataColumnId="Package\ETL\DEST - Table MDM Td_Geo.Inputs[OLE DB Destination Input].ExternalColumns[IntermediateRegionCode]"
                       lineageId="Package\ETL\Sort.Outputs[Sort Output].Columns[intermediate-region-codeConv]" />
+                    <inputColumn
+                      refId="Package\ETL\DEST - Table MDM Td_Geo.Inputs[OLE DB Destination Input].Columns[SourceContext]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="SourceContext"
+                      externalMetadataColumnId="Package\ETL\DEST - Table MDM Td_Geo.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4105,6 +4135,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                       refId="Package\ETL\DEST - Table MDM Td_Geo.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       dataType="dbTimeStamp"
                       name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\DEST - Table MDM Td_Geo.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                      dataType="wstr"
+                      length="255"
+                      name="SourceContext" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4216,7 +4251,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                   dataType="System.String"
                   description="Specifies the path to the Item to get the json document from."
                   expressionType="Notify"
-                  name="LocalFilePath">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\MasterData\Geo\References.json</property>
+                  name="LocalFilePath">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\References.json</property>
                 <property
                   dataType="System.Int32"
                   description="The max number of identical requests that will be before an error is raised."
@@ -4465,7 +4500,7 @@ where [refTable].[CountryID] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CountryName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ISO2Code" dataType="DT_WSTR" length="2" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CountryID" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CountryCode" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ISO3166_2" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RegionName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SubRegionName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IntermediateRegionName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RegionCode" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SubRegionCode" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IntermediateRegionCode" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedBy" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ModifiedBy" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CountryName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ISO2Code" dataType="DT_WSTR" length="2" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CountryID" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CountryCode" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ISO3166_2" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RegionName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SubRegionName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IntermediateRegionName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RegionCode" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SubRegionCode" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IntermediateRegionCode" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceContext" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedBy" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ModifiedBy" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -4483,7 +4518,7 @@ where [refTable].[CountryID] = ?</property>
               <connections>
                 <connection
                   refId="Package\ETL\Lookup CountryID.Connections[OleDbConnection]"
-                  connectionManagerID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:external"
+                  connectionManagerID="{6C1031BB-89DE-412D-A885-9CC033567726}:external"
                   connectionManagerRefId="Project.ConnectionManagers[MSOLEDBSQL_CustomerDWH]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
@@ -5348,7 +5383,7 @@ where [refTable].[CountryID] = ?</property>
               <connections>
                 <connection
                   refId="Package\ETL\Update Table MDM Td_Geo.Connections[OleDbConnection]"
-                  connectionManagerID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}:external"
+                  connectionManagerID="{6C1031BB-89DE-412D-A885-9CC033567726}:external"
                   connectionManagerRefId="Project.ConnectionManagers[MSOLEDBSQL_CustomerDWH]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -6009,14 +6044,35 @@ where [refTable].[CountryID] = ?</property>
   </resheader>
 </root>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_217f790900c140cbb4baf97957982ef2")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_217f790900c140cbb4baf97957982ef2")]
+[assembly: AssemblyCopyright("Copyright @  2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -6259,35 +6315,14 @@ namespace ST_217f790900c140cbb4baf97957982ef2.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_217f790900c140cbb4baf97957982ef2")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_217f790900c140cbb4baf97957982ef2")]
-[assembly: AssemblyCopyright("Copyright @  2024")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -6771,7 +6806,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       </DTS:EventHandlers>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}"
+          SQLTask:Connection="{6C1031BB-89DE-412D-A885-9CC033567726}"
           SQLTask:BypassPrepare="False"
           SQLTask:SqlStatementSource="EXEC [tech].[usp_LogWarningDynamic]&#xA;    @WarningID = 7,&#xA;    @SourceID = ?,&#xA;    @SourceContext = ?,&#xA;    @SourceObject = ?,&#xA;    @CreatedBy = ?,&#xA;    @DynamicParams = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
@@ -6891,7 +6926,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           DTS:refId="Package.EventHandlers[OnError]\Log Package Execution"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{4bb48d2c-c6be-4137-af30-c53f8b83dfb6}"
+          DTS:DTSID="{bec67499-c88b-46d0-97f0-880bbd3b19b5}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Log Package Execution"
@@ -6899,7 +6934,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}"
+              SQLTask:Connection="{6C1031BB-89DE-412D-A885-9CC033567726}"
               SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Fail' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -6960,7 +6995,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           DTS:refId="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{4d27d4bd-1efb-47ca-9bf0-c1aec5911088}"
+          DTS:DTSID="{ec24ee3a-ce8a-4429-8478-4457d04c65b2}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Log Package Execution"
@@ -6968,8 +7003,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}"
-              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:Connection="{6C1031BB-89DE-412D-A885-9CC033567726}"
+              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="System::PackageID"
@@ -7019,31 +7054,31 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="167.333333333334,41.3333333333334"
+          Size="167,41"
           Id="Package\Archive File Failure"
           TopLeft="621.142857924408,420.470587917575" />
         <NodeLayout
-          Size="172.666666666667,41.3333333333334"
+          Size="173,41"
           Id="Package\Archive File Success"
           TopLeft="262.857143086742,414.176470318107" />
         <NodeLayout
-          Size="139.333333333334,42.6666666666667"
+          Size="139,43"
           Id="Package\Check Errors"
           TopLeft="434.482143420688,187.882352787009" />
         <NodeLayout
-          Size="172,41.3333333333334"
+          Size="172,41"
           Id="Package\Check file existence"
           TopLeft="443,83" />
         <NodeLayout
-          Size="101.333333333334,41.3333333333334"
+          Size="101,41"
           Id="Package\ETL"
           TopLeft="301.071429222974,283.247058668692" />
         <NodeLayout
-          Size="233.333333333334,41.3333333333334"
+          Size="233,41"
           Id="Package\Retrieve Countries from API Web"
           TopLeft="411.642857525269,10.3529411375934" />
         <NodeLayout
-          Size="267.333333333334,41.3333333333334"
+          Size="267,41"
           Id="Package\Update Table LOG Tl_BusinessWarnings"
           TopLeft="746,200.350000030994" />
         <EdgeLayout
@@ -7231,7 +7266,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="186.666666666667,41.3333333333334"
+          Size="186,42"
           Id="Package.EventHandlers[OnError]\Log Package Execution"
           TopLeft="60,60" />
       </GraphLayout>
@@ -7243,7 +7278,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="186.666666666667,41.3333333333334"
+          Size="187,41"
           Id="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           TopLeft="60,60" />
       </GraphLayout>
@@ -7259,7 +7294,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Id="Package\Check Errors\Row Count"
           TopLeft="330.71428641829,240.882352730034" />
         <NodeLayout
-          Size="154.666666666667,42"
+          Size="155,42"
           Id="Package\Check Errors\Data Conversion"
           TopLeft="315.000000670552,121.588235187541" />
         <NodeLayout
@@ -7271,7 +7306,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Id="Package\Check Errors\Add Warning Log Metadata"
           TopLeft="295.714286343784,436.199999715125" />
         <NodeLayout
-          Size="140,42.6666666666667"
+          Size="140,43"
           Id="Package\Check Errors\JSON Source"
           TopLeft="320.714286397002,12.999999988605" />
         <NodeLayout
@@ -7297,9 +7332,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7321,9 +7354,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7345,9 +7376,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7369,9 +7398,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7407,35 +7434,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="155.333333333334,41.3333333333334"
+          Size="155,41"
           Id="Package\ETL\Data Conversion"
           TopLeft="320.714286397002,121.588235187541" />
         <NodeLayout
-          Size="208,42.6666666666667"
+          Size="208,43"
           Id="Package\ETL\DEST - Table MDM Td_Geo"
           TopLeft="176.428571804142,632.352940955273" />
         <NodeLayout
-          Size="208,41.3333333333334"
+          Size="208,41"
           Id="Package\ETL\Update Table MDM Td_Geo"
           TopLeft="477.142858158569,639.647058588926" />
         <NodeLayout
-          Size="102,47.3333333333334"
+          Size="102,47"
           Id="Package\ETL\Sort"
           TopLeft="337.857143576352,335.705882081472" />
         <NodeLayout
-          Size="139.333333333334,41.3333333333334"
+          Size="139,41"
           Id="Package\ETL\JSON Source"
           TopLeft="323.701296882335,3.24706919584322" />
         <NodeLayout
-          Size="164,41.3333333333334"
+          Size="164,41"
           Id="Package\ETL\Lookup CountryID"
           TopLeft="310.089286403655,503.764705619598" />
         <NodeLayout
-          Size="153.333333333334,41.3333333333334"
+          Size="153,41"
           Id="Package\ETL\Conditional Split"
           TopLeft="313.57142923894,241.647058611716" />
         <NodeLayout
-          Size="164,41.3333333333334"
+          Size="164,41"
           Id="Package\ETL\Add Log Metadata"
           TopLeft="305.714286365071,422.588235039406" />
         <EdgeLayout
@@ -7644,7 +7671,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7654,7 +7681,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
