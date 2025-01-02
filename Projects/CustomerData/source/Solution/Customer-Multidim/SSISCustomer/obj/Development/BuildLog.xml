@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>SSISCustomer</Name>
-    <LastWriteTime>2025-01-02T14:33:23.3793524Z</LastWriteTime>
+    <LastWriteTime>2025-01-02T14:39:41.5553763Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -83,17 +83,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>MDM_Tm_Geo.dtsx</Name>
-      <LastWriteTime>2025-01-02T14:37:51.8489306Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>MDM_TEMP.dtsx</Name>
-      <LastWriteTime>2025-01-02T14:33:12.6999587Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>MDM_MAIN.dtsx</Name>
-      <LastWriteTime>2025-01-02T14:34:08.7740401Z</LastWriteTime>
+      <LastWriteTime>2025-01-02T14:39:36.6752868Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

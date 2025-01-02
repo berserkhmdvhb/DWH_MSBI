@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">FR-GZMRLS3</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdbaL/GSZLkyQNBKkAgY6IgAAAAACAAAAAAAQZgAAAAEAACAAAADTs3hS7SQdb7DJ1rjxeua/l3G0T2jGVd7pffCsrFsWygAAAAAOgAAAAAIAACAAAAC33xr5PnA1IG8DJxTfYdWGK7j4ITA9gl2TrZgmiA59B5AAAAClp0j7OAuRjrhQusLDKeZkYjMFfA6OhTJ10CF7jmHj2FhrvlKC82ux0L0ovc/J5nsdl3SBqoFjIEXx6YlAlOT88kYSmarLm8VBoghuEskwLvcIlr+mKSjVPcccoVBAdX0SV7BPQGitcWZgHOk2kZyJa1gbXRQmmJjGUZoIlMj2N2Fy0FefYQFok6+uSIIMgDZAAAAA/6pdBTVQQrWvPFewzzUO94jEVz7uOsvfDA2DSkzl2oMuCSkwZHYiCCDos3HEczo/s0zpKfzUkrMG8o/TVK4Onw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdbaL/GSZLkyQNBKkAgY6IgAAAAACAAAAAAAQZgAAAAEAACAAAAD6KHaNoZ4PN9fOdGbCM1QJwFCxE8qZHLIVtuj0xjIuIAAAAAAOgAAAAAIAACAAAABFn/Se9S/SUo0RL2cgmF9cYgc5QMmO1iHgyA9yKmmC1ZAAAAAoUXjnq8BmpEaSn/ypEjQlGiVNNPav/joFm/AOWKIae7+dmQ/4p2tXWTL+FJ/CvghPtDrJCzHiVu6+x9sk06wFaqvBTMwDqkxr3QGZMtn45O61kv3tCbL3EKw3MCNdtEBptt6Ep6IYzQY3M+Ztfj3uVWrdBeT+31WcLvMX7uaj4j3ObwUisYcd2wlCJd0c32RAAAAAXZCi6kY3AV0TcANeCh8lH5O+uPVVbEfHj9bU4gWeQOYms49xgaMLxK6OP7INE0v9XV+xLONyUSxexHtkYO7mJw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -46,8 +46,6 @@
           <SSIS:Package SSIS:Name="STG_Tf_Customer.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="STG_Master_Dims.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="MDM_Tm_Geo.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="MDM_TEMP.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="MDM_MAIN.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="ADONET_CustomerDWH.conmgr" />
@@ -3425,10 +3423,10 @@
                 <SSIS:Property SSIS:Name="Name">MDM_Tm_Geo</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">57</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">59</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{0BF757A5-C59A-4A85-9F67-EB368CDE37DB}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{8E23D3E6-6B4E-4490-8ED0-6F911EAA2126}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -3508,210 +3506,6 @@
                 <SSIS:Parameter SSIS:Name="PK_SourceID">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{1DF9A54A-FE21-4C8E-B935-3888DD0ABC36}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Web</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="MDM_TEMP.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{A7EE5EED-70F1-4385-8F0F-644B1AB219C0}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">MDM_TEMP</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">32</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{29E916A7-765B-4A4A-85A2-6F2448794EA1}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="PK_Link">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{53F371A0-D0CF-4D84-9E10-B874913F3432}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">https://raw.githubusercontent.com/berserkhmdvhb/DWH_MSBI/refs/heads/main/Projects/CustomerData/Dataset/PROD/Input/MasterData/Geo/References.json</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="PK_PathDir">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{8E57FA8F-F6BC-4B04-ABE6-AB60582F63D4}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">\MasterData\Geo</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="PK_Scrape_NumAttempts">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{F5C6A3DB-49B5-4C4D-86BB-70BA566D2394}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">3</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="PK_Scrape_TimeInterval">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{C18C0C50-5D3F-456B-B916-A44E5C8D5885}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">2000</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="PK_SourceContext">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{6C2C4624-EC26-4DF8-A0C2-2942291A0340}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">MDM - Geo</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="PK_SourceID">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{C6760679-2178-45C0-9D74-708F55A2C946}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Web</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="MDM_MAIN.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{66001C3E-6DCD-4369-8B5B-3CE4D1C396F8}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">MDM_MAIN</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">35</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{3279A42E-8EEB-468F-9A9E-F0AC45BC95A3}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="PK_Link">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{3DE2E609-DA08-49B5-A948-CB0094D8B28C}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">https://raw.githubusercontent.com/berserkhmdvhb/DWH_MSBI/refs/heads/main/Projects/CustomerData/Dataset/PROD/Input/MasterData/Geo/References.json</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="PK_PathDir">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{BCFF60FF-683E-4D0D-AD64-F8EA990436A0}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">\MasterData\Geo</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="PK_Scrape_NumAttempts">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{94C22EFD-03FA-4D69-9E71-DD3E3A26E5F0}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">3</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="PK_Scrape_TimeInterval">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{3C10DDE6-2159-423B-ACE5-34B851074897}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">2000</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="PK_SourceContext">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{822D886F-7A8A-4EE9-BC8D-90D6622952BA}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">MDM - Geo</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="PK_SourceID">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{231DD907-626D-4D5A-B262-178977D4A536}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
