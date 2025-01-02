@@ -1,37 +1,25 @@
 <?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="11/28/2024 2:52:28 PM"
+  DTS:CreationDate="1/2/2025 3:19:47 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LU-GZMRLS3"
   DTS:CreatorName="AzureAD\HamedVAHEB"
-  DTS:DTSID="{71FA3BF2-F5E4-4C7B-9288-B1E5ADE0906F}"
+  DTS:DTSID="{F41BE9EA-F8E4-4822-9DCB-00D0894EA944}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="MDM_Tm_Geo"
   DTS:PackageType="5"
-  DTS:VersionBuild="317"
-  DTS:VersionGUID="{09EEBD60-3D98-4EF2-A33E-A191B7331066}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{9E14493F-D9FB-4209-9797-A6F1ACA9E979}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:LogProviders>
-    <DTS:LogProvider
-      DTS:ConfigString="MSOLEDBSQL_CustomerDWH"
-      DTS:CreationName="Microsoft.LogProviderSQLServer"
-      DTS:Description="Writes log entries for events to a SQL Server database"
-      DTS:DTSID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}"
-      DTS:ObjectName="SSIS log provider for SQL Server2">
-      <DTS:ObjectData>
-        <InnerObject />
-      </DTS:ObjectData>
-    </DTS:LogProvider>
-  </DTS:LogProviders>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{BB9329C1-03FC-4966-9345-241B822D27CA}"
+      DTS:DTSID="{9F812D07-E69B-4064-B5CD-F1287F2778F7}"
       DTS:ObjectName="PK_Link">
       <DTS:Property
         DTS:DataType="8"
@@ -40,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{F7F9AB6C-6C95-4A5C-91DA-6FCB244F1666}"
+      DTS:DTSID="{71B9A463-8D92-4391-AF36-DD62154D9B4B}"
       DTS:ObjectName="PK_PathDir">
       <DTS:Property
         DTS:DataType="8"
@@ -49,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{66D64C6A-E63A-4CE6-813E-60AB811893F4}"
+      DTS:DTSID="{DB808332-75C1-4304-9CEA-63BF86B2E455}"
       DTS:ObjectName="PK_Scrape_NumAttempts">
       <DTS:Property
         DTS:DataType="8"
@@ -58,7 +46,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3E16D5D1-C22E-4095-9787-8D6E444EE94D}"
+      DTS:DTSID="{83A70ABD-4F1E-4842-8EAD-7AB278FA5D1E}"
       DTS:ObjectName="PK_Scrape_TimeInterval">
       <DTS:Property
         DTS:DataType="8"
@@ -67,7 +55,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{7C7A9D8D-3345-48B7-A1DA-65C480BCBF54}"
+      DTS:DTSID="{7A7D757B-8CB6-4CB7-8D70-BFD2685C6DE5}"
       DTS:ObjectName="PK_SourceContext">
       <DTS:Property
         DTS:DataType="8"
@@ -76,7 +64,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{F1578BA4-48DA-471B-B121-093E41BBC7AB}"
+      DTS:DTSID="{1DF9A54A-FE21-4C8E-B935-3888DD0ABC36}"
       DTS:ObjectName="PK_SourceID">
       <DTS:Property
         DTS:DataType="8"
@@ -86,7 +74,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{48C69B2A-E0A4-4F2C-B7C0-763AFB55FD82}"
+      DTS:DTSID="{2CAF4525-F99E-418E-82B7-1DD4D1DD4A60}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;Data Source=&quot; + @[$Project::PR_SQLServer] + &quot;;Initial Catalog=CustomerDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -97,7 +85,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D272D7C0-83CA-4514-87E3-344401B90321}"
+      DTS:DTSID="{039AA94B-3FC0-4EA6-A26B-5EC980875198}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;References.json&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -108,7 +96,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{624378D1-E581-4099-B927-5D584C228767}"
+      DTS:DTSID="{17CA845F-6631-4CE3-A89D-BFD249AFA2E9}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="V_Flag_Load">
@@ -117,7 +105,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B07EAECE-C0D8-4EFF-B3BA-D42F8782C328}"
+      DTS:DTSID="{20A881E6-9C18-461C-953F-3AD231B5C404}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;[{\&quot;Key\&quot;:\&quot;FileName\&quot;,\&quot;Value\&quot;:\&quot;&quot; + @[User::V_FileName] + &quot;\&quot;}]&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -128,7 +116,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D16EFC29-70FE-44BC-A6EE-0E8916573A13}"
+      DTS:DTSID="{7B8D5E4C-82B2-4A5D-B0CF-57C04056B57C}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::V_PathFolder_Full] + &quot;\\&quot; + @[User::V_FileName]"
       DTS:IncludeInDebugDump="2345"
@@ -139,29 +127,29 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{20A4A37C-78CA-4798-91AB-2A6554116F4B}"
+      DTS:DTSID="{CBA72393-296F-4073-8E37-9E9B629E0477}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::V_PathFolder_Full] + @[$Project::PR_PathFolder_Rejected] + &quot;\\&quot; + REPLACE( @[User::V_FileName],  &quot;.&quot; + RIGHT(@[User::V_FileName], LEN(@[User::V_FileName]) - FINDSTRING(@[User::V_FileName], &quot;.&quot;, 1)), &quot;@&quot; ) + SUBSTRING((DT_WSTR, 50) GETDATE(), 1, 4) +  RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) + RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;_&quot; + RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hh&quot;, GETDATE()), 2) +  RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;mi&quot;, GETDATE()), 2) +  RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;ss&quot;, GETDATE()), 2) + &quot;.json&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Fail">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\Rejected\References@20250102_151229.json</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\Rejected\References@20250102_152637.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9874DFA7-62E2-47D9-B685-1BB448A5EFDF}"
+      DTS:DTSID="{07A23719-841C-437E-BD02-89D5B2493E64}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::V_PathFolder_Full] + @[$Project::PR_PathFolder_Processed] + &quot;\\&quot; + REPLACE( @[User::V_FileName],  &quot;.&quot; + RIGHT(@[User::V_FileName], LEN(@[User::V_FileName]) - FINDSTRING(@[User::V_FileName], &quot;.&quot;, 1)), &quot;@&quot; ) + SUBSTRING((DT_WSTR, 50) GETDATE(), 1, 4) +  RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) + RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;_&quot; + RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hh&quot;, GETDATE()), 2) +  RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;mi&quot;, GETDATE()), 2) +  RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;ss&quot;, GETDATE()), 2) + &quot;.json&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Success">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\Processed\References@20250102_151229.json</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\Processed\References@20250102_152637.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{67E2DBAF-BDFF-496A-823B-1B4A6EAA903B}"
+      DTS:DTSID="{C7D97DED-4514-492C-B156-027FFDB30CC9}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Project::PR_PathDir_Root] + &quot;\\&quot; + @[$Project::ENV] +  &quot;\\&quot; + &quot;Input&quot; +  @[$Package::PK_PathDir]"
       DTS:IncludeInDebugDump="2345"
@@ -172,7 +160,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B6C1AA93-C159-4B83-BC92-E71E74AAA8F1}"
+      DTS:DTSID="{C32E7C5F-CB37-47A4-8ED1-B98B31F63860}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="V_RowCount_Errors">
@@ -180,73 +168,12 @@
         DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
-  <DTS:LoggingOptions
-    DTS:FilterKind="0"
-    DTS:LoggingMode="1">
-    <DTS:Property
-      DTS:DataType="8"
-      DTS:Name="EventFilter">3,7,OnError,13,OnInformation,9,OnWarning</DTS:Property>
-    <DTS:Property
-      DTS:EventName="OnError"
-      DTS:Name="ColumnFilter">
-      <DTS:Property
-        DTS:Name="Computer">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="Operator">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceName">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="ExecutionID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="MessageText">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="DataBytes">-1</DTS:Property>
-    </DTS:Property>
-    <DTS:Property
-      DTS:EventName="OnInformation"
-      DTS:Name="ColumnFilter">
-      <DTS:Property
-        DTS:Name="Computer">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="Operator">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceName">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="ExecutionID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="MessageText">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="DataBytes">-1</DTS:Property>
-    </DTS:Property>
-    <DTS:Property
-      DTS:EventName="OnWarning"
-      DTS:Name="ColumnFilter">
-      <DTS:Property
-        DTS:Name="Computer">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="Operator">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceName">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="ExecutionID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="MessageText">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="DataBytes">-1</DTS:Property>
-    </DTS:Property>
-  </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Archive File Failure"
       DTS:CreationName="Microsoft.FileSystemTask"
       DTS:Description="File System Task"
-      DTS:DTSID="{b3400212-69bc-4b0f-a7ef-6b5d427e99f8}"
+      DTS:DTSID="{73739411-74d2-4709-b410-74b101ff97ae}"
       DTS:ExecutableType="Microsoft.FileSystemTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Archive File Failure"
@@ -267,7 +194,7 @@
       DTS:refId="Package\Archive File Success"
       DTS:CreationName="Microsoft.FileSystemTask"
       DTS:Description="File System Task"
-      DTS:DTSID="{4d7782a1-37ff-4bbf-97de-10ef75f2ce66}"
+      DTS:DTSID="{d91f55d8-865e-4961-827d-bd13f11acefe}"
       DTS:ExecutableType="Microsoft.FileSystemTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Archive File Success"
@@ -288,7 +215,7 @@
       DTS:refId="Package\Check Errors"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{57B8863E-6B56-4EF5-B960-10EDF6219621}"
+      DTS:DTSID="{a1eb0dfc-8b39-49a9-937a-2e70024cd0e3}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Check Errors"
@@ -2595,7 +2522,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\Check file existence"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="Script Task"
-      DTS:DTSID="{1498C411-34B1-4487-8904-878D84345917}"
+      DTS:DTSID="{e37af88f-1df9-4378-91d5-e6b1d34d7286}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Check file existence"
@@ -2603,42 +2530,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       <DTS:Variables />
       <DTS:ObjectData>
         <ScriptProject
-          Name="ST_e7cf713ed1274b6da2a49005ad567d92"
+          Name="ST_a69666090ea94f22b4daeb40c0aed78f"
           VSTAMajorVersion="16"
           VSTAMinorVersion="0"
           Language="CSharp"
           ReadOnlyVariables="User::V_PathFile,$Package::PK_Scrape_NumAttempts,$Package::PK_Scrape_TimeInterval"
           ReadWriteVariables="User::V_Flag_Load">
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_e7cf713ed1274b6da2a49005ad567d92")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_e7cf713ed1274b6da2a49005ad567d92")]
-[assembly: AssemblyCopyright("Copyright @  2024")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -2758,92 +2664,6 @@ using System.Runtime.CompilerServices;
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-          <ProjectItem
-            Name="ST_e7cf713ed1274b6da2a49005ad567d92.csproj"
-            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0676c515-824e-4ea6-b255-39837136bdf8}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ST_e7cf713ed1274b6da2a49005ad567d92</RootNamespace>
-    <AssemblyName>ST_e7cf713ed1274b6da2a49005ad567d92</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugSymbols>false</DebugSymbols>
-    <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-  </ItemGroup>
-  <ItemGroup>
-    <AppDesigner Include="Properties\" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="ScriptMain.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <!-- Include the build rules for a C# project.-->
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
-        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
-        <ProjectClient>
-          <HostIdentifier>SSIS_ST160</HostIdentifier>
-        </ProjectClient>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-</Project>]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -3008,6 +2828,9 @@ namespace ST_e7cf713ed1274b6da2a49005ad567d92
 	}
 }]]></ProjectItem>
           <ProjectItem
+            Name="ST_a69666090ea94f22b4daeb40c0aed78f.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?><Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><PropertyGroup><ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids><Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration><Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform><ProductVersion>8.0.30703</ProductVersion><SchemaVersion>2.0</SchemaVersion><ProjectGuid>{0676c515-824e-4ea6-b255-39837136bdf8}</ProjectGuid><OutputType>Library</OutputType><AppDesignerFolder>Properties</AppDesignerFolder><RootNamespace>ST_e7cf713ed1274b6da2a49005ad567d92</RootNamespace><AssemblyName>ST_a69666090ea94f22b4daeb40c0aed78f</AssemblyName><TargetFrameworkVersion>v4.7</TargetFrameworkVersion><FileAlignment>512</FileAlignment><ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch><TargetFrameworkProfile></TargetFrameworkProfile></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DebugSymbols>true</DebugSymbols><DebugType>full</DebugType><Optimize>false</Optimize><OutputPath>.\bin\Debug\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>DEBUG;TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Release' "><DebugSymbols>false</DebugSymbols><Optimize>true</Optimize><OutputPath>.\bin\Release\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><ItemGroup><Reference Include="System" /><Reference Include="System.Data" /><Reference Include="System.Windows.Forms" /><Reference Include="System.Xml" /><Reference Include="Microsoft.SqlServer.ManagedDTS, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /><Reference Include="Microsoft.SqlServer.ScriptTask, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /></ItemGroup><ItemGroup><AppDesigner Include="Properties\" /><Compile Include="Properties\AssemblyInfo.cs"><SubType>Code</SubType></Compile><EmbeddedResource Include="Properties\Resources.resx"><Generator>ResXFileCodeGenerator</Generator><LastGenOutput>Resources.Designer.cs</LastGenOutput></EmbeddedResource><Compile Include="Properties\Resources.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Resources.resx</DependentUpon></Compile><None Include="Properties\Settings.settings"><Generator>SettingsSingleFileGenerator</Generator><LastGenOutput>Settings.Designer.cs</LastGenOutput></None><Compile Include="Properties\Settings.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Settings.settings</DependentUpon></Compile><Compile Include="ScriptMain.cs"><SubType>Code</SubType></Compile></ItemGroup><!-- Include the build rules for a C# project.--><Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /><ProjectExtensions><VisualStudio><FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}"><ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" /><Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host><ProjectClient><HostIdentifier>SSIS_ST160</HostIdentifier></ProjectClient></FlavorProperties></VisualStudio></ProjectExtensions></Project>]]></ProjectItem>
+          <ProjectItem
             Name="Project"
             Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
 <c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
@@ -3018,7 +2841,7 @@ namespace ST_e7cf713ed1274b6da2a49005ad567d92
     <msb:ProjectId>{D7E082D0-382A-4896-A5DD-CD452968D373}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
-    <msb:Project Include="ST_e7cf713ed1274b6da2a49005ad567d92.csproj" />
+    <msb:Project Include="ST_a69666090ea94f22b4daeb40c0aed78f.csproj" />
     <msb:File Include="Properties\Resources.Designer.cs" />
     <msb:File Include="Properties\Settings.settings" />
     <msb:File Include="Properties\AssemblyInfo.cs" />
@@ -3057,14 +2880,35 @@ namespace ST_e7cf713ed1274b6da2a49005ad567d92.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_e7cf713ed1274b6da2a49005ad567d92")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_e7cf713ed1274b6da2a49005ad567d92")]
+[assembly: AssemblyCopyright("Copyright @  2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -3267,7 +3111,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:refId="Package\ETL"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{34500d0b-8712-470c-9747-d196a71b3b28}"
+      DTS:DTSID="{7c2ca61c-cfbd-436e-8be2-efeeb6fe7c86}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="ETL"
@@ -5759,7 +5603,7 @@ where [refTable].[CountryID] = ?</property>
       DTS:refId="Package\Retrieve Countries from API Web"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="Script Task"
-      DTS:DTSID="{DE1F8650-30E6-493C-A0E6-B783928BE516}"
+      DTS:DTSID="{b61e8226-2c21-4868-954b-e4506965a7d4}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Retrieve Countries from API Web"
@@ -5825,105 +5669,44 @@ where [refTable].[CountryID] = ?</property>
           <DTS:Property
             DTS:Name="DataBytes">-1</DTS:Property>
         </DTS:Property>
-        <DTS:SelectedLogProviders>
-          <DTS:SelectedLogProvider
-            DTS:InstanceID="{A6C2FA13-0FE1-4995-A3F3-1201982E676A}" />
-        </DTS:SelectedLogProviders>
       </DTS:LoggingOptions>
       <DTS:ObjectData>
         <ScriptProject
-          Name="ST_217f790900c140cbb4baf97957982ef2"
+          Name="ST_400b43943f2944c3b881882a1d4ea13d"
           VSTAMajorVersion="16"
           VSTAMinorVersion="0"
           Language="CSharp"
           ReadOnlyVariables="User::V_ConnectionString,User::V_PathFile,$Package::PK_Link">
           <ProjectItem
-            Name="ST_217f790900c140cbb4baf97957982ef2.csproj"
-            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{35A540AE-9BD8-4E48-B1BE-D610C22D9816}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ST_217f790900c140cbb4baf97957982ef2</RootNamespace>
-    <AssemblyName>ST_217f790900c140cbb4baf97957982ef2</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugSymbols>false</DebugSymbols>
-    <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-  </ItemGroup>
-  <ItemGroup>
-    <AppDesigner Include="Properties\" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="ScriptMain.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <!-- Include the build rules for a C# project.-->
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
-        <Host Name="ScriptTask" />
-        <ProjectClient>
-          <HostIdentifier>SSIS_ST160</HostIdentifier>
-        </ProjectClient>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-</Project>]]></ProjectItem>
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_217f790900c140cbb4baf97957982ef2")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_217f790900c140cbb4baf97957982ef2")]
+[assembly: AssemblyCopyright("Copyright @  2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -6044,34 +5827,8 @@ where [refTable].[CountryID] = ?</property>
   </resheader>
 </root>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_217f790900c140cbb4baf97957982ef2.Properties.Settings.get_Default():ST_217f790900c140cbb4baf97957982ef2.Properties.Sett" +
-    "ings")]
-
-namespace ST_217f790900c140cbb4baf97957982ef2.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+            Name="ST_400b43943f2944c3b881882a1d4ea13d.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?><Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><PropertyGroup><ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids><Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration><Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform><ProductVersion>8.0.30703</ProductVersion><SchemaVersion>2.0</SchemaVersion><ProjectGuid>{35A540AE-9BD8-4E48-B1BE-D610C22D9816}</ProjectGuid><OutputType>Library</OutputType><AppDesignerFolder>Properties</AppDesignerFolder><RootNamespace>ST_217f790900c140cbb4baf97957982ef2</RootNamespace><AssemblyName>ST_400b43943f2944c3b881882a1d4ea13d</AssemblyName><TargetFrameworkVersion>v4.7</TargetFrameworkVersion><FileAlignment>512</FileAlignment><ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch><TargetFrameworkProfile></TargetFrameworkProfile></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DebugSymbols>true</DebugSymbols><DebugType>full</DebugType><Optimize>false</Optimize><OutputPath>.\bin\Debug\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>DEBUG;TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Release' "><DebugSymbols>false</DebugSymbols><Optimize>true</Optimize><OutputPath>.\bin\Release\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><ItemGroup><Reference Include="System" /><Reference Include="System.Data" /><Reference Include="System.Net.Http" /><Reference Include="System.Windows.Forms" /><Reference Include="System.Xml" /><Reference Include="Microsoft.SqlServer.ManagedDTS, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /><Reference Include="Microsoft.SqlServer.ScriptTask, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /></ItemGroup><ItemGroup><AppDesigner Include="Properties\" /><Compile Include="Properties\AssemblyInfo.cs"><SubType>Code</SubType></Compile><EmbeddedResource Include="Properties\Resources.resx"><Generator>ResXFileCodeGenerator</Generator><LastGenOutput>Resources.Designer.cs</LastGenOutput></EmbeddedResource><Compile Include="Properties\Resources.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Resources.resx</DependentUpon></Compile><None Include="Properties\Settings.settings"><Generator>SettingsSingleFileGenerator</Generator><LastGenOutput>Settings.Designer.cs</LastGenOutput></None><Compile Include="Properties\Settings.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Settings.settings</DependentUpon></Compile><Compile Include="ScriptMain.cs"><SubType>Code</SubType></Compile></ItemGroup><!-- Include the build rules for a C# project.--><Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /><ProjectExtensions><VisualStudio><FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}"><ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" /><Host Name="ScriptTask" /><ProjectClient><HostIdentifier>SSIS_ST160</HostIdentifier></ProjectClient></FlavorProperties></VisualStudio></ProjectExtensions></Project>]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -6275,7 +6032,7 @@ namespace ST_217f790900c140cbb4baf97957982ef2
     <msb:ProjectId>{94E32873-469A-45CD-B7C0-E794B7DCD18F}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
-    <msb:Project Include="ST_217f790900c140cbb4baf97957982ef2.csproj" />
+    <msb:Project Include="ST_400b43943f2944c3b881882a1d4ea13d.csproj" />
     <msb:File Include="Properties\Settings.settings" />
     <msb:File Include="Properties\AssemblyInfo.cs" />
     <msb:File Include="Properties\Resources.resx" />
@@ -6285,35 +6042,34 @@ namespace ST_217f790900c140cbb4baf97957982ef2
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
 
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_217f790900c140cbb4baf97957982ef2")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_217f790900c140cbb4baf97957982ef2")]
-[assembly: AssemblyCopyright("Copyright @  2024")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_217f790900c140cbb4baf97957982ef2.Properties.Settings.get_Default():ST_217f790900c140cbb4baf97957982ef2.Properties.Sett" +
+    "ings")]
 
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+namespace ST_217f790900c140cbb4baf97957982ef2.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
           <ProjectItem
             Name="Properties\Settings.settings"
             Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -6588,7 +6344,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       DTS:refId="Package\Update Table LOG Tl_BusinessWarnings"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{D17A6257-6C17-4079-AC9B-7C20D5A4CD8B}"
+      DTS:DTSID="{3fd52cc1-ec48-4d93-83d9-06d140a7c888}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update Table LOG Tl_BusinessWarnings"
@@ -6599,7 +6355,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <DTS:EventHandler
           DTS:refId="Package\Update Table LOG Tl_BusinessWarnings.EventHandlers[OnError]"
           DTS:CreationName="OnError"
-          DTS:DTSID="{6E051E37-C57C-4D74-9CB4-5477699E2674}"
+          DTS:DTSID="{41b9edbc-d1ee-4b50-ac6a-0928c66ea681}"
           DTS:EventID="2228339"
           DTS:EventName="OnError"
           DTS:LocaleID="-1">
@@ -6607,7 +6363,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             <DTS:Variable
               DTS:CreationName=""
               DTS:Description="The propagate property of the event"
-              DTS:DTSID="{C541D5AF-FB3C-413D-BA2B-0858C11FF7F7}"
+              DTS:DTSID="{f91df3df-2564-40e3-86b3-5535b3c73cf8}"
               DTS:IncludeInDebugDump="6789"
               DTS:Namespace="System"
               DTS:ObjectName="Propagate">
@@ -6620,7 +6376,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
               DTS:refId="Package\Update Table LOG Tl_BusinessWarnings.EventHandlers[OnError]\Log Package Execution"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{c66c0d48-af94-43cc-8124-f4df08c55eee}"
+              DTS:DTSID="{c48bf1a8-4e17-4665-a690-c6625c5084c7}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Log Package Execution"
@@ -6668,7 +6424,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <DTS:EventHandler
           DTS:refId="Package\Update Table LOG Tl_BusinessWarnings.EventHandlers[OnPostExecute]"
           DTS:CreationName="OnPostExecute"
-          DTS:DTSID="{47CBB4D6-1842-4D86-B6E1-842B9F46F8ED}"
+          DTS:DTSID="{0e19ed6e-424e-435b-90e6-80514cb545d5}"
           DTS:EventID="2883618"
           DTS:EventName="OnPostExecute"
           DTS:LocaleID="-1">
@@ -6676,7 +6432,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             <DTS:Variable
               DTS:CreationName=""
               DTS:Description="The propagate property of the event"
-              DTS:DTSID="{22FC5F32-7B0D-46CA-9105-D70B9C6FDA39}"
+              DTS:DTSID="{5fd5676e-b042-4887-98e7-c9b8dfcc9be6}"
               DTS:IncludeInDebugDump="6789"
               DTS:Namespace="System"
               DTS:ObjectName="Propagate">
@@ -6689,7 +6445,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
               DTS:refId="Package\Update Table LOG Tl_BusinessWarnings.EventHandlers[OnPostExecute]\Log Package Execution"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{1c8d7ec1-f4be-48b0-86c7-3572cd52a39a}"
+              DTS:DTSID="{a958d05b-22f0-4780-b23f-8efb2b90db41}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Log Package Execution"
@@ -6737,7 +6493,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <DTS:EventHandler
           DTS:refId="Package\Update Table LOG Tl_BusinessWarnings.EventHandlers[OnTaskFailed]"
           DTS:CreationName="OnTaskFailed"
-          DTS:DTSID="{7D66A43E-140A-482B-BDE7-55DCFABE56B7}"
+          DTS:DTSID="{ca91bc03-a387-4ebd-b386-17f79af079d8}"
           DTS:EventID="7340144"
           DTS:EventName="OnTaskFailed"
           DTS:LocaleID="-1">
@@ -6745,7 +6501,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             <DTS:Variable
               DTS:CreationName=""
               DTS:Description="The propagate property of the event"
-              DTS:DTSID="{9D9AE840-F461-4B13-86FA-4024047D289F}"
+              DTS:DTSID="{686f2b28-83ff-4ef8-81f5-a74102f13a9d}"
               DTS:IncludeInDebugDump="6789"
               DTS:Namespace="System"
               DTS:ObjectName="Propagate">
@@ -6758,7 +6514,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
               DTS:refId="Package\Update Table LOG Tl_BusinessWarnings.EventHandlers[OnTaskFailed]\Log Package Execution"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{b1c968fd-e0ad-4b47-ab13-1113240e5bc7}"
+              DTS:DTSID="{9f25c814-096f-4393-ae8e-1c9f055838f2}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Log Package Execution"
@@ -6847,7 +6603,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{74A43D30-504D-4113-A878-3CC370281602}"
+      DTS:DTSID="{cec650cc-9bea-4a71-98f4-b4f63b474e4b}"
       DTS:From="Package\Retrieve Countries from API Web"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -6855,7 +6611,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{B77DE61C-1C78-4D91-95E0-D6E1BF8B46F2}"
+      DTS:DTSID="{7ae771c5-670b-4225-9a43-25bfee05eef0}"
       DTS:EvalOp="3"
       DTS:Expression="@[User::V_RowCount_Errors] == 0"
       DTS:From="Package\Check Errors"
@@ -6865,7 +6621,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{BD916ADA-54B8-4CD3-B054-298E47699E95}"
+      DTS:DTSID="{a261bbcd-fa01-4f86-b8b6-25f14044632c}"
       DTS:From="Package\ETL"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -6873,7 +6629,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{F8C37335-7382-4820-8057-DC02EFEC7E3E}"
+      DTS:DTSID="{c0b15ad7-0f9e-4988-8a74-ca0db8d11f7f}"
       DTS:EvalOp="4"
       DTS:Expression="@[User::V_RowCount_Errors] &gt; 0"
       DTS:From="Package\Check Errors"
@@ -6883,7 +6639,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{5AD02467-6B4E-44A8-A8DF-F062000A8228}"
+      DTS:DTSID="{a1e636f9-06a9-4f44-bbb3-105b903f80c5}"
       DTS:EvalOp="3"
       DTS:Expression="@[User::V_Flag_Load]"
       DTS:From="Package\Check file existence"
@@ -6893,7 +6649,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{02C844A9-E13D-4AD2-92F9-AA474CBC82DD}"
+      DTS:DTSID="{b4be9556-a32f-4cb3-ab27-2a74b06c3ec9}"
       DTS:EvalOp="3"
       DTS:Expression="!@[User::V_Flag_Load]"
       DTS:From="Package\Check file existence"
@@ -6905,15 +6661,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[OnError]"
       DTS:CreationName="OnError"
-      DTS:DTSID="{8FC2395C-7780-4004-93DF-57C4673BE2F2}"
-      DTS:EventID="61057376"
+      DTS:DTSID="{54B2D4D3-6B1A-4968-B331-D9A0649467BE}"
+      DTS:EventID="7340144"
       DTS:EventName="OnError"
       DTS:LocaleID="-1">
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
           DTS:Description="The propagate property of the event"
-          DTS:DTSID="{85C2CB1F-C265-4DD4-87EE-7F9CE8A19A4C}"
+          DTS:DTSID="{30B57E90-65C6-41EE-B8D8-062A062C2993}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="System"
           DTS:ObjectName="Propagate">
@@ -6926,7 +6682,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           DTS:refId="Package.EventHandlers[OnError]\Log Package Execution"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{bec67499-c88b-46d0-97f0-880bbd3b19b5}"
+          DTS:DTSID="{011b6a8b-3149-4dde-afc5-a2f52b8257ad}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Log Package Execution"
@@ -6974,15 +6730,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[OnPostExecute]"
       DTS:CreationName="OnPostExecute"
-      DTS:DTSID="{0B7DC57B-465B-4A17-923C-7D10F2277D8A}"
-      DTS:EventID="1962961920"
+      DTS:DTSID="{CBB01985-8E9C-42FA-8D6A-DA3FDA43EDF2}"
+      DTS:EventID="7340144"
       DTS:EventName="OnPostExecute"
       DTS:LocaleID="-1">
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
           DTS:Description="The propagate property of the event"
-          DTS:DTSID="{50CD4C9A-D9C4-4C81-B4A1-035F15DDE50F}"
+          DTS:DTSID="{D239801C-DE33-41D9-9D58-4B2C362591D4}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="System"
           DTS:ObjectName="Propagate">
@@ -6995,7 +6751,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           DTS:refId="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{ec24ee3a-ce8a-4429-8478-4457d04c65b2}"
+          DTS:DTSID="{949c2db6-946c-4b92-9967-c7892d5369c3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Log Package Execution"
@@ -7056,34 +6812,34 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="167,41"
           Id="Package\Archive File Failure"
-          TopLeft="621.142857924408,420.470587917575" />
+          TopLeft="418.285714837666,470.117646779982" />
         <NodeLayout
           Size="173,41"
           Id="Package\Archive File Success"
-          TopLeft="262.857143086742,414.176470318107" />
+          TopLeft="60,463.823529180514" />
         <NodeLayout
           Size="139,43"
           Id="Package\Check Errors"
-          TopLeft="434.482143420688,187.882352787009" />
+          TopLeft="231.625000333946,237.529411649416" />
         <NodeLayout
           Size="172,41"
           Id="Package\Check file existence"
-          TopLeft="443,83" />
+          TopLeft="240.142856913258,132.647058862407" />
         <NodeLayout
           Size="101,41"
           Id="Package\ETL"
-          TopLeft="301.071429222974,283.247058668692" />
+          TopLeft="98.214286136232,332.894117531099" />
         <NodeLayout
           Size="233,41"
           Id="Package\Retrieve Countries from API Web"
-          TopLeft="411.642857525269,10.3529411375934" />
+          TopLeft="208.785714438527,60" />
         <NodeLayout
           Size="267,41"
           Id="Package\Update Table LOG Tl_BusinessWarnings"
-          TopLeft="746,200.350000030994" />
+          TopLeft="543.142856913258,249.997058893401" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="528.654762095968,51.6862744709267">
+          TopLeft="325.797619009226,101.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7105,7 +6861,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="482.259921198466,230.549019453676">
+          TopLeft="279.402778111724,280.196078316083">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7141,7 +6897,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="350.464286154858,324.580392002025">
+          TopLeft="147.607143068116,374.227450864432">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7163,7 +6919,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="526.037698976244,230.549019453676">
+          TopLeft="323.180555889502,280.196078316083">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7199,7 +6955,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="502.907738377011,124.333333333333">
+          TopLeft="300.050595290269,173.98039219574">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7223,7 +6979,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="556.333333333333,124.333333333333">
+          TopLeft="353.476190246591,173.98039219574">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7260,30 +7016,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="186,42"
-          Id="Package.EventHandlers[OnError]\Log Package Execution"
-          TopLeft="60,60" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnPostExecute]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="187,41"
-          Id="Package.EventHandlers[OnPostExecute]\Log Package Execution"
-          TopLeft="60,60" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\Check Errors">
     <LayoutInfo>
@@ -7314,28 +7046,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Id="Package\Check Errors\Update Table LOG Tl_BusinessWarnings"
           TopLeft="269.017857627715,527.45882309372" />
         <EdgeLayout
-          Id="Package\Check Errors.Paths[Row Count Output 1]"
-          TopLeft="397.08571496539,282.482352730034">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55.3294117063903"
-              Start="0,0"
-              End="0,47.8294117063903">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.8294117063903" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Check Errors.Paths[Root]"
           TopLeft="391.523810200444,55.6666666552717">
           <EdgeLayout.Curve>
@@ -7354,7 +7064,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7376,7 +7088,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7398,7 +7112,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7425,6 +7141,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Check Errors.Paths[Row Count Output 1]"
+          TopLeft="397.08571496539,282.482352730034">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.3294117063903"
+              Start="0,0"
+              End="0,47.8294117063903">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.8294117063903" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -7434,18 +7174,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="155,41"
-          Id="Package\ETL\Data Conversion"
-          TopLeft="320.714286397002,121.588235187541" />
-        <NodeLayout
-          Size="208,43"
-          Id="Package\ETL\DEST - Table MDM Td_Geo"
-          TopLeft="176.428571804142,632.352940955273" />
-        <NodeLayout
-          Size="208,41"
-          Id="Package\ETL\Update Table MDM Td_Geo"
-          TopLeft="477.142858158569,639.647058588926" />
-        <NodeLayout
           Size="102,47"
           Id="Package\ETL\Sort"
           TopLeft="337.857143576352,335.705882081472" />
@@ -7453,6 +7181,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Size="139,41"
           Id="Package\ETL\JSON Source"
           TopLeft="323.701296882335,3.24706919584322" />
+        <NodeLayout
+          Size="208,41"
+          Id="Package\ETL\Update Table MDM Td_Geo"
+          TopLeft="477.142858158569,639.647058588926" />
         <NodeLayout
           Size="164,41"
           Id="Package\ETL\Lookup CountryID"
@@ -7465,28 +7197,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Size="164,41"
           Id="Package\ETL\Add Log Metadata"
           TopLeft="305.714286365071,422.588235039406" />
-        <EdgeLayout
-          Id="Package\ETL.Paths[Data Conversion Output]"
-          TopLeft="394.342857817971,163.188235187541">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,78.458823424175"
-              Start="0,0"
-              End="0,70.958823424175">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,70.958823424175" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="155,41"
+          Id="Package\ETL\Data Conversion"
+          TopLeft="320.714286397002,121.588235187541" />
+        <NodeLayout
+          Size="208,43"
+          Id="Package\ETL\DEST - Table MDM Td_Geo"
+          TopLeft="176.428571804142,632.352940955273" />
         <EdgeLayout
           Id="Package\ETL.Paths[ValidRows]"
           TopLeft="389.547619740979,282.980391945049">
@@ -7530,7 +7248,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7552,7 +7272,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7646,48 +7368,38 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Data Conversion Output]"
+          TopLeft="394.342857817971,163.188235187541">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78.458823424175"
+              Start="0,0"
+              End="0,70.958823424175">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.958823424175" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL\DEST - Table MDM Td_Geo">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL\Lookup CountryID">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[mdm].[Tm_Geo]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <DtsEventHandler
     design-time-name="Package\Update Table LOG Tl_BusinessWarnings.EventHandlers[OnTaskFailed]">
     <LayoutInfo>
@@ -7720,6 +7432,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="186,42"
           Id="Package\Update Table LOG Tl_BusinessWarnings.EventHandlers[OnError]\Log Package Execution"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="187,41"
+          Id="Package.EventHandlers[OnError]\Log Package Execution"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="187,41"
+          Id="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           TopLeft="60,60" />
       </GraphLayout>
     </LayoutInfo>
