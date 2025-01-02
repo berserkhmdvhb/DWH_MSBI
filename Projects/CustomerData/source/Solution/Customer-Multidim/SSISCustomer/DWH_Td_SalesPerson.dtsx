@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DWH_Td_SalesPerson"
   DTS:PackageType="5"
-  DTS:VersionBuild="88"
-  DTS:VersionGUID="{DB5DBA66-EA85-486C-B8C8-CECA5A523842}">
+  DTS:VersionBuild="95"
+  DTS:VersionGUID="{69D1D4ED-9888-4999-B68D-B095E646C48A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -157,52 +157,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="19"
-                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
-                      name="SourceContext"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">@[$Package::PK_SourceContext]</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">@[$Package::PK_SourceContext]</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceObject]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceObject]"
-                      name="SourceObject"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_WSTR,255)@[$Package::PK_TableName_S]</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_WSTR,255)@[$Package::PK_TableName_S]</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[CreatedBy]"
                       dataType="guid"
                       errorOrTruncationOperation="Computation"
@@ -266,6 +220,29 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="39"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
+                      name="SourceContext"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -460,7 +437,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[stg].[Td_SalesPerson]</property>
+                  name="OpenRowset">[dwh].[Td_SalesPerson]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -530,12 +507,6 @@
                       externalMetadataColumnId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonName]"
                       lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[SalesPersonName]" />
                     <inputColumn
-                      refId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].Columns[SalesPersonBossID]"
-                      cachedDataType="i4"
-                      cachedName="SalesPersonBossID"
-                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonBossID]"
-                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[SalesPersonBossID]" />
-                    <inputColumn
                       refId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].Columns[SourceID]"
                       cachedDataType="wstr"
                       cachedLength="10"
@@ -560,6 +531,25 @@
                       cachedName="CreatedDate"
                       externalMetadataColumnId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[CreatedDate]" />
+                    <inputColumn
+                      refId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].Columns[SourceContext]"
+                      cachedDataType="wstr"
+                      cachedLength="39"
+                      cachedName="SourceContext"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
+                    <inputColumn
+                      refId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].Columns[SalesPersonBossID]"
+                      cachedDataType="i4"
+                      cachedName="SalesPersonBossID"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonBossID_FK]"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[SalesPersonBossID]" />
+                    <inputColumn
+                      refId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].Columns[IsNew]"
+                      cachedDataType="bool"
+                      cachedName="IsNew"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[IsNew]"
+                      lineageId="Package\ETL\Derived Column 1.Outputs[Derived Column Output].Columns[IsNew]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -572,10 +562,6 @@
                       dataType="wstr"
                       length="50"
                       name="SalesPersonName" />
-                    <externalMetadataColumn
-                      refId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonBossID]"
-                      dataType="i4"
-                      name="SalesPersonBossID" />
                     <externalMetadataColumn
                       refId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
                       dataType="wstr"
@@ -593,6 +579,19 @@
                       refId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       dataType="dbTimeStamp"
                       name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                      dataType="wstr"
+                      length="255"
+                      name="SourceContext" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonBossID_FK]"
+                      dataType="i4"
+                      name="SalesPersonBossID_FK" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[IsNew]"
+                      dataType="bool"
+                      name="IsNew" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1461,7 +1460,7 @@
           DTS:refId="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{10bfed13-754c-47fb-a5af-d33c5f4e29d3}"
+          DTS:DTSID="{790de588-4b47-40be-bd0f-34b33b69841e}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Log Package Execution"
@@ -1470,7 +1469,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{6C1031BB-89DE-412D-A885-9CC033567726}"
-              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="System::PackageID"
@@ -1572,7 +1571,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="186,42"
+          Size="187,41"
           Id="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           TopLeft="60,60" />
       </GraphLayout>
@@ -1584,105 +1583,77 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="242,42"
-          Id="Package\ETL\SOURCE - DWH V_Td_SalesPerson"
-          TopLeft="111.5,5.5" />
+          Size="163,42"
+          Id="Package\ETL\Derived Column 1"
+          TopLeft="151,515.5" />
         <NodeLayout
           Size="209,42"
           Id="Package\ETL\Slowly Changing Dimension"
           TopLeft="128,107.5" />
-        <EdgeLayout
-          Id="Package\ETL.Paths[OLE DB Source Output]"
-          TopLeft="232.5,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\ETL\Union All"
+          TopLeft="172,413.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\ETL\OLE DB Command"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\ETL\DEST - DWH Td_SalesPerson"
+          TopLeft="164,684" />
         <NodeLayout
           Size="154,42"
           Id="Package\ETL\Derived Column"
           TopLeft="17.5000000000001,209.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\ETL\OLE DB Command 1"
+          TopLeft="294,209.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\ETL\Add Log Metadata"
+          TopLeft="150.5,602" />
+        <NodeLayout
+          Size="242,42"
+          Id="Package\ETL\SOURCE - DWH V_Td_SalesPerson"
+          TopLeft="111.5,5.5" />
         <EdgeLayout
-          Id="Package\ETL.Paths[Historical Attribute Inserts Output]"
-          TopLeft="182.25,149.5">
+          Id="Package\ETL.Paths[OLE DB Command Output]"
+          TopLeft="88.5000000000001,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-87.75,60"
+              EndConnector="125.166666666667,60"
               Start="0,0"
-              End="-87.75,52.5">
+              End="125.166666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.503937007874" />
+                    End="0,31.5301794453507" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.503937007874"
-                    Point2="0,20.503937007874"
-                    Point3="-4,20.503937007874" />
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
                   <mssgle:LineSegment
-                    End="-83.75,20.503937007874" />
+                    End="121.166666666667,35.5301794453507" />
                   <mssgle:CubicBezierSegment
-                    Point1="-83.75,20.503937007874"
-                    Point2="-87.75,20.503937007874"
-                    Point3="-87.75,24.503937007874" />
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
                   <mssgle:LineSegment
-                    End="-87.75,52.5" />
+                    End="125.166666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-118.93138671875,25.503937007874,150.1127734375,11.609375"
+              BoundingBox="47.4788606770835,40.5301794453507,30.2089453125,9.4462890625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\ETL\OLE DB Command"
-          TopLeft="5.50000000000006,311.5" />
-        <EdgeLayout
-          Id="Package\ETL.Paths[Derived Column Output]"
-          TopLeft="91.5000000000001,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="121,42"
-          Id="Package\ETL\Union All"
-          TopLeft="172,413.5" />
         <EdgeLayout
           Id="Package\ETL.Paths[New Output]"
           TopLeft="232.5,149.5">
@@ -1715,51 +1686,109 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-17.6747200520833,161.332789559543,54.1827734375,11.43359375"
+              BoundingBox="-17.6747200520833,161.332789559543,93.9534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ETL.Paths[OLE DB Command Output]"
-          TopLeft="88.5000000000001,353.5">
+          Id="Package\ETL.Paths[Historical Attribute Inserts Output]"
+          TopLeft="182.25,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="125.166666666667,60"
+              EndConnector="-87.75,60"
               Start="0,0"
-              End="125.166666666667,52.5">
+              End="-87.75,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5301794453507" />
+                    End="0,16.503937007874" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.5301794453507"
-                    Point2="0,35.5301794453507"
-                    Point3="4,35.5301794453507" />
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="-4,20.503937007874" />
                   <mssgle:LineSegment
-                    End="121.166666666667,35.5301794453507" />
+                    End="-83.75,20.503937007874" />
                   <mssgle:CubicBezierSegment
-                    Point1="121.166666666667,35.5301794453507"
-                    Point2="125.166666666667,35.5301794453507"
-                    Point3="125.166666666667,39.5301794453507" />
+                    Point1="-83.75,20.503937007874"
+                    Point2="-87.75,20.503937007874"
+                    Point3="-87.75,24.503937007874" />
                   <mssgle:LineSegment
-                    End="125.166666666667,52.5" />
+                    End="-87.75,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-118.93138671875,25.503937007874,189.8834765625,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\ETL\Derived Column 1"
-          TopLeft="151,515.5" />
         <EdgeLayout
-          Id="Package\ETL.Paths[Union All Output 1]"
-          TopLeft="232.5,455.5">
+          Id="Package\ETL.Paths[Derived Column Output2]"
+          TopLeft="232.5,644">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.5,40"
+              Start="0,0"
+              End="39.5,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="35.5,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.5,20"
+                    Point2="39.5,20"
+                    Point3="39.5,24" />
+                  <mssgle:LineSegment
+                    End="39.5,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.64552734375,25,30.2089453125,9.4462890625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Derived Column Output1]"
+          TopLeft="232.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.5"
+              Start="0,0"
+              End="0,37">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.10447265625,13.77685546875,30.2089453125,9.4462890625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Derived Column Output]"
+          TopLeft="91.5000000000001,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1776,13 +1805,11 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-15.10447265625,21.52685546875,30.2089453125,9.4462890625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\ETL\OLE DB Command 1"
-          TopLeft="294,209.5" />
         <EdgeLayout
           Id="Package\ETL.Paths[Changing Attribute Updates Output]"
           TopLeft="282.75,149.5">
@@ -1815,90 +1842,61 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-29.15890625,25.503937007874,157.0678125,11.6630859375"
+              BoundingBox="-29.15890625,25.503937007874,196.838515625,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,42"
-          Id="Package\ETL\Add Log Metadata"
-          TopLeft="150.5,602" />
         <EdgeLayout
-          Id="Package\ETL.Paths[Derived Column Output1]"
-          TopLeft="232.5,557.5">
+          Id="Package\ETL.Paths[Union All Output 1]"
+          TopLeft="232.5,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44.5"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,37">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-15.10447265625,21.52685546875,30.2089453125,9.4462890625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="216,42"
-          Id="Package\ETL\DEST - DWH Td_SalesPerson"
-          TopLeft="164,684" />
         <EdgeLayout
-          Id="Package\ETL.Paths[Derived Column Output2]"
-          TopLeft="232.5,644">
+          Id="Package\ETL.Paths[OLE DB Source Output]"
+          TopLeft="232.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="39.4999999999999,40"
+              EndConnector="0,60"
               Start="0,0"
-              End="39.4999999999999,32.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16"
-                    Point2="0,20"
-                    Point3="4,20" />
-                  <mssgle:LineSegment
-                    End="35.4999999999999,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="35.4999999999999,20"
-                    Point2="39.4999999999999,20"
-                    Point3="39.4999999999999,24" />
-                  <mssgle:LineSegment
-                    End="39.4999999999999,32.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-15.35349609375,21.5390625,30.7069921875,9.421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL\SOURCE - DWH V_Td_SalesPerson">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ETL\Slowly Changing Dimension">
     <Properties>
@@ -1962,6 +1960,19 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\SOURCE - DWH V_Td_SalesPerson">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

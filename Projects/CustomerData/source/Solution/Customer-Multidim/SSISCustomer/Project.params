@@ -163,7 +163,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">BERSERKLAPTOP\SQL011P</SSIS:Property>
+        SSIS:Name="Value">LU-GZMRLS3\SQL01P\prod</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>

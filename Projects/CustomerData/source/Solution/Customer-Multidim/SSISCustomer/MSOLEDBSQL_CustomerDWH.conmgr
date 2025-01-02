@@ -3,10 +3,12 @@
   DTS:ObjectName="MSOLEDBSQL_CustomerDWH"
   DTS:DTSID="{6C1031BB-89DE-412D-A885-9CC033567726}"
   DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">"Data Source=" + @[$Project::PR_SQLServer] + ";Initial Catalog=CustomerDWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;"</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=LU-GZMRLS3\SQL01P\prod;Initial Catalog=CustomerDWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-STG_Td_Country-{6C1031BB-89DE-412D-A885-9CC033567726}LU-GZMRLS3\SQL01P\prod.CustomerDWH;Auto Translate=False;" />
+      DTS:ConnectionString="Data Source=BERSERKLAPTOP\SQL011P;Initial Catalog=CustomerDWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

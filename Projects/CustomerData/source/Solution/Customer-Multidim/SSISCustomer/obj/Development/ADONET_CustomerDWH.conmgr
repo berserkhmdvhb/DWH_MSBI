@@ -7,6 +7,6 @@
     DTS:Name="ConnectionString">"Data Source=" + @[$Project::PR_SQLServer] + ";Initial Catalog=CustomerDWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;"</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=BERSERKLAPTOP\SQL011P;Initial Catalog=CustomerDWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;" />
+      DTS:ConnectionString="Data Source=LU-GZMRLS3\SQL01P\prod;Initial Catalog=CustomerDWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

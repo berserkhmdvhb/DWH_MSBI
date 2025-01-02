@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="STG_Td_Product"
   DTS:PackageType="5"
-  DTS:VersionBuild="271"
-  DTS:VersionGUID="{4ED0D0F0-04B9-4D4F-8345-1D13C6AB3830}">
+  DTS:VersionBuild="273"
+  DTS:VersionGUID="{C70CF7A7-A7B4-4EC8-AD59-863C340B1D23}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -32,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\Dimensions\SalesPerson\test.csv">
+          DTS:ConnectionString="C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\SalesPerson\test.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -132,7 +132,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\Dimensions\SalesPerson\test.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\SalesPerson\test.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -143,7 +143,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Fail">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\Dimensions\SalesPerson\Rejected\test@20250102_124924.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\SalesPerson\Rejected\test@20250102_142920.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -154,7 +154,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Success">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\Dimensions\SalesPerson\Processed\test@20250102_124924.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\SalesPerson\Processed\test@20250102_142920.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -165,7 +165,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFolder_Full">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\Dimensions\SalesPerson</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\SalesPerson</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -176,7 +176,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFolder_Full_UAT">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\hamed\Documents\Projects\DE\Dataset\UAT\Input\Dimensions\SalesPerson</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\UAT\Input\Dimensions\SalesPerson</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -206,7 +206,7 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="C:\Users\hamed\Documents\Projects\DE\Dataset\PROD\Input\Dimensions\SalesPerson" />
+              Folder="C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\SalesPerson" />
             <FEFEProperty
               FileSpec="*.*" />
             <FEFEProperty
@@ -227,7 +227,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Archive File Failure"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -248,7 +248,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Archive File Success"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -269,7 +269,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Archive File Success 2"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -2046,7 +2046,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:LocaleID="-1"
           DTS:ObjectName="Copy to UAT"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -2181,6 +2181,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
                               name="FriendlyExpression">@[System::StartTime]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="23"
+                          lineageId="Package\Foreach Loop Container\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
+                          name="SourceContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[$Package::PK_SourceContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[$Package::PK_SourceContext]</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -2541,6 +2564,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           cachedName="PersonBossIDConv"
                           externalMetadataColumnId="Package\Foreach Loop Container\ETL\DEST - STG Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonBossID]"
                           lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[PersonBossIDConv]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - STG Td_SalesPerson.Inputs[OLE DB Destination Input].Columns[SourceContext]"
+                          cachedDataType="wstr"
+                          cachedLength="23"
+                          cachedName="SourceContext"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\DEST - STG Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                          lineageId="Package\Foreach Loop Container\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -2574,6 +2604,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           refId="Package\Foreach Loop Container\ETL\DEST - STG Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                           dataType="dbTimeStamp"
                           name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - STG Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                          dataType="wstr"
+                          length="255"
+                          name="SourceContext" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2978,7 +3013,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{46a502d4-1f2f-41ab-b9be-a44aba0c2296}"
+          DTS:DTSID="{fc65ce46-bf87-48c4-82ed-0fda55587222}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Log Package Execution"
@@ -2987,7 +3022,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{6C1031BB-89DE-412D-A885-9CC033567726}"
-              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="System::PackageID"

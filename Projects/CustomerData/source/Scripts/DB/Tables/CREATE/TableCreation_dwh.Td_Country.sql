@@ -13,6 +13,7 @@ CREATE TABLE [dwh].[Td_Country](
 	[CountryName] [nvarchar](50) NULL,
 	[IsNew] [bit] NULL,
 	[SourceID] NVARCHAR(255) NULL,
+	[SourceContext] NVARCHAR(255) NULL,
 	[CreatedBy] UNIQUEIDENTIFIER NULL,
 	[ModifiedBy] UNIQUEIDENTIFIER NULL,
     [CreatedDate] DATETIME DEFAULT GETDATE()

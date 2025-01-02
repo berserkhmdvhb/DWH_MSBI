@@ -12,6 +12,7 @@ CREATE TABLE [stg].[Td_Product](
 	[ProductID] [int] NOT NULL,
 	[ProductName] [nvarchar](50) NULL,
 	[SourceID] NVARCHAR(255) NULL,
+	[SourceContext] NVARCHAR(255) NULL,
 	[CreatedBy] UNIQUEIDENTIFIER NULL,
 	[ModifiedBy] UNIQUEIDENTIFIER NULL,
     [CreatedDate] DATETIME DEFAULT GETDATE()

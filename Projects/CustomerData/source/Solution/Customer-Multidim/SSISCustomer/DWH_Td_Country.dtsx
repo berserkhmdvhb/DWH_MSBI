@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DWH_Td_Country"
   DTS:PackageType="5"
-  DTS:VersionBuild="203"
-  DTS:VersionGUID="{7BE2C4F9-183A-4196-AB84-CD5137C73E55}">
+  DTS:VersionBuild="207"
+  DTS:VersionGUID="{B3ADEA42-D934-4A62-98AC-10936E5732E2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -161,7 +161,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="19"
+                      length="31"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
                       name="SourceContext"
                       truncationRowDisposition="FailComponent">
@@ -170,36 +170,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">@[$Package::PK_SourceContext]</property>
+                          name="Expression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">@[$Package::PK_SourceContext]</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceObject]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceObject]"
-                      name="SourceObject"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_WSTR,255)@[$Package::PK_TableName_S]</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_WSTR,255)@[$Package::PK_TableName_S]</property>
+                          name="FriendlyExpression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -560,6 +537,13 @@
                       cachedName="CreatedDate"
                       externalMetadataColumnId="Package\ETL\DEST - DWH Td_Country.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[CreatedDate]" />
+                    <inputColumn
+                      refId="Package\ETL\DEST - DWH Td_Country.Inputs[OLE DB Destination Input].Columns[SourceContext]"
+                      cachedDataType="wstr"
+                      cachedLength="31"
+                      cachedName="SourceContext"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_Country.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -593,6 +577,11 @@
                       refId="Package\ETL\DEST - DWH Td_Country.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       dataType="dbTimeStamp"
                       name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\DEST - DWH Td_Country.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                      dataType="wstr"
+                      length="255"
+                      name="SourceContext" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1276,7 +1265,7 @@
           DTS:refId="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{da3fa23a-261c-4385-9ab3-794ccded4ee9}"
+          DTS:DTSID="{9d3f5e4b-23a0-44f5-82dd-c57fdd2a972c}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Log Package Execution"
@@ -1285,7 +1274,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{6C1031BB-89DE-412D-A885-9CC033567726}"
-              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="System::PackageID"
@@ -1399,7 +1388,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="186,42"
+          Size="187,41"
           Id="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           TopLeft="60,60" />
       </GraphLayout>

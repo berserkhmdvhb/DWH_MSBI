@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DWH_Td_State"
   DTS:PackageType="5"
-  DTS:VersionBuild="78"
-  DTS:VersionGUID="{AF3678A5-E9C9-41F3-B159-3BA30EA90EC4}">
+  DTS:VersionBuild="85"
+  DTS:VersionGUID="{C01A770B-757F-48EB-AD82-358983CA22BE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -157,29 +157,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceObject]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceObject]"
-                      name="SourceObject"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_WSTR,255)@[$Package::PK_TableName_S]</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_WSTR,255)@[$Package::PK_TableName_S]</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[CreatedBy]"
                       dataType="guid"
                       errorOrTruncationOperation="Computation"
@@ -243,6 +220,29 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="27"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
+                      name="SourceContext"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -543,6 +543,13 @@
                       cachedName="CreatedDate"
                       externalMetadataColumnId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[CreatedDate]" />
+                    <inputColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].Columns[SourceContext]"
+                      cachedDataType="wstr"
+                      cachedLength="27"
+                      cachedName="SourceContext"
+                      externalMetadataColumnId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                      lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -580,6 +587,11 @@
                       refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       dataType="dbTimeStamp"
                       name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\DEST - DWH Td_State.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                      dataType="wstr"
+                      length="255"
+                      name="SourceContext" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -626,7 +638,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dwh].[Td_State] SET [IsNew] = ? WHERE [CountryID] = ? AND [IsNew] = '1'</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dwh].[Td_State] SET [IsNew] = ? WHERE [StateID] = ? AND [IsNew] = '1'</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -649,11 +661,11 @@
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[CountryID]"
+                      refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[StateID]"
                       cachedDataType="i4"
-                      cachedName="CountryID"
+                      cachedName="StateID"
                       externalMetadataColumnId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[CountryID]" />
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateID]" />
                     <inputColumn
                       refId="Package\ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[IsNew]"
                       cachedDataType="bool"
@@ -732,7 +744,7 @@
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CountryID], [StateName],[IsNew] FROM [dwh].[Td_State]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [StateID], [StateName],[IsNew] FROM [dwh].[Td_State]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -781,11 +793,11 @@
                   name="Slowly Changing Dimension Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CountryID]"
+                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[StateID]"
                       cachedDataType="i4"
-                      cachedName="CountryID"
-                      externalMetadataColumnId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CountryID]"
-                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[CountryID]">
+                      cachedName="StateID"
+                      externalMetadataColumnId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateID]"
+                      lineageId="Package\ETL\SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateID]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -811,9 +823,9 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CountryID]"
+                      refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateID]"
                       dataType="i4"
-                      name="CountryID" />
+                      name="StateID" />
                     <externalMetadataColumn
                       refId="Package\ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateName]"
                       dataType="wstr"
@@ -1312,7 +1324,7 @@
           DTS:refId="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{8b00cdf6-ffec-4dbf-abc3-61532d97422e}"
+          DTS:DTSID="{aea1e3c5-0135-49a9-b612-a97277d13761}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Log Package Execution"
@@ -1321,7 +1333,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{6C1031BB-89DE-412D-A885-9CC033567726}"
-              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="System::PackageID"
@@ -1423,9 +1435,9 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="186,42"
+          Size="187,41"
           Id="Package.EventHandlers[OnPostExecute]\Log Package Execution"
-          TopLeft="60,61" />
+          TopLeft="60,60" />
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
@@ -1435,24 +1447,24 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="198,42"
-          Id="Package\ETL\SOURCE - DWH Td_State"
-          TopLeft="133.5,5.5" />
-        <NodeLayout
           Size="184,42"
           Id="Package\ETL\DEST - DWH Td_State"
-          TopLeft="374.5,617.5" />
+          TopLeft="278.5,692.5" />
         <NodeLayout
           Size="208,42"
           Id="Package\ETL\Slowly Changing Dimension"
-          TopLeft="128.5,107.5" />
+          TopLeft="227.5,107.5" />
         <NodeLayout
           Size="164,42"
           Id="Package\ETL\Add Log Metadata"
-          TopLeft="384.5,515.5" />
+          TopLeft="280.5,602.5" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\ETL\SOURCE - DWH Td_State"
+          TopLeft="232.5,5.5" />
         <EdgeLayout
           Id="Package\ETL.Paths[OLE DB Source Output]"
-          TopLeft="232.5,47.5">
+          TopLeft="331.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1474,18 +1486,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL.Paths[Derived Column Output]"
-          TopLeft="466.5,557.5">
+          TopLeft="362.5,644.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="8,48"
               Start="0,0"
-              End="0,52.5">
+              End="8,40.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="4,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,24"
+                    Point2="8,24"
+                    Point3="8,28" />
+                  <mssgle:LineSegment
+                    End="8,40.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1497,10 +1521,10 @@
         <NodeLayout
           Size="154,42"
           Id="Package\ETL\Derived Column"
-          TopLeft="17.5000000000001,209.5" />
+          TopLeft="116.5,209.5" />
         <EdgeLayout
           Id="Package\ETL.Paths[Historical Attribute Inserts Output]"
-          TopLeft="199.166666666667,149.5">
+          TopLeft="298.166666666667,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1511,17 +1535,17 @@
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2748091603053" />
+                    End="0,20.2748091603054" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2748091603053"
-                    Point2="0,24.2748091603053"
-                    Point3="-4,24.2748091603053" />
+                    Point1="0,20.2748091603054"
+                    Point2="0,24.2748091603054"
+                    Point3="-4,24.2748091603054" />
                   <mssgle:LineSegment
-                    End="-100.666666666667,24.2748091603053" />
+                    End="-100.666666666667,24.2748091603054" />
                   <mssgle:CubicBezierSegment
-                    Point1="-100.666666666667,24.2748091603053"
-                    Point2="-104.666666666667,24.2748091603053"
-                    Point3="-104.666666666667,28.2748091603053" />
+                    Point1="-100.666666666667,24.2748091603054"
+                    Point2="-104.666666666667,24.2748091603054"
+                    Point3="-104.666666666667,28.2748091603054" />
                   <mssgle:LineSegment
                     End="-104.666666666667,52.5" />
                 </mssgle:SegmentCollection>
@@ -1530,17 +1554,17 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-127.389720052083,29.2748091603053,150.1127734375,11.609375"
+              BoundingBox="-127.389720052083,29.2748091603054,150.1127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
           Size="166,42"
           Id="Package\ETL\OLE DB Command"
-          TopLeft="5.50000000000006,311.5" />
+          TopLeft="104.5,311.5" />
         <EdgeLayout
           Id="Package\ETL.Paths[Derived Column Output1]"
-          TopLeft="91.5000000000001,251.5">
+          TopLeft="190.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1563,16 +1587,16 @@
         <NodeLayout
           Size="121,42"
           Id="Package\ETL\Union All"
-          TopLeft="172,413.5" />
+          TopLeft="271,413.5" />
         <EdgeLayout
           Id="Package\ETL.Paths[New Output]"
-          TopLeft="265.833333333333,149.5">
+          TopLeft="364.833333333333,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14.4999999999999,264"
+              EndConnector="-14.5,264"
               Start="0,0"
-              End="-14.4999999999999,256.5">
+              End="-14.5,256.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1583,13 +1607,13 @@
                     Point2="0,131.110663672268"
                     Point3="-4,131.110663672268" />
                   <mssgle:LineSegment
-                    End="-10.4999999999999,131.110663672268" />
+                    End="-10.5,131.110663672268" />
                   <mssgle:CubicBezierSegment
-                    Point1="-10.4999999999999,131.110663672268"
-                    Point2="-14.4999999999999,131.110663672268"
-                    Point3="-14.4999999999999,135.110663672268" />
+                    Point1="-10.5,131.110663672268"
+                    Point2="-14.5,131.110663672268"
+                    Point3="-14.5,135.110663672268" />
                   <mssgle:LineSegment
-                    End="-14.4999999999999,256.5" />
+                    End="-14.5,256.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1602,7 +1626,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL.Paths[OLE DB Command Output]"
-          TopLeft="88.5000000000001,353.5">
+          TopLeft="187.5,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1637,10 +1661,10 @@
         <NodeLayout
           Size="163,42"
           Id="Package\ETL\Derived Column 1"
-          TopLeft="151,515.5" />
+          TopLeft="250,515.5" />
         <EdgeLayout
           Id="Package\ETL.Paths[Union All Output 1]"
-          TopLeft="232.5,455.5">
+          TopLeft="331.5,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1662,18 +1686,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL.Paths[Derived Column Output2]"
-          TopLeft="314,536.5">
+          TopLeft="331.5,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="70.5,0"
+              EndConnector="31,45"
               Start="0,0"
-              End="63,0">
+              End="31,37.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="63,0" />
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="27,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27,22.5"
+                    Point2="31,22.5"
+                    Point3="31,26.5" />
+                  <mssgle:LineSegment
+                    End="31,37.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1685,19 +1721,6 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL\SOURCE - DWH Td_State">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ETL\DEST - DWH Td_State">
     <Properties>
@@ -1725,13 +1748,13 @@
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[CountryID]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;CountryID&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;SOURCE - DWH Td_State.Outputs[OLE DB Source Output].Columns[StateID]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;StateID&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -1760,6 +1783,19 @@
   &lt;DateVariable /&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\SOURCE - DWH Td_State">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

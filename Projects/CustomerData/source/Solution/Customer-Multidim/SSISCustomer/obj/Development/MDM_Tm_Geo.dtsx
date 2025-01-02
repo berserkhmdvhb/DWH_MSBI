@@ -93,7 +93,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_ConnectionString">
       <DTS:VariableValue
-        DTS:DataType="8">Data Source=BERSERKLAPTOP\SQL011P;Initial Catalog=CustomerDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;</DTS:VariableValue>
+        DTS:DataType="8">Data Source=LU-GZMRLS3\SQL01P\prod;Initial Catalog=CustomerDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -146,7 +146,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Fail">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\Rejected\References@20250102_133649.json</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\Rejected\References@20250102_150149.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -157,7 +157,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Success">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\Processed\References@20250102_133649.json</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\MasterData\Geo\Processed\References@20250102_150149.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""

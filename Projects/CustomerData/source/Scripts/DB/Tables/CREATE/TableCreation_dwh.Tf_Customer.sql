@@ -19,6 +19,7 @@ CREATE TABLE [dwh].[Tf_Customer](
 	[ProductID_FK] [int] NULL,
 	[SalesPersonID_FK] [int] NULL,
 	[SourceID] NVARCHAR(255) NULL,
+	[SourceContext] NVARCHAR(255) NULL,
 	[CreatedBy] UNIQUEIDENTIFIER NULL,
 	[ModifiedBy] UNIQUEIDENTIFIER NULL,
     [CreatedDate] DATETIME DEFAULT GETDATE()
@@ -29,7 +30,7 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 GO
 
-
+/*
 ALTER TABLE [dwh].[Tf_Customer] WITH NOCHECK ADD  CONSTRAINT [FK_Tf_Customer_Td_SalesPerson] FOREIGN KEY([SalesPersonId_FK])
 REFERENCES [dwh].[Td_SalesPerson] ([SalesPersonID])
 GO
@@ -43,12 +44,13 @@ GO
 
 ALTER TABLE [dwh].[Tf_Customer] CHECK CONSTRAINT [FK_Tf_Customer_Td_State]
 GO
+*/
 
 ALTER TABLE [dwh].[Tf_Customer] WITH NOCHECK ADD  CONSTRAINT [FK_Tf_Customer_Td_Period] FOREIGN KEY([SalesDateId_FK])
 REFERENCES [dwh].[Td_Period] ([date_key])
 GO
 
-ALTER TABLE [dwh].[Tf_Customer] CHECK CONSTRAINT [FK_Tf_Customer_Td_SalesPerson]
+ALTER TABLE [dwh].[Tf_Customer] CHECK CONSTRAINT [FK_Tf_Customer_Td_Period]
 GO
 
 

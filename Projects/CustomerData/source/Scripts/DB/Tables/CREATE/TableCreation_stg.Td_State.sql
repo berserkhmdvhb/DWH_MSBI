@@ -13,6 +13,7 @@ CREATE TABLE [stg].[Td_State](
 	[StateName] [nvarchar](50) NULL,
 	[CountryID] [int] NOT NULL,
 	[SourceID] NVARCHAR(255) NULL,
+	[SourceContext] NVARCHAR(255) NULL,
 	[CreatedBy] UNIQUEIDENTIFIER NULL,
 	[ModifiedBy] UNIQUEIDENTIFIER NULL,
     [CreatedDate] DATETIME DEFAULT GETDATE()

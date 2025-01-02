@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="STG_Td_Product"
   DTS:PackageType="5"
-  DTS:VersionBuild="277"
-  DTS:VersionGUID="{373EF649-43CF-4192-B63D-9A8C18327789}">
+  DTS:VersionBuild="280"
+  DTS:VersionGUID="{0452C7D5-3402-4EDC-B451-E361F8047C35}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -134,7 +134,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Fail">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\Product\Rejected\test@20250102_133648.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\Product\Rejected\test@20250102_150148.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -145,7 +145,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Success">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\Product\Processed\test@20250102_133648.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\Product\Processed\test@20250102_150148.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -2088,6 +2088,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                               name="FriendlyExpression">@[System::StartTime]</property>
                           </properties>
                         </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="19"
+                          lineageId="Package\Foreach Loop Container\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
+                          name="SourceContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[$Package::PK_SourceContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[$Package::PK_SourceContext]</property>
+                          </properties>
+                        </outputColumn>
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -2413,6 +2436,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                           cachedName="ProductIDConv"
                           externalMetadataColumnId="Package\Foreach Loop Container\ETL\DEST - STG Td_Product.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
                           lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[ProductIDConv]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - STG Td_Product.Inputs[OLE DB Destination Input].Columns[SourceContext]"
+                          cachedDataType="wstr"
+                          cachedLength="19"
+                          cachedName="SourceContext"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\DEST - STG Td_Product.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                          lineageId="Package\Foreach Loop Container\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -2442,6 +2472,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                           refId="Package\Foreach Loop Container\ETL\DEST - STG Td_Product.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                           dataType="dbTimeStamp"
                           name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - STG Td_Product.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                          dataType="wstr"
+                          length="255"
+                          name="SourceContext" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2818,7 +2853,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:refId="Package.EventHandlers[OnPostExecute]\Log Package Execution"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{4a24f4db-c69b-4594-81f3-98ebf1472692}"
+          DTS:DTSID="{62ba877d-f1be-4a5b-b7b8-1e17817c6dc1}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Log Package Execution"
@@ -2827,7 +2862,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{6C1031BB-89DE-412D-A885-9CC033567726}"
-              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="System::PackageID"

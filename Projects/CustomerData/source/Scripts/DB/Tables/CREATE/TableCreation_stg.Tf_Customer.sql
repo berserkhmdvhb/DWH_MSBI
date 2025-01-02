@@ -19,6 +19,7 @@ CREATE TABLE [stg].[Tf_Customer](
 	[ProductName] [nvarchar](50) NULL,
 	[SalesPersonName] [nvarchar](50) NULL,
 	[SourceID] NVARCHAR(255) NULL,
+	[SourceContext] NVARCHAR(255) NULL,
 	[CreatedBy] UNIQUEIDENTIFIER NULL,
 	[ModifiedBy] UNIQUEIDENTIFIER NULL,
     [CreatedDate] DATETIME DEFAULT GETDATE()

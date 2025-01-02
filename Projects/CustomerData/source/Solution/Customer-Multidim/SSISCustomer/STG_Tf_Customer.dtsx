@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="STG_Tf_Customer"
   DTS:PackageType="5"
-  DTS:VersionBuild="250"
-  DTS:VersionGUID="{60BBE38A-3B0B-4D5A-96D6-25B819BCA910}">
+  DTS:VersionBuild="253"
+  DTS:VersionGUID="{91F6C5D0-1D32-44EA-94BD-714AB9BA9098}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -188,7 +188,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Fail">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Fact\Customer\Rejected\test@20250102_133620.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Fact\Customer\Rejected\test@20250102_142718.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -199,7 +199,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Success">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Fact\Customer\Processed\test@20250102_133620.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Fact\Customer\Processed\test@20250102_142718.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -272,7 +272,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Archive File Failure"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -293,7 +293,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Archive File Success"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -314,7 +314,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Archive File Success 2"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -2489,7 +2489,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:LocaleID="-1"
           DTS:ObjectName="Copy to UAT"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -2624,6 +2624,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
                               name="FriendlyExpression">@[System::StartTime]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="15"
+                          lineageId="Package\Foreach Loop Container\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
+                          name="SourceContext"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[$Package::PK_SourceContext]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[$Package::PK_SourceContext]</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -3157,6 +3180,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                           cachedName="SalesPersonNameConv"
                           externalMetadataColumnId="Package\Foreach Loop Container\ETL\DEST - STG Tf_Customer.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonName]"
                           lineageId="Package\Foreach Loop Container\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[SalesPersonNameConv]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - STG Tf_Customer.Inputs[OLE DB Destination Input].Columns[SourceContext]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="SourceContext"
+                          externalMetadataColumnId="Package\Foreach Loop Container\ETL\DEST - STG Tf_Customer.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                          lineageId="Package\Foreach Loop Container\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -3218,6 +3248,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                           refId="Package\Foreach Loop Container\ETL\DEST - STG Tf_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                           dataType="dbTimeStamp"
                           name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\ETL\DEST - STG Tf_Customer.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
+                          dataType="wstr"
+                          length="255"
+                          name="SourceContext" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -3771,7 +3806,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{6C1031BB-89DE-412D-A885-9CC033567726}"
-              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="System::PackageID"
@@ -4229,7 +4264,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-66.08638671875,17.7920264808054,132.1727734375,11.43359375"
+              BoundingBox="-66.08638671875,17.7920264808055,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4242,10 +4277,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="155,42"
-          Id="Package\Foreach Loop Container\ETL\Data Conversion"
-          TopLeft="461.311686563303,237.465239492958" />
-        <NodeLayout
           Size="210,42"
           Id="Package\Foreach Loop Container\ETL\SOURCE - FlatFile Customer"
           TopLeft="440.493504625332,35.4224599375407" />
@@ -4254,57 +4285,17 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Id="Package\Foreach Loop Container\ETL\Conditional Split"
           TopLeft="466.090902145613,144.581816301563" />
         <NodeLayout
+          Size="198,42"
+          Id="Package\Foreach Loop Container\ETL\DEST - STG Tf_Customer"
+          TopLeft="442.727266130122,413.999994892966" />
+        <NodeLayout
           Size="164,42"
           Id="Package\Foreach Loop Container\ETL\Add Log Metadata"
           TopLeft="459.999993145466,320.909086127173" />
         <NodeLayout
-          Size="198,42"
-          Id="Package\Foreach Loop Container\ETL\DEST - STG Tf_Customer"
-          TopLeft="442.727266130122,413.999994892966" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\ETL.Paths[Derived Column Output]"
-          TopLeft="541.763629637794,362.509086127173">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.4909087657929"
-              Start="0,0"
-              End="0,43.9909087657929">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.9909087657929" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\ETL.Paths[Data Conversion Output]"
-          TopLeft="540.455839854385,279.065239492958">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.8438466342146"
-              Start="0,0"
-              End="0,34.3438466342146">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.3438466342146" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="155,42"
+          Id="Package\Foreach Loop Container\ETL\Data Conversion"
+          TopLeft="461.311686563303,237.465239492958" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\ETL.Paths[Flat File Source Output]"
           TopLeft="544.292203385473,77.0224599375407">
@@ -4324,7 +4315,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4348,6 +4341,54 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-22.76298828125,16.0601686269478,45.5259765625,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\ETL.Paths[Derived Column Output]"
+          TopLeft="541.763629637794,362.509086127173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.4909087657929"
+              Start="0,0"
+              End="0,43.9909087657929">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.9909087657929" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\ETL.Paths[Data Conversion Output]"
+          TopLeft="540.455839854385,279.065239492958">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.8438466342146"
+              Start="0,0"
+              End="0,34.3438466342146">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.3438466342146" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

@@ -8,27 +8,27 @@
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>STG_Td_Country.dtsx</Name>
-      <LastWriteTime>2025-01-02T11:48:05.7437822Z</LastWriteTime>
+      <LastWriteTime>2025-01-02T13:29:32.7464959Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DWH_Td_Country.dtsx</Name>
-      <LastWriteTime>2025-01-02T11:56:35.8022517Z</LastWriteTime>
+      <LastWriteTime>2025-01-02T13:29:41.4379168Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DWH_Td_Product.dtsx</Name>
-      <LastWriteTime>2025-01-02T12:04:45.310637Z</LastWriteTime>
+      <LastWriteTime>2025-01-02T13:29:47.6996148Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DWH_Td_SalesPerson.dtsx</Name>
-      <LastWriteTime>2025-01-02T12:04:56.4118083Z</LastWriteTime>
+      <LastWriteTime>2025-01-02T13:56:13.3862648Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DWH_Td_State.dtsx</Name>
-      <LastWriteTime>2025-01-02T12:07:14.8688454Z</LastWriteTime>
+      <LastWriteTime>2025-01-02T14:01:46.1079306Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -53,17 +53,17 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>STG_Td_Product.dtsx</Name>
-      <LastWriteTime>2025-01-02T11:48:23.7930294Z</LastWriteTime>
+      <LastWriteTime>2025-01-02T13:29:26.9228877Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>STG_Td_SalesPerson.dtsx</Name>
-      <LastWriteTime>2025-01-02T11:49:24.210791Z</LastWriteTime>
+      <LastWriteTime>2025-01-02T13:29:20.7964231Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>STG_Td_State.dtsx</Name>
-      <LastWriteTime>2025-01-02T11:50:02.9697145Z</LastWriteTime>
+      <LastWriteTime>2025-01-02T13:29:13.8826632Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -73,7 +73,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>STG_Tf_Customer.dtsx</Name>
-      <LastWriteTime>2025-01-02T12:36:20.866593Z</LastWriteTime>
+      <LastWriteTime>2025-01-02T13:27:18.2443089Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
