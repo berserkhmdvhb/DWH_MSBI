@@ -49,6 +49,14 @@ EXEC [tech].[usp_PopulateWarningDetails]
     @DefaultSeverity = 'High',
     @ActionRequired = 1;
 
+EXEC [tech].[usp_PopulateWarningDetails]
+    @Title = 'Warning - Missing Dimension Key',
+    @MessageTemplate = 'There is no correspondence on {Key} for the following row: {DynamicDetails}',
+    @Category = 'Data Quality',
+    @DefaultSeverity = 'Medium',
+    @ActionRequired = 1;
+
+
 -- Update a Warning Message
 EXEC [tech].[usp_PopulateWarningDetails]
     @WarningID = 4,

@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>SSISCustomer</Name>
-    <LastWriteTime>2025-01-02T14:39:41.5553763Z</LastWriteTime>
+    <LastWriteTime>2025-01-03T11:04:10.6604663Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>STG_Td_Country.dtsx</Name>
-      <LastWriteTime>2025-01-02T13:29:32.7464959Z</LastWriteTime>
+      <LastWriteTime>2025-01-03T10:59:27.8734371Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DWH_Td_Country.dtsx</Name>
-      <LastWriteTime>2025-01-02T13:29:41.4379168Z</LastWriteTime>
+      <LastWriteTime>2025-01-02T15:56:52.8878072Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -33,7 +33,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DWH_Tf_Customer.dtsx</Name>
-      <LastWriteTime>2025-01-02T08:21:19.2420435Z</LastWriteTime>
+      <LastWriteTime>2025-01-03T11:33:08.7927327Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -73,7 +73,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>STG_Tf_Customer.dtsx</Name>
-      <LastWriteTime>2025-01-02T13:27:18.2443089Z</LastWriteTime>
+      <LastWriteTime>2025-01-03T11:10:20.2252304Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>

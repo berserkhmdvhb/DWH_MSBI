@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="STG_Td_Country"
   DTS:PackageType="5"
-  DTS:VersionBuild="436"
-  DTS:VersionGUID="{115D03A0-4656-44D0-AFEA-98B0F20B3561}">
+  DTS:VersionBuild="439"
+  DTS:VersionGUID="{D394B67C-03B5-499B-8A63-2AD976AF0865}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -135,7 +135,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Fail">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\Country\Rejected\test@20250102_142932.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\Country\Rejected\test@20250103_115713.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -146,7 +146,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="V_PathFile_Archive_Success">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\Country\Processed\test@20250102_142932.csv</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Input\Dimensions\Country\Processed\test@20250103_115713.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -219,7 +219,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Archive File Failure"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -261,7 +261,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Archive File Success 2"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -1953,7 +1953,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:LocaleID="-1"
           DTS:ObjectName="Copy to UAT"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -3219,13 +3219,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           Id="Package\Foreach Loop Container\Check Errors\Row Count Errors"
           TopLeft="385.71428653537,253.58169921607" />
         <NodeLayout
-          Size="207,41"
+          Size="207,42"
           Id="Package\Foreach Loop Container\Check Errors\Add Warning Log Metadata"
           TopLeft="364.285715061183,442.317646950906" />
         <NodeLayout
-          Size="267,41"
+          Size="267,42"
           Id="Package\Foreach Loop Container\Check Errors\Update Table LOG Tl_BusinessWarnings"
-          TopLeft="334.285715508218,553.917646801894" />
+          TopLeft="334.285715508218,554.917646801894" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Check Errors.Paths[Row Count Output 1]"
           TopLeft="467.385715098436,295.18169921607">
@@ -3250,18 +3250,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container\Check Errors.Paths[Output 0]"
-          TopLeft="468.071429361342,390.611764573164">
+          TopLeft="468.071429361342,390.011764573164">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,51.705882377742"
+              EndConnector="0,52.305882377742"
               Start="0,0"
-              End="0,44.205882377742">
+              End="0,44.805882377742">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.205882377742" />
+                    End="0,44.805882377742" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3294,18 +3294,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container\Check Errors.Paths[Derived Column Output]"
-          TopLeft="467.4857152847,483.917646950906">
+          TopLeft="467.7857152847,484.317646950906">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,69.9999998509883"
+              EndConnector="0,70.599999850988"
               Start="0,0"
-              End="0,62.4999998509883">
+              End="0,63.099999850988">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62.4999998509883" />
+                    End="0,63.099999850988" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3347,10 +3347,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="155,41"
-          Id="Package\Foreach Loop Container\ETL\Data Conversion"
-          TopLeft="391.214285609369,336.441175386361" />
-        <NodeLayout
           Size="192,41"
           Id="Package\Foreach Loop Container\ETL\DEST - STG Td_Country"
           TopLeft="369.428569950012,627.941176696787" />
@@ -3366,6 +3362,54 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           Size="164,41"
           Id="Package\Foreach Loop Container\ETL\Add Log Metadata"
           TopLeft="388.999997694577,443.76470620162" />
+        <NodeLayout
+          Size="155,41"
+          Id="Package\Foreach Loop Container\ETL\Data Conversion"
+          TopLeft="391.214285609369,336.441175386361" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\ETL.Paths[Derived Column Output]"
+          TopLeft="468.214283822295,484.76470620162">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,143.176470495167"
+              Start="0,0"
+              End="0,135.676470495167">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,135.676470495167" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\ETL.Paths[Data Conversion Output]"
+          TopLeft="469.907141651973,378.041175386361">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.723530815259"
+              Start="0,0"
+              End="0,58.223530815259">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.223530815259" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container\ETL.Paths[Flat File Source Output]"
           TopLeft="466.821425660532,137.899998599291">
@@ -3410,50 +3454,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
             <mssgm:EdgeLabel
               BoundingBox="-22.76298828125,30.8390455737966,45.5259765625,11.6630859375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\ETL.Paths[Derived Column Output]"
-          TopLeft="468.214283822295,484.76470620162">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,143.176470495167"
-              Start="0,0"
-              End="0,135.676470495167">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,135.676470495167" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\ETL.Paths[Data Conversion Output]"
-          TopLeft="469.907141651973,378.041175386361">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,65.723530815259"
-              Start="0,0"
-              End="0,58.223530815259">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,58.223530815259" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

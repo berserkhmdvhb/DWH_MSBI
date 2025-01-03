@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DWH_Td_Country"
   DTS:PackageType="5"
-  DTS:VersionBuild="207"
-  DTS:VersionGUID="{B3ADEA42-D934-4A62-98AC-10936E5732E2}">
+  DTS:VersionBuild="211"
+  DTS:VersionGUID="{D51B4B0B-0C64-46DB-A126-B8AC29010BE8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -1400,13 +1400,17 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="121,42"
-          Id="Package\ETL\Union All"
-          TopLeft="172,413.5" />
+          Size="163,42"
+          Id="Package\ETL\Derived Column 1"
+          TopLeft="151,515.5" />
         <NodeLayout
-          Size="222,42"
+          Size="223,42"
           Id="Package\ETL\SOURCE - DWH V_Td_Country"
           TopLeft="121.5,5.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\ETL\OLE DB Command"
+          TopLeft="5.50000000000006,311.5" />
         <NodeLayout
           Size="197,42"
           Id="Package\ETL\DEST - DWH Td_Country"
@@ -1416,10 +1420,6 @@
           Id="Package\ETL\Derived Column"
           TopLeft="17.5000000000001,209.5" />
         <NodeLayout
-          Size="166,42"
-          Id="Package\ETL\OLE DB Command"
-          TopLeft="5.50000000000006,311.5" />
-        <NodeLayout
           Size="208,42"
           Id="Package\ETL\Slowly Changing Dimension"
           TopLeft="128.5,107.5" />
@@ -1428,9 +1428,31 @@
           Id="Package\ETL\Add Log Metadata"
           TopLeft="391.5,515.5" />
         <NodeLayout
-          Size="163,42"
-          Id="Package\ETL\Derived Column 1"
-          TopLeft="151,515.5" />
+          Size="121,42"
+          Id="Package\ETL\Union All"
+          TopLeft="172,413.5" />
+        <EdgeLayout
+          Id="Package\ETL.Paths[Derived Column Output1]"
+          TopLeft="91.5000000000001,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL.Paths[Derived Column Output]"
           TopLeft="473.5,557.5">
@@ -1477,7 +1499,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL.Paths[OLE DB Source Output]"
-          TopLeft="232.5,47.5">
+          TopLeft="232.75,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1617,28 +1639,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="70,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL.Paths[Derived Column Output1]"
-          TopLeft="91.5000000000001,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

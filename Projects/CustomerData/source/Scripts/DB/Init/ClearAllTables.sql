@@ -37,7 +37,8 @@ TRUNCATE TABLE stg.Td_Product
 TRUNCATE TABLE stg.Td_SalesPerson
 TRUNCATE TABLE stg.Td_State
 
-
+-- MDM
+TRUNCATE TABLE mdm.Tm_Geo
 -- DWH
 DELETE FROM dwh.Td_Country
 DELETE FROM dwh.Td_Product
