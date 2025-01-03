@@ -119,3 +119,13 @@ EXEC [tech].[usp_LogWarningDynamic]
     @CreatedBy = '906BA838-DFA5-4DC7-8DF6-D8ABBF7A4BA0',
     @DynamicParams = '[{"Key":"FileName","Value":"References.json"}]';
 ```
+
+```sql
+EXEC [tech].[usp_LogWarningDynamic]
+    @WarningID = 8,
+    @SourceID = 'schema stg',
+    @SourceContext = 'Fact - CustomerV_Tf_Customer',
+    @SourceObject = 'V_Tf_Customer',
+    @CreatedBy = 'ED8CEC59-DE21-41BA-B578-D534A5C24B95',
+    @DynamicParams = '[{"Key":"CountryID","Value":"Missing"},{"Key":"CustomerCode","Value":"1014"},{"Key":"CustomerName","Value":"Pooya"},{"Key":"CustomerAmount","Value":"800"},{"Key":"SalesDate","Value":"7/21/2022 12:00:00 AM"}]';
+```
