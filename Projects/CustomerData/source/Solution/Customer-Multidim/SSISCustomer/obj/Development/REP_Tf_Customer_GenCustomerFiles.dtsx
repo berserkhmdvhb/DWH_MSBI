@@ -5,48 +5,25 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="FR-GZMRLS3"
   DTS:CreatorName="AzureAD\HamedVAHEB"
-  DTS:DTSID="{EE7F2AA3-B461-4B3A-8D71-CFC5EE6D8B1E}"
+  DTS:DTSID="{EAF7D78B-B32C-4A25-9401-25946D923C54}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="DWH_Tf_Customer_Split"
+  DTS:ObjectName="REP_Tf_Customer_GenCustomerFiles"
   DTS:PackageType="5"
-  DTS:VersionBuild="236"
-  DTS:VersionGUID="{8921E51D-B16F-4CA8-A630-360A072B248E}">
+  DTS:VersionBuild="361"
+  DTS:VersionGUID="{7DDC119A-4705-4F7C-A38E-DF4C6950EAE1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[FlatFile_Archive]"
-      DTS:CreationName="FILE"
-      DTS:DTSID="{B3D30E48-44F1-423D-B637-4BC41CCD03C4}"
-      DTS:ObjectName="FlatFile_Archive">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::SolutionFileDir] + "\\Dataset\\Output\\Archives\\"</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:FileUsageType="2"
-          DTS:ConnectionString="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Output\Archives\" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[FlatFile_Customer_Dynamic]"
+      DTS:refId="Package.ConnectionManagers[FlatFile_Customer_Temp]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{886D6080-D284-4968-8FBC-630349038B40}"
-      DTS:ObjectName="FlatFile_Customer_Dynamic">
+      DTS:Description="FlatFile_Customer_Temp"
+      DTS:DTSID="{C213AB60-B878-4750-90AF-A0139239D646}"
+      DTS:ObjectName="FlatFile_Customer_Temp">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::SolutionFileDir] + 
-"\\Dataset\\Output\\Temp\\" + 
-"OutputFile_" +  
-RIGHT( "00" + (DT_STR, 2, 1252)DATEPART( "month" , GETDATE() ) , 2 ) +  
-RIGHT( "00" + (DT_STR, 2, 1252)DATEPART( "day" , GETDATE() ) , 2 ) +
-"_" + 
-(DT_STR, 4 , 1252)DATEPART( "year" , GETDATE() ) +
-"_" + 
-RIGHT( "00" + (DT_STR, 2, 1252)DATEPART( "hour" , GETDATE() ), 2 ) + 
-RIGHT( "00" + (DT_STR, 2, 1252)DATEPART( "minute" , GETDATE()), 2 ) + "_" + 
-(DT_WSTR, 10) @[User::CurrentFileNumber] + 
-".txt"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[User::V_PathFile_Temp]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -56,102 +33,161 @@ RIGHT( "00" + (DT_STR, 2, 1252)DATEPART( "minute" , GETDATE()), 2 ) + "_" +
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Output\Temp\OutputFile_1126_2024_1816_0.txt">
+          DTS:ConnectionString="C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Output\Customer\Temp\Customer@20250108_172057_Part_0.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="RowNumber"
-              DTS:DTSID="{95E00DE9-665D-4DF4-9803-227B66C60784}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
+              DTS:MaximumWidth="12"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CustomerCode"
-              DTS:DTSID="{4606CA2E-6D04-46B7-B787-4C3F31A9DD02}"
+              DTS:DTSID="{5FFF2A8F-D265-447C-9AC7-5A9130F8646B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="130"
+              DTS:MaximumWidth="12"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CustomerName"
-              DTS:DTSID="{FAA21159-80B0-477B-8181-457474DA6420}"
+              DTS:DTSID="{3B3DC300-66CF-4D3D-8C47-72675F3F2445}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:DataType="6"
+              DTS:MaximumWidth="14"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CustomerAmount"
-              DTS:DTSID="{5ACED259-09FF-481A-A37E-77AB3818A713}"
+              DTS:DTSID="{A366DE18-E852-4151-839E-E7504A5A9AF9}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{5DAC9125-2895-4DBE-AF72-E52CC2419F51}"
+      DTS:ObjectName="PK_Flag_FileShare">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{9D5C6390-9B86-4962-9989-D15EE6F31286}"
+      DTS:ObjectName="PK_PathDir">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">\Customer</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{F94DAA5F-9F46-432E-8591-FB0F75A09B82}"
+      DTS:ObjectName="PK_Schema">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">rep</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{DEE844F0-6255-4C66-941A-225817CBAD08}"
+      DTS:ObjectName="PK_SourceID">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">DWH</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2775F5CB-72A5-462D-862F-7A7245F88DC6}"
+      DTS:ObjectName="PK_SplitMaxRowsPerFile">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">2</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{DBB653F5-0E70-4AA8-8102-1C3809C79FDC}"
+      DTS:ObjectName="PK_TableName_S">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">V_Tf_Customer</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{34EF9AC8-3BEA-44A4-B73E-0EB42392827B}"
+      DTS:ObjectName="PK_TableName_Temp">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">V_Tf_Customer</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9DE9ABED-51E9-4B56-9A2F-199763E6B5EE}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[$Project::SolutionFileDir] + &quot;\\Dataset\\Output\\Temp\\&quot; + @[User::CurrentFileName]"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="CurrentFileDir">
-      <DTS:VariableValue
-        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Output\Temp\OutputFile_0505_2024_18220.txt</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{9C72ACE8-9D3C-4650-B017-1719BAE77D50}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="CurrentFileName">
-      <DTS:VariableValue
-        DTS:DataType="8">OutputFile_0505_2024_18220.txt</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{44B6B7AC-3A75-4B99-B8B0-FBB1E147F9F3}"
+      DTS:DTSID="{6F17B424-D5BD-440E-A66C-826658B21C88}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
-      DTS:ObjectName="CurrentFileNumber">
+      DTS:ObjectName="V_CountRows">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3BC135B4-28D6-40E4-9004-295240805659}"
+      DTS:DTSID="{B99F5F4E-F765-4735-846D-2C72AEFF2502}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT * FROM @[$Project::TempTable]  WHERE RowNumber BETWEEN &quot; + &#xA;(DT_WSTR,11)@[User::StartRow] + &quot; AND &quot; + (DT_WSTR,11)@[User::EndRow]"
+      DTS:Expression="@[User::V_PathFolder_Full] + @[$Project::PR_PathFolder_Temp] + &quot;\\&quot; +&#xA;@[User::V_OutputFileRootName] +  &quot;@&quot;  +&#xA;SUBSTRING((DT_WSTR, 50) GETDATE(), 1, 4) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;_&quot; +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hh&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;mi&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;ss&quot;, GETDATE()), 2) + &quot;_Part_&quot; +  (DT_WSTR, 10) @[User::V_CurrentFileNumber] + &quot;.csv&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="DynamicSQLQuery">
+      DTS:ObjectName="V_CurrentFileDir">
       <DTS:VariableValue
-        DTS:DataType="8">SELECT * FROM @[$Project::TempTable]  WHERE RowNumber BETWEEN 0 AND 0</DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Output\Customer\Temp\Customer@20250108_172057_Part_0.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{06BBA6A6-737B-4022-86D5-007B43C6ED9B}"
-      DTS:IncludeInDebugDump="2345"
+      DTS:DTSID="{32F392C2-3B6D-42D4-9C08-84C3F88D21B7}"
+      DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
-      DTS:ObjectName="EndRow">
+      DTS:ObjectName="V_CurrentFileNumber">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1931C76D-F524-4B61-93F4-AECD03E1010A}"
+      DTS:DTSID="{87ACA913-BE4F-47E1-A61F-FAFA9341472E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT [CustomerCode],[CustomerName],[CustomerAmount] FROM [CustomerDWH].[rep].[Tf_Customer] WHERE RowNumber BETWEEN &quot; + (DT_WSTR,11)@[User::V_StartRow] + &quot; AND &quot; + (DT_WSTR,11)@[User::V_EndRow]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="FilesToCreate">
+      DTS:ObjectName="V_DynamicSQLQuery">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT [CustomerCode],[CustomerName],[CustomerAmount] FROM [CustomerDWH].[rep].[Tf_Customer] WHERE RowNumber BETWEEN 0 AND 0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A555952E-014E-462C-BA8E-A4D2139704BD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_EndRow">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6773460F-9698-4111-9BCF-BEA87EEB7FBA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_FilesToCreate">
       <DTS:VariableValue
         DTS:DataSubType="ManagedSerializable"
         DTS:DataType="13">
@@ -166,377 +202,206 @@ RIGHT( "00" + (DT_STR, 2, 1252)DATEPART( "minute" , GETDATE()), 2 ) + "_" +
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CF9C1D0F-6351-40D5-BDDD-5B1090D602A0}"
+      DTS:DTSID="{01379CAD-1839-41CE-8419-D564FF53B0CC}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
-      DTS:ObjectName="NoFiles">
+      DTS:ObjectName="V_NoFiles">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DE56BB31-CF42-4D20-805A-09B79A3DCE79}"
-      DTS:IncludeInDebugDump="6789"
+      DTS:DTSID="{D87514DF-0857-4F10-9332-F15753F5FB9B}"
+      DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="RowCount">
+      DTS:ObjectName="V_OutputFileRootName">
       <DTS:VariableValue
-        DTS:DataType="3">0</DTS:VariableValue>
+        DTS:DataType="8">Customer</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4D6E4ACD-B4D7-4F88-8A0E-9A7697B381E6}"
+      DTS:DTSID="{DFBD41E4-4EEB-4925-8BC9-5CA741E2A86E}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[User::SplitFileName]"
+      DTS:Expression="@[User::V_PathFolder_Full] + @[$Project::PR_PathFolder_Rejected] + &quot;\\&quot; +&#xA;REPLACE(&#xA;    @[User::V_CurrentFileName], &#xA;    &quot;.&quot; + RIGHT(@[User::V_CurrentFileName], LEN(@[User::V_CurrentFileName]) - FINDSTRING(@[User::V_CurrentFileName], &quot;.&quot;, 1)),&#xA;    &quot;@&quot;&#xA;) +&#xA;SUBSTRING((DT_WSTR, 50) GETDATE(), 1, 4) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;_&quot; +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hh&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;mi&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;ss&quot;, GETDATE()), 2) + &quot;.csv&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="SplitFileName">
+      DTS:ObjectName="V_PathFile_Archive_Fail">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Output\Customer\Rejected\test@20250108_165632.csv</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{263D3BF6-E833-4161-8CD2-1AFBDE30A02F}"
+      DTS:DTSID="{0927E929-0BA0-4518-A8FE-C1D8E0A5C7A4}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::V_PathFolder_Full] + @[$Project::PR_PathFolder_Processed] + &quot;\\&quot; +&#xA;REPLACE(&#xA;    @[User::V_CurrentFileName], &#xA;    &quot;.&quot; + RIGHT(@[User::V_CurrentFileName], LEN(@[User::V_CurrentFileName]) - FINDSTRING(@[User::V_CurrentFileName], &quot;.&quot;, 1)),&#xA;    &quot;@&quot;&#xA;) +&#xA;SUBSTRING((DT_WSTR, 50) GETDATE(), 1, 4) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;_&quot; +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hh&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;mi&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;ss&quot;, GETDATE()), 2) + &quot;.csv&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="StartRow">
+      DTS:ObjectName="V_PathFile_Archive_Success">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Output\Customer\Processed\test@20250108_165632.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8772DA4C-00DA-45DC-B21F-82120B1AEA74}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::V_PathFolder_Full] + @[$Project::PR_PathFolder_Temp] + &quot;\\&quot; +&#xA;@[User::V_OutputFileRootName] +  &quot;@&quot;  +&#xA;SUBSTRING((DT_WSTR, 50) GETDATE(), 1, 4) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;_&quot; +&#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;hh&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;mi&quot;, GETDATE()), 2) + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DATEPART(&quot;ss&quot;, GETDATE()), 2) + &quot;_Part_&quot; +  (DT_WSTR, 10) @[User::V_CurrentFileNumber] + &quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_PathFile_Temp">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Output\Customer\Temp\Customer@20250108_172057_Part_0.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{579B4DF6-8988-4341-AC08-015A10A85B3A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::PR_PathDir_Root] + &quot;\\&quot; + @[$Project::ENV] +  &quot;\\&quot; + &quot;Output&quot; +  @[$Package::PK_PathDir]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_PathFolder_Full">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\PROD\Output\Customer</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{19409190-6F09-45D0-9EDF-86CC492663BB}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::PR_PathDir_Root] + &quot;\\&quot; + &quot;UAT&quot; +  &quot;\\&quot; + &quot;Output&quot; +  @[$Package::PK_PathDir]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_PathFolder_Full_UAT">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\HamedVAHEB\Documents\Projects\Datasets\CustomerData\UAT\Output\Customer</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7D6BA0B6-9BD4-487F-8EDD-E01729972BB0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_RowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F6941AB5-4D70-448A-BAD4-DEC099974BF4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="V_StartRow">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Clear Temp Table"
+      DTS:refId="Package\COUNT_ROWS DWH V_Tf_Customer"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{845B3635-CD30-44DB-884C-AFB9CAC8F866}"
+      DTS:DTSID="{291eb1ab-261f-4540-b4f0-98d95de2e631}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Clear Temp Table"
+      DTS:ObjectName="COUNT_ROWS DWH V_Tf_Customer"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE CustomerDWH.dbo.FactCustomerTemp;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{6C1031BB-89DE-412D-A885-9CC033567726}"
+          SQLTask:SqlStatementSource="SELECT COUNT(*) FROM [rep].[Tf_Customer]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::V_RowCount" />
+        </SQLTask:SqlTaskData>
       </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Count Rows of TempTable"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{402EEE31-C313-40EC-BE3F-39534A5B4505}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Count Rows of TempTable"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Count Rows of TempTable\ADO NET Source"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
-              name="ADO NET Source"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement used by the component to extract data."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM CustomerDWH.dbo.tblCustomerTemp WHERE RowNumber BETWEEN 1 AND 3</property>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">30</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
-                  name="AllowImplicitStringConversion">true</property>
-                <property
-                  dataType="System.String"
-                  description="The Source database table name."
-                  expressionType="Notify"
-                  name="TableOrViewName"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">[dbo].[FactCustomerTemp]</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specify the mode to retrieve external column information"
-                  name="AccessMode"
-                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
-                <property
-                  dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Count Rows of TempTable\ADO NET Source.Connections[IDbConnection]"
-                  connectionManagerID="{8701326D-FC17-4B37-871C-89ADA649BCC5}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ADONET_CustomerDWH]"
-                  description="Managed connection manager"
-                  name="IDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output]"
-                  name="ADO NET Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].Columns[RowNumber]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[RowNumber]"
-                      lineageId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].Columns[RowNumber]"
-                      name="RowNumber"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerCode]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerCode]"
-                      lineageId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerCode]"
-                      name="CustomerCode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerName]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerName]"
-                      length="50"
-                      lineageId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerName]"
-                      name="CustomerName"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerAmount]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerAmount]"
-                      lineageId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerAmount]"
-                      name="CustomerAmount"
-                      precision="38"
-                      scale="19"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesDate]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesDate]"
-                      length="10"
-                      lineageId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalesDate]"
-                      name="SalesDate"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[RowNumber]"
-                      dataType="i4"
-                      name="RowNumber" />
-                    <externalMetadataColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerCode]"
-                      dataType="i4"
-                      name="CustomerCode" />
-                    <externalMetadataColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerName]"
-                      dataType="wstr"
-                      length="50"
-                      name="CustomerName" />
-                    <externalMetadataColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerAmount]"
-                      dataType="numeric"
-                      name="CustomerAmount"
-                      precision="38"
-                      scale="19" />
-                    <externalMetadataColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalesDate]"
-                      dataType="wstr"
-                      length="10"
-                      name="SalesDate" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output]"
-                  isErrorOut="true"
-                  name="ADO NET Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[RowNumber]"
-                      dataType="i4"
-                      lineageId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[RowNumber]"
-                      name="RowNumber" />
-                    <outputColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerCode]"
-                      dataType="i4"
-                      lineageId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerCode]"
-                      name="CustomerCode" />
-                    <outputColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerName]"
-                      name="CustomerName" />
-                    <outputColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerAmount]"
-                      dataType="numeric"
-                      lineageId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerAmount]"
-                      name="CustomerAmount"
-                      precision="38"
-                      scale="19" />
-                    <outputColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesDate]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalesDate]"
-                      name="SalesDate" />
-                    <outputColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Count Rows of TempTable\Row Count"
-              componentClassID="Microsoft.RowCount"
-              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-              name="Row Count">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable to hold the row count."
-                  name="VariableName">User::RowCount</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Count Rows of TempTable\Row Count.Inputs[Row Count Input 1]"
-                  hasSideEffects="true"
-                  name="Row Count Input 1">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Count Rows of TempTable\Row Count.Outputs[Row Count Output 1]"
-                  name="Row Count Output 1"
-                  synchronousInputId="Package\Count Rows of TempTable\Row Count.Inputs[Row Count Input 1]">
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Count Rows of TempTable.Paths[ADO NET Source Output]"
-              endId="Package\Count Rows of TempTable\Row Count.Inputs[Row Count Input 1]"
-              name="ADO NET Source Output"
-              startId="Package\Count Rows of TempTable\ADO NET Source.Outputs[ADO NET Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Foreach Loop - Copy"
-      DTS:CreationName="STOCK:FOREACHLOOP"
-      DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{6EB6B4D9-927F-4D6B-8F1C-D4B0A79C79BA}"
-      DTS:ExecutableType="STOCK:FOREACHLOOP"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Foreach Loop - Copy">
-      <DTS:ForEachEnumerator
-        DTS:CreationName="Microsoft.ForEachFileEnumerator"
-        DTS:DTSID="{97659360-4B11-43DF-A197-B2DD86BE5D63}"
-        DTS:ObjectName="{97659360-4B11-43DF-A197-B2DD86BE5D63}">
-        <DTS:PropertyExpression
-          DTS:Name="Directory">@[$Project::SolutionFileDir] + "\\Dataset\\Output\\Temp\\"</DTS:PropertyExpression>
-        <DTS:ObjectData>
-          <ForEachFileEnumeratorProperties>
-            <FEFEProperty
-              Folder="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Output\Temp\" />
-            <FEFEProperty
-              FileSpec="*.txt" />
-            <FEFEProperty
-              FileNameRetrievalType="1" />
-            <FEFEProperty
-              Recurse="0" />
-          </ForEachFileEnumeratorProperties>
-        </DTS:ObjectData>
-      </DTS:ForEachEnumerator>
-      <DTS:Variables />
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\Foreach Loop - Copy\Archiving Generated Files"
-          DTS:CreationName="Microsoft.FileSystemTask"
-          DTS:Description="File System Task"
-          DTS:DTSID="{2EDF07C2-7F2A-4CB3-B3AC-E0195C97CC66}"
-          DTS:ExecutableType="Microsoft.FileSystemTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Archiving Generated Files"
-          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <FileSystemData
-              TaskSourcePath="User::CurrentFileDir"
-              TaskIsSourceVariable="True"
-              TaskDestinationPath="FlatFile_Archive" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
-      <DTS:ForEachVariableMappings>
-        <DTS:ForEachVariableMapping
-          DTS:CreationName=""
-          DTS:DTSID="{3961E877-5643-47BF-8BD3-EA8D5B4C4DD9}"
-          DTS:ObjectName="{3961E877-5643-47BF-8BD3-EA8D5B4C4DD9}"
-          DTS:ValueIndex="0"
-          DTS:VariableName="User::CurrentFileName" />
-      </DTS:ForEachVariableMappings>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{db9649b4-9882-4d8b-a903-ad00359748b9}"
+      DTS:DTSID="{2E584AF1-04BB-4411-A4C4-6B0546D3AF78}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Foreach Loop Container">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachFromVarEnumerator"
-        DTS:DTSID="{FB02EC20-43F1-4598-97B5-7F25C61E72AB}"
-        DTS:ObjectName="{FB02EC20-43F1-4598-97B5-7F25C61E72AB}">
+        DTS:DTSID="{D208C70E-33B0-4B3D-8F68-F71C9B962009}"
+        DTS:ObjectName="{D208C70E-33B0-4B3D-8F68-F71C9B962009}">
         <DTS:ObjectData>
           <FEEFVE
-            VariableName="User::FilesToCreate" />
+            VariableName="User::V_FilesToCreate" />
         </DTS:ObjectData>
       </DTS:ForEachEnumerator>
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Archive File Failure"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{05c07edf-12b8-4790-b198-2ff8c72b1d22}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive File Failure"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::V_CurrentFileDir"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::V_PathFile_Archive_Fail"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Archive File Success"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{82ddaed0-a1b3-4785-9de8-15a985aea7fd}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive File Success"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::V_CurrentFileDir"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::V_PathFile_Archive_Success"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Archive File Success 2"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{eb0b2b08-d7b3-4f2a-809d-ce45830d7aae}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive File Success 2"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::V_CurrentFileDir"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::V_PathFile_Archive_Success"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Foreach Loop Container\Calculate StartRow and EndRow for delta extraction"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
-          DTS:DTSID="{31BE5E50-BB34-4F4A-B320-927477282CDC}"
+          DTS:DTSID="{1F06196D-5397-41F2-A7D5-5A8E6EEA4F7E}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Calculate StartRow and EndRow for delta extraction"
@@ -548,17 +413,38 @@ RIGHT( "00" + (DT_STR, 2, 1252)DATEPART( "minute" , GETDATE()), 2 ) + "_" +
               VSTAMajorVersion="16"
               VSTAMinorVersion="0"
               Language="CSharp"
-              ReadOnlyVariables="User::CurrentFileNumber,User::FilesToCreate,$Project::Split_MaxRowsPerFile"
-              ReadWriteVariables="User::EndRow,User::StartRow">
+              ReadOnlyVariables="User::V_CurrentFileNumber,User::V_FilesToCreate,$Package::PK_SplitMaxRowsPerFile"
+              ReadWriteVariables="User::V_EndRow,User::V_StartRow">
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_148ba201bd43498ca9965903271853b4")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_148ba201bd43498ca9965903271853b4")]
+[assembly: AssemblyCopyright("Copyright @  2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -859,17 +745,17 @@ namespace ST_148ba201bd43498ca9965903271853b4
 		public void Main()
 		{
             // TODO: Add your code here
-            int maxRowsPerFile = Convert.ToInt32(Dts.Variables["$Project::Split_MaxRowsPerFile"].Value);
+            int maxRowsPerFile = Convert.ToInt32(Dts.Variables["$Package::PK_SplitMaxRowsPerFile"].Value);
             // Retrieving the current file number from an SSIS variable.
-            int currentFileNumber = Convert.ToInt32(Dts.Variables["User::CurrentFileNumber"].Value);
+            int currentFileNumber = Convert.ToInt32(Dts.Variables["User::V_CurrentFileNumber"].Value);
 
             // Calculating startRow and endRow based on 'currentFileNumber'.
             int StartRow = (currentFileNumber * maxRowsPerFile) + 1;
             int EndRow = (currentFileNumber + 1) * maxRowsPerFile;
 
             // Assign calculated values to SSIS variables
-            Dts.Variables["User::StartRow"].Value = StartRow;
-            Dts.Variables["User::EndRow"].Value = EndRow;
+            Dts.Variables["User::V_StartRow"].Value = StartRow;
+            Dts.Variables["User::V_EndRow"].Value = EndRow;
             //string sqlQuery = $@"SELECT * FROM CustomerDWH.dbo.tblCustomerTemp WHERE RowNumber BETWEEN {startRow} AND {endRow}";
             //Dts.Variables["User::DynamicSQLQuery"].Value = sqlQuery;
             Dts.TaskResult = (int)ScriptResults.Success;
@@ -899,7 +785,7 @@ namespace ST_148ba201bd43498ca9965903271853b4
     <msb:CodeName>ST_148ba201bd43498ca9965903271853b4</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>ST_148ba201bd43498ca9965903271853b4</msb:DisplayName>
-    <msb:ProjectId>{3D8C82BC-9C91-4595-8F0E-B8292B861A72}</msb:ProjectId>
+    <msb:ProjectId>{3A95E837-2331-4F85-A78B-23D9B1B2101A}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="ST_148ba201bd43498ca9965903271853b4.csproj" />
@@ -941,35 +827,14 @@ namespace ST_148ba201bd43498ca9965903271853b4.Properties {
     }
 }]]></ProjectItem>
               <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_148ba201bd43498ca9965903271853b4")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_148ba201bd43498ca9965903271853b4")]
-[assembly: AssemblyCopyright("Copyright @  2024")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -1041,21 +906,21 @@ namespace ST_148ba201bd43498ca9965903271853b4.Properties {
               <BinaryItem
                 Name="ST_148ba201bd43498ca9965903271853b4.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAIST8mYAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAApi4A
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAKeffmcAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAti4A
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAFQuAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAGQuAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAArA4AAAAgAAAAEAAAAAIA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAvA4AAAAgAAAAEAAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACI
-LgAAAAAAAEgAAAACAAUAXCEAAEAMAAABAAAAAAAAAJwtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACY
+LgAAAAAAAEgAAAACAAUAXCEAAFAMAAABAAAAAAAAAKwtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAwCXAAAAAQAAEQIoEAAACm8RAAAKcgEAAHBvEgAACm8T
-AAAKKBQAAAoKAigQAAAKbxEAAApyPwAAcG8SAAAKbxMAAAooFAAACiUGWhdYCxdYBloMAigQAAAK
-bxEAAApybwAAcG8SAAAKB4wcAAABbxUAAAoCKBAAAApvEQAACnKNAABwbxIAAAoIjBwAAAFvFQAA
-CgIoEAAAChZvFgAACioeAigXAAAKKh4CKBgAAAoqrn4BAAAELR5ypwAAcNADAAACKBkAAApvGgAA
+AAAKKBQAAAoKAigQAAAKbxEAAApyQwAAcG8SAAAKbxMAAAooFAAACiUGWhdYCxdYBloMAigQAAAK
+bxEAAApydwAAcG8SAAAKB4wcAAABbxUAAAoCKBAAAApvEQAACnKZAABwbxIAAAoIjBwAAAFvFQAA
+CgIoEAAAChZvFgAACioeAigXAAAKKh4CKBgAAAoqrn4BAAAELR5ytwAAcNADAAACKBkAAApvGgAA
 CnMbAAAKgAEAAAR+AQAABCoafgIAAAQqHgKAAgAABCoafgMAAAQqHgIoHAAACioucwgAAAaAAwAA
 BCoAAABCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAADQAwAAI34AADwEAABsBQAA
-I1N0cmluZ3MAAAAAqAkAABwBAAAjVVMAxAoAABAAAAAjR1VJRAAAANQKAABsAQAAI0Jsb2IAAAAA
+I1N0cmluZ3MAAAAAqAkAACwBAAAjVVMA1AoAABAAAAAjR1VJRAAAAOQKAABsAQAAI0Jsb2IAAAAA
 AAAAAgAAAVcdogEJAwAAAPoBMwAWAAABAAAAHwAAAAUAAAAGAAAACQAAAAEAAAAcAAAAAgAAABAA
 AAABAAAAAgAAAAMAAAAEAAAAAQAAAAQAAAABAAAAAQAAAAAAfgMBAAAAAAAGAC0CTgQGALwCTgQG
 AHkBOwQPAMIEAAAGAKYB/AMGABAC/AMGAPEB/AMGAKMC/AMGAE0C/AMGAGYC/AMGAL0B/AMGANgB
@@ -1071,7 +936,7 @@ yQCmAysA0QDaAjEA2QABADUA0QDkAjoAwQBIBQEAcQAuBAYAiQAuBAYA6QCRAD8A6QBfBUYAkQAu
 BEsAsQAuBAYACAAUAGQACAAYAGkAKQBzANEALgALAKkALgATALIALgAbANEALgAjANoALgArAAMB
 LgAzAAMBLgA7AAMBLgBDANoALgBLAAkBLgBTAAMBLgBbACABQwBjAGkASQBzANEAYQB7AGkAYwBr
 AGkAGwADAAEABAADAAAAHgSaAAAA8ACfAAAAQAWkAAIABAADAAIABQAFAAEABgAFAAIABwAHAASA
-AAABAAAASSNSVwAAAAAAAAkAAAAEAAAAAAAAAAAAAABSAF0AAAAAABAAAAAAAAAAAAAAAFsADgMA
+AAABAAAAsyPbdgAAAAAAAAkAAAAEAAAAAAAAAAAAAABSAF0AAAAAABAAAAAAAAAAAAAAAFsADgMA
 AAAABAAAAAAAAAAAAAAAUgCvAwAAAAAQAAAAAAAAAAAAAABbADYAAAAAAAAAAAABAAAAfwQAAAUA
 AgAAAAAAAFRvSW50MzIAU1RfMTQ4YmEyMDFiZDQzNDk4Y2E5OTY1OTAzMjcxODUzYjQAPE1vZHVs
 ZT4ATWljcm9zb2Z0LlNxbFNlcnZlci5NYW5hZ2VkRFRTAHZhbHVlX18AbXNjb3JsaWIAZGVmYXVs
@@ -1097,24 +962,24 @@ U3lzdGVtLlJlc291cmNlcwBTVF8xNDhiYTIwMWJkNDM0OThjYTk5NjU5MDMyNzE4NTNiNC5Qcm9w
 ZXJ0aWVzLlJlc291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5nTW9kZXMAU1RfMTQ4YmEyMDFiZDQz
 NDk4Y2E5OTY1OTAzMjcxODUzYjQuUHJvcGVydGllcwBnZXRfVmFyaWFibGVzAFNldHRpbmdzAFN1
 Y2Nlc3MAZ2V0X0R0cwBTY3JpcHRSZXN1bHRzAE9iamVjdABnZXRfRGVmYXVsdABzZXRfVGFza1Jl
-c3VsdABDb252ZXJ0AGdldF9Bc3NlbWJseQAAPSQAUAByAG8AagBlAGMAdAA6ADoAUwBwAGwAaQB0
-AF8ATQBhAHgAUgBvAHcAcwBQAGUAcgBGAGkAbABlAAAvVQBzAGUAcgA6ADoAQwB1AHIAcgBlAG4A
-dABGAGkAbABlAE4AdQBtAGIAZQByAAAdVQBzAGUAcgA6ADoAUwB0AGEAcgB0AFIAbwB3AAAZVQBz
-AGUAcgA6ADoARQBuAGQAUgBvAHcAAHFTAFQAXwAxADQAOABiAGEAMgAwADEAYgBkADQAMwA0ADkA
-OABjAGEAOQA5ADYANQA5ADAAMwAyADcAMQA4ADUAMwBiADQALgBQAHIAbwBwAGUAcgB0AGkAZQBz
-AC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAAJQFB6UKCzZLmq2IhvMSI8kABCABAQgDIAABBSABARER
-BCABAQ4FIAEBEVEFBwMICAgEIAASYQQgABJlBSABEmkcAyAAHAQAAQgcBCABARwGAAESdRF5BCAA
-En0GIAIBDhJ9CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEkkDBhJNAwYSEAIGCAMGERQE
-AAASSQQAABJNBQABARJNBAAAEhADAAABBAgAEkkECAASTQQIABIQCAEACAAAAAAAHgEAAQBUAhZX
-cmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF8xNDhiYTIwMWJkNDM0OThjYTk5
-NjU5MDMyNzE4NTNiNAAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDI0AABJAQAaLk5FVEZyYW1l
-d29yayxWZXJzaW9uPXY0LjcBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3Jr
-IDQuNwAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBt
-c2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
-PWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAA
-AAAAAAAAAABQQURQQURQtAAAAHwuAAAAAAAAAAAAAJYuAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AACILgAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+c3VsdABDb252ZXJ0AGdldF9Bc3NlbWJseQAAQSQAUABhAGMAawBhAGcAZQA6ADoAUABLAF8AUwBw
+AGwAaQB0AE0AYQB4AFIAbwB3AHMAUABlAHIARgBpAGwAZQAAM1UAcwBlAHIAOgA6AFYAXwBDAHUA
+cgByAGUAbgB0AEYAaQBsAGUATgB1AG0AYgBlAHIAACFVAHMAZQByADoAOgBWAF8AUwB0AGEAcgB0
+AFIAbwB3AAAdVQBzAGUAcgA6ADoAVgBfAEUAbgBkAFIAbwB3AABxUwBUAF8AMQA0ADgAYgBhADIA
+MAAxAGIAZAA0ADMANAA5ADgAYwBhADkAOQA2ADUAOQAwADMAMgA3ADEAOAA1ADMAYgA0AC4AUABy
+AG8AcABlAHIAdABpAGUAcwAuAFIAZQBzAG8AdQByAGMAZQBzAAAAAAAkCdR33KdWQILWo9hMB6/E
+AAQgAQEIAyAAAQUgAQEREQQgAQEOBSABARFRBQcDCAgIBCAAEmEEIAASZQUgARJpHAMgABwEAAEI
+HAQgAQEcBgABEnUReQQgABJ9BiACAQ4SfQi3elxWGTTgiQiJhF3NgIDMkQQAAAAABAEAAAADBhJJ
+AwYSTQMGEhACBggDBhEUBAAAEkkEAAASTQUAAQESTQQAABIQAwAAAQQIABJJBAgAEk0ECAASEAgB
+AAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU1RfMTQ4
+YmEyMDFiZDQzNDk4Y2E5OTY1OTAzMjcxODUzYjQAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAy
+NAAASQEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC43AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFt
+ZRIuTkVUIEZyYW1ld29yayA0LjcAALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5S
+ZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFs
+LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGlt
+ZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAACMLgAAAAAAAAAAAACmLgAAACAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAmC4AAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAA
+AAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1122,14 +987,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
 AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
-AAAAAAC9BO/+AAABAAAAAQBSV0kjAAABAFJXSSM/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+AAAAAAC9BO/+AAABAAAAAQDbdrMjAAABANt2syM/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
 RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
 AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
 MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
 AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
 AAAAAFMAVABfADEANAA4AGIAYQAyADAAMQBiAGQANAAzADQAOQA4AGMAYQA5ADkANgA1ADkAMAAz
 ADIANwAxADgANQAzAGIANAAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
-LgA5ADAAMwAzAC4AMgAyADMANQA0AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+LgA5ADEAMwA5AC4AMwAwADQAMgA3AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
 AFMAVABfADEANAA4AGIAYQAyADAAMQBiAGQANAAzADQAOQA4AGMAYQA5ADkANgA1ADkAMAAzADIA
 NwAxADgANQAzAGIANAAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
 AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgA0AAAAKgABAAEATABlAGcAYQBsAFQA
@@ -1138,15 +1003,15 @@ AGEAbQBlAAAAUwBUAF8AMQA0ADgAYgBhADIAMAAxAGIAZAA0ADMANAA5ADgAYwBhADkAOQA2ADUA
 OQAwADMAMgA3ADEAOAA1ADMAYgA0AC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
 AGUAAAAAAFMAVABfADEANAA4AGIAYQAyADAAMQBiAGQANAAzADQAOQA4AGMAYQA5ADkANgA1ADkA
 MAAzADIANwAxADgANQAzAGIANAAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
-ADEALgAwAC4AOQAwADMAMwAuADIAMgAzADUANAAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
-VgBlAHIAcwBpAG8AbgAAADEALgAwAC4AOQAwADMAMwAuADIAMgAzADUANAAAAAAAAAAAAAAAAAAA
+ADEALgAwAC4AOQAxADMAOQAuADMAMAA0ADIANwAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4AOQAxADMAOQAuADMAMAA0ADIANwAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAACoPgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAC4PgAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1160,204 +1025,23 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Foreach Loop Container\Delta Extract and Load"
+          DTS:refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{a09da351-ba67-482d-a7fc-b1115280b3df}"
+          DTS:DTSID="{C1EC9329-31EB-422E-AE79-8FD23305BA96}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Delta Extract and Load"
+          DTS:ObjectName="Dynamic CustomerFile Generate"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:PropertyExpression
-            DTS:Name="[Extract Delta Rows].[SqlCommand]">"SELECT * FROM " + @[$Project::TempTable] + " WHERE RowNumber BETWEEN " + 
-(DT_WSTR,11)@[User::StartRow] + " AND " + (DT_WSTR,11)@[User::EndRow]</DTS:PropertyExpression>
+            DTS:Name="[SOURCE - REP Tf_Customer].[SqlCommand]">@[User::V_DynamicSQLQuery]</DTS:PropertyExpression>
           <DTS:ObjectData>
             <pipeline
               version="1">
               <components>
                 <component
-                  refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows"
-                  componentClassID="Microsoft.ManagedComponentHost"
-                  contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
-                  name="Extract Delta Rows"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the SQL statement used by the component to extract data."
-                      expressionType="Notify"
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM dwh.Tf_Customer_Temp WHERE RowNumber BETWEEN 0 AND 0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">30</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
-                      name="AllowImplicitStringConversion">true</property>
-                    <property
-                      dataType="System.String"
-                      description="The Source database table name."
-                      expressionType="Notify"
-                      name="TableOrViewName"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">[dbo].[FactCustomerTemp]</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specify the mode to retrieve external column information"
-                      name="AccessMode"
-                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
-                    <property
-                      dataType="System.String"
-                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Connections[IDbConnection]"
-                      connectionManagerID="{8701326D-FC17-4B37-871C-89ADA649BCC5}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[ADONET_CustomerDWH]"
-                      description="Managed connection manager"
-                      name="IDbConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output]"
-                      name="ADO NET Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[RowNumber]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].ExternalColumns[RowNumber]"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[RowNumber]"
-                          name="RowNumber"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[CustomerCode]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].ExternalColumns[CustomerCode]"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[CustomerCode]"
-                          name="CustomerCode"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[CustomerName]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].ExternalColumns[CustomerName]"
-                          length="50"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[CustomerName]"
-                          name="CustomerName"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[CustomerAmount]"
-                          dataType="numeric"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].ExternalColumns[CustomerAmount]"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[CustomerAmount]"
-                          name="CustomerAmount"
-                          precision="38"
-                          scale="19"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[SalesDate]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].ExternalColumns[SalesDate]"
-                          length="10"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[SalesDate]"
-                          name="SalesDate"
-                          truncationRowDisposition="FailComponent" />
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].ExternalColumns[RowNumber]"
-                          dataType="i4"
-                          name="RowNumber" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].ExternalColumns[CustomerCode]"
-                          dataType="i4"
-                          name="CustomerCode" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].ExternalColumns[CustomerName]"
-                          dataType="wstr"
-                          length="50"
-                          name="CustomerName" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].ExternalColumns[CustomerAmount]"
-                          dataType="numeric"
-                          name="CustomerAmount"
-                          precision="38"
-                          scale="19" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].ExternalColumns[SalesDate]"
-                          dataType="wstr"
-                          length="10"
-                          name="SalesDate" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output]"
-                      isErrorOut="true"
-                      name="ADO NET Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[RowNumber]"
-                          dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[RowNumber]"
-                          name="RowNumber" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[CustomerCode]"
-                          dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[CustomerCode]"
-                          name="CustomerCode" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[CustomerName]"
-                          dataType="wstr"
-                          length="50"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[CustomerName]"
-                          name="CustomerName" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[CustomerAmount]"
-                          dataType="numeric"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[CustomerAmount]"
-                          name="CustomerAmount"
-                          precision="38"
-                          scale="19" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[SalesDate]"
-                          dataType="wstr"
-                          length="10"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[SalesDate]"
-                          name="SalesDate" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles"
+                  refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles"
                   componentClassID="Microsoft.FlatFileDestination"
                   contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
                   description="Flat File Destination"
@@ -1381,162 +1065,291 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Connections[FlatFileConnection]"
-                      connectionManagerID="Package.ConnectionManagers[FlatFile_Customer_Dynamic]"
-                      connectionManagerRefId="Package.ConnectionManagers[FlatFile_Customer_Dynamic]"
+                      refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[FlatFile_Customer_Temp]"
+                      connectionManagerRefId="Package.ConnectionManagers[FlatFile_Customer_Temp]"
                       name="FlatFileConnection" />
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input]"
+                      refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles.Inputs[Flat File Destination Input]"
                       hasSideEffects="true"
                       name="Flat File Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input].Columns[RowNumber]"
-                          cachedDataType="i4"
-                          cachedName="RowNumber"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[RowNumber]"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[RowNumber]" />
-                        <inputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input].Columns[CustomerCode]"
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles.Inputs[Flat File Destination Input].Columns[CustomerCode]"
                           cachedDataType="i4"
                           cachedName="CustomerCode"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[CustomerCode]"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[CustomerCode]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[CustomerCode]"
+                          lineageId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].Columns[CustomerCode]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input].Columns[CustomerName]"
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles.Inputs[Flat File Destination Input].Columns[CustomerName]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="CustomerName"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[CustomerName]"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[CustomerName]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[CustomerName]"
+                          lineageId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].Columns[CustomerName]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input].Columns[CustomerAmount]"
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles.Inputs[Flat File Destination Input].Columns[CustomerAmount]"
                           cachedDataType="numeric"
                           cachedName="CustomerAmount"
                           cachedPrecision="38"
                           cachedScale="19"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[CustomerAmount]"
-                          lineageId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output].Columns[CustomerAmount]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[CustomerAmount]"
+                          lineageId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].Columns[CustomerAmount]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[RowNumber]"
-                          dataType="i4"
-                          name="RowNumber" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[CustomerCode]"
-                          dataType="i4"
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[CustomerCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
                           name="CustomerCode" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[CustomerName]"
-                          dataType="wstr"
-                          length="50"
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[CustomerName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
                           name="CustomerName" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[CustomerAmount]"
-                          dataType="cy"
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles.Inputs[Flat File Destination Input].ExternalColumns[CustomerAmount]"
+                          codePage="1252"
+                          dataType="str"
+                          length="14"
                           name="CustomerAmount" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
                 </component>
+                <component
+                  refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+                  name="SOURCE - REP Tf_Customer"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement used by the component to extract data."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CustomerCode],[CustomerName],[CustomerAmount] FROM [CustomerDWH].[rep].[Tf_Customer] WHERE RowNumber BETWEEN 0 AND 0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="The Source database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the mode to retrieve external column information"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Connections[IDbConnection]"
+                      connectionManagerID="{8701326D-FC17-4B37-871C-89ADA649BCC5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ADONET_CustomerDWH]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output]"
+                      name="ADO NET Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].Columns[CustomerCode]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].ExternalColumns[CustomerCode]"
+                          lineageId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].Columns[CustomerCode]"
+                          name="CustomerCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].Columns[CustomerName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].ExternalColumns[CustomerName]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].Columns[CustomerName]"
+                          name="CustomerName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].Columns[CustomerAmount]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].ExternalColumns[CustomerAmount]"
+                          lineageId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].Columns[CustomerAmount]"
+                          name="CustomerAmount"
+                          precision="38"
+                          scale="19"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].ExternalColumns[CustomerCode]"
+                          dataType="i4"
+                          name="CustomerCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].ExternalColumns[CustomerName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CustomerName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output].ExternalColumns[CustomerAmount]"
+                          dataType="numeric"
+                          name="CustomerAmount"
+                          precision="38"
+                          scale="19" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Error Output]"
+                      isErrorOut="true"
+                      name="ADO NET Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Error Output].Columns[CustomerCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Error Output].Columns[CustomerCode]"
+                          name="CustomerCode" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Error Output].Columns[CustomerName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Error Output].Columns[CustomerName]"
+                          name="CustomerName" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Error Output].Columns[CustomerAmount]"
+                          dataType="numeric"
+                          lineageId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Error Output].Columns[CustomerAmount]"
+                          name="CustomerAmount"
+                          precision="38"
+                          scale="19" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
               </components>
               <paths>
                 <path
-                  refId="Package\Foreach Loop Container\Delta Extract and Load.Paths[ADO NET Source Output]"
-                  endId="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles.Inputs[Flat File Destination Input]"
+                  refId="Package\Foreach Loop Container\Dynamic CustomerFile Generate.Paths[ADO NET Source Output]"
+                  endId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles.Inputs[Flat File Destination Input]"
                   name="ADO NET Source Output"
-                  startId="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows.Outputs[ADO NET Source Output]" />
+                  startId="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer.Outputs[ADO NET Source Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Share Files"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{B8FC547C-9378-4B1E-A9B8-DF0587CDF6A4}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Share Files"
+          DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData />
+        </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{984F5D74-2B5A-4871-8949-9DDB635F8FC9}"
+          DTS:EvalOp="3"
+          DTS:Expression="@[$Package::PK_Flag_FileShare]"
+          DTS:From="Package\Foreach Loop Container\Dynamic CustomerFile Generate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Share Files" />
+        <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{1B0EFF17-AC94-46D7-94E5-93AE8DC8C798}"
+          DTS:DTSID="{994A3E7C-42B2-4908-9654-22C61D7AB606}"
           DTS:From="Package\Foreach Loop Container\Calculate StartRow and EndRow for delta extraction"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
-          DTS:To="Package\Foreach Loop Container\Delta Extract and Load" />
+          DTS:To="Package\Foreach Loop Container\Dynamic CustomerFile Generate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{AF5C2886-D3DC-4AB7-91CB-E5932170EEB7}"
+          DTS:From="Package\Foreach Loop Container\Share Files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop Container\Archive File Success" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{8CBE753A-C136-4BE9-B387-5647188923D9}"
+          DTS:EvalOp="3"
+          DTS:Expression="!@[$Package::PK_Flag_FileShare]"
+          DTS:From="Package\Foreach Loop Container\Dynamic CustomerFile Generate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Foreach Loop Container\Archive File Success 2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{1F268D62-404D-46E2-8FA3-711ACA7C7698}"
+          DTS:From="Package\Foreach Loop Container\Dynamic CustomerFile Generate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Foreach Loop Container\Archive File Failure"
+          DTS:Value="1" />
       </DTS:PrecedenceConstraints>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{6CE23BE6-6316-45A5-9A77-996CDCFEEE33}"
-          DTS:ObjectName="{6CE23BE6-6316-45A5-9A77-996CDCFEEE33}"
+          DTS:DTSID="{12AC9706-E731-4CE6-9632-944D76125722}"
+          DTS:ObjectName="{12AC9706-E731-4CE6-9632-944D76125722}"
           DTS:ValueIndex="0"
-          DTS:VariableName="User::CurrentFileNumber" />
-      </DTS:ForEachVariableMappings>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Foreach Loop Delete"
-      DTS:CreationName="STOCK:FOREACHLOOP"
-      DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{3972dc26-37ae-40ed-8552-18bf78eb732f}"
-      DTS:ExecutableType="STOCK:FOREACHLOOP"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Foreach Loop Delete">
-      <DTS:ForEachEnumerator
-        DTS:CreationName="Microsoft.ForEachFileEnumerator"
-        DTS:DTSID="{E5224061-C66A-44CB-8D91-BAA3A7B1631F}"
-        DTS:ObjectName="{E5224061-C66A-44CB-8D91-BAA3A7B1631F}">
-        <DTS:PropertyExpression
-          DTS:Name="Directory">@[$Project::SolutionFileDir] + "\\Dataset\\Output\\Temp\\"</DTS:PropertyExpression>
-        <DTS:ObjectData>
-          <ForEachFileEnumeratorProperties>
-            <FEFEProperty
-              Folder="C:\Users\HamedVAHEB\Documents\Projects\MSBI\CustomerData\Dataset\Output\Temp\" />
-            <FEFEProperty
-              FileSpec="*.txt" />
-            <FEFEProperty
-              FileNameRetrievalType="1" />
-            <FEFEProperty
-              Recurse="0" />
-          </ForEachFileEnumeratorProperties>
-        </DTS:ObjectData>
-      </DTS:ForEachEnumerator>
-      <DTS:Variables />
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\Foreach Loop Delete\Deleteing Generated Files"
-          DTS:CreationName="Microsoft.FileSystemTask"
-          DTS:Description="File System Task"
-          DTS:DTSID="{4be47bfc-6393-48dd-b8a9-bb59b9888522}"
-          DTS:ExecutableType="Microsoft.FileSystemTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Deleteing Generated Files"
-          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <FileSystemData
-              TaskOperationType="DeleteFile"
-              TaskSourcePath="User::CurrentFileDir"
-              TaskIsSourceVariable="True"
-              TaskDestinationPath="Archive" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
-      <DTS:ForEachVariableMappings>
-        <DTS:ForEachVariableMapping
-          DTS:CreationName=""
-          DTS:DTSID="{E4FB3847-CF81-4C06-8DB2-EC4E4A4C1AA4}"
-          DTS:ObjectName="{E4FB3847-CF81-4C06-8DB2-EC4E4A4C1AA4}"
-          DTS:ValueIndex="0"
-          DTS:VariableName="User::CurrentFileName" />
+          DTS:VariableName="User::V_CurrentFileNumber" />
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Script_Files to create enumator object"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="Script Task"
-      DTS:DTSID="{2DDB494A-7073-489E-9532-17F4ECCA7511}"
+      DTS:DTSID="{D97C7B8A-E996-481F-813B-DB7BF78E7245}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Script_Files to create enumator object"
@@ -1548,8 +1361,38 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           VSTAMajorVersion="16"
           VSTAMinorVersion="0"
           Language="CSharp"
-          ReadOnlyVariables="User::NoFiles"
-          ReadWriteVariables="User::FilesToCreate">
+          ReadOnlyVariables="User::V_NoFiles"
+          ReadWriteVariables="User::V_FilesToCreate">
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_5881cf5ea7d845429bae30e6369582ac")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_5881cf5ea7d845429bae30e6369582ac")]
+[assembly: AssemblyCopyright("Copyright @  2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -1670,35 +1513,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
   </resheader>
 </root>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_5881cf5ea7d845429bae30e6369582ac.Properties.Settings.get_Default():ST_5881cf5ea7d845429bae30e6369582ac.Properties.Sett" +
-    "ings")]
-
-namespace ST_5881cf5ea7d845429bae30e6369582ac.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
-          <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
 /* The Script Task allows you to perform virtually any operation that can be accomplished in
@@ -1794,7 +1608,7 @@ namespace ST_5881cf5ea7d845429bae30e6369582ac
 		public void Main()
 		{
             // TODO: Add your code here
-            int numberOfFiles = Convert.ToInt32(Dts.Variables["User::NoFiles"].Value);
+            int numberOfFiles = Convert.ToInt32(Dts.Variables["User::V_NoFiles"].Value);
             List<int> filesToCreate = new List<int>();
 
             for (int i = 0; i < numberOfFiles; i++)
@@ -1802,7 +1616,7 @@ namespace ST_5881cf5ea7d845429bae30e6369582ac
                 filesToCreate.Add(i);
             }
 
-            Dts.Variables["User::FilesToCreate"].Value = filesToCreate;
+            Dts.Variables["User::V_FilesToCreate"].Value = filesToCreate;
 
             Dts.TaskResult = (int)ScriptResults.Success;
 		}
@@ -1917,7 +1731,7 @@ namespace ST_5881cf5ea7d845429bae30e6369582ac
     <msb:CodeName>ST_5881cf5ea7d845429bae30e6369582ac</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>ST_5881cf5ea7d845429bae30e6369582ac</msb:DisplayName>
-    <msb:ProjectId>{275BEC08-00D6-4FFF-9FE2-BB33C348C590}</msb:ProjectId>
+    <msb:ProjectId>{D5E54618-4786-449F-B41B-4B57AB5FEB0A}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="ST_5881cf5ea7d845429bae30e6369582ac.csproj" />
@@ -1930,35 +1744,34 @@ namespace ST_5881cf5ea7d845429bae30e6369582ac
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
 
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_5881cf5ea7d845429bae30e6369582ac")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_5881cf5ea7d845429bae30e6369582ac")]
-[assembly: AssemblyCopyright("Copyright @  2024")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_5881cf5ea7d845429bae30e6369582ac.Properties.Settings.get_Default():ST_5881cf5ea7d845429bae30e6369582ac.Properties.Sett" +
+    "ings")]
 
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+namespace ST_5881cf5ea7d845429bae30e6369582ac.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
           <ProjectItem
             Name="Properties\Settings.settings"
             Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -2039,20 +1852,20 @@ namespace ST_5881cf5ea7d845429bae30e6369582ac.Properties {
           <BinaryItem
             Name="ST_5881cf5ea7d845429bae30e6369582ac.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDALPl5mUAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAUi4A
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAICffmcAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAWi4A
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAAAuAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAAguAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAWA4AAAAgAAAAEAAAAAIA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAYA4AAAAgAAAAEAAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAA0
-LgAAAAAAAEgAAAACAAUAJCEAACQMAAABAAAAAAAAAEgtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAA8
+LgAAAAAAAEgAAAACAAUAJCEAACwMAAABAAAAAAAAAFAtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBhAAAAAQAAEQIoEAAACm8RAAAKcgEAAHBvEgAACm8T
-AAAKKBQAAAoKcxUAAAoLFgwrCwcIbxYAAAoIF1gMCAYy8QIoEAAACm8RAAAKch0AAHBvEgAACgdv
-FwAACgIoEAAAChZvGAAACioeAigZAAAKKh4CKBoAAAoqrn4BAAAELR5yRQAAcNADAAACKBsAAApv
+AAAKKBQAAAoKcxUAAAoLFgwrCwcIbxYAAAoIF1gMCAYy8QIoEAAACm8RAAAKciEAAHBvEgAACgdv
+FwAACgIoEAAAChZvGAAACioeAigZAAAKKh4CKBoAAAoqrn4BAAAELR5yTQAAcNADAAACKBsAAApv
 HAAACnMdAAAKgAEAAAR+AQAABCoafgIAAAQqHgKAAgAABCoafgMAAAQqHgIoHgAACioucwgAAAaA
 AwAABCoAQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA4AMAACN+AABMBAAAlAUA
-ACNTdHJpbmdzAAAAAOAJAAC4AAAAI1VTAJgKAAAQAAAAI0dVSUQAAACoCgAAfAEAACNCbG9iAAAA
+ACNTdHJpbmdzAAAAAOAJAADAAAAAI1VTAKAKAAAQAAAAI0dVSUQAAACwCgAAfAEAACNCbG9iAAAA
 AAAAAAIAAAFXHaIJCQMAAAD6ATMAFgAAAQAAAB8AAAAFAAAABgAAAAkAAAABAAAAHgAAAAIAAAAQ
 AAAAAQAAAAIAAAADAAAABAAAAAEAAAABAAAABAAAAAEAAAABAAAAAACkAwEAAAAAAAYAUwJ0BAYA
 4gJ0BAYAnwFhBA8A6AQAAAYAzAEiBAYANgIiBAYAFwIiBAYAyQIiBAYAcwIiBAYAjAIiBAYA4wEi
@@ -2068,7 +1881,7 @@ ACYFKgDRAMwDLwDZAAADNQDhAAgAOQAMAFQEBgAMAIgARADZAAoDSgDJAG4FAQBxAFQEBgCRAFQE
 BgDpALcATwDpAIUFVgCZAFQEWwC5AFQEBgAIABQAdAAIABgAeQApAHMA4QAuAAsAuQAuABMAwgAu
 ABsA4QAuACMA6gAuACsAEwEuADMAEwEuADsAEwEuAEMA6gAuAEsAGQEuAFMAEwEuAFsAMAFDAGMA
 eQBJAHMA4QBhAHsAeQBjAGsAeQAbAAMAAQAEAAMAAABEBKoAAAAWAa8AAABmBbQAAgAEAAMAAgAF
-AAUAAQAGAAUAAgAHAAcAPgAEgAAAAQAAAH4ioUkAAAAAAABJAAAABAAAAAAAAAAAAAAAYgBAAAAA
+AAUAAQAGAAUAAgAHAAcAPgAEgAAAAQAAALMjyHYAAAAAAABJAAAABAAAAAAAAAAAAAAAYgBAAAAA
 AAAQAAAAAAAAAAAAAABrADQDAAAAAAQAAAAAAAAAAAAAAGIA1QMAAAAAEAAAAAAAAAAAAAAAawAZ
 AAAAAAAAAAAAAQAAAKUEAAAFAAIAAAAATGlzdGAxAFRvSW50MzIAPE1vZHVsZT4ATWljcm9zb2Z0
 LlNxbFNlcnZlci5NYW5hZ2VkRFRTAHZhbHVlX18AbXNjb3JsaWIAU1RfNTg4MWNmNWVhN2Q4NDU0
@@ -2095,22 +1908,22 @@ c3RlbS5SZXNvdXJjZXMAU1RfNTg4MWNmNWVhN2Q4NDU0MjliYWUzMGU2MzY5NTgyYWMuUHJvcGVy
 dGllcy5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNUXzU4ODFjZjVlYTdkODQ1
 NDI5YmFlMzBlNjM2OTU4MmFjLlByb3BlcnRpZXMAZ2V0X1ZhcmlhYmxlcwBTZXR0aW5ncwBTdWNj
 ZXNzAGdldF9EdHMAU2NyaXB0UmVzdWx0cwBPYmplY3QAZ2V0X0RlZmF1bHQAc2V0X1Rhc2tSZXN1
-bHQAQ29udmVydABnZXRfQXNzZW1ibHkAAAAAG1UAcwBlAHIAOgA6AE4AbwBGAGkAbABlAHMAACdV
-AHMAZQByADoAOgBGAGkAbABlAHMAVABvAEMAcgBlAGEAdABlAABxUwBUAF8ANQA4ADgAMQBjAGYA
-NQBlAGEANwBkADgANAA1ADQAMgA5AGIAYQBlADMAMABlADYAMwA2ADkANQA4ADIAYQBjAC4AUABy
-AG8AcABlAHIAdABpAGUAcwAuAFIAZQBzAG8AdQByAGMAZQBzAAAADZt2JxQpeUWgnXqsvkUbpQAE
-IAEBCAMgAAEFIAEBEREEIAEBDgUgAQERVQkHAwgVEj0BCAgEIAASZQQgABJpBSABEm0cAyAAHAQA
-AQgcBRUSPQEIBSABARMABCABARwGAAESdRF5BCAAEn0GIAIBDhJ9CLd6XFYZNOCJCImEXc2AgMyR
-BAAAAAAEAQAAAAMGEk0DBhJRAwYSEAIGCAMGERQEAAASTQQAABJRBQABARJRBAAAEhADAAABBAgA
-Ek0ECAASUQQIABIQCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIA
-AAAAACgBACNTVF81ODgxY2Y1ZWE3ZDg0NTQyOWJhZTMwZTYzNjk1ODJhYwAABQEAAAAAFgEAEUNv
-cHlyaWdodCBAICAyMDI0AABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjcBAFQOFEZyYW1l
-d29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNwAAtAAAAM7K774BAAAAkQAAAGxTeXN0
-ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBD
-dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJl
-c291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAACguAAAAAAAA
-AAAAAEIuAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0LgAAAAAAAAAAAAAAAF9Db3JEbGxNYWlu
-AG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+bHQAQ29udmVydABnZXRfQXNzZW1ibHkAAAAAH1UAcwBlAHIAOgA6AFYAXwBOAG8ARgBpAGwAZQBz
+AAArVQBzAGUAcgA6ADoAVgBfAEYAaQBsAGUAcwBUAG8AQwByAGUAYQB0AGUAAHFTAFQAXwA1ADgA
+OAAxAGMAZgA1AGUAYQA3AGQAOAA0ADUANAAyADkAYgBhAGUAMwAwAGUANgAzADYAOQA1ADgAMgBh
+AGMALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAACy9lBp+ohASrVU
+j9aYMmfNAAQgAQEIAyAAAQUgAQEREQQgAQEOBSABARFVCQcDCBUSPQEICAQgABJlBCAAEmkFIAES
+bRwDIAAcBAABCBwFFRI9AQgFIAEBEwAEIAEBHAYAARJ1EXkEIAASfQYgAgEOEn0It3pcVhk04IkI
+iYRdzYCAzJEEAAAAAAQBAAAAAwYSTQMGElEDBhIQAgYIAwYRFAQAABJNBAAAElEFAAEBElEEAAAS
+EAMAAAEECAASTQQIABJRBAgAEhAIAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJv
+d3MBCAEAAgAAAAAAKAEAI1NUXzU4ODFjZjVlYTdkODQ1NDI5YmFlMzBlNjM2OTU4MmFjAAAFAQAA
+AAAWAQARQ29weXJpZ2h0IEAgIDIwMjQAAEkBABouTkVURnJhbWV3b3JrLFZlcnNpb249djQuNwEA
+VA4URnJhbWV3b3JrRGlzcGxheU5hbWUSLk5FVCBGcmFtZXdvcmsgNC43AAC0AAAAzsrvvgEAAACR
+AAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQu
+MC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNT
+eXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAA
+MC4AAAAAAAAAAAAASi4AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwuAAAAAAAAAAAAAAAAX0Nv
+ckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -2120,14 +1933,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
 AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
-AAAAAAC9BO/+AAABAAAAAQChSX4iAAABAKFJfiI/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+AAAAAAC9BO/+AAABAAAAAQDIdrMjAAABAMh2syM/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
 RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
 AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
 MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
 AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
 AAAAAFMAVABfADUAOAA4ADEAYwBmADUAZQBhADcAZAA4ADQANQA0ADIAOQBiAGEAZQAzADAAZQA2
 ADMANgA5ADUAOAAyAGEAYwAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
-LgA4ADgAMwAwAC4AMQA4ADgANAA5AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+LgA5ADEAMwA5AC4AMwAwADQAMAA4AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
 AFMAVABfADUAOAA4ADEAYwBmADUAZQBhADcAZAA4ADQANQA0ADIAOQBiAGEAZQAzADAAZQA2ADMA
 NgA5ADUAOAAyAGEAYwAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
 AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgA0AAAAKgABAAEATABlAGcAYQBsAFQA
@@ -2136,15 +1949,15 @@ AGEAbQBlAAAAUwBUAF8ANQA4ADgAMQBjAGYANQBlAGEANwBkADgANAA1ADQAMgA5AGIAYQBlADMA
 MABlADYAMwA2ADkANQA4ADIAYQBjAC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
 AGUAAAAAAFMAVABfADUAOAA4ADEAYwBmADUAZQBhADcAZAA4ADQANQA0ADIAOQBiAGEAZQAzADAA
 ZQA2ADMANgA5ADUAOAAyAGEAYwAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
-ADEALgAwAC4AOAA4ADMAMAAuADEAOAA4ADQAOQAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
-VgBlAHIAcwBpAG8AbgAAADEALgAwAC4AOAA4ADMAMAAuADEAOAA4ADQAOQAAAAAAAAAAAAAAAAAA
+ADEALgAwAC4AOQAxADMAOQAuADMAMAA0ADAAOAAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4AOQAxADMAOQAuADMAMAA0ADAAOAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAABUPgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAABcPgAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -2161,7 +1974,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       DTS:refId="Package\Script_Number of Files Calculation"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="Script Task"
-      DTS:DTSID="{D161A938-315A-4546-937A-BB15D7099698}"
+      DTS:DTSID="{EF7C121D-E6B9-48CB-B862-E6D9D9027D78}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Script_Number of Files Calculation"
@@ -2173,17 +1986,38 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           VSTAMajorVersion="16"
           VSTAMinorVersion="0"
           Language="CSharp"
-          ReadOnlyVariables="User::RowCount,$Project::Split_MaxRowsPerFile"
-          ReadWriteVariables="User::NoFiles">
+          ReadOnlyVariables="User::V_RowCount,$Package::PK_SplitMaxRowsPerFile"
+          ReadWriteVariables="User::V_NoFiles">
           <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_69598b74890c437b824b3a29f79f38b8")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_69598b74890c437b824b3a29f79f38b8")]
+[assembly: AssemblyCopyright("Copyright @  2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -2485,17 +2319,17 @@ namespace ST_69598b74890c437b824b3a29f79f38b8
 		{
             // TODO: Add your code here
             // Retrieve the total row count
-            int totalRowCount = Convert.ToInt32(Dts.Variables["User::RowCount"].Value);
+            int totalRowCount = Convert.ToInt32(Dts.Variables["User::V_RowCount"].Value);
 
             // Define the maximum number of rows per file
-            int maxRowsPerFile = Convert.ToInt32(Dts.Variables["$Project::Split_MaxRowsPerFile"].Value);
+            int maxRowsPerFile = Convert.ToInt32(Dts.Variables["$Package::PK_SplitMaxRowsPerFile"].Value);
 
             // Calculate the number of files needed, ensuring at least 1 file
             int numberOfFiles = (totalRowCount + maxRowsPerFile - 1) / maxRowsPerFile;
             numberOfFiles = Math.Max(numberOfFiles, 1); // Ensure at least 1 file
 
             // Store the calculated number of files back into the SSIS variable
-            Dts.Variables["User::NoFiles"].Value = numberOfFiles;
+            Dts.Variables["User::V_NoFiles"].Value = numberOfFiles;
 
             // Optional: Log the calculated number of files for debugging
             bool fireAgain = false;
@@ -2528,7 +2362,7 @@ namespace ST_69598b74890c437b824b3a29f79f38b8
     <msb:CodeName>ST_69598b74890c437b824b3a29f79f38b8</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>ST_69598b74890c437b824b3a29f79f38b8</msb:DisplayName>
-    <msb:ProjectId>{A2A63D2E-1B61-43D6-B87F-314B819A62D8}</msb:ProjectId>
+    <msb:ProjectId>{C1F7FDF8-8F38-40D9-B03C-65F15093562C}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="ST_69598b74890c437b824b3a29f79f38b8.csproj" />
@@ -2570,35 +2404,14 @@ namespace ST_69598b74890c437b824b3a29f79f38b8.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_69598b74890c437b824b3a29f79f38b8")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_69598b74890c437b824b3a29f79f38b8")]
-[assembly: AssemblyCopyright("Copyright @  2024")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -2670,22 +2483,22 @@ namespace ST_69598b74890c437b824b3a29f79f38b8.Properties {
           <BinaryItem
             Name="ST_69598b74890c437b824b3a29f79f38b8.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDANOjN2YAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAmi8A
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAF6ffmcAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAApi8A
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAEgvAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAFQvAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAoA8AAAAgAAAAEAAAAAIA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAArA8AAAAgAAAAEAAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAB8
-LwAAAAAAAEgAAAACAAUAcCEAACANAAABAAAAAAAAAJAuAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACI
+LwAAAAAAAEgAAAACAAUAcCEAACwNAAABAAAAAAAAAJwuAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwBwCrAAAAAQAAEQIoEAAACm8RAAAKcgEAAHBvEgAACm8T
-AAAKKBQAAAoCKBAAAApvEQAACnIfAABwbxIAAApvEwAACigUAAAKCgZYF1kGWwsHFygVAAAKCwIo
-EAAACm8RAAAKcl0AAHBvEgAACgeMHQAAAW8WAAAKFgwCKBAAAApvFwAAChZyeQAAcHKpAABwB4wd
+AAAKKBQAAAoCKBAAAApvEQAACnIjAABwbxIAAApvEwAACigUAAAKCgZYF1kGWwsHFygVAAAKCwIo
+EAAACm8RAAAKcmUAAHBvEgAACgeMHQAAAW8WAAAKFgwCKBAAAApvFwAAChZyhQAAcHK1AABwB4wd
 AAABKBgAAAp+GQAAChYSAm8aAAAKAigQAAAKFm8bAAAKKh4CKBwAAAoqHgIoHQAACiqufgEAAAQt
-HnLpAABw0AMAAAIoHgAACm8fAAAKcyAAAAqAAQAABH4BAAAEKhp+AgAABCoeAoACAAAEKhp+AwAA
+HnL1AABw0AMAAAIoHgAACm8fAAAKcyAAAAqAAQAABH4BAAAEKhp+AgAABCoeAoACAAAEKhp+AwAA
 BCoeAighAAAKKi5zCAAABoADAAAEKgAAAEJTSkIBAAEAAAAAAAwAAAB2NC4wLjMwMzE5AAAAAAUA
-bAAAAAAEAAAjfgAAbAQAALgFAAAjU3RyaW5ncwAAAAAkCgAAXAEAACNVUwCACwAAEAAAACNHVUlE
-AAAAkAsAAJABAAAjQmxvYgAAAAAAAAACAAABVx2iAQkDAAAA+gEzABYAAAEAAAAiAAAABQAAAAYA
+bAAAAAAEAAAjfgAAbAQAALgFAAAjU3RyaW5ncwAAAAAkCgAAaAEAACNVUwCMCwAAEAAAACNHVUlE
+AAAAnAsAAJABAAAjQmxvYgAAAAAAAAACAAABVx2iAQkDAAAA+gEzABYAAAEAAAAiAAAABQAAAAYA
 AAAJAAAAAQAAACEAAAACAAAAEAAAAAEAAAACAAAAAwAAAAQAAAABAAAABAAAAAEAAAABAAAAAACK
 AwEAAAAAAAYALQJ+BAYAvAJ+BAYAeQFrBA8A8gQAAAYApgEYBAYAEAIYBAYA8QEYBAYAowIYBAYA
 TQIYBAYAZgIYBAYAvQEYBAYA2AH0AgoAgQI5AwoA+AA5AwYAwgO7AwYAXAFrBAYAdwW7AwYAOgSe
@@ -2701,7 +2514,7 @@ AKEFOgDRAOQCQADBAGUFRQD5AHAFSgD5ALIFUADxAN4DUwDBAIoFAQBxAF4EBgCJAF4EBgABAZEA
 XgABAaUFZwCRAF4EbQCxAF4EBgAIABQAhwAIABgAjAApAHMA9AAuAAsAzAAuABMA1QAuABsA9AAu
 ACMA/QAuACsAJgEuADMAJgEuADsAJgEuAEMA/QAuAEsALAEuAFMAJgEuAFsAQwFDAGMAjABJAHMA
 9ABhAHsAjABjAGsAjAAbAAMAAQAEAAMAAAA6BL0AAADwAMIAAACCBccAAgAEAAMAAgAFAAUAAQAG
-AAUAAgAHAAcABIAAAAEAAAC7Ivl5AAAAAAAACQAAAAQAAAAAAAAAAAAAAHUAXQAAAAAAEAAAAAAA
+AAUAAgAHAAcABIAAAAEAAACzI7d2AAAAAAAACQAAAAQAAAAAAAAAAAAAAHUAXQAAAAAAEAAAAAAA
 AAAAAAAAfgAaAwAAAAAEAAAAAAAAAAAAAAB1ALsDAAAAABAAAAAAAAAAAAAAAH4ANgAAAAAAAAAA
 AAEAAACvBAAABQACAAAAAAAAVG9JbnQzMgBTVF82OTU5OGI3NDg5MGM0MzdiODI0YjNhMjlmNzlm
 MzhiOAA8TW9kdWxlPgBNaWNyb3NvZnQuU3FsU2VydmVyLk1hbmFnZWREVFMAdmFsdWVfXwBtc2Nv
@@ -2729,36 +2542,36 @@ b3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTVF82OTU5OGI3NDg5
 MGM0MzdiODI0YjNhMjlmNzlmMzhiOC5Qcm9wZXJ0aWVzAGdldF9WYXJpYWJsZXMAU2V0dGluZ3MA
 U3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAZ2V0X0V2ZW50cwBGb3JtYXQAT2JqZWN0AGdl
 dF9EZWZhdWx0AHNldF9UYXNrUmVzdWx0AENvbnZlcnQATWF4AGdldF9Bc3NlbWJseQBFbXB0eQAA
-HVUAcwBlAHIAOgA6AFIAbwB3AEMAbwB1AG4AdAAAPSQAUAByAG8AagBlAGMAdAA6ADoAUwBwAGwA
-aQB0AF8ATQBhAHgAUgBvAHcAcwBQAGUAcgBGAGkAbABlAAAbVQBzAGUAcgA6ADoATgBvAEYAaQBs
-AGUAcwAAL0MAYQBsAGMAdQBsAGEAdABlACAATgB1AG0AYgBlAHIATwBmAEYAaQBsAGUAcwAAP0MA
-YQBsAGMAdQBsAGEAdABlAGQAIABuAHUAbQBiAGUAcgAgAG8AZgAgAGYAaQBsAGUAcwA6ACAAewAw
-AH0AAHFTAFQAXwA2ADkANQA5ADgAYgA3ADQAOAA5ADAAYwA0ADMANwBiADgAMgA0AGIAMwBhADIA
-OQBmADcAOQBmADMAOABiADgALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBl
-AHMAAAAwq9ytMi90QYqYfEJ+PyiCAAQgAQEIAyAAAQUgAQEREQQgAQEOBSABARFRBQcDCAgCBCAA
-EmEEIAASZQUgARJpHAMgABwEAAEIHAUAAggICAQgAQEcBCAAEnkFAAIODhwCBg4KIAYBCA4ODggQ
-AggAARKAgRGAhQUgABKAiQcgAgEOEoCJCLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEkkD
-BhJNAwYSEAIGCAMGERQEAAASSQQAABJNBQABARJNBAAAEhADAAABBAgAEkkECAASTQQIABIQCAEA
-CAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF82OTU5
-OGI3NDg5MGM0MzdiODI0YjNhMjlmNzlmMzhiOAAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDI0
-AABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjcBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1l
-Ei5ORVQgRnJhbWV3b3JrIDQuNwAAALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5S
-ZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFs
-LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGlt
-ZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAABwLwAAAAAAAAAAAACKLwAAACAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAfC8AAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAA
-AAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+IVUAcwBlAHIAOgA6AFYAXwBSAG8AdwBDAG8AdQBuAHQAAEEkAFAAYQBjAGsAYQBnAGUAOgA6AFAA
+SwBfAFMAcABsAGkAdABNAGEAeABSAG8AdwBzAFAAZQByAEYAaQBsAGUAAB9VAHMAZQByADoAOgBW
+AF8ATgBvAEYAaQBsAGUAcwAAL0MAYQBsAGMAdQBsAGEAdABlACAATgB1AG0AYgBlAHIATwBmAEYA
+aQBsAGUAcwAAP0MAYQBsAGMAdQBsAGEAdABlAGQAIABuAHUAbQBiAGUAcgAgAG8AZgAgAGYAaQBs
+AGUAcwA6ACAAewAwAH0AAHFTAFQAXwA2ADkANQA5ADgAYgA3ADQAOAA5ADAAYwA0ADMANwBiADgA
+MgA0AGIAMwBhADIAOQBmADcAOQBmADMAOABiADgALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBl
+AHMAbwB1AHIAYwBlAHMAAABHCFv/GPrDSbiFUzg0X0D7AAQgAQEIAyAAAQUgAQEREQQgAQEOBSAB
+ARFRBQcDCAgCBCAAEmEEIAASZQUgARJpHAMgABwEAAEIHAUAAggICAQgAQEcBCAAEnkFAAIODhwC
+Bg4KIAYBCA4ODggQAggAARKAgRGAhQUgABKAiQcgAgEOEoCJCLd6XFYZNOCJCImEXc2AgMyRBAAA
+AAAEAQAAAAMGEkkDBhJNAwYSEAIGCAMGERQEAAASSQQAABJNBQABARJNBAAAEhADAAABBAgAEkkE
+CAASTQQIABIQCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAA
+ACgBACNTVF82OTU5OGI3NDg5MGM0MzdiODI0YjNhMjlmNzlmMzhiOAAABQEAAAAAFgEAEUNvcHly
+aWdodCBAICAyMDI0AABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjcBAFQOFEZyYW1ld29y
+a0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNwAAALQAAADOyu++AQAAAJEAAABsU3lzdGVt
+LlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3Vs
+dHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNv
+dXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAAB8LwAAAAAAAAAA
+AACWLwAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiC8AAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBt
+c2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
 AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
-AAAAAAC9BO/+AAABAAAAAQD5ebsiAAABAPl5uyI/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+AAAAAAC9BO/+AAABAAAAAQC3drMjAAABALd2syM/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
 RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
 AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
 MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
 AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
 AAAAAFMAVABfADYAOQA1ADkAOABiADcANAA4ADkAMABjADQAMwA3AGIAOAAyADQAYgAzAGEAMgA5
 AGYANwA5AGYAMwA4AGIAOAAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
-LgA4ADgAOQAxAC4AMwAxADIAMgA1AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+LgA5ADEAMwA5AC4AMwAwADMAOQAxAAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
 AFMAVABfADYAOQA1ADkAOABiADcANAA4ADkAMABjADQAMwA3AGIAOAAyADQAYgAzAGEAMgA5AGYA
 NwA5AGYAMwA4AGIAOAAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
 AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgA0AAAAKgABAAEATABlAGcAYQBsAFQA
@@ -2767,15 +2580,15 @@ AGEAbQBlAAAAUwBUAF8ANgA5ADUAOQA4AGIANwA0ADgAOQAwAGMANAAzADcAYgA4ADIANABiADMA
 YQAyADkAZgA3ADkAZgAzADgAYgA4AC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
 AGUAAAAAAFMAVABfADYAOQA1ADkAOABiADcANAA4ADkAMABjADQAMwA3AGIAOAAyADQAYgAzAGEA
 MgA5AGYANwA5AGYAMwA4AGIAOAAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
-ADEALgAwAC4AOAA4ADkAMQAuADMAMQAyADIANQAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
-VgBlAHIAcwBpAG8AbgAAADEALgAwAC4AOAA4ADkAMQAuADMAMQAyADIANQAAAAAAAAAAAAAAAAAA
+ADEALgAwAC4AOQAxADMAOQAuADMAMAAzADkAMQAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4AOQAxADMAOQAuADMAMAAzADkAMQAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAACcPwAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAACoPwAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -2788,20 +2601,292 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         </ScriptProject>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set Headers"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{738A458D-C502-44D9-AD1C-76F202BA49DB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set Headers"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Set Headers\FlatFile"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="FlatFile"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Set Headers\FlatFile.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FlatFile_Customer_Temp]"
+                  connectionManagerRefId="Package.ConnectionManagers[FlatFile_Customer_Temp]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Set Headers\FlatFile.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Set Headers\FlatFile.Inputs[Flat File Destination Input].Columns[CustomerCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="CustomerCode"
+                      externalMetadataColumnId="Package\Set Headers\FlatFile.Inputs[Flat File Destination Input].ExternalColumns[CustomerCode]"
+                      lineageId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].Columns[CustomerCode]" />
+                    <inputColumn
+                      refId="Package\Set Headers\FlatFile.Inputs[Flat File Destination Input].Columns[CustomerName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="CustomerName"
+                      externalMetadataColumnId="Package\Set Headers\FlatFile.Inputs[Flat File Destination Input].ExternalColumns[CustomerName]"
+                      lineageId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].Columns[CustomerName]" />
+                    <inputColumn
+                      refId="Package\Set Headers\FlatFile.Inputs[Flat File Destination Input].Columns[CustomerAmount]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="CustomerAmount"
+                      externalMetadataColumnId="Package\Set Headers\FlatFile.Inputs[Flat File Destination Input].ExternalColumns[CustomerAmount]"
+                      lineageId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].Columns[CustomerAmount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Set Headers\FlatFile.Inputs[Flat File Destination Input].ExternalColumns[CustomerCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="CustomerCode" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers\FlatFile.Inputs[Flat File Destination Input].ExternalColumns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="CustomerName" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers\FlatFile.Inputs[Flat File Destination Input].ExternalColumns[CustomerAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="CustomerAmount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Set Headers\SELECT Headers"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SELECT Headers"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 'CustomerCode' AS [CustomerCode],
+'CustomerName' AS [CustomerName],
+'CustomerAmount' AS [CustomerAmount]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Set Headers\SELECT Headers.Connections[OleDbConnection]"
+                  connectionManagerID="{6C1031BB-89DE-412D-A885-9CC033567726}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MSOLEDBSQL_CustomerDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].Columns[CustomerCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].ExternalColumns[CustomerCode]"
+                      length="12"
+                      lineageId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].Columns[CustomerCode]"
+                      name="CustomerCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].Columns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].ExternalColumns[CustomerName]"
+                      length="12"
+                      lineageId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].Columns[CustomerName]"
+                      name="CustomerName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].Columns[CustomerAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].ExternalColumns[CustomerAmount]"
+                      length="14"
+                      lineageId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].Columns[CustomerAmount]"
+                      name="CustomerAmount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].ExternalColumns[CustomerCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="CustomerCode" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].ExternalColumns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="CustomerName" />
+                    <externalMetadataColumn
+                      refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output].ExternalColumns[CustomerAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="CustomerAmount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Error Output].Columns[CustomerCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Error Output].Columns[CustomerCode]"
+                      name="CustomerCode" />
+                    <outputColumn
+                      refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Error Output].Columns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Error Output].Columns[CustomerName]"
+                      name="CustomerName" />
+                    <outputColumn
+                      refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Error Output].Columns[CustomerAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      lineageId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Error Output].Columns[CustomerAmount]"
+                      name="CustomerAmount" />
+                    <outputColumn
+                      refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Set Headers.Paths[OLE DB Source Output]"
+              endId="Package\Set Headers\FlatFile.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Set Headers\SELECT Headers.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{6B1205B1-C503-45CF-B28B-4AF4FFC101A1}"
-      DTS:From="Package\Count Rows of TempTable"
+      DTS:DTSID="{E72F4248-5630-411D-BEE3-94C7CC6CF4E9}"
+      DTS:From="Package\Set Headers"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Script_Number of Files Calculation" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{ED7FD90B-85AF-4787-B25A-1324521D3ED6}"
+      DTS:DTSID="{B920646F-E728-42DF-B913-7F64A7D99675}"
       DTS:From="Package\Script_Number of Files Calculation"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -2809,41 +2894,27 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{478AD3E0-6F31-4C01-835D-50EA5E06741C}"
+      DTS:DTSID="{F2949C5B-93B9-4A2F-B430-FB7C5A423A30}"
       DTS:From="Package\Script_Files to create enumator object"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Foreach Loop Container" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
-      DTS:CreationName=""
-      DTS:DTSID="{6AC26F09-C399-437A-8840-82B704CCE286}"
-      DTS:From="Package\Foreach Loop - Copy"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 3"
-      DTS:To="Package\Foreach Loop Delete" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{D28B960E-9D99-4B8B-B169-97B312D350A8}"
-      DTS:From="Package\Foreach Loop Delete"
+      DTS:DTSID="{DBED6E8E-21B9-486A-9209-472281F31ECA}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::V_RowCount] &gt; 0"
+      DTS:From="Package\COUNT_ROWS DWH V_Tf_Customer"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
-      DTS:To="Package\Clear Temp Table" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
-      DTS:CreationName=""
-      DTS:DTSID="{EC5C4CDA-E68D-4D01-8EE4-99402D0EB01E}"
-      DTS:From="Package\Foreach Loop Container"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 5"
-      DTS:To="Package\Foreach Loop - Copy" />
+      DTS:To="Package\Set Headers" />
   </DTS:PrecedenceConstraints>
   <DTS:EventHandlers>
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[OnError]"
       DTS:CreationName="OnError"
-      DTS:DTSID="{622D6290-747E-419A-BCF8-79DB45DE0BC9}"
+      DTS:DTSID="{2F14D56D-49DC-4848-9E1D-D3BA40D3F334}"
       DTS:EventID="7340224"
       DTS:EventName="OnError"
       DTS:LocaleID="-1">
@@ -2851,7 +2922,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <DTS:Variable
           DTS:CreationName=""
           DTS:Description="The propagate property of the event"
-          DTS:DTSID="{945084DC-A2E9-446F-BBD6-DDAFA00E3F52}"
+          DTS:DTSID="{9616CF45-B64F-4F54-8FB4-9A031F16F8C8}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="System"
           DTS:ObjectName="Propagate">
@@ -2859,60 +2930,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             DTS:DataType="11">-1</DTS:VariableValue>
         </DTS:Variable>
       </DTS:Variables>
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package.EventHandlers[OnError]\Log Package Execution"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{a99f6073-d90f-4050-adcc-ce7a720fa2c0}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Log Package Execution"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}"
-              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Fail' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="System::PackageID"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="72"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="System::PackageName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="130"
-                SQLTask:ParameterSize="255" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="2"
-                SQLTask:DtsVariableName="System::CreationDate"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="7"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="3"
-                SQLTask:DtsVariableName="System::PackageID"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="72"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="4"
-                SQLTask:DtsVariableName="System::StartTime"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="7"
-                SQLTask:ParameterSize="-1" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
+      <DTS:Executables />
     </DTS:EventHandler>
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[OnPostExecute]"
       DTS:CreationName="OnPostExecute"
-      DTS:DTSID="{01740DCF-1BC9-4C69-B59D-5D4CA7EBACAA}"
+      DTS:DTSID="{55324FB9-82AD-4565-8F06-C57F873963D9}"
       DTS:EventID="442570816"
       DTS:EventName="OnPostExecute"
       DTS:LocaleID="-1">
@@ -2920,7 +2943,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <DTS:Variable
           DTS:CreationName=""
           DTS:Description="The propagate property of the event"
-          DTS:DTSID="{C8D43A80-8AD4-4A47-A157-9F99183B9D66}"
+          DTS:DTSID="{B0CEAC68-B04D-4702-833A-32F7EF8A2480}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="System"
           DTS:ObjectName="Propagate">
@@ -2928,55 +2951,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             DTS:DataType="11">-1</DTS:VariableValue>
         </DTS:Variable>
       </DTS:Variables>
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package.EventHandlers[OnPostExecute]\Log Package Execution"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{b023ca0d-476f-4c06-aff9-dbcd2e43bec2}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Log Package Execution"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{86348F3B-5722-4B52-A1B9-2E7BA54EFED7}"
-              SQLTask:SqlStatementSource="-- Ensure the package exists in Tl_Packages&#xA;MERGE INTO [log].[Tl_Packages] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId, -- System::PackageID&#xA;  ? AS PackageName, -- System::PackageName&#xA;  CAST(? AS DATETIME) AS CreatedDate, -- System::CreationDate&#xA;  1 AS IsActive -- Active status&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.PackageName = Source.PackageName, -- Update name if necessary&#xA;   Target.IsActive = Source.IsActive -- Maintain active status&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   PackageName,&#xA;   CreatedDate,&#xA;   IsActive&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.PackageName,&#xA;   Source.CreatedDate,&#xA;   Source.IsActive&#xA;   );&#xA;&#xA;-- Log the package execution in Tl_Exec&#xA;MERGE INTO [log].[Tl_Exec] AS Target&#xA;USING (&#xA; SELECT &#xA;  ? AS PackageId,&#xA;  CAST(? AS DATETIME) AS RunTime,&#xA;  'Success' AS ExecutionStatus&#xA; ) AS Source&#xA; ON Target.PackageId = Source.PackageId&#xA;  AND Target.RunTime = Source.RunTime&#xA;WHEN MATCHED&#xA; THEN&#xA;  UPDATE&#xA;  SET &#xA;   Target.ExecutionStatus = Source.ExecutionStatus&#xA;WHEN NOT MATCHED&#xA; THEN&#xA;  INSERT (&#xA;   PackageId,&#xA;   RunTime,&#xA;   ExecutionStatus&#xA;   )&#xA;  VALUES (&#xA;   Source.PackageId,&#xA;   Source.RunTime,&#xA;   Source.ExecutionStatus&#xA;   );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="System::PackageID"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="72"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="System::PackageName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="130"
-                SQLTask:ParameterSize="255" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="2"
-                SQLTask:DtsVariableName="System::CreationDate"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="7"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="3"
-                SQLTask:DtsVariableName="System::PackageID"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="72"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="4"
-                SQLTask:DtsVariableName="System::StartTime"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="7"
-                SQLTask:ParameterSize="-1" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
+      <DTS:Executables />
     </DTS:EventHandler>
   </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -2990,48 +2965,85 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Clear Temp Table"
-          TopLeft="365,1195" />
+          Size="251.2,41.6"
+          Id="Package\COUNT_ROWS DWH V_Tf_Customer"
+          TopLeft="292.142857764752,0.564706257717798" />
         <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\Count Rows of TempTable"
-          TopLeft="323.5,99.5" />
+          Size="167.2,41.6"
+          Id="Package\Foreach Loop Container\Archive File Failure"
+          TopLeft="415.542858499167,250.047058588926" />
         <NodeLayout
-          Size="198.4,41.6"
-          Id="Package\Foreach Loop - Copy\Archiving Generated Files"
-          TopLeft="137,20.7647058816826" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="443.2,120"
-          Size="443.2,163.2"
-          Id="Package\Foreach Loop - Copy"
-          TopLeft="221,790" />
+          Size="172.8,41.6"
+          Id="Package\Foreach Loop Container\Archive File Success"
+          TopLeft="6.21428571580627,361.060962589756" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Foreach Loop Container\Archive File Success 2"
+          TopLeft="199.763637260609,303.70160406937" />
         <NodeLayout
           Size="321.6,41.6"
           Id="Package\Foreach Loop Container\Calculate StartRow and EndRow for delta extraction"
           TopLeft="42,32" />
         <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Foreach Loop Container\Delta Extract and Load"
-          TopLeft="113.5,188" />
+          Size="229.6,41.6"
+          Id="Package\Foreach Loop Container\Dynamic CustomerFile Generate"
+          TopLeft="83.4999999361379,107.705882423322" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Foreach Loop Container\Share Files"
+          TopLeft="3.60519504571452,267.604277949948" />
         <EdgeLayout
-          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="204.75,73.6">
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="142.899999936138,149.305882423322">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,114.4"
+              EndConnector="-74.4948048904234,118.298395526626"
               Start="0,0"
-              End="0,106.9">
+              End="-74.4948048904234,110.798395526626">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,106.9" />
+                    End="0,36.3382588649919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.3382588649919"
+                    Point2="0,40.3382588649919"
+                    Point3="-4,40.3382588649919" />
+                  <mssgle:LineSegment
+                    End="-70.4948048904234,40.3382588649919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-70.4948048904234,40.3382588649919"
+                    Point2="-74.4948048904234,40.3382588649919"
+                    Point3="-74.4948048904234,44.3382588649919" />
+                  <mssgle:LineSegment
+                    End="-74.4948048904234,110.798395526626" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-45.2474024452117,45.3382588649919,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="200.549999968069,73.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.105882423322"
+              Start="0,0"
+              End="0,26.605882423322">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.605882423322" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3040,46 +3052,145 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="440.8,283.2"
-          Size="440.8,326.4"
-          Id="Package\Foreach Loop Container"
-          TopLeft="222,429" />
-        <NodeLayout
-          Size="199.2,41.6"
-          Id="Package\Foreach Loop Delete\Deleteing Generated Files"
-          TopLeft="137,20" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="443.2,120"
-          Size="443.2,163.2"
-          Id="Package\Foreach Loop Delete"
-          TopLeft="226,992" />
-        <NodeLayout
-          Size="257.6,41.6"
-          Id="Package\Script_Files to create enumator object"
-          TopLeft="301,283" />
-        <NodeLayout
-          Size="240,41.6"
-          Id="Package\Script_Number of Files Calculation"
-          TopLeft="310,175" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="427.55,141.1">
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="68.4051950457145,309.204277949948">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.9"
+              EndConnector="24.2090906700918,51.8566846398082"
               Start="0,0"
-              End="0,26.4">
+              End="24.2090906700918,44.3566846398082">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.4" />
+                    End="0,21.9283423199041" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.9283423199041"
+                    Point2="0,25.9283423199041"
+                    Point3="4,25.9283423199041" />
+                  <mssgle:LineSegment
+                    End="20.2090906700918,25.9283423199041" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.2090906700918,25.9283423199041"
+                    Point2="24.2090906700918,25.9283423199041"
+                    Point3="24.2090906700918,29.9283423199041" />
+                  <mssgle:LineSegment
+                    End="24.2090906700918,44.3566846398082" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="198.299999936138,149.305882423322">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92.2636373244711,154.395721646048"
+              Start="0,0"
+              End="92.2636373244711,146.895721646048">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.197860823024" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,73.197860823024"
+                    Point2="0,77.197860823024"
+                    Point3="4,77.197860823024" />
+                  <mssgle:LineSegment
+                    End="88.2636373244711,77.197860823024" />
+                  <mssgle:CubicBezierSegment
+                    Point1="88.2636373244711,77.197860823024"
+                    Point2="92.2636373244711,77.197860823024"
+                    Point3="92.2636373244711,81.197860823024" />
+                  <mssgle:LineSegment
+                    End="92.2636373244711,146.895721646048" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="38.1318186622355,82.197860823024,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 4]"
+          TopLeft="253.699999936138,149.305882423322">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="245.442858563029,100.741176165604"
+              Start="0,0"
+              End="245.442858563029,93.241176165604">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.3514687958489" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.3514687958489"
+                    Point2="0,34.3514687958489"
+                    Point3="4,34.3514687958489" />
+                  <mssgle:LineSegment
+                    End="241.442858563029,34.3514687958489" />
+                  <mssgle:CubicBezierSegment
+                    Point1="241.442858563029,34.3514687958489"
+                    Point2="245.442858563029,34.3514687958489"
+                    Point3="245.442858563029,38.3514687958489" />
+                  <mssgle:LineSegment
+                    End="245.442858563029,93.241176165604" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="107.480081625265,39.3514687958489,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="634.4,455.2"
+          Size="634.4,498.4"
+          Id="Package\Foreach Loop Container"
+          TopLeft="121.999999787126,708.094117553888" />
+        <NodeLayout
+          Size="257.6,41.6"
+          Id="Package\Script_Files to create enumator object"
+          TopLeft="301,299.823529397018" />
+        <NodeLayout
+          Size="239.2,41.6"
+          Id="Package\Script_Number of Files Calculation"
+          TopLeft="310,191.823529397018" />
+        <NodeLayout
+          Size="135.2,41.6"
+          Id="Package\Set Headers"
+          TopLeft="365.714286492795,108.588235198936" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="431.457143246398,150.188235198936">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.6352941980824"
+              Start="0,0"
+              End="0,34.1352941980824">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.1352941980824" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3090,18 +3201,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="430,217">
+          TopLeft="429.7,233.423529397018">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66"
+              EndConnector="0,66.4"
               Start="0,0"
-              End="0,58.5">
+              End="0,58.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.5" />
+                    End="0,58.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3112,52 +3223,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="429.8,324.6">
+          TopLeft="429.8,341.423529397018">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="12.6,104.4"
+              EndConnector="9.39999978712598,366.67058815687"
               Start="0,0"
-              End="12.6,96.9">
+              End="9.39999978712598,359.17058815687">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.2" />
+                    End="0,179.335294078435" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,48.2"
-                    Point2="0,52.2"
-                    Point3="4,52.2" />
+                    Point1="0,179.335294078435"
+                    Point2="0,183.335294078435"
+                    Point3="4,183.335294078435" />
                   <mssgle:LineSegment
-                    End="8.59999999999997,52.2" />
+                    End="5.39999978712598,183.335294078435" />
                   <mssgle:CubicBezierSegment
-                    Point1="8.59999999999997,52.2"
-                    Point2="12.6,52.2"
-                    Point3="12.6,56.2" />
+                    Point1="5.39999978712598,183.335294078435"
+                    Point2="9.39999978712598,183.335294078435"
+                    Point3="9.39999978712598,187.335294078435" />
                   <mssgle:LineSegment
-                    End="12.6,96.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="445.1,953.2">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.7999999999998"
-              Start="0,0"
-              End="0,31.2999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.2999999999998" />
+                    End="9.39999978712598,359.17058815687" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3168,51 +3257,55 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="446.7,1155.2">
+          TopLeft="417.742857764752,42.1647062577178">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.8000000000002"
+              EndConnector="15.5714287280427,66.423528941218"
               Start="0,0"
-              End="0,32.3000000000002">
+              End="15.5714287280427,58.923528941218">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.3000000000002" />
+                    End="0,29.211764470609" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.211764470609"
+                    Point2="0,33.211764470609"
+                    Point3="4,33.211764470609" />
+                  <mssgle:LineSegment
+                    End="11.5714287280427,33.211764470609" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.5714287280427,33.211764470609"
+                    Point2="15.5714287280427,33.211764470609"
+                    Point3="15.5714287280427,37.211764470609" />
+                  <mssgle:LineSegment
+                    End="15.5714287280427,58.923528941218" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="442.5,755.4">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.5999999999999"
-              Start="0,0"
-              End="0,27.0999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.0999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-0.214285635978626,38.211764470609,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="{7471495D-0D9A-4FB0-BC11-663CF99BC2A3}"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <DtsEventHandler
     design-time-name="Package.EventHandlers[OnPostExecute]">
     <LayoutInfo>
@@ -3220,38 +3313,96 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="186.4,41.6"
-          Id="Package.EventHandlers[OnPostExecute]\Log Package Execution"
+          Id="{4BD168A1-027D-4CB4-B1F5-C2B95EC423AA}"
           TopLeft="60,60" />
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
   <TaskHost
-    design-time-name="Package\Count Rows of TempTable">
+    design-time-name="Package\Foreach Loop Container\Dynamic CustomerFile Generate">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\Count Rows of TempTable\ADO NET Source"
-          TopLeft="281,37" />
+          Size="178.4,41.6"
+          Id="Package\Foreach Loop Container\Dynamic CustomerFile Generate\Load to Split FlatFiles"
+          TopLeft="298.999999989356,306.152941171779" />
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Count Rows of TempTable\Row Count"
-          TopLeft="297,222" />
+          Size="210.4,41.6"
+          Id="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer"
+          TopLeft="289.999995678663,129.764703959433" />
         <EdgeLayout
-          Id="Package\Count Rows of TempTable.Paths[ADO NET Source Output]"
-          TopLeft="361,79">
+          Id="Package\Foreach Loop Container\Dynamic CustomerFile Generate.Paths[ADO NET Source Output]"
+          TopLeft="391.699997834009,171.364703959433">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,143"
+              EndConnector="0,134.788237212346"
               Start="0,0"
-              End="0,135.5">
+              End="0,127.288237212346">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,135.5" />
+                    End="0,127.288237212346" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Dynamic CustomerFile Generate\SOURCE - REP Tf_Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Set Headers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\Set Headers\FlatFile"
+          TopLeft="199.999997019768,185.999997228384" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Set Headers\SELECT Headers"
+          TopLeft="238.999996438622,27.9999995827675" />
+        <EdgeLayout
+          Id="Package\Set Headers.Paths[OLE DB Source Output]"
+          TopLeft="316.999996438622,69.5999995827675">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-60.9999994188548,116.399997645617"
+              Start="0,0"
+              End="-60.9999994188548,108.899997645617">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.1999988228083" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.1999988228083"
+                    Point2="0,58.1999988228083"
+                    Point3="-4,58.1999988228083" />
+                  <mssgle:LineSegment
+                    End="-56.9999994188548,58.1999988228083" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-56.9999994188548,58.1999988228083"
+                    Point2="-60.9999994188548,58.1999988228083"
+                    Point3="-60.9999994188548,62.1999988228083" />
+                  <mssgle:LineSegment
+                    End="-60.9999994188548,108.899997645617" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3266,70 +3417,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Count Rows of TempTable\ADO NET Source">
+    design-time-name="Package\Set Headers\SELECT Headers">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Foreach Loop Container\Delta Extract and Load">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows"
-          TopLeft="305.000000014901,130.999999985099" />
-        <NodeLayout
-          Size="178.4,41.6"
-          Id="Package\Foreach Loop Container\Delta Extract and Load\Load to Split FlatFiles"
-          TopLeft="301.142857136775,303.094117645048" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Delta Extract and Load.Paths[ADO NET Source Output]"
-          TopLeft="389.471428575838,172.599999985099">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,130.494117659949"
-              Start="0,0"
-              End="0,122.994117659949">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,122.994117659949" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Foreach Loop Container\Delta Extract and Load\Extract Delta Rows">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="186.4,41.6"
-          Id="Package.EventHandlers[OnError]\Log Package Execution"
-          TopLeft="60,60" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

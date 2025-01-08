@@ -2,13 +2,13 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>SSISCustomer</Name>
-    <LastWriteTime>2025-01-03T11:04:10.6604663Z</LastWriteTime>
+    <LastWriteTime>2025-01-08T16:26:46.6877306Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>STG_Td_Country.dtsx</Name>
-      <LastWriteTime>2025-01-03T10:59:27.8734371Z</LastWriteTime>
+      <LastWriteTime>2025-01-08T15:19:29.0499354Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -33,12 +33,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DWH_Tf_Customer.dtsx</Name>
-      <LastWriteTime>2025-01-03T11:33:08.7927327Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>REP_Tf_Customer_Summary.dtsx</Name>
-      <LastWriteTime>2025-01-02T08:21:19.2460387Z</LastWriteTime>
+      <LastWriteTime>2025-01-08T15:43:54.9441166Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -67,13 +62,8 @@
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>DWH_Tf_Customer_Split.dtsx</Name>
-      <LastWriteTime>2025-01-02T08:21:19.2430399Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
       <Name>STG_Tf_Customer.dtsx</Name>
-      <LastWriteTime>2025-01-03T11:10:20.2252304Z</LastWriteTime>
+      <LastWriteTime>2025-01-07T20:52:06.5635436Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -84,6 +74,21 @@
     <ProjectBuildItemInfo>
       <Name>MDM_Tm_Geo.dtsx</Name>
       <LastWriteTime>2025-01-02T14:39:36.6752868Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>STG_Td_StaticIds.dtsx</Name>
+      <LastWriteTime>2025-01-07T21:10:00.5841128Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>REP_Tf_Customer_GenCustomerFiles.dtsx</Name>
+      <LastWriteTime>2025-01-08T16:20:54.7183022Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>REP_Tf_Customer.dtsx</Name>
+      <LastWriteTime>2025-01-08T16:26:43.6310775Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
