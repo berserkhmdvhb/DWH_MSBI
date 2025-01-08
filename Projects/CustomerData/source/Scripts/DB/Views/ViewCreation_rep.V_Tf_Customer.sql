@@ -22,7 +22,7 @@ WHERE 1=1
 	AND
 	(
 		(
-			CreatedDate >= GETDATE() - 10
+			CreatedDate >= GETDATE() - 100
 			AND
 			CustomerCode NOT IN (SELECT CustomerCode FROM [stg].[Td_StaticIds])
 		)
