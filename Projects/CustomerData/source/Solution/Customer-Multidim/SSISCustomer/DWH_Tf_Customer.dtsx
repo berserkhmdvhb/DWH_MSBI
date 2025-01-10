@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DWH_Tf_Customer"
   DTS:PackageType="5"
-  DTS:VersionBuild="445"
-  DTS:VersionGUID="{EBCBAA8E-ED21-451A-BCA7-0C8E4071C4EC}">
+  DTS:VersionBuild="446"
+  DTS:VersionGUID="{184A2415-7E95-426B-85C1-50717F691BD4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -178,7 +178,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="31"
+                      length="29"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
                       name="SourceContext"
                       truncationRowDisposition="FailComponent">
@@ -187,13 +187,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
+                          name="Expression">@[$Package::PK_SourceContext] + " " + @[$Package::PK_TableName_S]</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
+                          name="FriendlyExpression">@[$Package::PK_SourceContext] + " " + @[$Package::PK_TableName_S]</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -1660,7 +1660,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                     <inputColumn
                       refId="Package\ETL\Create JSON Parameter.Inputs[Input 0].Columns[SourceContext]"
                       cachedDataType="wstr"
-                      cachedLength="31"
+                      cachedLength="29"
                       cachedName="SourceContext"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
                     <inputColumn
@@ -1825,7 +1825,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                     <inputColumn
                       refId="Package\ETL\DEST - DWH Tf_Customer.Inputs[OLE DB Destination Input].Columns[SourceContext]"
                       cachedDataType="wstr"
-                      cachedLength="31"
+                      cachedLength="29"
                       cachedName="SourceContext"
                       externalMetadataColumnId="Package\ETL\DEST - DWH Tf_Customer.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
@@ -3472,7 +3472,7 @@ where [refTable].[StateName] = ?</property>
                     <inputColumn
                       refId="Package\ETL\Update Table LOG Tl_BusinessWarnings.Inputs[OLE DB Command Input].Columns[SourceContext]"
                       cachedDataType="wstr"
-                      cachedLength="31"
+                      cachedLength="29"
                       cachedName="SourceContext"
                       externalMetadataColumnId="Package\ETL\Update Table LOG Tl_BusinessWarnings.Inputs[OLE DB Command Input].ExternalColumns[@SourceContext]"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
@@ -3631,29 +3631,29 @@ where [refTable].[StateName] = ?</property>
               startId="Package\ETL\Handle Null SalesPerson Key.Outputs[Derived Column Output]" />
             <path
               refId="Package\ETL.Paths[Lookup Match Output4]"
-              endId="Package\ETL\Handle Null SalesPerson Key.Inputs[Derived Column Input]"
+              endId="Package\ETL\Handle Null State Key.Inputs[Derived Column Input]"
               name="Lookup Match Output"
-              startId="Package\ETL\Lookup SalesPerson Key.Outputs[Lookup Match Output]" />
+              startId="Package\ETL\Lookup State Key.Outputs[Lookup Match Output]" />
             <path
               refId="Package\ETL.Paths[Lookup Match Output3]"
-              endId="Package\ETL\Handle Null SalesDate Key.Inputs[Derived Column Input]"
-              name="Lookup Match Output"
-              startId="Package\ETL\Lookup SalesDate Key.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\ETL.Paths[Lookup Match Output1]"
-              endId="Package\ETL\Handle Null Product Key.Inputs[Derived Column Input]"
-              name="Lookup Match Output"
-              startId="Package\ETL\Lookup Product Key.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\ETL.Paths[Lookup Match Output]"
               endId="Package\ETL\Handle Null Country Key.Inputs[Derived Column Input]"
               name="Lookup Match Output"
               startId="Package\ETL\Lookup Country Key.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\ETL.Paths[Lookup Match Output2]"
-              endId="Package\ETL\Handle Null State Key.Inputs[Derived Column Input]"
+              refId="Package\ETL.Paths[Lookup Match Output1]"
+              endId="Package\ETL\Handle Null SalesDate Key.Inputs[Derived Column Input]"
               name="Lookup Match Output"
-              startId="Package\ETL\Lookup State Key.Outputs[Lookup Match Output]" />
+              startId="Package\ETL\Lookup SalesDate Key.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\ETL.Paths[Lookup Match Output]"
+              endId="Package\ETL\Handle Null SalesPerson Key.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\ETL\Lookup SalesPerson Key.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\ETL.Paths[Lookup Match Output2]"
+              endId="Package\ETL\Handle Null Product Key.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\ETL\Lookup Product Key.Outputs[Lookup Match Output]" />
             <path
               refId="Package\ETL.Paths[MappingError]"
               endId="Package\ETL\Create JSON Parameter.Inputs[Input 0]"
@@ -3857,15 +3857,15 @@ where [refTable].[StateName] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="201,42"
+          Size="200.8,41.6"
           Id="Package\Clear facts from fact table"
           TopLeft="353,156" />
         <NodeLayout
-          Size="252,42"
+          Size="252,41.6"
           Id="Package\COUNT_ROWS DWH V_Tf_Customer"
           TopLeft="331,58" />
         <NodeLayout
-          Size="97,42"
+          Size="96.8,41.6"
           Id="Package\ETL"
           TopLeft="402,279" />
         <EdgeLayout
@@ -3947,98 +3947,98 @@ where [refTable].[StateName] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="190,42"
+          Size="190.4,41.6"
           Id="Package\ETL\Create JSON Parameter"
           TopLeft="415,1295" />
         <NodeLayout
-          Size="120,42"
+          Size="120,41.6"
           Id="Package\ETL\Multicast"
           TopLeft="322,1143" />
         <NodeLayout
-          Size="213,42"
+          Size="212.8,41.6"
           Id="Package\ETL\Handle Null SalesPerson Key"
           TopLeft="262,676" />
         <NodeLayout
-          Size="182,42"
+          Size="182.4,41.6"
           Id="Package\ETL\Check Mapping Errors"
           TopLeft="415,1209" />
         <NodeLayout
-          Size="203,42"
+          Size="203.2,41.6"
           Id="Package\ETL\Handle Null SalesDate Key"
           TopLeft="286,1046" />
         <NodeLayout
-          Size="207,42"
+          Size="207.2,41.6"
           Id="Package\ETL\Add Warning Log Metadata"
           TopLeft="410,1364" />
         <NodeLayout
-          Size="193,42"
+          Size="192.8,41.6"
           Id="Package\ETL\Handle Null Product Key"
           TopLeft="275,527" />
         <NodeLayout
-          Size="174,42"
+          Size="174.4,41.6"
           Id="Package\ETL\Lookup Country Key"
           TopLeft="283,256" />
         <NodeLayout
-          Size="183,42"
+          Size="183.2,41.6"
           Id="Package\ETL\Lookup SalesDate Key"
           TopLeft="290,961" />
         <NodeLayout
-          Size="229,42"
+          Size="228.8,41.6"
           Id="Package\ETL\SOURCE - DWH V_Tf_Customer"
           TopLeft="250,41" />
         <NodeLayout
-          Size="194,42"
+          Size="193.6,41.6"
           Id="Package\ETL\Handle Null Country Key"
           TopLeft="276,342" />
         <NodeLayout
-          Size="181,42"
+          Size="180.8,41.6"
           Id="Package\ETL\Handle Null State Key"
           TopLeft="286,861" />
         <NodeLayout
-          Size="161,42"
+          Size="160.8,41.6"
           Id="Package\ETL\Lookup State Key"
           TopLeft="293,756" />
         <NodeLayout
-          Size="173,42"
+          Size="172.8,41.6"
           Id="Package\ETL\Lookup Product Key"
           TopLeft="285,438" />
         <NodeLayout
-          Size="203,42"
+          Size="203.2,41.6"
           Id="Package\ETL\DEST - DWH Tf_Customer"
           TopLeft="99,1225" />
         <NodeLayout
-          Size="267,42"
+          Size="267.2,41.6"
           Id="Package\ETL\Update Table LOG Tl_BusinessWarnings"
           TopLeft="385,1472" />
         <NodeLayout
-          Size="193,42"
+          Size="192.8,41.6"
           Id="Package\ETL\Lookup SalesPerson Key"
           TopLeft="278,599" />
         <NodeLayout
-          Size="165,42"
+          Size="164.8,41.6"
           Id="Package\ETL\Add Log Metadata"
           TopLeft="287,160" />
         <EdgeLayout
           Id="Package\ETL.Paths[Lookup Match Output]"
-          TopLeft="371.5,298">
+          TopLeft="371.5,641">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44"
+              EndConnector="0,35"
               Start="0,0"
-              End="0,36.5">
+              End="0,27.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.5" />
+                    End="0,27.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,7.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4334,54 +4334,6 @@ where [refTable].[StateName] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL.Paths[Lookup Match Output4]"
-          TopLeft="371.5,641">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,35"
-              Start="0,0"
-              End="0,27.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,7.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL.Paths[Lookup Match Output3]"
-          TopLeft="384.5,1003">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43"
-              Start="0,0"
-              End="0,35.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL.Paths[Lookup Match Output2]"
           TopLeft="375,798">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4405,7 +4357,31 @@ where [refTable].[StateName] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ETL.Paths[Lookup Match Output1]"
+          Id="Package\ETL.Paths[Lookup Match Output3]"
+          TopLeft="371.5,298">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,12.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Lookup Match Output2]"
           TopLeft="371.5,480">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4425,6 +4401,30 @@ where [refTable].[StateName] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-48.19138671875,13.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Lookup Match Output1]"
+          TopLeft="384.5,1003">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

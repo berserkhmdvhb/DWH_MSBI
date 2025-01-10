@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DWH_Td_SalesPerson"
   DTS:PackageType="5"
-  DTS:VersionBuild="95"
-  DTS:VersionGUID="{69D1D4ED-9888-4999-B68D-B095E646C48A}">
+  DTS:VersionBuild="96"
+  DTS:VersionGUID="{3CE6DFE0-2136-400A-8CFB-335BD30DFDAF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -227,7 +227,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="39"
+                      length="40"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
                       name="SourceContext"
                       truncationRowDisposition="FailComponent">
@@ -236,13 +236,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
+                          name="Expression">@[$Package::PK_SourceContext] + " " + @[$Package::PK_TableName_S]</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
+                          name="FriendlyExpression">@[$Package::PK_SourceContext] + " " + @[$Package::PK_TableName_S]</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -534,7 +534,7 @@
                     <inputColumn
                       refId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].Columns[SourceContext]"
                       cachedDataType="wstr"
-                      cachedLength="39"
+                      cachedLength="40"
                       cachedName="SourceContext"
                       externalMetadataColumnId="Package\ETL\DEST - DWH Td_SalesPerson.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
@@ -1519,11 +1519,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="245,42"
+          Size="244.8,41.6"
           Id="Package\COUNT_ROWS DWH V_Td_Product"
           TopLeft="131.428571580624,13.2470589535665" />
         <NodeLayout
-          Size="96,42"
+          Size="96,41.6"
           Id="Package\ETL"
           TopLeft="212.85714331026,103.99999990884" />
         <EdgeLayout
@@ -1583,39 +1583,39 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\ETL\Derived Column 1"
           TopLeft="151,515.5" />
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\ETL\Slowly Changing Dimension"
           TopLeft="128,107.5" />
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\ETL\Union All"
           TopLeft="172,413.5" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\ETL\OLE DB Command"
           TopLeft="5.50000000000006,311.5" />
         <NodeLayout
-          Size="216,42"
+          Size="216,41.6"
           Id="Package\ETL\DEST - DWH Td_SalesPerson"
           TopLeft="164,684" />
         <NodeLayout
-          Size="154,42"
+          Size="153.6,41.6"
           Id="Package\ETL\Derived Column"
           TopLeft="17.5000000000001,209.5" />
         <NodeLayout
-          Size="175,42"
+          Size="175.2,41.6"
           Id="Package\ETL\OLE DB Command 1"
           TopLeft="294,209.5" />
         <NodeLayout
-          Size="164,42"
+          Size="164,41.6"
           Id="Package\ETL\Add Log Metadata"
           TopLeft="150.5,602" />
         <NodeLayout
-          Size="242,42"
+          Size="241.6,41.6"
           Id="Package\ETL\SOURCE - DWH V_Td_SalesPerson"
           TopLeft="111.5,5.5" />
         <EdgeLayout
@@ -1649,9 +1649,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="47.4788606770835,40.5301794453507,30.2089453125,9.4462890625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1686,7 +1684,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-17.6747200520833,161.332789559543,93.9534765625,11.609375"
+              BoundingBox="-17.6747200520833,161.332789559543,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1722,7 +1720,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-118.93138671875,25.503937007874,189.8834765625,11.609375"
+              BoundingBox="-118.93138671875,25.503937007874,150.1127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1757,9 +1755,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="4.64552734375,25,30.2089453125,9.4462890625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1781,9 +1777,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.10447265625,13.77685546875,30.2089453125,9.4462890625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1805,9 +1799,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.10447265625,21.52685546875,30.2089453125,9.4462890625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1842,7 +1834,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-29.15890625,25.503937007874,196.838515625,11.6630859375"
+              BoundingBox="-29.15890625,25.503937007874,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1865,9 +1857,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.10447265625,21.52685546875,30.2089453125,9.4462890625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1889,9 +1879,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.35349609375,21.5390625,30.7069921875,9.421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

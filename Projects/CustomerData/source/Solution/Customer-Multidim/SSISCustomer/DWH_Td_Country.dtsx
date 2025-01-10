@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DWH_Td_Country"
   DTS:PackageType="5"
-  DTS:VersionBuild="211"
-  DTS:VersionGUID="{D51B4B0B-0C64-46DB-A126-B8AC29010BE8}">
+  DTS:VersionBuild="212"
+  DTS:VersionGUID="{C9721CAE-EE3A-4E50-A513-42BB8C73FCB2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -161,7 +161,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="31"
+                      length="32"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
                       name="SourceContext"
                       truncationRowDisposition="FailComponent">
@@ -170,13 +170,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
+                          name="Expression">@[$Package::PK_SourceContext] + " " + @[$Package::PK_TableName_S]</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
+                          name="FriendlyExpression">@[$Package::PK_SourceContext] + " " + @[$Package::PK_TableName_S]</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -540,7 +540,7 @@
                     <inputColumn
                       refId="Package\ETL\DEST - DWH Td_Country.Inputs[OLE DB Destination Input].Columns[SourceContext]"
                       cachedDataType="wstr"
-                      cachedLength="31"
+                      cachedLength="32"
                       cachedName="SourceContext"
                       externalMetadataColumnId="Package\ETL\DEST - DWH Td_Country.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
@@ -1324,11 +1324,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="245,41"
+          Size="244.8,40.8"
           Id="Package\COUNT_ROWS DWH V_Td_Country"
           TopLeft="221.428571899935,0.764705881682652" />
         <NodeLayout
-          Size="108,41"
+          Size="108,40.8"
           Id="Package\ETL"
           TopLeft="301.857143214467,103.529411717785" />
         <EdgeLayout
@@ -1400,35 +1400,35 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\ETL\Derived Column 1"
           TopLeft="151,515.5" />
         <NodeLayout
-          Size="223,42"
+          Size="223.2,41.6"
           Id="Package\ETL\SOURCE - DWH V_Td_Country"
           TopLeft="121.5,5.5" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\ETL\OLE DB Command"
           TopLeft="5.50000000000006,311.5" />
         <NodeLayout
-          Size="197,42"
+          Size="196.8,41.6"
           Id="Package\ETL\DEST - DWH Td_Country"
           TopLeft="375,617.5" />
         <NodeLayout
-          Size="154,42"
+          Size="153.6,41.6"
           Id="Package\ETL\Derived Column"
           TopLeft="17.5000000000001,209.5" />
         <NodeLayout
-          Size="208,42"
+          Size="208,41.6"
           Id="Package\ETL\Slowly Changing Dimension"
           TopLeft="128.5,107.5" />
         <NodeLayout
-          Size="164,42"
+          Size="164,41.6"
           Id="Package\ETL\Add Log Metadata"
           TopLeft="391.5,515.5" />
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\ETL\Union All"
           TopLeft="172,413.5" />
         <EdgeLayout

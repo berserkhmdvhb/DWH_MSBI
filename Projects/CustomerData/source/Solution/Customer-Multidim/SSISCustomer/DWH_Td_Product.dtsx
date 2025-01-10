@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DWH_Td_Product"
   DTS:PackageType="5"
-  DTS:VersionBuild="127"
-  DTS:VersionGUID="{A9ACB171-F82F-404D-AAD1-CA4877D9B618}">
+  DTS:VersionBuild="128"
+  DTS:VersionGUID="{4CF32B04-DFC1-491D-9D04-72DBF531DCE6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -161,7 +161,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="31"
+                      length="32"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]"
                       name="SourceContext"
                       truncationRowDisposition="FailComponent">
@@ -170,13 +170,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
+                          name="Expression">@[$Package::PK_SourceContext] + " " + @[$Package::PK_TableName_S]</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">@[$Package::PK_SourceContext] + @[$Package::PK_TableName_S]</property>
+                          name="FriendlyExpression">@[$Package::PK_SourceContext] + " " + @[$Package::PK_TableName_S]</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -634,7 +634,7 @@
                     <inputColumn
                       refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceContext]"
                       cachedDataType="wstr"
-                      cachedLength="31"
+                      cachedLength="32"
                       cachedName="SourceContext"
                       externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceContext]"
                       lineageId="Package\ETL\Add Log Metadata.Outputs[Derived Column Output].Columns[SourceContext]" />
@@ -1332,11 +1332,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="245,42"
+          Size="244.8,41.6"
           Id="Package\COUNT_ROWS DWH V_Td_Product"
           TopLeft="182.857143118673,10.188235426836" />
         <NodeLayout
-          Size="96,42"
+          Size="96,41.6"
           Id="Package\ETL"
           TopLeft="256.428571846716,101.294117610863" />
         <EdgeLayout
@@ -1396,31 +1396,35 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\ETL\Derived Column 1"
           TopLeft="147,515.5" />
         <NodeLayout
-          Size="208,42"
+          Size="208,41.6"
           Id="Package\ETL\Slowly Changing Dimension"
           TopLeft="128.5,107.5" />
         <NodeLayout
-          Size="222,42"
-          Id="Package\ETL\SOURCE - DWH V_Td_Product"
-          TopLeft="121.5,5.5" />
-        <NodeLayout
-          Size="166,42"
-          Id="Package\ETL\OLE DB Command"
-          TopLeft="5.50000000000006,311.5" />
-        <NodeLayout
-          Size="154,42"
+          Size="153.6,41.6"
           Id="Package\ETL\Derived Column"
           TopLeft="17.5000000000001,209.5" />
         <NodeLayout
-          Size="121,42"
+          Size="222.4,41.6"
+          Id="Package\ETL\SOURCE - DWH V_Td_Product"
+          TopLeft="121.5,5.5" />
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\ETL\OLE DB Command"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\ETL\OLE DB Destination"
+          TopLeft="375,607" />
+        <NodeLayout
+          Size="120.8,41.6"
           Id="Package\ETL\Union All"
           TopLeft="172,413.5" />
         <NodeLayout
-          Size="164,42"
+          Size="164,41.6"
           Id="Package\ETL\Add Log Metadata"
           TopLeft="390.5,515.5" />
         <EdgeLayout
@@ -1574,6 +1578,40 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\ETL.Paths[Derived Column Output2]"
+          TopLeft="472.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12,49.5"
+              Start="0,0"
+              End="-12,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.75"
+                    Point2="0,24.75"
+                    Point3="-4,24.75" />
+                  <mssgle:LineSegment
+                    End="-8,24.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8,24.75"
+                    Point2="-12,24.75"
+                    Point3="-12,28.75" />
+                  <mssgle:LineSegment
+                    End="-12,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\ETL.Paths[Derived Column Output1]"
           TopLeft="310,536.5">
           <EdgeLayout.Curve>
@@ -1609,44 +1647,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="171,42"
-          Id="Package\ETL\OLE DB Destination"
-          TopLeft="375,607" />
-        <EdgeLayout
-          Id="Package\ETL.Paths[Derived Column Output2]"
-          TopLeft="472.5,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-12,49.5"
-              Start="0,0"
-              End="-12,42">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.75"
-                    Point2="0,24.75"
-                    Point3="-4,24.75" />
-                  <mssgle:LineSegment
-                    End="-8,24.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-8,24.75"
-                    Point2="-12,24.75"
-                    Point3="-12,28.75" />
-                  <mssgle:LineSegment
-                    End="-12,42" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
